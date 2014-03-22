@@ -1,0 +1,41 @@
+/*css 3*/
+/*宽屏*/
+@media screen and (min-width: 1220px) {
+  header,
+  .t-box,
+  footer {
+    width: 1200px;
+  }
+}
+/*普屏*/
+@media screen and (min-width: 1000px) and (max-width: 1220px) {
+  header,
+  .t-box,
+  footer {
+    width: 1000px;
+  }
+}
+/*窄屏*/
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  header,
+  .t-box,
+  footer {
+    width: 768px;
+  }
+}
+/* lt IE 9*/
+.wide-01 header,
+.wide-01 .t-box,
+.wide-01 footer {
+  width: 1200px;
+}
+.wide-02 header,
+.wide-02 .t-box,
+.wide-02 footer {
+  width: 1000px;
+}
+.wide-03 header,
+.wide-03 .t-box,
+.wide-03 footer {
+  width: 768px;
+}

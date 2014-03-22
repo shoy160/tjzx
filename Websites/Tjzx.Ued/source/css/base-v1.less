@@ -1,7 +1,7 @@
 @import "base.less";
-@w01:1200px;
-@w02:1000px;
-@w03:768px;
+.width(){
+  width:1000px;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -19,46 +19,19 @@ header{
   }
   background-color: @bgcolor;
   color: spin(@color,100);
-  margin:0 auto;
+  margin:0 auto 8px;
   .rounded-corners(3px);
-  .box-shadow(0px 0px 0px 2px,@color01);
+  .box-shadow(0 3px 3px 2px,@color01);
+  .width();
 }
-.l-width(){
-  header{
-    width: @w01;
-  }
+.t-box{
+  margin:0 auto;
+  .width();
 }
-.n-width(){
-  header{
-    width: @w02;
-  }
-}
-.s-width(){
-  header{
-    width: @w03;
-  }
-}
-
-/*css 3*/
-/*宽屏*/
-@media screen and (min-width: 1220px) {
-  .l-width;
-}
-/*普屏*/
-@media screen and (min-width: 1000px) and (max-width: 1220px) {
-  .n-width;
-}
-/*窄屏*/
-@media screen and (min-width: 768px) and (max-width: 1000px) {
-  .s-width;
-}
-/* lt IE 9*/
-.wide-01{
-  .l-width;
-}
-.wide-02{
-  .n-width;
-}
-.wide-03{
-  .s-width;
+footer{
+  background-color: @bgcolor;
+  margin: 10px auto 8px;
+  .rounded-corners(3px);
+  .box-shadow(0 2px 3px 2px,@color02);
+  .width();
 }
