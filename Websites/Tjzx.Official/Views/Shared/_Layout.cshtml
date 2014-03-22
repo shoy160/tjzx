@@ -2,11 +2,40 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <meta name="renderer" content="webkit" />
+    <link rel="dns-prefetch" href="//ued.tjzx.com"/>
+    <title>@ViewBag.Title - 四川省人民医院-健康体检中心，您的健康管理专家！</title>
+    @{
+        if (string.IsNullOrEmpty(ViewBag.Description))
+        {
+            ViewBag.Description = "四川省人民医院健康管理中心，健康体检中心是四川省三级甲等医院中从事健康体检的首家大型专业体检机构，率先开创了四川省“医检分离”的全新体检模式，“把我们的关怀送到您心中”的理念是我们的服务宗旨，走健康管理学科发展的道路是我们中心发展的目标。";
+        }
+        ViewBag.Keywords = ViewBag.Keywords ?? "";
+        ViewBag.Keywords = string.Format("{0}体检,体检套餐,健康,健康管理,深度体检", string.IsNullOrEmpty(ViewBag.Keywords) ? "" : ViewBag.Keywords + ",");
+    }
+    <meta name="keywords" content="@ViewBag.Keywords"/>
+    <meta name="description" content="@ViewBag.Description"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <!--苹果Icon-->
+    <link href="" rel="apple-touch-icon-precomposed" />
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/reset.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/base-v1.min.css" media="all" />
+    <!--[if lt IE 9]>
+        <script src="//ued.tjzx.com/js/html5shiv.min.js"></script>
+    <![endif]-->
     @RenderSection("Header",false)
 </head>
-<body>
-    @RenderBody()
-    @RenderSection("Footer",false)
-</body>
+    <body>
+        <!--[if lt IE 9]>
+            <script src="//ued.tjzx.com/js/base-v1.min.js"></script>
+            <script src="//ued.tjzx.com/js/base-lt9.min.js"></script>
+        <![endif]-->
+        <header>
+            <nav>菜单栏</nav>
+        </header>
+        <div>
+            @RenderBody()
+        </div>
+        @RenderSection("Footer",false)
+    </body>
 </html>

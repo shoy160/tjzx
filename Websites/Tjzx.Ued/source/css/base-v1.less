@@ -1,0 +1,64 @@
+@import "base.less";
+@w01:1200px;
+@w02:1000px;
+@w03:768px;
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto !important; /* ie8 */
+}
+.video embed,
+.video object,
+.video iframe {
+  width: 100%;
+  height: auto;
+}
+header{
+  nav{
+    line-height: 28px;
+  }
+  background-color: @bgcolor;
+  color: spin(@color,100);
+  margin:0 auto;
+  .rounded-corners(3px);
+  .box-shadow(0px 0px 0px 2px,@color01);
+}
+.l-width(){
+  header{
+    width: @w01;
+  }
+}
+.n-width(){
+  header{
+    width: @w02;
+  }
+}
+.s-width(){
+  header{
+    width: @w03;
+  }
+}
+
+/*css 3*/
+/*宽屏*/
+@media screen and (min-width: 1220px) {
+  .l-width;
+}
+/*普屏*/
+@media screen and (min-width: 1000px) and (max-width: 1220px) {
+  .n-width;
+}
+/*窄屏*/
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  .s-width;
+}
+/* lt IE 9*/
+.wide-01{
+  .l-width;
+}
+.wide-02{
+  .n-width;
+}
+.wide-03{
+  .s-width;
+}

@@ -1,0 +1,57 @@
+img {
+  max-width: 100%;
+  height: auto;
+  width: auto !important;
+  /* ie8 */
+}
+.video embed,
+.video object,
+.video iframe {
+  width: 100%;
+  height: auto;
+}
+header {
+  background-color: #eeffee;
+  color: #446633;
+  margin: 0 auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 2px #336666;
+  -webkit-box-shadow: 0px 0px 0px 2px #336666;
+  -moz-box-shadow: 0px 0px 0px 2px #336666;
+}
+header nav {
+  line-height: 28px;
+}
+/*css 3*/
+/*宽屏*/
+@media screen and (min-width: 1220px) {
+  header {
+    width: 1200px;
+  }
+}
+/*普屏*/
+@media screen and (min-width: 1000px) and (max-width: 1220px) {
+  header {
+    width: 1000px;
+  }
+}
+/*窄屏*/
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+  header {
+    width: 768px;
+  }
+}
+/* lt IE 9*/
+.wide-01 header {
+  width: 1200px;
+}
+.wide-02 header {
+  width: 1000px;
+}
+.wide-03 header {
+  width: 768px;
+}

@@ -68,41 +68,9 @@
 }
 
 //颜色计算
-@base: #663333;
-@base01: spin(@base, 180);
-@base02: darken(spin(@base, 180), 5%);
-@base03: lighten(@base, 15%);
-@base04: lighten(@base, 30%);
-
-//背景透明文字不透明
-.con {
-  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0 !important; /*实现FF背景透明，文字不透明*/
-  filter: Alpha(opacity=50);
-  background: #000;
-  p {
-    position: relative;
-    color: #fff;
-    text-align: center;
-    line-height: 30px;
-  }
-}
-
-.test1 {
-  .rounded-corners(10px);
-  width: 300px;
-  background-color: #ef5;
-  margin: 20px auto;
-  height: 100px;
-}
-
-.test2 {
-  width: 300px;
-  height: 100px;
-  background-color: #ef5;
-  margin: 20px auto;
-  .rounded-corners;
-  .box-shadow(0 2px 3px, 0.5);
-  .transition(all, 0.5s, ease-in);
-  .transform(360deg);
-  .reflect(60%, 0.5);
-}
+@color: #663333;
+@bgcolor:#eeffee;
+@color01: spin(@color, 180);
+@color02: darken(spin(@color, 180), 5%);
+@color03: lighten(@color, 15%);
+@color04: lighten(@color, 30%);

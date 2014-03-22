@@ -127,6 +127,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Controllers\Tjzx.Official.Controllers\Tjzx.Official.Controllers.csproj">
+      <Project>{CE2E759A-F1DC-445C-A1C0-835CF0B4E076}</Project>
+      <Name>Tjzx.Official.Controllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tjzx.Web\Tjzx.Web.csproj">
       <Project>{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}</Project>
       <Name>Tjzx.Web</Name>
@@ -138,6 +142,9 @@
   <ItemGroup>
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
