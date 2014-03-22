@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
+using System;
 
 namespace Tjzx.Official.Models.Test
 {
@@ -13,18 +14,23 @@ namespace Tjzx.Official.Models.Test
         {
             using (var db = new EFDbContext())
             {
-                if (!db.MedicalPackages.Any())
+                if (!!db.MedicalPackages.Any())
                 {
                     db.MedicalPackages.Add(new MedicalPackage
                         {
-                            Name = "常规体检(男)",
+                            Name = "常规体检(女)",
                             CategoryId = 1,
-                            MarketPrice = 2500,
-                            Price = 1800,
+                            MarketPrice = 2800,
+                            Price = 2000,
                             Feature = "实用性",
                             ForTheCrowd = "屌丝们",
                             Recommends = "体重，身高",
-                            Details = "具体的描述"
+                            Details = "具体的描述",
+                            CreateOn = DateTime.Now,
+                            CreatorId = 0,
+                            Creator = "system",
+                            Sort = 0,
+                            State = 1
                         });
                     db.SaveChanges();
                 }
