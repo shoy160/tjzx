@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Tjzx.Web;
 
-namespace Tjzx.Official
+namespace Tjzx.Official.Web
 {
     public class Global : HttpApplication
     {
