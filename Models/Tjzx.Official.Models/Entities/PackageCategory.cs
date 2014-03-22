@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tjzx.Official.Models.Entities
 {
+    /// <summary>
+    /// 套餐分类
+    /// </summary>
     [Table("PackageCategory")]
     public class PackageCategory
     {

@@ -91,6 +91,10 @@
     <Compile Include="App_Start\ControllerConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\FormatterConfig.cs" />
+    <Compile Include="Dict\NewsType.cs" />
+    <Compile Include="Dict\PackageType.cs" />
+    <Compile Include="Dict\ReservationType.cs" />
+    <Compile Include="Dict\StateType.cs" />
     <Compile Include="Formatter\JsonpMediaTypeFormatter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />

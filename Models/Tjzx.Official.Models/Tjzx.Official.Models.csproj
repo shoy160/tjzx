@@ -55,12 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IMedicalPackagesRepository.cs" />
+    <Compile Include="Abstract\INewsesRepository.cs" />
     <Compile Include="Abstract\IPackageCategoriesRepository.cs" />
+    <Compile Include="Abstract\IReservationsRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFMedicalPackageRepository.cs" />
+    <Compile Include="Concrete\EFNewsRepository.cs" />
     <Compile Include="Concrete\EFPackageCategoryRepository.cs" />
+    <Compile Include="Concrete\EFReservationRepository.cs" />
     <Compile Include="Entities\MedicalPackage.cs" />
+    <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\PackageCategory.cs" />
+    <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

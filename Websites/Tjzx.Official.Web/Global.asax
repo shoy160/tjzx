@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Tjzx.Official.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Tjzx.Official.Web.Global" Language="C#" %>
