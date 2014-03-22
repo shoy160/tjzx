@@ -70,5 +70,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     // 注册任务
-    grunt.registerTask('default', ['uglify', 'cssmin','watch']);
+    grunt.registerTask('default', ['uglify', 'cssmin']);
 }; 
