@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
+    <Compile Include="ManagerController.cs" />
     <Compile Include="MedicalPackageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

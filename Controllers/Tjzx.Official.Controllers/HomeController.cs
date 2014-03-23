@@ -24,5 +24,20 @@ namespace Tjzx.Official.Controllers
             ViewBag.Title = "关于我们";
             return View();
         }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult Package()
+        {
+            return View();
+        }
+
+        public ActionResult Reservation()
+        {
+            return View();
+        }
     }
 }

@@ -8,9 +8,7 @@
 </head>
     <body>
         @{Html.RenderPartial("_BaseJs");}
-        <header>
-            <nav>菜单栏</nav>
-        </header>
+        @{Html.RenderPartial("_Menu");}
         <div class="t-box">
             @RenderBody()
         </div>
