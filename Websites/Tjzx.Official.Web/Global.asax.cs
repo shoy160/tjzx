@@ -37,7 +37,8 @@ namespace Tjzx.Official.Web
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
+            Logger.ApplicationError();
+            //HttpContext.Current.Response.Redirect("http://www.baidu.com");
         }
 
         protected void Session_End(object sender, EventArgs e)
