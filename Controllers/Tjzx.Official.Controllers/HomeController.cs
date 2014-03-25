@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Tjzx.Official.Models.Abstract;
+using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
 {
@@ -16,6 +17,7 @@ namespace Tjzx.Official.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
+            Logger.Debug("dddddd");
             return View(_repository.MedicalPackages.ToList());
         }
 

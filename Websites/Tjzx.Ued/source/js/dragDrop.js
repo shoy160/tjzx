@@ -209,6 +209,10 @@ var Drag = (function ($) {
     };
     return DragEvent;
 })(jQuery);
+/**
+ * 拖拽插件扩展,用法：
+ * $('.box').drag({handler:'.title'})
+ */
 (function ($) {
     $.fn.extend({
         drag: function (opts) {

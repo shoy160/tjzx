@@ -82,6 +82,10 @@
       <Project>{823C4B6A-BEF4-46FB-8399-FF22957C23C8}</Project>
       <Name>Tjzx.Official.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Tjzx.Web\Tjzx.Web.csproj">
+      <Project>{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}</Project>
+      <Name>Tjzx.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

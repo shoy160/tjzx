@@ -144,7 +144,7 @@
       <Project>{CE2E759A-F1DC-445C-A1C0-835CF0B4E076}</Project>
       <Name>Tjzx.Official.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Tjzx.Web\Tjzx.Web.csproj">
+    <ProjectReference Include="..\..\Controllers\Tjzx.Web\Tjzx.Web.csproj">
       <Project>{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}</Project>
       <Name>Tjzx.Web</Name>
     </ProjectReference>
