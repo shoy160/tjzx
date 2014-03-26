@@ -11,7 +11,7 @@ namespace Tjzx.Official.Models.Entities
     public class MedicalPackage
     {
         [Key]
-        public int Id { get; set; }
+        public int PackageId { get; set; }
 
         /// <summary>
         /// 套餐名称

@@ -23,7 +23,7 @@ namespace Tjzx.Official.Controllers
                         Details = "具体的描述"
                     });
                 db.SaveChanges();
-                return new JsonResult {Data = new {id = item.Id}, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+                return new JsonResult {Data = new {id = item.PackageId}, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
             }
         }
     }

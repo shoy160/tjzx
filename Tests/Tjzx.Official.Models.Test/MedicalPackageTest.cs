@@ -14,14 +14,14 @@ namespace Tjzx.Official.Models.Test
         {
             using (var db = new EFDbContext())
             {
-                if (!!db.MedicalPackages.Any())
+                //if (!db.MedicalPackages.Any())
                 {
                     db.MedicalPackages.Add(new MedicalPackage
                         {
-                            Name = "常规体检(女)",
+                            Name = "常规体检(男)",
                             CategoryId = 1,
-                            MarketPrice = 2800,
-                            Price = 2000,
+                            MarketPrice = 2400,
+                            Price = 1600,
                             Feature = "实用性",
                             ForTheCrowd = "屌丝们",
                             Recommends = "体重，身高",
@@ -34,7 +34,7 @@ namespace Tjzx.Official.Models.Test
                         });
                     db.SaveChanges();
                 }
-                Assert.AreEqual(1, db.MedicalPackages.Count());
+                Assert.AreEqual(2, db.MedicalPackages.Count());
             }
         }
 

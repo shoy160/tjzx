@@ -10,6 +10,10 @@
 </head>
 <body>
     <h2>
+        @if (Request.UrlReferrer != null && !string.IsNullOrEmpty(Request.UrlReferrer.ToString()))
+        {
+            @:请求页面：@Request.UrlReferrer
+        }
         抱歉，处理您的请求时出错。
     </h2>
 </body>

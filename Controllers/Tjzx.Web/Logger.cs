@@ -13,76 +13,89 @@ namespace Tjzx.Web
 {
     public sealed class Logger
     {
-        private static ILog _log;
-
         static Logger()
         {
-            if (_log == null)
-            {
-                FileInfo fi = new FileInfo(Path.Combine(Utils.GetCurrentDir(), "log4net.config"));
-                XmlConfigurator.Configure(fi);
-                _log = LogManager.GetLogger("tjzx");
-            }
-        }
-
-        private static string Format(string msg)
-        {
-            var f = new StackFrame(2, true);
-            return string.Format("{4}: {0}, {1}, {2}, {3}",
-                f.GetFileName(), f.GetMethod().DeclaringType,
-                f.GetFileLineNumber(), f.GetMethod(), msg);
+            FileInfo fi = new FileInfo(Path.Combine(Utils.GetCurrentDir(), "bin\\log4net.config"));
+            XmlConfigurator.Configure(fi);
         }
 
         /// <summary>
         /// 信息类日志
         /// </summary>
         /// <param name="msg"></param>
-        public static void Info(string msg)
+        public static void Info<T>(string msg)
+        where T : class
         {
-            if (_log.IsInfoEnabled) _log.Info(Format(msg));
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsInfoEnabled) log.Info(msg);
         }
 
         /// <summary>
         /// 调试类日志
         /// </summary>
         /// <param name="msg"></param>
-        public static void Debug(string msg)
+        public static void Debug<T>(string msg)
+            where T:class
         {
-            if (_log.IsDebugEnabled) _log.Debug(Format(msg));
-        }
-
-        /// <summary>
-        /// 日志
-        /// </summary>
-        /// <param name="msg"></param>
-        public static void Fatal(string msg)
-        {
-            if (_log.IsFatalEnabled) _log.Fatal(Format(msg));
-        }
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsDebugEnabled) log.Debug(msg);
+        }        
 
         /// <summary>
         /// 警告类日志
         /// </summary>
         /// <param name="msg"></param>
-        public static void Warn(string msg)
+        public static void Warn<T>(string msg)
+            where T:class
         {
-            if (_log.IsWarnEnabled) _log.Warn(Format(msg));
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsWarnEnabled) log.Warn(msg);
         }
 
         /// <summary>
         /// 错误类日志
         /// </summary>
         /// <param name="msg"></param>
-        public static void Error(string msg)
+        public static void Error<T>(string msg)
+            where T:class
         {
-            if (_log.IsErrorEnabled) _log.Error(Format(msg));
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsErrorEnabled) log.Error(msg);
         }
 
-        public static void ApplicationError()
+        public static void Error<T>(string msg, Exception ex)
+            where T:class
         {
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsErrorEnabled) log.Error(msg, ex);
+        }
+
+        /// <summary>
+        /// 致命错误日志
+        /// </summary>
+        /// <param name="msg"></param>
+        public static void Fatal<T>(string msg)
+            where T:class
+        {
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsFatalEnabled) log.Fatal(msg);
+        }
+
+        public static void Fatal<T>(string msg, Exception ex)
+            where T:class
+        {
+            var log = LogManager.GetLogger(typeof(T));
+            if (log.IsFatalEnabled) log.Fatal(msg, ex);
+        }
+
+        public static void ApplicationError<T>()
+            where T:class
+        {
+            var log = LogManager.GetLogger(typeof(T));
             Exception objExp = HttpContext.Current.Server.GetLastError();
             var req = HttpContext.Current.Request;
-            _log.Error("<br/><strong>客户机IP</strong>：" + req.UserHostAddress + "<br /><strong>错误地址</strong>：" + req.Url, objExp);
+            log.Error(string.Format("客户机IP：{0}\r\n错误地址：{1}",
+                req.UserHostAddress, req.Url), objExp);
         }
     }
 }

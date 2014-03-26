@@ -11,7 +11,7 @@ namespace Tjzx.Official.Models.Entities
     public class Reservation
     {
         [Key]
-        public int Id { get; set; }
+        public int ReservationId { get; set; }
 
         /// <summary>
         /// 预约类型：0，个人体检；1：团队体检

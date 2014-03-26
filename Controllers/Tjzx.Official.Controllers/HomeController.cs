@@ -1,24 +1,14 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using Tjzx.Official.Models.Abstract;
-using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
 {
-    public class HomeController:Controller
+    public class HomeController:BaseController
     {
-        private readonly IMedicalPackagesRepository _repository;
-
-        public HomeController(IMedicalPackagesRepository productRepository)
-        {
-            _repository = productRepository;
-        }
-
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
-            Logger.Debug("dddddd");
-            return View(_repository.MedicalPackages.ToList());
+            return View(Repository.MedicalPackages.ToList());
         }
 
         public ActionResult About()
@@ -29,16 +19,19 @@ namespace Tjzx.Official.Controllers
 
         public ActionResult Contact()
         {
+            ViewBag.Title = "联系我们";
             return View();
         }
 
         public ActionResult Package()
         {
+            ViewBag.Title = "体检套餐";
             return View();
         }
 
         public ActionResult Reservation()
         {
+            ViewBag.Title = "在线预约";
             return View();
         }
     }

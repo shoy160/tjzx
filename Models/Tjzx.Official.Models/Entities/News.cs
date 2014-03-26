@@ -11,7 +11,7 @@ namespace Tjzx.Official.Models.Entities
     public class News
     {
         [Key]
-        public int Id { get; set; }
+        public int NewsId { get; set; }
 
         /// <summary>
         /// 类型

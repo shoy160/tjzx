@@ -14,10 +14,10 @@ namespace Tjzx.Official.Web
         {
             AreaRegistration.RegisterAllAreas();
 
+            ControllerConfig.Register();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            ControllerConfig.Register();
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -37,8 +37,8 @@ namespace Tjzx.Official.Web
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Logger.ApplicationError();
-            //HttpContext.Current.Response.Redirect("http://www.baidu.com");
+            Logger.ApplicationError<Global>();
+            //HttpContext.Current.Response.Redirect(@"/Error");
         }
 
         protected void Session_End(object sender, EventArgs e)

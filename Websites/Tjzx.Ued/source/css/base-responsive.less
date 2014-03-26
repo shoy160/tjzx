@@ -1,25 +1,27 @@
-@w01:1200px;
-@w02:1000px;
-@w03:768px;
+@w01: 1200px;
+@w02: 1000px;
+@w03: 768px;
 
-.l-width(){
+.l-width() {
   header,
   .t-box,
-  footer{
+  footer {
     width: @w01;
   }
 }
-.n-width(){
+
+.n-width() {
   header,
   .t-box,
-  footer{
+  footer {
     width: @w02;
   }
 }
-.s-width(){
+
+.s-width() {
   header,
   .t-box,
-  footer{
+  footer {
     width: @w03;
   }
 }
@@ -29,21 +31,26 @@
 @media screen and (min-width: 1220px) {
   .l-width;
 }
+
 /*普屏*/
 @media screen and (min-width: 1000px) and (max-width: 1220px) {
   .n-width;
 }
+
 /*窄屏*/
 @media screen and (min-width: 768px) and (max-width: 1000px) {
   .s-width;
 }
+
 /* lt IE 9*/
-.wide-01{
+.wide-01 {
   .l-width;
 }
-.wide-02{
+
+.wide-02 {
   .n-width;
 }
-.wide-03{
+
+.wide-03 {
   .s-width;
 }
