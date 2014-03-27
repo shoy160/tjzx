@@ -1,0 +1,28 @@
+﻿<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=zvfmDNrq8ROPvHXq9DXXZzSh"></script>
+<script type="text/javascript">
+    (function (S) {
+        // 百度地图API功能
+        var container = "baiduMap";
+        if (S && S.mapContainer)
+            container = S.mapContainer;
+        var map = new BMap.Map(container); // 创建Map实例
+        //体检中心标注点
+        var point = new BMap.Point(104.04578, 30.668567);
+        map.centerAndZoom(point, 16); //初始化时，即可设置中心点和地图缩放级别。
+        
+        //添加比例尺控件
+        map.addControl(new BMap.ScaleControl()); //{ anchor: BMAP_ANCHOR_BOTTOM_RIGHT }
+        //添加默认缩放平移控件
+        map.addControl(new BMap.NavigationControl());
+        //开启地图缩放
+        map.enableScrollWheelZoom(true);
+        
+        var mk = new BMap.Marker(point);
+        map.addOverlay(mk);
+        map.panTo(point);
+//        function showInfo(e) {
+//            alert(e.point.lng + ", " + e.point.lat);
+//        }
+//        map.addEventListener("click", showInfo);
+    })(SINGER);
+</script>

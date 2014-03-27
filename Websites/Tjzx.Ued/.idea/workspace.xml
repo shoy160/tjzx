@@ -23,10 +23,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base-responsive.less" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base-responsive.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/css/base-responsive.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="10" selection-start="221" selection-end="221" vertical-scroll-proportion="0.5670841" vertical-offset="189" max-vertical-offset="1342">
+            <state line="18" column="1" selection-start="176" selection-end="176" vertical-scroll-proportion="-6.677419" vertical-offset="189" max-vertical-offset="1342">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Jq-common.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/js/Jq-common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="64" column="15" selection-start="2626" selection-end="2626" vertical-scroll-proportion="2.3864408" vertical-offset="0" max-vertical-offset="1628">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dragDrop.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/dragDrop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="0" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="4554" max-vertical-offset="5192">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Jq-common.min.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Jq-common.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="32" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hiddenAway.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/hiddenAway.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="23" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-19.032259" vertical-offset="136" max-vertical-offset="946">
               <folding />
             </state>
           </provider>
@@ -42,7 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/css/base.less" />
         <option value="$PROJECT_DIR$/source/css/base-v1.0.less" />
         <option value="$PROJECT_DIR$/cross-domain/respond-proxy.html" />
         <option value="$PROJECT_DIR$/source/css/base-v1.css" />
@@ -57,6 +92,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/source/js/dragDrop.js" />
         <option value="$PROJECT_DIR$/source/css/base-responsive.less" />
+        <option value="$PROJECT_DIR$/test/hiddenAway.html" />
+        <option value="$PROJECT_DIR$/source/js/Jq-common.js" />
       </list>
     </option>
   </component>
@@ -121,6 +158,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -142,10 +193,6 @@
               <option name="myItemId" value="source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -157,7 +204,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="plugs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -172,10 +219,18 @@
     <property name="last_opened_file_path" value="E:/ued/sctj" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -184,14 +239,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -268,31 +315,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="1" selection-start="281" selection-end="281" vertical-scroll-proportion="-7.806452" vertical-offset="0" max-vertical-offset="374" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/base-v1.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="38" selection-start="389" selection-end="389" vertical-scroll-proportion="-4.870968" vertical-offset="355" max-vertical-offset="924" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/h-pager.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1430" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/reset.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="132" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base-lt9.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/js/base-lt9.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="5" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352" />
@@ -345,7 +367,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/base-responsive.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="10" selection-start="221" selection-end="221" vertical-scroll-proportion="0.5670841" vertical-offset="189" max-vertical-offset="1342">
+        <state line="18" column="1" selection-start="176" selection-end="176" vertical-scroll-proportion="-6.677419" vertical-offset="189" max-vertical-offset="1342">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Jq-common.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="32" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt-contrib-watch/node_modules/tiny-lr-fork/node_modules/qs/test/browser/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8291" column="4" selection-start="217109" selection-end="217109" vertical-scroll-proportion="0.33275563" vertical-offset="181902" max-vertical-offset="197406">
+          <folding>
+            <marker date="1395736598000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395736598000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395736598000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395736598000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1395736598000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/dragDrop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="4554" max-vertical-offset="5192">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/hiddenAway.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="23" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-19.032259" vertical-offset="136" max-vertical-offset="946">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/Jq-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="15" selection-start="2626" selection-end="2626" vertical-scroll-proportion="2.3864408" vertical-offset="0" max-vertical-offset="1628">
           <folding />
         </state>
       </provider>

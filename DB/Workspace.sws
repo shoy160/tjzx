@@ -4,8 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{2C2A2BC1-23F4-4F77-A2B8-CB2FE333B3B7}" Name="TjzxDB" Selected="Yes" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="/工程文件/tjzx/DB/TjzxDB.cdm"/>
-		<Model Expanded="Yes" ID="{DF7086E0-82B6-41FA-8D30-7080AE5E94BC}" Name="TjzxDB" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="/工程文件/tjzx/DB/TjzxDB.pdm"/>
+		<Model Expanded="Yes" ID="{2C2A2BC1-23F4-4F77-A2B8-CB2FE333B3B7}" Name="TjzxDB" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="TjzxDB.cdm"/>
+		<Model Expanded="Yes" ID="{DF7086E0-82B6-41FA-8D30-7080AE5E94BC}" Name="TjzxDB" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="TjzxDB.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

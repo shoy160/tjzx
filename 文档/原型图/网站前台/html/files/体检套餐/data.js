@@ -1,0 +1,36 @@
+﻿$axure.loadCurrentPage({
+  "url":"体检套餐.html",
+  "generationDate":new Date(1395893709049.38),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"3dc83619b1074c0c9149b6f37ee539be",
+    "type":"Axure:Page",
+    "name":"体检套餐",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[]}},
+  "masters":{
+},
+  "objectPaths":{
+}});

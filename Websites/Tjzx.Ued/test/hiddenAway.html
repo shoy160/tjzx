@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hiddenAway</title>
+    <style>
+        .j-hiddenAway{cursor: pointer}
+    </style>
+</head>
+<body>
+    <div>
+        <span class="j-hiddenAway j-01" data-hiddenaway="{state:1,container:'.content',toggleClass:'ddd',toggleHtml:'展开',joint:'.j-02',time:0}">收起</span>
+
+        <span class="j-hiddenAway j-02" data-hiddenaway="{state:1,container:'.content',toggleClass:'ddd',toggleHtml:'展开',joint:'.j-01',time:500}">隐藏</span>
+    </div>
+    <div class="content">
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+        <p>展示内容</p>
+    </div>
+    <script type="text/javascript" src="//ued.tjzx.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/source/js/Jq-common.js"></script>
+    <script>
+        $(".j-controller").hiddenAway({
+            state:1,
+            container:'.j-content',
+            toggleClass:'j-away',
+            toggleHtml:'隐藏',
+            joint:false
+        });
+    </script>
+</body>
+</html>
