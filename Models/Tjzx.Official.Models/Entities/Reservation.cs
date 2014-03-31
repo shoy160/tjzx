@@ -22,11 +22,7 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 意向套餐，为0时表示到院选择
         /// </summary>
-        [Required]
         public int PackageId { get; set; }
-
-        [ForeignKey("PackageId")]
-        public MedicalPackage Package { get; set; }
 
         [MaxLength(150)]
         [Required]

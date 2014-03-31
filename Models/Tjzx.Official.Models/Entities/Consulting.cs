@@ -56,9 +56,6 @@ namespace Tjzx.Official.Models.Entities
         [MaxLength(30)]
         public string CreatorIp { get; set; }
 
-        /// <summary>
-        /// 关联会员
-        /// </summary>
         public int MemberId { get; set; }
     }
 }
