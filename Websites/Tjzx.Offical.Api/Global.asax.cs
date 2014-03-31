@@ -16,10 +16,10 @@ namespace Tjzx.Offical.Api
             AreaRegistration.RegisterAllAreas();
 
             FormatterConfig.Register();
-            ControllerConfig.Register();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ExtendConfig.Register();
         }
     }
 }

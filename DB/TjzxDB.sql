@@ -1,8 +1,15 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/3/26 14:29:11                           */
+/* Created on:     2014/3/31 17:10:50                           */
 /*==============================================================*/
 
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('Consulting') and o.name = 'FK_CONSULTI_RELATIONS_MEMBER')
+alter table Consulting
+   drop constraint FK_CONSULTI_RELATIONS_MEMBER
+go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
@@ -19,10 +26,42 @@ alter table Reservation
 go
 
 if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Consulting')
+            and   name  = 'Relationship_3_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Consulting.Relationship_3_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Consulting')
+            and   type = 'U')
+   drop table Consulting
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('MedicalPackage')
+            and   name  = 'Relationship_1_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index MedicalPackage.Relationship_1_FK
+go
+
+if exists (select 1
             from  sysobjects
            where  id = object_id('MedicalPackage')
             and   type = 'U')
    drop table MedicalPackage
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Member')
+            and   type = 'U')
+   drop table Member
 go
 
 if exists (select 1
@@ -40,10 +79,46 @@ if exists (select 1
 go
 
 if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Reservation')
+            and   name  = 'Relationship_2_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Reservation.Relationship_2_FK
+go
+
+if exists (select 1
             from  sysobjects
            where  id = object_id('Reservation')
             and   type = 'U')
    drop table Reservation
+go
+
+/*==============================================================*/
+/* Table: Consulting                                            */
+/*==============================================================*/
+create table Consulting (
+   ConsultingId         int                  identity,
+   MemberId             int                  null,
+   Title                varchar(200)         not null,
+   Content              text                 not null,
+   Contact              varchar(100)         null,
+   Mobile               varchar(20)          null,
+   State                tinyint              not null,
+   DeelSituation        varchar(600)         null,
+   DeelTime             datetime             null,
+   CreateOn             datetime             not null,
+   CreatorIp            varchar(20)          not null,
+   constraint PK_CONSULTING primary key nonclustered (ConsultingId)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_3_FK                                     */
+/*==============================================================*/
+create index Relationship_3_FK on Consulting (
+MemberId ASC
+)
 go
 
 /*==============================================================*/
@@ -52,20 +127,21 @@ go
 create table MedicalPackage (
    PackageId            int                  identity,
    CategoryId           int                  not null,
-   Name                 char(200)            not null,
+   Name                 varchar(200)         not null,
+   Sex                  tinyint              not null,
    MarketPrice          decimal(18,2)        not null,
    Price                decimal(18,2)        not null,
    [Type]               tinyint              not null,
-   ForTheCrowd          char(350)            not null,
-   Feature              char(300)            not null,
-   Recommends           char(500)            not null,
+   ForTheCrowd          varchar(350)         not null,
+   Feature              varchar(300)         not null,
+   Recommends           varchar(500)         not null,
    Details              text                 not null,
    Popularity           int                  not null,
    CreateOn             datetime             not null,
    [State]              tinyint              not null,
    Sort                 int                  not null,
    CreatorId            int                  not null,
-   Creator              char(120)            null,
+   Creator              varchar(120)         null,
    constraint PK_MEDICALPACKAGE primary key nonclustered (PackageId)
 )
 go
@@ -89,17 +165,47 @@ execute sp_addextendedproperty 'MS_Description',
 go
 
 /*==============================================================*/
+/* Index: Relationship_1_FK                                     */
+/*==============================================================*/
+create index Relationship_1_FK on MedicalPackage (
+CategoryId ASC
+)
+go
+
+/*==============================================================*/
+/* Table: Member                                                */
+/*==============================================================*/
+create table Member (
+   MemberId             int                  identity,
+   IdNumber             varchar(18)          not null,
+   RealName             varchar(20)          not null,
+   UserName             varchar(50)          not null,
+   Mobile               varchar(20)          null,
+   PassWord             varchar(120)         not null,
+   Ticket               varchar(50)          null,
+   LastLoginTime        datetime             null,
+   LastLoginIp          varchar(30)          null,
+   UserLevel            tinyint              not null,
+   CreateOn             datetime             not null,
+   State                tinyint              not null,
+   constraint PK_MEMBER primary key nonclustered (MemberId)
+)
+go
+
+/*==============================================================*/
 /* Table: News                                                  */
 /*==============================================================*/
 create table News (
    NewsId               int                  identity,
    [Type]               tinyint              not null,
-   Title                char(300)            not null,
+   Title                varchar(300)         not null,
    Content              text                 not null,
    CreateOn             datetime             not null,
-   Creator              char(120)            not null,
+   Creator              varchar(120)         not null,
    CreatorId            int                  not null,
-   Clicks               int                  null,
+   Views                int                  null,
+   Comefrom             varchar(150)         null,
+   Author               varchar(120)         null,
    [State]              tinyint              not null,
    constraint PK_NEWS primary key nonclustered (NewsId)
 )
@@ -128,7 +234,7 @@ go
 /*==============================================================*/
 create table PackageCategory (
    CategoryId           int                  identity,
-   Name                 char(150)            not null,
+   Name                 varchar(150)         not null,
    Sort                 int                  not null,
    [State]              tinyint              null,
    constraint PK_PACKAGECATEGORY primary key nonclustered (CategoryId)
@@ -140,17 +246,17 @@ go
 /*==============================================================*/
 create table Reservation (
    ReservationId        int                  identity,
-   PackageId            int                  not null,
+   PackageId            int                  null,
    [Type]               tinyint              not null,
-   Name                 char(150)            not null,
-   Company              char(120)            null,
-   [Address]            char(200)            null,
-   Mobile               char(15)             not null,
-   Email                char(150)            not null,
+   Name                 varchar(150)         not null,
+   Company              varchar(120)         null,
+   [Address]            varchar(200)         null,
+   Mobile               varchar(20)          not null,
+   Email                varchar(150)         not null,
    ReservationDate      datetime             not null,
-   Remark               char(600)            null,
+   Remark               varchar(600)         null,
    CreateOn             datetime             not null,
-   CreatorIp            char(20)             not null,
+   CreatorIp            varchar(20)          not null,
    [State]              tinyint              not null,
    constraint PK_RESERVATION primary key nonclustered (ReservationId)
 )
@@ -172,6 +278,19 @@ select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
 '预约信息表', 
 'user', @CurrentUser, 'table', 'Reservation'
+go
+
+/*==============================================================*/
+/* Index: Relationship_2_FK                                     */
+/*==============================================================*/
+create index Relationship_2_FK on Reservation (
+PackageId ASC
+)
+go
+
+alter table Consulting
+   add constraint FK_CONSULTI_RELATIONS_MEMBER foreign key (MemberId)
+      references Member (MemberId)
 go
 
 alter table MedicalPackage

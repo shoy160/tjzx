@@ -1,14 +1,18 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Tjzx.Official.Models.Concrete;
+using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
 {
-    public class HomeController:BaseController
+    public class HomeController : BaseController
     {
+        public HomeController(EFMedicalPackagesRepository ef) : base(ef) { }
+
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
-            return View(Repository.MedicalPackages.ToList());
+            return View(Repository.Values.ToList());
         }
 
         public ActionResult About()

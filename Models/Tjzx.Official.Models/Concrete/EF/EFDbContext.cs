@@ -22,5 +22,9 @@ namespace Tjzx.Official.Models.Concrete
         public DbSet<Reservation> Reservations { get; set; }
 
         public DbSet<News> Newses { get; set; }
+
+        public DbSet<Member> Members { get; set; }
+
+        public DbSet<Consulting> Consultings { get; set; }
     }
 }

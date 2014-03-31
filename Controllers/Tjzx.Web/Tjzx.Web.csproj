@@ -43,6 +43,9 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net40\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="Shoy.Utility">
       <HintPath>..\..\lib\Shoy.Utility.dll</HintPath>
     </Reference>
@@ -94,9 +97,10 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ControllerConfig.cs" />
+    <Compile Include="App_Start\ExtendConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\FormatterConfig.cs" />
+    <Compile Include="BaseController.cs" />
     <Compile Include="Dict\NewsType.cs" />
     <Compile Include="Dict\PackageType.cs" />
     <Compile Include="Dict\ReservationType.cs" />
@@ -104,11 +108,9 @@
     <Compile Include="Formatter\JsonpMediaTypeFormatter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolver\NinjectDependencyResolver.cs" />
     <Compile Include="VerifyImagePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -121,9 +123,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Models\Tjzx.Infrastructure\Tjzx.Infrastructure.csproj">
-      <Project>{BEE3EB0C-0DE5-4509-80F1-B0EF356A0DCF}</Project>
-      <Name>Tjzx.Infrastructure</Name>
+    <ProjectReference Include="..\..\Models\Tjzx.Official.Models\Tjzx.Official.Models.csproj">
+      <Project>{823C4B6A-BEF4-46FB-8399-FF22957C23C8}</Project>
+      <Name>Tjzx.Official.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

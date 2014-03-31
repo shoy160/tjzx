@@ -74,7 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="ManagerController.cs" />
     <Compile Include="MedicalPackageController.cs" />

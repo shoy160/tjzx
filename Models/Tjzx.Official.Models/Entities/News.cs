@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Tjzx.Official.Models.Entities
 {
     /// <summary>
-    /// 新闻类
+    /// 新闻资讯类
     /// </summary>
     [Table("News")]
-    public class News
+    public class News 
     {
         [Key]
         public int NewsId { get; set; }
@@ -36,20 +36,32 @@ namespace Tjzx.Official.Models.Entities
         /// </summary>
         public DateTime CreateOn { get; set; }
 
-        public int CreatorId { get; set; }
-
-        [MaxLength(120)]
-        [Required]
-        public string Creator { get; set; }
+        /// <summary>
+        /// 阅读次数
+        /// </summary>
+        public int Views { get; set; }
 
         /// <summary>
-        /// 点击次数
+        /// 来源
         /// </summary>
-        public int Clicks { get; set; }
+        [MaxLength(150)]
+        public string Comefrom { get; set; }
+
+        /// <summary>
+        /// 作者
+        /// </summary>
+        [MaxLength(120)]
+        public string Author { get; set; }
 
         /// <summary>
         /// 状态
         /// </summary>
         public byte State { get; set; }
+
+        public int CreatorId { get; set; }
+
+        [MaxLength(120)]
+        [Required]
+        public string Creator { get; set; }
     }
 }

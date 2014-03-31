@@ -30,6 +30,11 @@ namespace Tjzx.Official.Models.Entities
         public virtual PackageCategory Category { get; set; }
 
         /// <summary>
+        /// 套餐适用性别:0,都适用；1：男性；2：女性
+        /// </summary>
+        public byte Sex { get; set; }
+
+        /// <summary>
         /// 市场价
         /// </summary>
         [Required]

@@ -14,10 +14,10 @@ namespace Tjzx.Official.Web
         {
             AreaRegistration.RegisterAllAreas();
 
-            ControllerConfig.Register();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ExtendConfig.Register();
         }
 
         protected void Session_Start(object sender, EventArgs e)

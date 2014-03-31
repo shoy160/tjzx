@@ -1,10 +1,11 @@
 ﻿using System.Web.Mvc;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
+using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
 {
-    public class MedicalPackageController : Controller
+    public class MedicalPackageController : BaseController
     {
         [HttpGet]
         public JsonResult Insert()
