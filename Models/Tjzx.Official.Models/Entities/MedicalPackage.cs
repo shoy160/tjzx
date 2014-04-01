@@ -8,7 +8,7 @@ namespace Tjzx.Official.Models.Entities
     /// 体检套餐
     /// </summary>
     [Table("MedicalPackage")]
-    public class MedicalPackage
+    public class MedicalPackage:EntityBase
     {
         [Key]
         public int PackageId { get; set; }

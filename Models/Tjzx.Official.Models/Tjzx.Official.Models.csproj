@@ -57,14 +57,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IMedicalPackageRepository.cs" />
-    <Compile Include="Abstract\IPackageCategoryRepository.cs" />
-    <Compile Include="Abstract\IReservationRepository.cs" />
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Concrete\EF\EFConsultingsRepository.cs" />
     <Compile Include="Concrete\EF\EFDbContext.cs" />
     <Compile Include="Concrete\EF\EFMedicalPackagesRepository.cs" />
+    <Compile Include="Concrete\EF\EFMembersRepository.cs" />
+    <Compile Include="Concrete\EF\EFNewsesRepository.cs" />
     <Compile Include="Concrete\EF\EFPackageCategoriesRepository.cs" />
+    <Compile Include="Concrete\EF\EFRepositoryBase.cs" />
     <Compile Include="Concrete\EF\EFReservationsRepository.cs" />
+    <Compile Include="Concrete\Test\TestConsultingsRepository.cs" />
+    <Compile Include="Concrete\Test\TestMedicalPackagesRepository.cs" />
+    <Compile Include="Concrete\Test\TestMembersRepository.cs" />
+    <Compile Include="Concrete\Test\TestNewsesRepository.cs" />
+    <Compile Include="Concrete\Test\TestPackageCategoriesRepository.cs" />
+    <Compile Include="Concrete\Test\TestReservationsRepository.cs" />
+    <Compile Include="Entities\Album.cs" />
+    <Compile Include="Entities\AlbumGroup.cs" />
     <Compile Include="Entities\Consulting.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\MedicalPackage.cs" />
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\News.cs" />

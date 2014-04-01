@@ -1,27 +1,19 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Tjzx.Official.Models.Abstract;
+﻿using System.Web.Mvc;
+using Tjzx.Official.Controllers.ViewModels;
 using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
 {
     public class HomeController : BaseController
     {
-        private readonly IMedicalPackageRepository _medicalPackages;
-
-        public HomeController(IMedicalPackageRepository repository)
-        {
-            _medicalPackages = repository;
-        }
-
         private readonly Logger _logger = Logger.L<HomeController>();
 
         [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
-            _logger.D("test");
-            return View(_medicalPackages.Values.ToList());
+            var config = IndexConfig.Get();
+            return View(config);
         }
 
         [HttpGet]
@@ -39,9 +31,22 @@ namespace Tjzx.Official.Controllers
         }
 
         [HttpGet]
-        public ActionResult Package()
+        public ActionResult Packages(int id)
         {
-            ViewBag.Title = "体检套餐";
+            ViewBag.Title = "体检套餐" + id;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Item(int id)
+        {
+            ViewBag.Title = "套餐详情";
+            return View();
+        }
+
+        public ActionResult Health()
+        {
+            ViewBag.Title = "健康管理";
             return View();
         }
 
@@ -49,6 +54,27 @@ namespace Tjzx.Official.Controllers
         public ActionResult Reservation()
         {
             ViewBag.Title = "在线预约";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Exchanges()
+        {
+            ViewBag.Title = "咨询交流";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Overview()
+        {
+            ViewBag.Title = "中心概况";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult News()
+        {
+            ViewBag.Title = "新闻资讯";
             return View();
         }
     }

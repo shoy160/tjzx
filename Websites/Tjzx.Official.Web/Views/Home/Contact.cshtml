@@ -1,4 +1,7 @@
-﻿@{
-    ViewBag.Title = "联系我们";
+﻿@section Header{
+    <style type="text/css">#map{ width: 400px;height: 420px;}</style>
+    <script type="text/javascript"> window.SINGER = { mapContainer: 'map' }; </script>
 }
+@section Footer{@{ Html.RenderPartial("_BaiduMap"); }}
 <div>联系我们</div>
+<div id="map"></div>

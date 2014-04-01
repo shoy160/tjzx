@@ -8,7 +8,7 @@ namespace Tjzx.Official.Models.Entities
     /// 套餐分类
     /// </summary>
     [Table("PackageCategory")]
-    public class PackageCategory
+    public class PackageCategory:EntityBase
     {
         [Key]
         public int CategoryId { get; set; }

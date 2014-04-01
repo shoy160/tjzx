@@ -43,6 +43,9 @@
       <HintPath>..\..\packages\EntityFramework.SqlServerCompact.6.1.0\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Shoy.Utility">
+      <HintPath>..\..\lib\Shoy.Utility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
@@ -59,11 +62,16 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigTest.cs" />
     <Compile Include="PackageCategoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MedicalPackageTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Controllers\Tjzx.Official.Controllers\Tjzx.Official.Controllers.csproj">
+      <Project>{CE2E759A-F1DC-445C-A1C0-835CF0B4E076}</Project>
+      <Name>Tjzx.Official.Controllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Models\Tjzx.Official.Models\Tjzx.Official.Models.csproj">
       <Project>{823C4B6A-BEF4-46FB-8399-FF22957C23C8}</Project>
       <Name>Tjzx.Official.Models</Name>

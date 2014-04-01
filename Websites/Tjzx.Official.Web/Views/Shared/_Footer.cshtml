@@ -1,5 +1,17 @@
-﻿<footer>
-    Footer
+﻿@using Tjzx.Official.Controllers.ViewModels;
+@{
+    var config = IndexConfig.Get();
+}
+<footer>
+    <ul>
+        @if (config != null && config.FriendsLink != null)
+        {
+            foreach (var link in config.FriendsLink.OrderBy(t => t.Sort))
+            {
+                <li><a href="@link.Link" title="@link.Title">@link.Title</a></li>
+            }
+        }
+    </ul>
 </footer>
 <script src="//ued.tjzx.com/js/jquery.min.js"></script>
 <!--百度统计-->

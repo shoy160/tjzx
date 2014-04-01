@@ -8,7 +8,7 @@ namespace Tjzx.Official.Models.Entities
     /// 预约信息
     /// </summary>
     [Table("Reservation")]
-    public class Reservation
+    public class Reservation:EntityBase
     {
         [Key]
         public int ReservationId { get; set; }

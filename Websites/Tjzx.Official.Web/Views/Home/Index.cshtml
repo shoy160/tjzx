@@ -1,24 +1,38 @@
-﻿@section Header{
+﻿@using Tjzx.Official.Controllers.ViewModels;
+@section Header{
     <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/base-responsive.min.css" media="all" />
-    <style type="text/css">
-        #map{ width: 400px;height: 420px;}
-    </style>
     <script type="text/javascript">window.SINGER = { compatible: true,mapContainer:'map' } </script>
 }
-@section Footer{@{ Html.RenderPartial("_BaiduMap"); }}
-@model IEnumerable<Tjzx.Official.Models.Entities.MedicalPackage>
-<div>@Html.ActionLink("关于我们","About")</div>
+@model IndexConfig
 <div>
-    @foreach (var m in Model)
+    @if (Model != null)
     {
-        <div class="item">
-            <h3>@m.Name</h3>
-            <h4>@m.Category.Name</h4>
-            <h4>￥<del>@m.MarketPrice</del> ￥<b>@m.Price</b></h4>
-            <div class="desc">
-                @m.Details
-            </div>
-        </div>
+        <ul>
+            @if (Model.Sliders != null)
+            {
+                foreach (var slider in Model.Sliders)
+                {
+                    <li>
+                        <a href="@slider.Link" title="@slider.Title">
+                            <img src="@slider.ImageUrl" alt="@slider.Title" />
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+        <ul>
+            @if (Model.Categories != null)
+            {
+                foreach (var category in Model.Categories)
+                {
+                    <li>
+                        <a href="/package/@category.CategoryId" title="@category.CategoryName">
+                            <img src="@category.ImageUrl" alt="@category.CategoryName" />
+                            <h3>@category.CategoryName</h3>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
     }
-    <div id="map"></div>
 </div>

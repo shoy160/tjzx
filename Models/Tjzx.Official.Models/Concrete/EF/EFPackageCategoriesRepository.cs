@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using Tjzx.Official.Models.Abstract;
 using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.Models.Concrete
 {
-    public class EFPackageCategoriesRepository : IPackageCategoryRepository
+    public class EFPackageCategoriesRepository : EFRepositoryBase<PackageCategory>
     {
-        private readonly EFDbContext _context = new EFDbContext();
-
-        public IEnumerable<PackageCategory> Values
+        public override IEnumerable<PackageCategory> GetValues()
         {
-            get { return _context.PackageCategories; }
+            return Context.PackageCategories;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Tjzx.Official.Models.Entities
     /// <summary>
     /// 会员类
     /// </summary>
-    public class Member
+    public class Member:EntityBase
     {
         [Key]
         public int MemberId { get; set; }

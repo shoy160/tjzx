@@ -1,3 +1,27 @@
-﻿<header>
-    <nav>菜单栏</nav>
+﻿@using Tjzx.Official.Controllers.ViewModels;
+@{
+    var config = IndexConfig.Get();
+}
+<header>
+    <nav>
+        <a href="/">首页</a>
+        @if (config != null && config.Navigations != null)
+        {
+            foreach (var nav in config.Navigations)
+            {
+                string attr = "";
+                if (!string.IsNullOrEmpty(nav.Class))
+                {
+                    attr += string.Format(" class={0}", nav.Class);
+                }
+
+                if (!string.IsNullOrEmpty(nav.Target))
+                {
+                    attr += string.Format(" target={0}", nav.Target);
+                }
+
+                <a href="@nav.Link"@attr>@nav.Name</a>
+            }
+        }
+    </nav>
 </header>

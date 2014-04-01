@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
-using Tjzx.Official.Models.Abstract;
 using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.Models.Concrete
 {
-    public class EFReservationsRepository : IReservationRepository
+    public class EFReservationsRepository : EFRepositoryBase<Reservation>
     {
-        private readonly EFDbContext _context = new EFDbContext();
-
-        public IEnumerable<Reservation> Values
+        public override IEnumerable<Reservation> GetValues()
         {
-            get { return _context.Reservations; }
+            return Context.Reservations;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Web;
 using log4net;
@@ -28,13 +29,29 @@ namespace Tjzx.Web
             return new Logger(logger);
         }
 
+        public static Logger L(string name = "")
+        {
+            var logger = LogManager.GetLogger(name);
+            return new Logger(logger);
+        }
+
+        private static string Format(string msg)
+        {
+            var req = HttpContext.Current.Request;
+            var f = new StackFrame(2, true);
+            return string.Format("IP:{6}{5}URL:{7}{5}Method:{1}({0}) {3}:{2}{5}Msg:{4}{5}",
+                                 f.GetFileName(), f.GetMethod().DeclaringType,
+                                 f.GetFileLineNumber(), f.GetMethod().Name, msg, Environment.NewLine,
+                                 Utils.GetRealIp(), req.Url);
+        }
+
         /// <summary>
         /// 信息类日志
         /// </summary>
         /// <param name="msg"></param>
         public void I(string msg)
         {
-            if (_logger.IsInfoEnabled) _logger.Info(msg);
+            if (_logger.IsInfoEnabled) _logger.Info(Format(msg));
         }
 
         /// <summary>
@@ -43,7 +60,7 @@ namespace Tjzx.Web
         /// <param name="msg"></param>
         public void D(string msg)
         {
-            if (_logger.IsDebugEnabled) _logger.Debug(msg);
+            if (_logger.IsDebugEnabled) _logger.Debug(Format(msg));
         }
 
         /// <summary>
@@ -52,7 +69,7 @@ namespace Tjzx.Web
         /// <param name="msg"></param>
         public void W(string msg)
         {
-            if (_logger.IsWarnEnabled) _logger.Warn(msg);
+            if (_logger.IsWarnEnabled) _logger.Warn(Format(msg));
         }
 
         /// <summary>
@@ -61,12 +78,12 @@ namespace Tjzx.Web
         /// <param name="msg"></param>
         public void E(string msg)
         {
-            if (_logger.IsErrorEnabled) _logger.Error(msg);
+            if (_logger.IsErrorEnabled) _logger.Error(Format(msg));
         }
 
         public void E(string msg, Exception ex)
         {
-            if (_logger.IsErrorEnabled) _logger.Error(msg, ex);
+            if (_logger.IsErrorEnabled) _logger.Error(Format(msg), ex);
         }
 
         /// <summary>
@@ -75,12 +92,12 @@ namespace Tjzx.Web
         /// <param name="msg"></param>
         public void F(string msg)
         {
-            if (_logger.IsFatalEnabled) _logger.Fatal(msg);
+            if (_logger.IsFatalEnabled) _logger.Fatal(Format(msg));
         }
 
         public void F(string msg, Exception ex)
         {
-            if (_logger.IsFatalEnabled) _logger.Fatal(msg, ex);
+            if (_logger.IsFatalEnabled) _logger.Fatal(Format(msg), ex);
         }
 
         public static void ApplicationError<T>()
@@ -88,9 +105,7 @@ namespace Tjzx.Web
         {
             var log = LogManager.GetLogger(typeof (T));
             Exception objExp = HttpContext.Current.Server.GetLastError();
-            var req = HttpContext.Current.Request;
-            log.Error(string.Format("客户机IP：{0}\r\n错误地址：{1}",
-                                    req.UserHostAddress, req.Url), objExp);
+            log.Error(Format("ApplicationError"), objExp);
         }
     }
 }

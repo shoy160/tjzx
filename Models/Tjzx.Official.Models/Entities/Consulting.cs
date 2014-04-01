@@ -8,7 +8,7 @@ namespace Tjzx.Official.Models.Entities
     /// 咨询交流
     /// </summary>
     [Table("Consulting")]
-    public class Consulting
+    public class Consulting:EntityBase
     {
         [Key]
         public int ConsultingId { get; set; }

@@ -50,6 +50,7 @@
       <HintPath>..\..\lib\Shoy.Utility.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -101,6 +102,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\FormatterConfig.cs" />
     <Compile Include="BaseController.cs" />
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="Dict\AlbumType.cs" />
     <Compile Include="Dict\NewsType.cs" />
     <Compile Include="Dict\PackageType.cs" />
     <Compile Include="Dict\ReservationType.cs" />

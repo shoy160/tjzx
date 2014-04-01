@@ -8,7 +8,7 @@ namespace Tjzx.Official.Models.Entities
     /// 新闻资讯类
     /// </summary>
     [Table("News")]
-    public class News 
+    public class News :EntityBase
     {
         [Key]
         public int NewsId { get; set; }

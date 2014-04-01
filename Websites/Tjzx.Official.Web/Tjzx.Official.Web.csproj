@@ -175,7 +175,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Package.cshtml" />
+    <Content Include="Views\Home\Packages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Reservation.cshtml" />
@@ -188,6 +188,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_BaiduMap.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Health.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Overview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Exchanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Item.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
