@@ -12,7 +12,7 @@ namespace Tjzx.Official.Models.Concrete
 
         static EFDbContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<EFDbContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<DbContext>());
         }
 
         public DbSet<MedicalPackage> MedicalPackages { get; set; }

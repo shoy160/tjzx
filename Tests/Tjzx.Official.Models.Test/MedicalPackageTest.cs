@@ -18,10 +18,11 @@ namespace Tjzx.Official.Models.Test
                 {
                     db.MedicalPackages.Add(new MedicalPackage
                         {
-                            Name = "常规体检(男)",
+                            Name = "常规体检(女)",
                             CategoryId = 1,
-                            MarketPrice = 2400,
-                            Price = 1600,
+                            Type = 0,
+                            MarketPrice = 2600,
+                            Price = 2200,
                             Feature = "实用性",
                             ForTheCrowd = "屌丝们",
                             Recommends = "体重，身高",
@@ -29,8 +30,10 @@ namespace Tjzx.Official.Models.Test
                             CreateOn = DateTime.Now,
                             CreatorId = 0,
                             Creator = "system",
+                            Popularity = 0,
                             Sort = 0,
-                            State = 1
+                            State = 1,
+                            Sex = 2
                         });
                     db.SaveChanges();
                 }
