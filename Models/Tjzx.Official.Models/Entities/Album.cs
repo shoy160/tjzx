@@ -41,7 +41,7 @@ namespace Tjzx.Official.Models.Entities
         public int Sort { get; set; }
 
         [Required]
-        [MaxLength(150)]
+        [MaxLength(30)]
         public string Creator { get; set; }
 
         [Required]

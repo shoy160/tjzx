@@ -27,10 +27,16 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'source/js',
-                        src: ['*/*.js','*.js'],
+                        src: ['*.js','*/*.js','*/*/*.js'],
                         dest: 'js',
                         ext: '.min.js'
                     }
+//                    ,{
+//                        expand:true,
+//                        cwd:'source/plugs',
+//                        src:['**/*.js'],
+//                        dest:'plugs'
+//                    }
                 ]
             }
         },
@@ -44,21 +50,27 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'source/css',
-                        src: '*.css',
+                        src: ['*.css','*/*.css','*/*/*.css'],
                         dest: 'css',
                         ext: '.min.css'
                     }
+//                    ,{
+//                        expand:true,
+//                        cwd:'source/plugs',
+//                        src:['**/*.css'],
+//                        dest:'plugs'
+//                    }
                 ]
             }
         },
         //文件监视 执行命令 grunt watch
         watch: {
             js: {
-                files: ['source/js/*.js'],
+                files: ['source/js/**/*.js'],
                 tasks: ['uglify']
             },
             css: {
-                files: ['source/css/*.css'],
+                files: ['source/css/**/*.css'],
                 tasks: ['cssmin']
             }
         }

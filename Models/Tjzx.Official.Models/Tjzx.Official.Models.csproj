@@ -74,8 +74,10 @@
     <Compile Include="Concrete\Test\TestReservationsRepository.cs" />
     <Compile Include="Entities\Album.cs" />
     <Compile Include="Entities\AlbumGroup.cs" />
+    <Compile Include="Entities\Assessment.cs" />
     <Compile Include="Entities\Consulting.cs" />
     <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\MedicalPackage.cs" />
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\News.cs" />

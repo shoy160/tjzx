@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="renderer" content="webkit" />
+        <link rel="dns-prefetch" href="//ued.tjzx.com"/>
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+        <!--苹果Icon-->
+        <link href="" rel="apple-touch-icon-precomposed" />
+        <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/reset.min.css" media="all" />
+        <!--[if lt IE 9]>
+            <script src="//ued.tjzx.com/js/html5shiv.min.js"></script>
+        <![endif]-->
+        @RenderSection("Header", false)
+    </head>
+    <body>
+        @RenderBody()
+        <script type="text/javascript" src="//ued.tjzx.com/js/jquery.min.js"></script>
+        @RenderSection("Footer",false)
+    </body>
+</html>

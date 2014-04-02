@@ -1,3 +1,42 @@
+/**
+  Colors
+*/
+@gray-darker: lighten(#000, 13.5%);
+// #222
+@gray-dark: lighten(#000, 20%);
+// #333
+@gray: lighten(#000, 33.5%);
+// #555
+@gray-light: lighten(#000, 60%);
+// #999
+@gray-lighter: lighten(#000, 93.5%);
+// #eee
+
+@brand-primary: #428bca;
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+
+.brand-border(@color:#fff){
+  border-color:darken(@color,5%);
+}
+
+//颜色计算
+@color: #663333;
+@bgcolor: #eeffee;
+@color01: spin(@color, 180);
+@color02: darken(spin(@color, 180), 5%);
+@color03: lighten(@color, 15%);
+@color04: lighten(@color, 30%);
+
+//透明度
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
 //简单圆角
 .rounded-corners (@radius: 5px) {
   -webkit-border-radius: @radius;
@@ -16,13 +55,19 @@
 
 //方块阴影
 .box-shadow(@style, @c) when (iscolor(@c)) {
-  box-shadow: @style @c;
   -webkit-box-shadow: @style @c;
-  -moz-box-shadow: @style @c;
+     -moz-box-shadow: @style @c;
+          box-shadow: @style @c;
 }
 
 .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
   .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+.text-shadow(@style,@c) when (iscolor(@c)){
+  -webkit-text-shadow: @style @c;
+     -moz-text-shadow: @style @c;
+          text-shadow: @style @c;
 }
 
 //元素过滤效果
@@ -67,10 +112,23 @@
   -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255, 255, 255,@opacity)));
 }
 
-//颜色计算
-@color: #663333;
-@bgcolor:#eeffee;
-@color01: spin(@color, 180);
-@color02: darken(spin(@color, 180), 5%);
-@color03: lighten(@color, 15%);
-@color04: lighten(@color, 30%);
+.user-select (@select:none) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  user-select: @select;
+}
+
+.tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.inline-block(){
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}

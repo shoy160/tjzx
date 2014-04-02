@@ -13,7 +13,14 @@ namespace Tjzx.Web
                 "Home",
                 "{action}/{id}",
                 new {controller = "Home", action = "Index", id = 0},
-                new {action = "[a-z]+", id = "\\d+"}
+                new {action = "[a-z]{3,}", id = "\\d+"}
+                );
+
+            routes.MapRoute(
+                "Manager",
+                "m/{action}",
+                new { controller = "Manager", action = "Main" },
+                new { action = "[a-z]{3,}" }
                 );
 
             routes.MapRoute(

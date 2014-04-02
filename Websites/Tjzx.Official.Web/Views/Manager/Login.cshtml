@@ -1,0 +1,23 @@
+﻿<div class="m-window">
+               
+</div>
+<script src="//ued.tjzx.com/js/jquery.min.js"></script>
+<script src="//ued.tjzx.com/plugs/easyui/easyloader.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        easyloader.theme = "bootstrap";
+        easyloader.locale = "zh_CN";
+        using("window", function() {
+            $(".m-window").window({
+                title: '健康管理中心 - 后台管理系统',
+                collapsible: false,
+                minimizable: false,
+                maximizable: false,
+                closable: false,
+                closed: false,
+                draggable: false,
+                resizable: false
+            });
+        });
+    });
+</script>

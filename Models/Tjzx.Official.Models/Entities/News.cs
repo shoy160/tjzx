@@ -60,7 +60,7 @@ namespace Tjzx.Official.Models.Entities
 
         public int CreatorId { get; set; }
 
-        [MaxLength(120)]
+        [MaxLength(30)]
         [Required]
         public string Creator { get; set; }
     }
