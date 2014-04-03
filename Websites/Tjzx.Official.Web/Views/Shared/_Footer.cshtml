@@ -1,6 +1,6 @@
 ﻿@using Tjzx.Official.Controllers.ViewModels;
 @{
-    var config = IndexConfig.Get();
+    var config = Config<IndexConfig>.Instance().Get();
 }
 <footer>
     <ul>

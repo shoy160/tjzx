@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tjzx.Official.Controllers.ViewModels;
+using Tjzx.Web.Dict;
+using Shoy.Utility.Extend;
 
 namespace Tjzx.Official.Models.Test
 {
@@ -43,7 +45,31 @@ namespace Tjzx.Official.Models.Test
                                 new WordLink{Id = 2,Title = "四川省卫生厅",Link = "http://www.scwst.gov.cn/",Sort = 1}
                             }
                 };
-            IndexConfig.Set(config);
+            Config<IndexConfig>.Instance().Set(config);
+            Assert.IsNotNull(Config<IndexConfig>.Instance().Get());
+        }
+
+        [TestMethod]
+        public void MenuInitTest()
+        {
+            var menu = new MenuConfig
+                {
+                    Menus = new List<MenuItem>
+                        {
+                            new MenuItem{MenuId = 1,Name = "内容管理",Class = "icon-04",Depth = 0,Sort = 1},
+                            new MenuItem{MenuId = 2,Name = "健康管理",Class = "icon-05",Depth = 0,Sort = 2},
+                            new MenuItem{MenuId = 3,Name = "用户管理",Class = "icon-07",Depth = 0,Sort = 3},
+                            new MenuItem{MenuId = 101, ParentId = 1,Name = "新闻资讯",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Class = "icon-02",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "流程及事项",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "预约列表",Class = "icon-03",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "咨询交流",Class = "icon-03",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7}
+                        }
+                };
+            Config<MenuConfig>.Instance().Set(menu);
+            Assert.IsNotNull(Config<MenuConfig>.Instance().Get());
         }
     }
 }

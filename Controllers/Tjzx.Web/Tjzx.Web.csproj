@@ -104,6 +104,7 @@
     <Compile Include="BaseController.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="Dict\AlbumType.cs" />
+    <Compile Include="Dict\ManagerRole.cs" />
     <Compile Include="Dict\NewsType.cs" />
     <Compile Include="Dict\PackageType.cs" />
     <Compile Include="Dict\ReservationType.cs" />

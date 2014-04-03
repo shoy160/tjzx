@@ -7,48 +7,6 @@
     </div>
     <div class="m-nav">
         <ul>
-            <li>
-                <a href="#" class="active">
-                    <i class="icon-01"></i>
-                    系统设置
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-02"></i>
-                    界面风格
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-03"></i>
-                    栏目配置
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-04"></i>
-                    内容管理
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-05"></i>
-                    优化推广
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-06"></i>
-                    企业应用
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="icon-07"></i>
-                    用户管理
-                </a>
-            </li>
         </ul>
     </div>
     <div class="m-info">
@@ -58,51 +16,29 @@
 <div class="m-content">
     <div class="m-menu">
         <div class="m-fast">
-            <a href="#">网站首页</a>
+            <a href="/">网站首页</a>
             <em></em>
-            <a href="#">后台首页</a>
+            <a href="/m">后台首页</a>
         </div>
         <div class="m-menus">
             <ul>
-                <li>
-                    <a href="#" class="active" target="framePage" title="模版风格"><i></i>模版风格</a>
-                </li>
-                <li>
-                    <a href="#" target="framePage" title="页面设置"><i></i>页面设置</a>
-                </li>
-                <li>
-                    <a href="#" target="framePage" title="列表页设置"><i></i>列表页设置</a>
-                </li>
-                <li>
-                    <a href="#" target="framePage" title="内容页设置"><i></i>内容页设置</a>
-                </li>
             </ul>
         </div>
     </div>
     <div class="m-page">
         <div class="m-iframe-father">
             <div class="m-iframe">
-                <div class="m-crumbs">
-                    <i class="icon-home"></i>
-                    <span>当前位置：</span>
-                    <a href="#">栏目设置</a>
-                    <span class="crumbs-i">&gt;</span>
-                    <a href="#">栏目配置</a>
-                </div>
-                <iframe frameborder="0" id="framePage" scrolling="no" src="/"></iframe>
+                <dl class="m-crumbs">
+                    <dt><i class="icon-home"></i>
+                        <span>当前位置：</span>
+                    </dt>
+                </dl>
+                <iframe frameborder="0" id="framePage" name="framePage" scrolling="no" src=""></iframe>
             </div>
         </div>
     </div>
 </div>
 @section Footer{
-    <script type="text/javascript">
-        $(".m-nav,.m-menus")
-            .delegate("li", "click", function () {
-                var $a = $(this).find(">a");
-                if ($a.hasClass("active")) return false;
-                $a.addClass("active");
-                $(this).siblings("li").find(">a").removeClass("active");
-                return false;
-            });
-    </script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-main.min.js"></script>
 }

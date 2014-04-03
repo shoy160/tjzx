@@ -12,7 +12,7 @@ namespace Tjzx.Official.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
-            var config = IndexConfig.Get();
+            var config = Config<IndexConfig>.Instance().Get();
             return View(config);
         }
 

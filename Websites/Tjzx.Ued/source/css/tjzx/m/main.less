@@ -15,7 +15,8 @@ ul, li, ol {
   width: @m-width;
   height: 80px;
   background-color: @m-bg-color;
-  position: relative;
+  position: fixed;
+  z-index: 2000;
   .m-logo,
   .m-nav {
     position: absolute;
@@ -24,10 +25,11 @@ ul, li, ol {
   }
   .m-logo {
     left: 0;
-    width: 155px;
+    width: 340px;
+    background: url("//ued.tjzx.com/img/logo.jpg") no-repeat center scroll;
   }
   .m-nav {
-    left: 155px;
+    left: 340px;
     min-width: 600px;
     ul {
       margin: 0;
@@ -116,6 +118,7 @@ ul, li, ol {
 
 .m-content {
   width: @m-width;
+  padding-top: 80px;
   overflow: hidden;
   a {
     text-decoration: none;
@@ -126,7 +129,7 @@ ul, li, ol {
     padding: 0 1px;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    position: relative;
+    position: fixed;
     float: left;
     z-index: 500;
     .m-fast {
@@ -214,46 +217,34 @@ ul, li, ol {
     }
   }
 }
+
 .m-iframe {
   position: relative;
   margin: 0 1px;
   zoom: 1;
   z-index: 1;
-  .m-crumbs{
-    height: 30px;
-    line-height: 30px;
-    background-color: #f8f8f8;
-    border-bottom:1px solid #eee;
-    margin-bottom:5px;
-    overflow: hidden;
-    .icon-home{
+  display: block;
+  .m-crumbs {
+    .brand-crumbs;
+    width: @m-width;
+    position: fixed;
+    z-index: 200;
+    .icon-home {
       .inline-block;
       height: 30px;
       margin: 0 5px;
       vertical-align: -9px;
       width: 25px;
-      background: url("//ued.tjzx.com/img/m-icon.png") no-repeat -20px -31px;
-    }
-    a:link,
-    a:visited,
-    a:active{
-      color: @brand-primary;
-      text-decoration: none;
-    }
-    a:hover{
-      color:#ef5420;
-      text-decoration: underline;
-    }
-    .crumbs-i{
-      font-family: 'Comic Sans MS';
-      padding: 0 2px;
-      font-size: 14px;
+      background: url("//ued.tjzx.com/img/m-icon.png") no-repeat -20px -30px;
+      *vertical-align: -6px;
     }
   }
   iframe {
     width: @m-width;
+    padding-top: 30px;
     position: relative;
     height: 480px;
     z-index: 1;
+    overflow: hidden;
   }
 }
