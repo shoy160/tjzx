@@ -1,0 +1,60 @@
+/**
+  Colors
+*/
+ul,
+li,
+ol,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font: 12px/1.8 'Microsoft YaHei', Tahoma, Verdana, Simsun;
+}
+.m-panel {
+  width: 98%;
+  margin: 10px auto;
+  overflow: hidden;
+  color: #333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.56);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.56);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.56);
+}
+.m-panel .m-panel-title {
+  line-height: 32px;
+  height: 32px;
+  border-bottom: 1px solid #cccccc;
+}
+.m-panel .m-panel-title li {
+  float: left;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.m-panel .m-panel-title li.active {
+  background-color: #1e71b1;
+  color: #fff;
+  font-weight: 700;
+  cursor: default;
+}
+.m-panel .m-panel-item {
+  padding: 12px 20px;
+}
+.m-table {
+  border: 1px solid #cccccc;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+.m-table td {
+  padding: 8px;
+}

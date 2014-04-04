@@ -40,13 +40,7 @@ namespace Tjzx.Official.Controllers
         [HttpGet]
         public ActionResult Item(int id)
         {
-            ViewBag.Title = "套餐详情";
-            return View();
-        }
-
-        public ActionResult Health()
-        {
-            ViewBag.Title = "健康管理";
+            ViewBag.Title = "套餐详情" + id;
             return View();
         }
 

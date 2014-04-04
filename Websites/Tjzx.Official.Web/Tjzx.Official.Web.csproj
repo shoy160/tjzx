@@ -190,9 +190,6 @@
     <Content Include="Views\Shared\_BaiduMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Health.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -215,6 +212,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Manager\PackageList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Health\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Health\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Category.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Reservations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Process.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Consultings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Pictures.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Managers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Health.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\Assess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Manager\LoginOut.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,6 +2,7 @@
 using System.Linq;
 using Tjzx.Web;
 using System.Xml.Serialization;
+using Tjzx.Official.Controllers.Attributes;
 
 namespace Tjzx.Official.Controllers.ViewModels
 {

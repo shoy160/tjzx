@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using Tjzx.Web.Dict;
 using System.Linq;
+using Tjzx.Official.Controllers.Attributes;
 
 namespace Tjzx.Official.Controllers.ViewModels
 {
@@ -59,6 +60,11 @@ namespace Tjzx.Official.Controllers.ViewModels
                 if (pItem != null)
                     pItem.Role |= menuItem.Role;
             }
+        }
+
+        public MenuManager(ManagerRole userRole)
+            : this((int) userRole)
+        {
         }
 
         public List<MenuItem> GetMenus(int parentId)

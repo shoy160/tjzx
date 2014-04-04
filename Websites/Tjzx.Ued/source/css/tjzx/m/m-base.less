@@ -1,0 +1,52 @@
+@import "../../base";
+@default-color:#1E71B1;
+@border-color:#ccc;
+ul,li,ol,dl,dt,dd{
+  margin: 0;
+  padding:0;
+  list-style: none;
+}
+body{
+  font:12px/1.8 'Microsoft YaHei',Tahoma,Verdana,Simsun;
+}
+.m-panel{
+  width: 98%;
+  margin:10px auto;
+  overflow: hidden;
+  color:#333;
+  .rounded-corners(3px);
+  .box-shadow(0 1px 2px,rgba(0,0,0,.56));
+  .m-panel-title{
+    line-height: 32px;
+    height: 32px;
+    border-bottom:1px solid @border-color;
+    li{
+      float: left;
+      padding: 0 15px;
+      cursor: pointer;
+      &.active{
+        background-color: @default-color;
+        color: #fff;
+        font-weight: 700;
+        cursor: default;
+      }
+    }
+  }
+  .m-panel-item{
+    padding: 12px 20px;
+  }
+}
+.m-table{
+  border:1px solid @border-color;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: rgba(0, 0, 0, 0);
+  th{
+
+  }
+  td{
+    padding: 8px;
+  }
+}

@@ -23,20 +23,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
+      <file leaf-file-name="main.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/main.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="17" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="2002">
+            <state line="247" column="10" selection-start="4877" selection-end="4877" vertical-scroll-proportion="-8.258064" vertical-offset="5178" max-vertical-offset="5742">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="easyui.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/easyui.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="21" selection-start="1784" selection-end="1784" vertical-scroll-proportion="-17.483871" vertical-offset="712" max-vertical-offset="1738">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="easyui.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugs/easyui/themes/bootstrap/easyui.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="1704" selection-start="1740" selection-end="1740" vertical-scroll-proportion="-0.42307693" vertical-offset="0" max-vertical-offset="154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m-base.less" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="18" selection-start="790" selection-end="790" vertical-scroll-proportion="0.6099291" vertical-offset="558" max-vertical-offset="1254">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/css/base.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="1" selection-start="743" selection-end="743" vertical-scroll-proportion="-5.903226" vertical-offset="719" max-vertical-offset="3850">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="11" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.40840337" vertical-offset="1011" max-vertical-offset="2134">
+            <state line="116" column="34" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.0" vertical-offset="2243" max-vertical-offset="2838">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="require.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/lib/require.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sea.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/lib/sea.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="462">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,11 +109,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/js/plugs/shoyLazy.js" />
-        <option value="$PROJECT_DIR$/source/css/plugs/font-awesome/variables.less" />
-        <option value="$PROJECT_DIR$/source/css/plugs/font-awesome/path.less" />
-        <option value="$PROJECT_DIR$/plugs/fontAwesome/font-awesome.min.css" />
-        <option value="$PROJECT_DIR$/test/hiddenAway.html" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-common.js" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-cycle.js" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-easing.js" />
@@ -63,10 +116,15 @@
         <option value="$PROJECT_DIR$/test/easyui.html" />
         <option value="$PROJECT_DIR$/source/css/tjzx/m/login.less" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-pseydo.js" />
-        <option value="$PROJECT_DIR$/source/css/base.less" />
-        <option value="$PROJECT_DIR$/source/css/tjzx/m/main.less" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/source/js/plugs/Jq-pager.js" />
+        <option value="$PROJECT_DIR$/source/css/plugs/pager.less" />
+        <option value="$PROJECT_DIR$/test/pager.html" />
+        <option value="$PROJECT_DIR$/source/css/tjzx/m/main.less" />
+        <option value="$PROJECT_DIR$/source/css/base.less" />
+        <option value="$PROJECT_DIR$/plugs/easyui/themes/bootstrap/easyui.css" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-main.js" />
+        <option value="$PROJECT_DIR$/source/css/tjzx/m/m-base.less" />
       </list>
     </option>
   </component>
@@ -102,7 +160,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -193,8 +250,75 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="m" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,16 +328,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../github/Bootstrap" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\img\pager" />
       <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\plugs\easyui\themes" />
       <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\plugs\easyui\themes\metro" />
       <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\plugs\easyui\themes\gray" />
       <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\plugs\easyui\themes\default" />
-      <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\plugs\easyui\themes\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\工程文件\tjzx\Websites\Tjzx.Ued\source\plugs" />
@@ -224,6 +348,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -232,14 +364,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -283,7 +407,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -316,108 +440,126 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugs/easyui/src/jquery.accordion.js">
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="14" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugs/easyui/themes/black/easyui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="31" selection-start="67" selection-end="67" vertical-scroll-proportion="0.03780069" vertical-offset="0" max-vertical-offset="582" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugs/easyui/themes/black/accordion.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/tjzx/m/main.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6446">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/base-lt9.js">
+    <entry file="file://$PROJECT_DIR$/source/js/hTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="334" selection-end="334" vertical-scroll-proportion="0.3697479" vertical-offset="0" max-vertical-offset="595">
-          <folding />
+        <state line="90" column="12" selection-start="3229" selection-end="3300" vertical-scroll-proportion="0.0" vertical-offset="1782" max-vertical-offset="3652">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/base-v1.js">
+    <entry file="file://$PROJECT_DIR$/source/css/plugs/pager.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="32" selection-start="5326" selection-end="5326" vertical-scroll-proportion="0.58419245" vertical-offset="3202" max-vertical-offset="3784">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1848" max-vertical-offset="2552">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-pseudo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="14" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="12" selection-start="4016" selection-end="4016" vertical-scroll-proportion="-9.967742" vertical-offset="2815" max-vertical-offset="3806">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/login.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="15" selection-start="160" selection-end="160" vertical-scroll-proportion="-5.677419" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/main.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="21" selection-start="542" selection-end="542" vertical-scroll-proportion="-1.5903615" vertical-offset="572" max-vertical-offset="5610">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tjzx/m/page-main.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="45" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154">
-          <folding />
+        <state line="84" column="0" selection-start="1885" selection-end="1885" vertical-scroll-proportion="0.8504202" vertical-offset="1342" max-vertical-offset="1980">
+          <folding>
+            <marker date="1396586334000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1396586334000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="17" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="2002">
+        <state line="50" column="37" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="2002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugs/fontAwesome/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8998">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/plugs/pager.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="17" selection-start="549" selection-end="549" vertical-scroll-proportion="0.2641844" vertical-offset="445" max-vertical-offset="1914">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-pager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="26" selection-start="5509" selection-end="5509" vertical-scroll-proportion="0.0" vertical-offset="2331" max-vertical-offset="2948">
+          <folding>
+            <marker date="1396585688000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1396585688000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/pager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="24" selection-start="94" selection-end="94" vertical-scroll-proportion="0.17227723" vertical-offset="1" max-vertical-offset="660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/lib/require.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="924">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/lib/sea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="247" column="10" selection-start="4877" selection-end="4877" vertical-scroll-proportion="-8.258064" vertical-offset="5178" max-vertical-offset="5742">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/easyui.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="21" selection-start="1784" selection-end="1784" vertical-scroll-proportion="-17.483871" vertical-offset="712" max-vertical-offset="1738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugs/easyui/themes/bootstrap/easyui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="1704" selection-start="1740" selection-end="1740" vertical-scroll-proportion="-0.42307693" vertical-offset="0" max-vertical-offset="154">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="11" selection-start="1981" selection-end="1981" vertical-scroll-proportion="0.40840337" vertical-offset="1011" max-vertical-offset="2134">
+        <state line="116" column="34" selection-start="3729" selection-end="3729" vertical-scroll-proportion="0.0" vertical-offset="2243" max-vertical-offset="2838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="1" selection-start="743" selection-end="743" vertical-scroll-proportion="-5.903226" vertical-offset="719" max-vertical-offset="3850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="18" selection-start="790" selection-end="790" vertical-scroll-proportion="0.6099291" vertical-offset="558" max-vertical-offset="1254">
           <folding />
         </state>
       </provider>

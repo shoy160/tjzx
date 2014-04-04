@@ -37,12 +37,20 @@ namespace Tjzx.Web
 
         private static string Format(string msg)
         {
-            var req = HttpContext.Current.Request;
+            string ip = "", url = "";
+            if (HttpContext.Current != null)
+            {
+                try
+                {
+                    ip = Utils.GetRealIp();
+                    url = HttpContext.Current.Request.Url.ToString();
+                }catch{}
+            }
             var f = new StackFrame(2, true);
             return string.Format("IP:{6}{5}URL:{7}{5}Method:{1}({0}) {3}:{2}{5}Msg:{4}{5}",
                                  f.GetFileName(), f.GetMethod().DeclaringType,
                                  f.GetFileLineNumber(), f.GetMethod().Name, msg, Environment.NewLine,
-                                 Utils.GetRealIp(), req.Url);
+                                 ip, url);
         }
 
         /// <summary>

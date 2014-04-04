@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace Tjzx.Official.Controllers.ViewModels
+namespace Tjzx.Official.Controllers.Attributes
 {
+    /// <summary>
+    /// 配置文件名属性
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     public class FileNameAttribute : Attribute
     {

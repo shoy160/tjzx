@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Tjzx.Official.Controllers.Attributes;
 
 namespace Tjzx.Official.Controllers.ViewModels
 {
@@ -36,18 +37,6 @@ namespace Tjzx.Official.Controllers.ViewModels
         [XmlArray("friends")]
         [XmlArrayItem("item")]
         public List<WordLink> FriendsLink { get; set; }
-
-        //[XmlIgnore] private const string FileName = "index.config";
-
-        //public static IndexConfig Get()
-        //{
-        //    return ConfigManager.GetConfig<IndexConfig>(FileName);
-        //}
-
-        //public static void Set(IndexConfig config)
-        //{
-        //    ConfigManager.SetConfig(FileName, config);
-        //}
     }
 
     /// <summary>

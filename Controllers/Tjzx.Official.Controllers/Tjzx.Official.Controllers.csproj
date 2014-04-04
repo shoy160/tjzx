@@ -41,6 +41,10 @@
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ninject.3.2.0.0\lib\net40\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Shoy.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Shoy.Utility.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -75,14 +79,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AuthAttribute.cs" />
+    <Compile Include="HealthController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="ManagerController.cs" />
     <Compile Include="MedicalPackageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Config.cs" />
-    <Compile Include="ViewModels\FileNameAttribute.cs" />
+    <Compile Include="Attributes\FileNameAttribute.cs" />
     <Compile Include="ViewModels\IndexConfig.cs" />
     <Compile Include="ViewModels\MenuConfig.cs" />
+    <Compile Include="ViewModels\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
