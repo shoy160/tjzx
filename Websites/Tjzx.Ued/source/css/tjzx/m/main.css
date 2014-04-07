@@ -142,8 +142,8 @@ i[class^="icon-"] {
   z-index: 500;
 }
 .m-content .m-menu .m-fast {
-  height: 28px;
-  line-height: 28px;
+  height: 30px;
+  line-height: 30px;
   overflow: hidden;
   text-align: center;
   border-bottom: 1px solid #ccc;
@@ -151,8 +151,8 @@ i[class^="icon-"] {
 .m-content .m-menu .m-fast a,
 .m-content .m-menu .m-fast em {
   float: left;
-  height: 28px;
-  line-height: 28px;
+  height: 30px;
+  line-height: 30px;
   overflow: hidden;
 }
 .m-content .m-menu .m-fast a {

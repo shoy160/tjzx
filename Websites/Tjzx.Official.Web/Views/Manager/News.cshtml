@@ -1,5 +1,6 @@
 ﻿@section Header{
     <link href="//ued.tjzx.com/css/tjzx/m/m-base.min.css" rel="stylesheet" type="text/css" />
+    <link href="//ued.tjzx.com/css/plugs/pager.min.css" rel="stylesheet" type="text/css" />
 }
 <div class="m-panel">
     <div class="m-panel-title">
@@ -10,15 +11,131 @@
     </div>
     <div class="m-panel-item">
         <table class="m-table">
+            <caption>资讯列表</caption>
+            <colgroup>
+                <col class="col-06"/><col /><col class="col-08"/>
+                <col class="col-10"/><col class="col-08"/><col class="col-08"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>资讯ID</th>
+                    <th>资讯标题</th>
+                    <th>资讯类别</th>
+                    <th>发布时间</th>
+                    <th>发布者</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
             <tr>
+                <td>1001</td>
+                <td class="text-left">dddd</td>
                 <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td class="text-left">dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td class="text-left">dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td class="text-left">dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1001</td>
+                <td class="text-left">dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>dddd</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                    <div class="j-pager" data-pager="{count:238}"></div>
+                </td>
             </tr>
         </table>
     </div>
+    <div class="m-panel-item hide">
+        <div class="m-form">
+            <div class="m-form-group">
+                <label class="m-form-lable">资讯标题</label>
+                <div class="m-form-controls">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-lable">资讯类型</label>
+                <div class="m-form-controls">
+                    <select></select>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-lable">资讯内容</label>
+                <div class="m-form-controls">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="m-form-actions">
+                <button type="button">发布资讯</button>
+            </div>
+        </div>
+    </div>
 </div>
 @section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-pager.min.js"></script>
     <script type="text/javascript">
         (function ($) {
+            
+            $(".m-panel-title")
+                .delegate("li", "click", function () {
+                    if ($(this).hasClass("active")) return false;
+                    var $t = $(this),
+                        $lis = $t.parents(".m-panel").find(".m-panel-item"),
+                        index = $t.parent().find("li").index($t);
+                    $t.addClass("active").siblings("li").removeClass("active");
+                    $lis.fadeOut().eq(index).fadeIn();
+                    return false;
+                });
         })(jQuery);
     </script>
 }
