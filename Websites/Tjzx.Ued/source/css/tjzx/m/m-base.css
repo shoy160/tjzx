@@ -1,6 +1,3 @@
-/**
-  Colors
-*/
 ul,
 li,
 ol,
@@ -20,6 +17,7 @@ body {
 .show {
   display: block;
 }
+/* -- panel -- */
 .m-panel {
   width: 98%;
   margin: 10px auto;
@@ -54,6 +52,7 @@ body {
 .m-panel .m-panel-item {
   padding: 12px 20px;
 }
+/* -- table -- */
 .m-table {
   width: 100%;
   max-width: 100%;
@@ -125,4 +124,178 @@ body {
 }
 .m-table .col-30 {
   width: 30em;
+}
+/* -- form -- */
+.m-form .m-form-head {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 35px;
+  margin: 12px 0;
+}
+.m-form .m-form-group {
+  margin: 0 0 15px 0;
+}
+.m-form .m-form-label,
+.m-form .m-form-controls {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.m-form .m-form-label {
+  width: 130px;
+  line-height: 35px;
+  text-align: right;
+  padding-right: 20px;
+  vertical-align: top;
+}
+.m-form .m-form-controls input,
+.m-form .m-form-controls textarea {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: 20px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  vertical-align: middle;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+.m-form .m-form-controls input:focus,
+.m-form .m-form-controls textarea:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
+}
+.m-form .m-form-controls .input-small {
+  width: 6em;
+}
+.m-form .m-form-controls .input-large {
+  width: 30em;
+}
+.m-form .m-form-controls .input-larger {
+  width: 45em;
+}
+.m-form .m-form-controls .content {
+  width: 65%;
+  height: 450px;
+}
+.m-form .m-form-controls select {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  width: 220px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #555555;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+.m-form .m-form-controls select,
+.m-form .m-form-controls input[type="file"] {
+  height: 30px;
+  line-height: 30px;
+}
+.m-form .m-form-actions {
+  padding-left: 140px;
+  margin: 25px 10px;
+}
+.m-form .m-form-actions .btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  line-height: 20px;
+  padding: 4px 15px;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  -moz-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-image: -moz-linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-image: -ms-linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  vertical-align: middle;
+  font-size: 14px;
+  cursor: pointer;
+}
+.m-form .m-form-actions .btn:hover {
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+  text-decoration: none;
+  background-position: 0 -15px;
+  background-color: #e6e6e6;
+}
+.m-form .m-form-actions .btn.disabled {
+  background-color: #999999;
+  background-image: -webkit-linear-gradient(to bottom, #999999, #dddddd);
+  background-image: -moz-linear-gradient(to bottom, #999999, #dddddd);
+  background-image: -o-linear-gradient(to bottom, #999999, #dddddd);
+  background-image: -ms-linear-gradient(to bottom, #999999, #dddddd);
+  background-image: linear-gradient(to bottom, #999999, #dddddd);
+  color: #666;
+  cursor: default;
+}
+.m-form .m-form-actions .btn-primary {
+  background-color: #0088cc;
+  background-image: -webkit-linear-gradient(to bottom, #0088cc, #0044cc);
+  background-image: -moz-linear-gradient(to bottom, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(to bottom, #0088cc, #0044cc);
+  background-image: -ms-linear-gradient(to bottom, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+.m-form .m-form-actions .btn-primary:hover {
+  background-color: #04c;
+  color: #fff;
+}
+.m-form .m-form-actions .btn.disabled:hover {
+  background-color: #999;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  color: #666;
+  background-position: 0,0;
 }

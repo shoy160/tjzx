@@ -1,0 +1,68 @@
+﻿using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using Shoy.Utility;
+using Shoy.Utility.Extend;
+
+namespace Tjzx.Official.BLL
+{
+    /// <summary>
+    /// 配置文件管理
+    /// </summary>
+    public class ConfigManager
+    {
+        private static readonly IDictionary<string, object> ConfigCache = new Dictionary<string, object>();
+        private static readonly string ConfigPath;
+        private static readonly Logger Logger = Logger.L<ConfigManager>();
+
+        static ConfigManager()
+        {
+            ConfigPath = ConfigurationManager.AppSettings.Get("configPath");
+            if (!Directory.Exists(ConfigPath)) return;
+            //文件监控
+            var watcher = new FileSystemWatcher(ConfigPath)
+                {
+                    IncludeSubdirectories = true,
+                    Filter = "*.config", //"*.config|*.xml"多个扩展名不受支持！
+                    NotifyFilter = NotifyFilters.FileName | NotifyFilters.DirectoryName | NotifyFilters.Size
+                };
+            watcher.Changed += Reset;
+            watcher.Deleted += Reset;
+            watcher.Renamed += Reset;
+            watcher.Created += Reset;
+            watcher.EnableRaisingEvents = true;
+        }
+
+        public static T GetConfig<T>(string fileName)
+        {
+            if (ConfigCache.ContainsKey(fileName))
+            {
+                return ConfigCache[fileName].ObjectToT<T>();
+            }
+            T config = default(T);
+            var path = Path.Combine(ConfigPath, fileName);
+            if (File.Exists(path))
+            {
+                config = XmlHelper.XmlDeserialize<T>(path);
+                ConfigCache.Add(fileName, config);
+            }
+            return config;
+        }
+
+        public static void SetConfig(string fileName, object config)
+        {
+            var path = Path.Combine(ConfigPath, fileName);
+            string msg;
+            var result = XmlHelper.XmlSerialize(path, config, out msg);
+            if (!result)
+            {
+                Logger.W(string.Format("设置配置文件{0}异常：{1}", path, msg));
+            }
+        }
+
+        private static void Reset(object sender, FileSystemEventArgs e)
+        {
+            ConfigCache.Clear();
+        }
+    }
+}

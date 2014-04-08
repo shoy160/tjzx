@@ -17,7 +17,7 @@ namespace Tjzx.Official.Models.Entities
         /// 体检号
         /// </summary>
         [Required]
-        [MaxLength(20)]
+        [MaxLength(30)]
         public string MedicalNum { get; set; }
 
         /// <summary>
@@ -42,7 +42,6 @@ namespace Tjzx.Official.Models.Entities
         /// 主要健康问题
         /// </summary>
         public string MainProblem { get; set; }
-
 
         public int CreatorId { get; set; }
 

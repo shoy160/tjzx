@@ -1,6 +1,11 @@
 ﻿@section Header{
-    <link href="//ued.tjzx.com/css/tjzx/m/m-base.min.css" rel="stylesheet" type="text/css" />
-    <link href="//ued.tjzx.com/css/plugs/pager.min.css" rel="stylesheet" type="text/css" />
+    <link href="//ued.tjzx.com/css/plugs/pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+}
+@using Shoy.Utility.Extend;
+@using Tjzx.Official.BLL.Dict;
+@model List<Tjzx.Official.Models.Entities.News>
+@{
+    ViewBag.Title = "新闻资讯";
 }
 <div class="m-panel">
     <div class="m-panel-title">
@@ -28,66 +33,24 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            <tr>
-                <td>1001</td>
-                <td class="text-left">dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td class="text-left">dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td class="text-left">dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td class="text-left">dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td class="text-left">dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>dddd</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
+            @if (Model.Any())
+            {
+                foreach (var m in Model)
+                {
+                    <tr>
+                        <td>@m.NewsId</td>
+                        <td class="text-left">@m.Title</td>
+                        <td>@m.Type</td>
+                        <td>@m.CreateOn</td>
+                        <td>@m.Creator</td>
+                        <td>@m.State</td>
+                        <td>
+                            <a href="">编辑</a>
+                            <a href="">删除</a>
+                        </td>
+                    </tr>
+                }
+            }
             <tr>
                 <td colspan="7">
                     <div class="j-pager" data-pager="{count:238}"></div>
@@ -98,34 +61,61 @@
     <div class="m-panel-item hide">
         <div class="m-form">
             <div class="m-form-group">
-                <label class="m-form-lable">资讯标题</label>
+                <label class="m-form-label">资讯标题</label>
                 <div class="m-form-controls">
-                    <input type="text" />
+                    <input type="text" class="input-large" name="title" />
                 </div>
             </div>
             <div class="m-form-group">
-                <label class="m-form-lable">资讯类型</label>
+                <label class="m-form-label">资讯类型</label>
                 <div class="m-form-controls">
-                    <select></select>
+                    <select name="type">
+                        <option value="-1">请选择类型</option>
+                        @{
+                            foreach (NewsType type in Enum.GetValues(typeof (NewsType)))
+                            {
+                                <option value="@type.GetValue()">@type.GetText()</option>
+                            }
+                        }
+                    </select>
                 </div>
             </div>
             <div class="m-form-group">
-                <label class="m-form-lable">资讯内容</label>
-                <div class="m-form-controls">
-                    <input type="text" />
+                <label class="m-form-label">资讯内容</label>
+                <div class="m-form-controls" style="height: 510px">
+                    <script type="text/plain" id="content" class="content"></script>
                 </div>
             </div>
             <div class="m-form-actions">
-                <button type="button">发布资讯</button>
+                <button type="button" class="btn btn-primary j-release">发布资讯</button>
             </div>
         </div>
     </div>
 </div>
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-pager.min.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
     <script type="text/javascript">
         (function ($) {
-            
+            var editor = UE.getEditor("content");
+            var setBtn = function (obj, state) {
+                var $btns = $(obj);
+                if (state) {
+                    $btns.removeAttr("disabled").removeClass("disabled");
+                } else {
+                    $btns.attr("disabled", "disabled").addClass("disabled");
+                }
+                $btns.each(function (i) {
+                    var $item = $btns.eq(i);
+                    if ($item.data("state") != state) {
+                        var tag = $item.html();
+                        $item.html($item.data("tag") || tag + "中...");
+                        $item.data("tag", tag).data("state", state);
+                    }
+                });
+            };
             $(".m-panel-title")
                 .delegate("li", "click", function () {
                     if ($(this).hasClass("active")) return false;
@@ -133,7 +123,36 @@
                         $lis = $t.parents(".m-panel").find(".m-panel-item"),
                         index = $t.parent().find("li").index($t);
                     $t.addClass("active").siblings("li").removeClass("active");
-                    $lis.fadeOut().eq(index).fadeIn();
+                    $lis.hide().eq(index).fadeIn();
+                    top.window.SetFrameHeight && top.window.SetFrameHeight();
+                    return false;
+                });
+            $(document)
+                .delegate(".j-release", "click", function () {
+                    if ($(this).hasClass("disabled")) return false;
+                    setBtn(this, false);
+                    var $inputs = $(".m-form input[name],.m-form select[name]"),
+                    formData = {},
+                    $item;
+                    for (var i = 0; i < $inputs.length; i++) {
+                        $item = $inputs.eq(i);
+                        formData[$item.attr("name")] = $item.val();
+                    }
+                    formData.content = encodeURIComponent(editor.getContent());
+                    $.ajax({
+                        url: "/m/addnews",
+                        type: "post",
+                        dataType: "json",
+                        data: formData,
+                        success: function (json) {
+                            console.log(json);
+                            setBtn(".j-release", true);
+                        },
+                        error: function (json) {
+                            console.log(json);
+                            setBtn(".j-release", true);
+                        }
+                    });
                     return false;
                 });
         })(jQuery);

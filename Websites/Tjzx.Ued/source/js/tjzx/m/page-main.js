@@ -4,7 +4,7 @@ seajs.config({
         "dialog": "//ued.tjzx.com/plugs/artDialog/v6/src/dialog"
     }
 });
-var msg = window.MSG = function (opt,state) {
+var msg = window.MSG = function (opt, state) {
     if ("string" === typeof opt) {
         opt = {
             title: "操作提示",
@@ -12,7 +12,7 @@ var msg = window.MSG = function (opt,state) {
             okValue: "确认",
             ok: function () {
                 if (-1 === state) {
-                    location.href = "/m/login?return_url="+encodeURI(location.href);
+                    location.href = "/m/login?return_url=" + encodeURI(location.href);
                 }
                 this.close();
                 return false;
@@ -25,9 +25,9 @@ var msg = window.MSG = function (opt,state) {
         (opt.modal && d.showModal()) || d.show();
     });
 };
-var callback=window.CALLBACK=function(json){
-    if(!json || json.state < 1){
-        msg(json.msg || "操作异常！",json.state || 0);
+var callback = window.CALLBACK = function (json) {
+    if (!json || json.state < 1) {
+        msg(json.msg || "操作异常！", json.state || 0);
         return false;
     }
     return true;
@@ -76,7 +76,7 @@ var callback=window.CALLBACK=function(json){
             dataType: 'json',
             data: { parentId: parendId, t: Math.random() },
             success: function (json) {
-                if(!callback(json)) return false;
+                if (!callback(json)) return false;
                 if (S.isObject(json) && json.length) {
                     if (parendId == 0)
                         fillTop(json);
@@ -114,11 +114,15 @@ var callback=window.CALLBACK=function(json){
             return false;
         });
 })(jQuery, SINGER);
-$("#framePage").load(function () {
-    var h = 1200;
+var setFrameHeight = window.SetFrameHeight = function () {
+    var h = 1200,
+        $frame = $("#framePage");
     try {
-        h = $(this).contents().find("body").height();
+        h = $frame.contents().find("body").height();
     } catch (e) {
     }
-    $(this).css("height", h+20);
+    $frame.css("height", h + 20);
+};
+$("#framePage").load(function () {
+    setFrameHeight();
 });

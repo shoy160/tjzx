@@ -1,6 +1,15 @@
 ﻿@section Header{
     <link href="//ued.tjzx.com/css/tjzx/m/main.min.css" rel="stylesheet" type="text/css" />
 }
+@{
+    ViewBag.Title = "后台首页";
+    var user = Tjzx.Official.BLL.ViewModels.User.GetUser();
+    if (user == null)
+    {
+        Response.Redirect(FormsAuthentication.LoginUrl, true);
+        return;
+    }
+}
 <div class="m-top">
     <div class="m-logo">
         
@@ -10,7 +19,7 @@
         </ul>
     </div>
     <div class="m-info">
-        您好，<a href="#" class="m-name">admin</a> - <a href="/m/loginout">[安全退出]</a>
+        您好，<a href="/m" class="m-name">@user.UserName</a> - <a href="/m/loginout">[安全退出]</a>
     </div>
 </div>
 <div class="m-content">

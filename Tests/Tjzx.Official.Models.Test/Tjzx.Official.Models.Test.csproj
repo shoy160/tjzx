@@ -63,18 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigTest.cs" />
+    <Compile Include="ManagerTest.cs" />
     <Compile Include="PackageCategoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MedicalPackageTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Controllers\Tjzx.Official.Controllers\Tjzx.Official.Controllers.csproj">
-      <Project>{CE2E759A-F1DC-445C-A1C0-835CF0B4E076}</Project>
-      <Name>Tjzx.Official.Controllers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Controllers\Tjzx.Web\Tjzx.Web.csproj">
-      <Project>{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}</Project>
-      <Name>Tjzx.Web</Name>
+    <ProjectReference Include="..\..\Bussiness\Tjzx.Official.BLL\Tjzx.Official.BLL.csproj">
+      <Project>{A2AB7468-3FD9-4830-BE6F-3232FEA06EC1}</Project>
+      <Name>Tjzx.Official.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Models\Tjzx.Official.Models\Tjzx.Official.Models.csproj">
       <Project>{823C4B6A-BEF4-46FB-8399-FF22957C23C8}</Project>

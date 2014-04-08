@@ -1,6 +1,4 @@
-/**
-  Colors
-*/
+//Colors
 @gray-darker: lighten(#000, 13.5%);
 // #222
 @gray-dark: lighten(#000, 20%);
@@ -19,7 +17,7 @@
 @brand-danger: #d9534f;
 
 .brand-border(@color:#fff) {
-  border-color: darken(@color, 5%);
+  border:1px solid darken(@color, 5%);
 }
 
 //颜色计算
@@ -55,29 +53,38 @@
 }
 
 //方块阴影
-.box-shadow(@style, @c) when (iscolor(@c)) {
-  -webkit-box-shadow: @style @c;
-  -moz-box-shadow: @style @c;
-  box-shadow: @style @c;
+.box-shadow(@shadow){
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
 }
 
-.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
-  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+.box-shadow(@inset,@shadow){
+  -webkit-box-shadow:inset @inset,@shadow;
+  -moz-box-shadow: inset @inset,@shadow;
+  box-shadow: inset @inset,@shadow;
 }
 
-.text-shadow(@style,@c) when (iscolor(@c)) {
-  -webkit-text-shadow: @style @c;
-  -moz-text-shadow: @style @c;
-  text-shadow: @style @c;
+.text-shadow(@shadow){
+  -webkit-text-shadow: @shadow;
+  -moz-text-shadow: @shadow;
+  text-shadow: @shadow;
 }
 
 //元素过滤效果
-.transition(@prop:all,@time:1s,@ease:linear) {
-  -webkit-transition: @prop @time @ease;
-  -moz-transition: @prop @time @ease;
-  -ms-transition: @prop @time @ease;
-  -o-transition: @prop @time @ease;
-  transition: @prop @time @ease;
+.transition(@t1,@t2){
+  -webkit-transition: @t1,@t2;
+  -moz-transition: @t1,@t2;
+  -ms-transition: @t1,@t2;
+  -o-transition: @t1,@t2;
+  transition: @t1,@t2;
+}
+.transition(@t){
+  -webkit-transition: @t;
+  -moz-transition: @t;
+  -ms-transition: @t;
+  -o-transition: @t;
+  transition: @t;
 }
 
 //转换/旋转

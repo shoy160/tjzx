@@ -26,5 +26,7 @@ namespace Tjzx.Official.Models.Concrete
         public DbSet<Member> Members { get; set; }
 
         public DbSet<Consulting> Consultings { get; set; }
+
+        public DbSet<Manager> Managers { get; set; }
     }
 }

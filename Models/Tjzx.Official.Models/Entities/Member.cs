@@ -1,11 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tjzx.Official.Models.Entities
 {
     /// <summary>
     /// 会员类
     /// </summary>
+    [Table("Member")]
     public class Member:EntityBase
     {
         [Key]
@@ -46,7 +48,7 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 用户登录令牌
         /// </summary>
-        [MaxLength(50)]
+        [MaxLength(100)]
         public string Ticket { get; set; }
 
         /// <summary>

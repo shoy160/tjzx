@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web;
+using Tjzx.Official.BLL;
 using Tjzx.Web;
 
 namespace Tjzx.Official.Web

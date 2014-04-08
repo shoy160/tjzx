@@ -1,23 +1,97 @@
-﻿<div class="m-window">
-               
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/tjzx/m/page-login.min.css" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewBag.Title = "登录";
+}
+<div class="m-login">
+    <div class="m-form">
+        <div class="m-form-head">健康体检中心 - 后台管理系统</div>
+        <div class="m-form-group">
+            <label class="m-form-label">用户名</label>
+            <div class="m-form-controls">
+                <input type="text" name="userName" />
+            </div>
+        </div>
+        <div class="m-form-group">
+            <label class="m-form-label">密　码</label>
+            <div class="m-form-controls">
+                <input type="password" name="userPwd" />
+            </div>
+        </div>
+        <div class="m-form-group">
+            <label class="m-form-label">验证码</label>
+            <div class="m-form-controls">
+                <input type="text" class="text-code" name="vCode" />
+                <img src="/common/vcode" class="j-vcode" alt="换一张" />
+            </div>
+        </div>
+        <div class="m-form-actions">
+            <button type="button" class="btn btn-primary j-login" data-tag="登录中...">登　录</button>
+        </div>
+    </div>
 </div>
-<script src="//ued.tjzx.com/js/jquery.min.js"></script>
-<script src="//ued.tjzx.com/plugs/easyui/easyloader.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        easyloader.theme = "bootstrap";
-        easyloader.locale = "zh_CN";
-        using("window", function() {
-            $(".m-window").window({
-                title: '健康管理中心 - 后台管理系统',
-                collapsible: false,
-                minimizable: false,
-                maximizable: false,
-                closable: false,
-                closed: false,
-                draggable: false,
-                resizable: false
+@section Footer{
+    <script type="text/javascript">
+        var setBtn = function(obj, state) {
+            var $btns = $(obj);
+            if (state) {
+                $btns.removeAttr("disabled").removeClass("disabled");
+            } else {
+                $btns.attr("disabled", "disabled").addClass("disabled");
+            }
+            $btns.each(function(i) {
+                var $item = $btns.eq(i);
+                if ($item.data("state") != state) {
+                    var tag = $item.html();
+                    $item.html($item.data("tag") || tag + "中...");
+                    $item.data("tag", tag).data("state", state);
+                }
             });
-        });
-    });
-</script>
+        };
+        var resetVCode = function() {
+            $(".j-vcode").attr("src", "/common/vcode?t=" + Math.random());
+        };
+        $(document)
+            .delegate(".j-vcode", "click", function () {
+                resetVCode();
+            })
+            .delegate(".m-form input[name]", "keyup", function (e) {
+                if (13 === e.keyCode) {
+                    $(".j-login").focus().click();
+                }
+            })
+            .delegate(".j-login", "click", function () {
+                if ($(this).hasClass("disabled")) return false;
+                setBtn(this, false);
+                var $inputs = $(".m-form input[name]"),
+                    formData = {},
+                    $item;
+                for (var i = 0; i < $inputs.length; i++) {
+                    $item = $inputs.eq(i);
+                    formData[$item.attr("name")] = $item.val();
+                }
+                $.ajax({
+                    url: "/m/login",
+                    type: "post",
+                    dataType: "json",
+                    data: formData,
+                    success: function (json) {
+                        if (json && json.state) {
+                            location.href = "/m";
+                        } else {
+                            alert(json.msg || "登录异常！");
+                            resetVCode();
+                            setBtn(".j-login", true);
+                        }
+                    },
+                    error: function (msg) {
+                        alert(msg || "登录异常！");
+                        resetVCode();
+                        setBtn(".j-login", true);
+                    }
+                });
+                return false;
+            });
+    </script>
+}

@@ -36,11 +36,28 @@ namespace Tjzx.Official.Models.Entities
         /// </summary>
         [MaxLength(20)]
         public string Mobile { get; set; }
-        
+
         /// <summary>
         /// 权限值
         /// </summary>
         public int Role { get; set; }
+
+        /// <summary>
+        /// 登录令牌
+        /// </summary>
+        [MaxLength(100)]
+        public string Ticket { get; set; }
+
+        /// <summary>
+        /// 最后一次登录时间
+        /// </summary>
+        public DateTime? LastLoginTime { get; set; }
+
+        /// <summary>
+        /// 最后一次登录Ip
+        /// </summary>
+        [MaxLength(30)]
+        public string LastLoginIp { get; set; }
 
         public DateTime CreateOn { get; set; }
 

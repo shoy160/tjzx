@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tjzx.Official.Controllers.ViewModels;
-using Tjzx.Web.Dict;
 using Shoy.Utility.Extend;
+using Tjzx.Official.BLL.Dict;
+using Tjzx.Official.BLL.ViewModels;
 
 namespace Tjzx.Official.Models.Test
 {
@@ -73,6 +73,25 @@ namespace Tjzx.Official.Models.Test
                 };
             Config<MenuConfig>.Instance().Set(menu);
             Assert.IsNotNull(Config<MenuConfig>.Instance().Get());
+        }
+
+        [TestMethod]
+        public void InitTjzxConfig()
+        {
+            var config = new TjzxConfig
+                {
+                    Uploader = new UploaderConfig
+                        {
+                            BasePath = "/upload/",
+                            Directories = new[] {"新闻资讯", "中心公告"},
+                            ImageExts = ".jpg,.jpeg,.gif,.png",
+                            ImageSizeLimit = 500,
+                            AttachExts = ".rar,.zip,.doc,.docx,.txt,.pdf,.swf,.avi,.rm,.rmvb,.mp4",
+                            AttachSizeLimit = 30*1024
+                        }
+                };
+            Config<TjzxConfig>.Instance().Set(config);
+            Assert.IsNotNull(Config<TjzxConfig>.Instance().Get());
         }
     }
 }

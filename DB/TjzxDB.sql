@@ -1,8 +1,15 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/3/31 17:10:50                           */
+/* Created on:     2014/4/8 11:16:22                            */
 /*==============================================================*/
 
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('Album') and o.name = 'FK_ALBUM_RELATIONS_ALBUMGRO')
+alter table Album
+   drop constraint FK_ALBUM_RELATIONS_ALBUMGRO
+go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
@@ -27,6 +34,36 @@ go
 
 if exists (select 1
             from  sysindexes
+           where  id    = object_id('Album')
+            and   name  = 'Relationship_4_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Album.Relationship_4_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Album')
+            and   type = 'U')
+   drop table Album
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('AlbumGroup')
+            and   type = 'U')
+   drop table AlbumGroup
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Assessment')
+            and   type = 'U')
+   drop table Assessment
+go
+
+if exists (select 1
+            from  sysindexes
            where  id    = object_id('Consulting')
             and   name  = 'Relationship_3_FK'
             and   indid > 0
@@ -39,6 +76,13 @@ if exists (select 1
            where  id = object_id('Consulting')
             and   type = 'U')
    drop table Consulting
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Manager')
+            and   type = 'U')
+   drop table Manager
 go
 
 if exists (select 1
@@ -95,16 +139,71 @@ if exists (select 1
 go
 
 /*==============================================================*/
+/* Table: Album                                                 */
+/*==============================================================*/
+create table Album (
+   AlbumId              int                  identity,
+   GroupId              int                  not null,
+   Picture              varchar(300)         not null,
+   Name                 varchar(200)         not null,
+   [Description]        text                 null,
+   CreatorId            int                  not null,
+   [Type]               tinyint              not null,
+   Sort                 int                  null,
+   Creator              varchar(30)          not null,
+   CreateOn             datetime             not null,
+   constraint PK_ALBUM primary key nonclustered (AlbumId)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_4_FK                                     */
+/*==============================================================*/
+create index Relationship_4_FK on Album (
+GroupId ASC
+)
+go
+
+/*==============================================================*/
+/* Table: AlbumGroup                                            */
+/*==============================================================*/
+create table AlbumGroup (
+   GroupId              int                  identity,
+   GroupName            varchar(200)         not null,
+   [State]              tinyint              not null,
+   Sort                 int                  null,
+   constraint PK_ALBUMGROUP primary key nonclustered (GroupId)
+)
+go
+
+/*==============================================================*/
+/* Table: Assessment                                            */
+/*==============================================================*/
+create table Assessment (
+   AssessmentId         int                  identity,
+   MedicalNum           varchar(30)          not null,
+   RiskAssessment       varchar(600)         null,
+   AnomalyIndex         varchar(600)         null,
+   BehaviorPatterns     varchar(600)         null,
+   MainProblem          varchar(600)         null,
+   CreatorId            int                  not null,
+   Creator              varchar(30)          not null,
+   CreateOn             datetime             not null,
+   constraint PK_ASSESSMENT primary key nonclustered (AssessmentId)
+)
+go
+
+/*==============================================================*/
 /* Table: Consulting                                            */
 /*==============================================================*/
 create table Consulting (
    ConsultingId         int                  identity,
    MemberId             int                  null,
    Title                varchar(200)         not null,
-   Content              text                 not null,
+   [Content]            text                 not null,
    Contact              varchar(100)         null,
    Mobile               varchar(20)          null,
-   State                tinyint              not null,
+   [State]              tinyint              not null,
    DeelSituation        varchar(600)         null,
    DeelTime             datetime             null,
    CreateOn             datetime             not null,
@@ -118,6 +217,25 @@ go
 /*==============================================================*/
 create index Relationship_3_FK on Consulting (
 MemberId ASC
+)
+go
+
+/*==============================================================*/
+/* Table: Manager                                               */
+/*==============================================================*/
+create table Manager (
+   ManagerId            int                  identity,
+   UserName             varchar(30)          not null,
+   [PassWord]           varchar(100)         not null,
+   RealName             varchar(50)          null,
+   Mobile               varchar(20)          null,
+   [Role]               int                  null,
+   Ticket               varchar(100)         null,
+   LastLoginTime        datetime             null,
+   LastLoginIp          varchar(30)          null,
+   CreateOn             datetime             not null,
+   [State]              tinyint              null,
+   constraint PK_MANAGER primary key nonclustered (ManagerId)
 )
 go
 
@@ -181,7 +299,7 @@ create table Member (
    RealName             varchar(20)          not null,
    UserName             varchar(50)          not null,
    Mobile               varchar(20)          null,
-   PassWord             varchar(120)         not null,
+   [PassWord]           varchar(120)         not null,
    Ticket               varchar(50)          null,
    LastLoginTime        datetime             null,
    LastLoginIp          varchar(30)          null,
@@ -286,6 +404,11 @@ go
 create index Relationship_2_FK on Reservation (
 PackageId ASC
 )
+go
+
+alter table Album
+   add constraint FK_ALBUM_RELATIONS_ALBUMGRO foreign key (GroupId)
+      references AlbumGroup (GroupId)
 go
 
 alter table Consulting
