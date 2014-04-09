@@ -7,7 +7,7 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 已删除
         /// </summary>
-        [Description("已删除")] Delete = -1,
+        [Description("已删除")] Delete = 100,
 
         /// <summary>
         /// 普通相册

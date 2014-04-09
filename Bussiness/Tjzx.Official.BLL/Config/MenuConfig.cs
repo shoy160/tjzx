@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
-using Tjzx.Official.BLL.Attributes;
 using Tjzx.Official.BLL.Dict;
 using System.Linq;
+using Tjzx.BLL.Config;
 
-namespace Tjzx.Official.BLL.ViewModels
+namespace Tjzx.Official.BLL.Config
 {
     [Serializable]
     [XmlRoot("root")]
     [FileName("menu.config")]
-    public class MenuConfig
+    public class MenuConfig : ConfigBase
     {
         [XmlArray("menus")]
         [XmlArrayItem("item")]
@@ -53,7 +53,7 @@ namespace Tjzx.Official.BLL.ViewModels
         public MenuManager(int userRole)
         {
             _userRole = userRole;
-            _menus = Config<MenuConfig>.Instance().Get().Menus;
+            _menus = ConfigUtils<MenuConfig>.Instance().Get().Menus;
             foreach (var menuItem in _menus.Where(t => t.ParentId > 0))
             {
                 var pItem = _menus.FirstOrDefault(t => t.MenuId == menuItem.ParentId);

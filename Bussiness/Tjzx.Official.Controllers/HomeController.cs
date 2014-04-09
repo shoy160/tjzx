@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
-using Tjzx.Official.BLL;
-using Tjzx.Official.BLL.ViewModels;
+using Tjzx.BLL;
+using Tjzx.BLL.Config;
+using Tjzx.Official.BLL.Config;
 using Tjzx.Web;
 
 namespace Tjzx.Official.Controllers
@@ -13,7 +14,7 @@ namespace Tjzx.Official.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "首页";
-            var config = Config<IndexConfig>.Instance().Get();
+            var config = ConfigUtils<IndexConfig>.Instance().Get();
             return View(config);
         }
 

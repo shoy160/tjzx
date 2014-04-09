@@ -1,22 +1,21 @@
 ﻿using System.Web.Mvc;
-using System.Security.Principal;
 
-namespace Tjzx.Official.Controllers
+namespace Tjzx.Official.Controllers.Health
 {
-    public class HealthController:Controller
+    public class DefaultController:Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Title = "健康管理";
-            return View();
+            return View("/Views/Health/Index.cshtml");
         }
 
         [HttpGet]
         public ActionResult Login()
         {
             ViewBag.Title = "登录 - 健康管理";
-            return View();
+            return View("/Views/Health/Login.cshtml");
         }
     }
 }

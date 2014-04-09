@@ -4,7 +4,7 @@ using System.IO;
 using Shoy.Utility;
 using Shoy.Utility.Extend;
 
-namespace Tjzx.Official.BLL
+namespace Tjzx.BLL.Config
 {
     /// <summary>
     /// 配置文件管理
@@ -34,6 +34,7 @@ namespace Tjzx.Official.BLL
         }
 
         public static T GetConfig<T>(string fileName)
+            where T:ConfigBase
         {
             if (ConfigCache.ContainsKey(fileName))
             {
@@ -49,7 +50,8 @@ namespace Tjzx.Official.BLL
             return config;
         }
 
-        public static void SetConfig(string fileName, object config)
+        public static void SetConfig<T>(string fileName, T config)
+            where T : ConfigBase
         {
             var path = Path.Combine(ConfigPath, fileName);
             string msg;

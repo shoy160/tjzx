@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Serialization;
-using Tjzx.Official.BLL.Attributes;
 
-namespace Tjzx.Official.BLL.ViewModels
+namespace Tjzx.BLL.Config
 {
     [Serializable]
-    public class Config<T>
-        where T:class
+    public class ConfigUtils<T>
+        where T : ConfigBase
     {
         private string _fileName;
 
-        public static Config<T> Instance()
+        public static ConfigUtils<T> Instance()
         {
-            return new Config<T>();
+            return new ConfigUtils<T>();
         }
 
         [XmlIgnore]

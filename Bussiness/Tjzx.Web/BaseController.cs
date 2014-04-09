@@ -1,40 +1,15 @@
 ﻿using System.Web.Mvc;
-using Tjzx.Official.Models.Abstract;
-using Tjzx.Official.Models.Entities;
+using Tjzx.BLL;
 
 namespace Tjzx.Web
 {
-    public class BaseController:Controller
+    public class BaseController : Controller
     {
-        
-    }
+        private readonly Logger _logger = Logger.L<BaseController>();
 
-    public class BaseController<T> : Controller
-        where T : EntityBase
-    {
-        public readonly IRepository<T> Repository;
-
-        public BaseController() { }
-
-        public BaseController(IRepository<T> repository)
+        public BaseController()
         {
-            Repository = repository;
-        }
-    }
-
-    public class BaseController<T, TV> : Controller
-        where T : EntityBase
-        where TV : EntityBase
-    {
-        public readonly IRepository<T> RepositoryT;
-        public readonly IRepository<TV> RepositoryTv;
-
-        public BaseController(){}
-
-        public BaseController(IRepository<T> repositoryT, IRepository<TV> repositoryTv)
-        {
-            RepositoryT = repositoryT;
-            RepositoryTv = repositoryTv;
+            _logger.I("Init Controller");
         }
     }
 }

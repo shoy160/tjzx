@@ -3,7 +3,6 @@
 }
 @using Shoy.Utility.Extend;
 @using Tjzx.Official.BLL.Dict;
-@model List<Tjzx.Official.Models.Entities.News>
 @{
     ViewBag.Title = "新闻资讯";
 }
@@ -33,43 +32,35 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            @if (Model.Any())
-            {
-                foreach (var m in Model)
-                {
-                    <tr>
-                        <td>@m.NewsId</td>
-                        <td class="text-left">@m.Title</td>
-                        <td>@m.Type</td>
-                        <td>@m.CreateOn</td>
-                        <td>@m.Creator</td>
-                        <td>@m.State</td>
-                        <td>
-                            <a href="">编辑</a>
-                            <a href="">删除</a>
-                        </td>
-                    </tr>
-                }
-            }
+            <tbody>
             <tr>
-                <td colspan="7">
-                    <div class="j-pager" data-pager="{count:238}"></div>
+                <td>kk</td>
+                <td class="text-left">kk</td>
+                <td>kk</td>
+                <td>kk</td>
+                <td>kk</td>
+                <td>kk</td>
+                <td>
+                    <a href="">编辑</a>
+                    <a href="">删除</a>
                 </td>
             </tr>
+            </tbody>
         </table>
+        <div class="j-pager" data-pager="{count:152}"></div>
     </div>
     <div class="m-panel-item hide">
         <div class="m-form">
             <div class="m-form-group">
-                <label class="m-form-label">资讯标题</label>
+                <label class="m-form-label"><em>*</em>资讯标题</label>
                 <div class="m-form-controls">
-                    <input type="text" class="input-large" name="title" />
+                    <input type="text" class="input-large" name="title" data-valid="{type:'require',msg:'资讯标题不能为空！'}" />
                 </div>
             </div>
             <div class="m-form-group">
-                <label class="m-form-label">资讯类型</label>
+                <label class="m-form-label"><em>*</em>资讯类型</label>
                 <div class="m-form-controls">
-                    <select name="type">
+                    <select name="type" data-valid="{type:'^[0-9]+$',msg:'请选择类型！'}">
                         <option value="-1">请选择类型</option>
                         @{
                             foreach (NewsType type in Enum.GetValues(typeof (NewsType)))
@@ -78,6 +69,18 @@
                             }
                         }
                     </select>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">作　　者</label>
+                <div class="m-form-controls">
+                    <input type="text" name="author" />
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">出　　处</label>
+                <div class="m-form-controls">
+                    <input type="text" name="comefrom" />
                 </div>
             </div>
             <div class="m-form-group">
@@ -93,29 +96,19 @@
     </div>
 </div>
 @section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-pager.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
     <script type="text/javascript">
         (function ($) {
+            window.UEDITOR_CONFIG.autoHeightEnabled = false;
             var editor = UE.getEditor("content");
-            var setBtn = function (obj, state) {
-                var $btns = $(obj);
-                if (state) {
-                    $btns.removeAttr("disabled").removeClass("disabled");
-                } else {
-                    $btns.attr("disabled", "disabled").addClass("disabled");
-                }
-                $btns.each(function (i) {
-                    var $item = $btns.eq(i);
-                    if ($item.data("state") != state) {
-                        var tag = $item.html();
-                        $item.html($item.data("tag") || tag + "中...");
-                        $item.data("tag", tag).data("state", state);
-                    }
-                });
-            };
+            //form
+            var vForm = $(".m-form").valid();
+
             $(".m-panel-title")
                 .delegate("li", "click", function () {
                     if ($(this).hasClass("active")) return false;
@@ -124,34 +117,30 @@
                         index = $t.parent().find("li").index($t);
                     $t.addClass("active").siblings("li").removeClass("active");
                     $lis.hide().eq(index).fadeIn();
-                    top.window.SetFrameHeight && top.window.SetFrameHeight();
+                    top.window && top.window.SetFrameHeight && top.window.SetFrameHeight();
                     return false;
                 });
             $(document)
                 .delegate(".j-release", "click", function () {
-                    if ($(this).hasClass("disabled")) return false;
-                    setBtn(this, false);
-                    var $inputs = $(".m-form input[name],.m-form select[name]"),
-                    formData = {},
-                    $item;
-                    for (var i = 0; i < $inputs.length; i++) {
-                        $item = $inputs.eq(i);
-                        formData[$item.attr("name")] = $item.val();
+                    if ($(this).hasClass("disabled") || !vForm.check()) return false;
+                    var content = encodeURIComponent(editor.getContent());
+                    if (content == "" || content == null) {
+                        singer.msg("请填写资讯内容！");
+                        return false;
                     }
-                    formData.content = encodeURIComponent(editor.getContent());
-                    $.ajax({
-                        url: "/m/addnews",
-                        type: "post",
-                        dataType: "json",
-                        data: formData,
-                        success: function (json) {
-                            console.log(json);
-                            setBtn(".j-release", true);
-                        },
-                        error: function (json) {
-                            console.log(json);
-                            setBtn(".j-release", true);
+                    singer.setBtn(this, false);
+                    var formData = vForm.json();
+                    formData.content = content;
+                    singer.getJson("/m/news/add", formData, function (json) {
+                        if (json.state) {
+                            singer.msg("发布成功！");
+                            location.reload(true);
+                        } else {
+                            singer.msg(json.msg || "操作异常！");
+                            singer.setBtn(".j-release", true);
                         }
+                    }, function () {
+                        singer.setBtn(".j-release", true);
                     });
                     return false;
                 });

@@ -10,12 +10,7 @@ namespace Tjzx.Web
         /// </summary>
         public static void Register()
         {
-            DependencyInit();
-            AuthorizeSet();
-        }
-
-        private static void AuthorizeSet()
-        {
+            //DependencyInit();
         }
 
         /// <summary>

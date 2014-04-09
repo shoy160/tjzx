@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shoy.Utility.Extend;
+using Tjzx.BLL.Config;
+using Tjzx.Official.BLL.Config;
 using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 
@@ -45,8 +47,8 @@ namespace Tjzx.Official.Models.Test
                                 new WordLink{Id = 2,Title = "四川省卫生厅",Link = "http://www.scwst.gov.cn/",Sort = 1}
                             }
                 };
-            Config<IndexConfig>.Instance().Set(config);
-            Assert.IsNotNull(Config<IndexConfig>.Instance().Get());
+            ConfigUtils<IndexConfig>.Instance().Set(config);
+            Assert.IsNotNull(ConfigUtils<IndexConfig>.Instance().Get());
         }
 
         [TestMethod]
@@ -59,20 +61,20 @@ namespace Tjzx.Official.Models.Test
                             new MenuItem{MenuId = 1,Name = "内容管理",Class = "icon-04",Depth = 0,Sort = 1},
                             new MenuItem{MenuId = 2,Name = "健康管理",Class = "icon-05",Depth = 0,Sort = 2},
                             new MenuItem{MenuId = 3,Name = "用户管理",Class = "icon-07",Depth = 0,Sort = 3},
-                            new MenuItem{MenuId = 101, ParentId = 1,Name = "新闻资讯",Link = "/m/news",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
-                            new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category",Class = "icon-02",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/packagelist",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "流程及事项",Link = "/m/process",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "预约列表",Link = "/m/reservations",Class = "icon-03",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "咨询交流",Link = "/m/consultings",Class = "icon-03",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Link = "/m/pictures",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
-                            new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
-                            new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
-                            new MenuItem{MenuId = 301, ParentId = 3,Name = "系统管理",Link = "/m/managers",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1}
+                            new MenuItem{MenuId = 101, ParentId = 1,Name = "新闻资讯",Link = "/m/news/index",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category/index",Class = "icon-02",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/package/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "流程及事项",Link = "/m/process/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "预约列表",Link = "/m/reservation/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "咨询交流",Link = "/m/consulting/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Link = "/m/picture/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
+                            new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
+                            new MenuItem{MenuId = 301, ParentId = 3,Name = "系统管理",Link = "/m/user/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1}
                         }
                 };
-            Config<MenuConfig>.Instance().Set(menu);
-            Assert.IsNotNull(Config<MenuConfig>.Instance().Get());
+            ConfigUtils<MenuConfig>.Instance().Set(menu);
+            Assert.IsNotNull(ConfigUtils<MenuConfig>.Instance().Get());
         }
 
         [TestMethod]
@@ -90,8 +92,8 @@ namespace Tjzx.Official.Models.Test
                             AttachSizeLimit = 30*1024
                         }
                 };
-            Config<TjzxConfig>.Instance().Set(config);
-            Assert.IsNotNull(Config<TjzxConfig>.Instance().Get());
+            ConfigUtils<TjzxConfig>.Instance().Set(config);
+            Assert.IsNotNull(ConfigUtils<TjzxConfig>.Instance().Get());
         }
     }
 }

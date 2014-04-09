@@ -484,6 +484,10 @@
       <Project>{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}</Project>
       <Name>Tjzx.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\Tjzx.BLL\Tjzx.BLL.csproj">
+      <Project>{0BB4914F-5D8C-4B7C-83DF-F784198590A3}</Project>
+      <Name>Tjzx.BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ueditor\net\fileUp.ashx" />

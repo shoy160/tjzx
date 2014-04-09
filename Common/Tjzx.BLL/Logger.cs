@@ -6,7 +6,7 @@ using log4net;
 using log4net.Config;
 using Shoy.Utility;
 
-namespace Tjzx.Official.BLL
+namespace Tjzx.BLL
 {
     public sealed class Logger
     {

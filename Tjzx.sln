@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Websites", "03-Websites", "{556B83CC-1FB7-4E0D-88DB-9A13407B7956}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Websites", "04-Websites", "{556B83CC-1FB7-4E0D-88DB-9A13407B7956}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Models", "01-Models", "{CD00F244-4E8A-4B64-A62A-3D2DA769D85A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Models", "02-Models", "{CD00F244-4E8A-4B64-A62A-3D2DA769D85A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Bussiness", "02-Bussiness", "{63C42726-B563-4DE6-BD1D-8D2A02435E5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Bussiness", "03-Bussiness", "{63C42726-B563-4DE6-BD1D-8D2A02435E5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjzx.Official.Models", "Models\Tjzx.Official.Models\Tjzx.Official.Models.csproj", "{823C4B6A-BEF4-46FB-8399-FF22957C23C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Tests", "04-Tests", "{931E7495-E32B-4208-A8BD-D60CB601F182}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05-Tests", "05-Tests", "{931E7495-E32B-4208-A8BD-D60CB601F182}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjzx.Official.Models.Test", "Tests\Tjzx.Official.Models.Test\Tjzx.Official.Models.Test.csproj", "{590F6283-B7C6-4553-984A-7B02A96BF64E}"
 EndProject
@@ -29,6 +29,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjzx.Official.Controllers", "Bussiness\Tjzx.Official.Controllers\Tjzx.Official.Controllers.csproj", "{CE2E759A-F1DC-445C-A1C0-835CF0B4E076}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjzx.Web", "Bussiness\Tjzx.Web\Tjzx.Web.csproj", "{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Common", "01-Common", "{15D7F5F4-F4A6-4DD1-BA5E-636499888FDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjzx.BLL", "Common\Tjzx.BLL\Tjzx.BLL.csproj", "{0BB4914F-5D8C-4B7C-83DF-F784198590A3}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -67,6 +71,10 @@ Global
 		{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCF9E9EB-050F-496E-8EA1-6B4183646C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB4914F-5D8C-4B7C-83DF-F784198590A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB4914F-5D8C-4B7C-83DF-F784198590A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB4914F-5D8C-4B7C-83DF-F784198590A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB4914F-5D8C-4B7C-83DF-F784198590A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +88,6 @@ Global
 		{BCF9E9EB-050F-496E-8EA1-6B4183646C6C} = {63C42726-B563-4DE6-BD1D-8D2A02435E5F}
 		{590F6283-B7C6-4553-984A-7B02A96BF64E} = {931E7495-E32B-4208-A8BD-D60CB601F182}
 		{738B36B6-1B3B-41F6-A56B-7A69FCBB7809} = {931E7495-E32B-4208-A8BD-D60CB601F182}
+		{0BB4914F-5D8C-4B7C-83DF-F784198590A3} = {15D7F5F4-F4A6-4DD1-BA5E-636499888FDA}
 	EndGlobalSection
 EndGlobal

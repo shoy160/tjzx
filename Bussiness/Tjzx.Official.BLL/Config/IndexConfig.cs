@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using Tjzx.Official.BLL.Attributes;
+using Tjzx.BLL.Config;
 
-namespace Tjzx.Official.BLL.ViewModels
+namespace Tjzx.Official.BLL.Config
 {
     /// <summary>
     /// 首页配置
@@ -11,7 +11,7 @@ namespace Tjzx.Official.BLL.ViewModels
     [Serializable]
     [XmlRoot("root")]
     [FileName("index.config")]
-    public class IndexConfig
+    public class IndexConfig:ConfigBase
     {
         /// <summary>
         /// 导航菜单

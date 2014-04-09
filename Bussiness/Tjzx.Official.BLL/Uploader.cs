@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Text.RegularExpressions;
 using System.Web;
 using Shoy.Utility;
 using Shoy.Utility.Extend;
-using Tjzx.Official.BLL.ViewModels;
-using System.Collections.Generic;
+using Tjzx.BLL;
+using Tjzx.BLL.Config;
+using Tjzx.Official.BLL.Config;
 
 namespace Tjzx.Official.BLL
 {
@@ -25,7 +27,7 @@ namespace Tjzx.Official.BLL
 
         public static string[] GetDirectories()
         {
-            var config = Config<TjzxConfig>.Instance().Get();
+            var config = ConfigUtils<TjzxConfig>.Instance().Get();
             return config.Uploader.Directories;
         }
 
@@ -65,7 +67,7 @@ namespace Tjzx.Official.BLL
         public Uploader(HttpContext context)
         {
             _context = context;
-            var config = Config<TjzxConfig>.Instance().Get();
+            var config = ConfigUtils<TjzxConfig>.Instance().Get();
             if (config != null)
             {
                 _config = config.Uploader;

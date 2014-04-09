@@ -1,13 +1,13 @@
-﻿using System.Xml.Serialization;
-using Tjzx.Official.BLL.Attributes;
-using System;
+﻿using System;
+using System.Xml.Serialization;
+using Tjzx.BLL.Config;
 
-namespace Tjzx.Official.BLL.ViewModels
+namespace Tjzx.Official.BLL.Config
 {
     [Serializable]
     [XmlRoot("root")]
     [FileName("tjzx.config")]
-    public class TjzxConfig
+    public class TjzxConfig : ConfigBase
     {
         [XmlElement("uploader")]
         public UploaderConfig Uploader { get; set; }

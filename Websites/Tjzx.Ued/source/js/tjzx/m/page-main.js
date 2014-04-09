@@ -5,7 +5,7 @@ seajs.config({
     }
 });
 var msg = window.MSG = function (opt, state) {
-    if ("string" === typeof opt) {
+    if ("string" === typeof opt || "number" === typeof opt) {
         opt = {
             title: "操作提示",
             content: opt,

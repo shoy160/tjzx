@@ -18,15 +18,25 @@ namespace Tjzx.Web
             routes.MapRoute(
                 "Health",
                 "h/{action}",
-                new {controller = "Health", action = "Index"},
-                new {action = "[a-z]{3,}"}
+                new {controller = "Default", action = "Index"},
+                new {action = "[a-z]{3,}"},
+                new[] {"Tjzx.Official.Controllers.Health"}
+                );
+
+            routes.MapRoute(
+                "ManagerDefault",
+                "m/{action}",
+                new {controller = "Default", action = "Index"},
+                new {action = "[a-z]{3,}"},
+                new[] {"Tjzx.Official.Controllers.Manager"}
                 );
 
             routes.MapRoute(
                 "Manager",
-                "m/{action}",
-                new { controller = "Manager", action = "Main" },
-                new { action = "[a-z]{3,}" }
+                "m/{controller}/{action}",
+                new {controller = "Default", action = "Index"},
+                new {action = "[a-z]{3,}"},
+                new[] {"Tjzx.Official.Controllers.Manager"}
                 );
 
             routes.MapRoute(

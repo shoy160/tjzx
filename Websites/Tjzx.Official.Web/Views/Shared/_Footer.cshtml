@@ -1,6 +1,7 @@
-﻿@using Tjzx.Official.BLL.ViewModels;
+﻿@using Tjzx.BLL.Config
+@using Tjzx.Official.BLL.Config
 @{
-    var config = Config<IndexConfig>.Instance().Get();
+    var config = ConfigUtils<IndexConfig>.Instance().Get();
 }
 <footer>
     <ul>

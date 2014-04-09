@@ -19,3 +19,9 @@
 .m-form .btn {
   width: 165px;
 }
+.m-form .j-vcode {
+  width: 90px;
+  height: 30px;
+  vertical-align: -8px;
+  cursor: pointer;
+}

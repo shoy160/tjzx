@@ -10,7 +10,7 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 删除
         /// </summary>
-        [Description("删除")] Delete = -1,
+        [Description("删除")] Delete = 2,
 
         /// <summary>
         /// 隐藏

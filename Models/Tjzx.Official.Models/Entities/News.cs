@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace Tjzx.Official.Models.Entities
 {
@@ -8,7 +9,7 @@ namespace Tjzx.Official.Models.Entities
     /// 新闻资讯类
     /// </summary>
     [Table("News")]
-    public class News :EntityBase
+    public class News : EntityBase
     {
         [Key]
         public int NewsId { get; set; }
@@ -21,19 +22,22 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 标题
         /// </summary>
-        [Required]
-        [MaxLength(300)]
+        [Required(ErrorMessage = "请填写咨询标题！")]
+        [MaxLength(300, ErrorMessage = "资讯标题不得超过300个字符")]
+        [DisplayName("资讯标题")]
         public string Title { get; set; }
 
         /// <summary>
         /// 内容
         /// </summary>
-        [Required]
+        [Required(ErrorMessage = "请填写咨询内容！")]
+        [DisplayName("资讯内容")]
         public string Content { get; set; }
 
         /// <summary>
         /// 发布时间
         /// </summary>
+        [DisplayName("发布时间")]
         public DateTime CreateOn { get; set; }
 
         /// <summary>

@@ -80,19 +80,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonController.cs" />
-    <Compile Include="HealthController.cs" />
+    <Compile Include="Health\DefaultController.cs" />
     <Compile Include="HomeController.cs" />
-    <Compile Include="ManagerController.cs" />
-    <Compile Include="MedicalPackageController.cs" />
+    <Compile Include="Manager\AssessController.cs" />
+    <Compile Include="Manager\CategoryController.cs" />
+    <Compile Include="Manager\ConsultingController.cs" />
+    <Compile Include="Manager\HealthController.cs" />
+    <Compile Include="Manager\DefaultController.cs" />
+    <Compile Include="Manager\PackageController.cs" />
+    <Compile Include="Manager\PictureController.cs" />
+    <Compile Include="Manager\ProcessController.cs" />
+    <Compile Include="Manager\ReservationController.cs" />
+    <Compile Include="Manager\UserController.cs" />
+    <Compile Include="Manager\NewsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Models\Tjzx.Official.Models\Tjzx.Official.Models.csproj">
-      <Project>{823C4B6A-BEF4-46FB-8399-FF22957C23C8}</Project>
-      <Name>Tjzx.Official.Models</Name>
+    <ProjectReference Include="..\..\Common\Tjzx.BLL\Tjzx.BLL.csproj">
+      <Project>{0BB4914F-5D8C-4B7C-83DF-F784198590A3}</Project>
+      <Name>Tjzx.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tjzx.Official.BLL\Tjzx.Official.BLL.csproj">
       <Project>{A2AB7468-3FD9-4830-BE6F-3232FEA06EC1}</Project>

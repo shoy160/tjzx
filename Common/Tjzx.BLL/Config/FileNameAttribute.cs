@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tjzx.Official.BLL.Attributes
+namespace Tjzx.BLL.Config
 {
     /// <summary>
     /// 配置文件名属性

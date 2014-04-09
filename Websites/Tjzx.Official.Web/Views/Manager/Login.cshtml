@@ -1,5 +1,6 @@
 ﻿@section Header{
     <link href="//ued.tjzx.com/css/tjzx/m/page-login.min.css" rel="stylesheet" type="text/css" />
+    <link href="//ued.tjzx.com/css/tjzx/m/m-base.min.css" rel="stylesheet" type="text/css" />
 }
 @{
     ViewBag.Title = "登录";
@@ -10,20 +11,23 @@
         <div class="m-form-group">
             <label class="m-form-label">用户名</label>
             <div class="m-form-controls">
-                <input type="text" name="userName" />
+                <input type="text" name="userName" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位的用户名！'}" />
+                <span class="m-form-tip"></span>
             </div>
         </div>
         <div class="m-form-group">
             <label class="m-form-label">密　码</label>
             <div class="m-form-controls">
-                <input type="password" name="userPwd" />
+                <input type="password" name="userPwd" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位的密码！'}" />
+                <span class="m-form-tip"></span>
             </div>
         </div>
         <div class="m-form-group">
             <label class="m-form-label">验证码</label>
             <div class="m-form-controls">
-                <input type="text" class="text-code" name="vCode" />
+                <input type="text" class="text-code" name="vCode" data-valid="{type:'^[a-z0-9]{4}$',msg:'请输入4位验证码！'}" />
                 <img src="/common/vcode" class="j-vcode" alt="换一张" />
+                <span class="m-form-tip"></span>
             </div>
         </div>
         <div class="m-form-actions">
@@ -32,7 +36,9 @@
     </div>
 </div>
 @section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript">
+        var valid = $(".m-form").valid();
         var setBtn = function(obj, state) {
             var $btns = $(obj);
             if (state) {
@@ -53,16 +59,16 @@
             $(".j-vcode").attr("src", "/common/vcode?t=" + Math.random());
         };
         $(document)
-            .delegate(".j-vcode", "click", function () {
+            .delegate(".j-vcode", "click", function() {
                 resetVCode();
             })
-            .delegate(".m-form input[name]", "keyup", function (e) {
+            .delegate(".m-form input[name]", "keyup", function(e) {
                 if (13 === e.keyCode) {
                     $(".j-login").focus().click();
                 }
             })
-            .delegate(".j-login", "click", function () {
-                if ($(this).hasClass("disabled")) return false;
+            .delegate(".j-login", "click", function() {
+                if ($(this).hasClass("disabled") || !valid.check()) return false;
                 setBtn(this, false);
                 var $inputs = $(".m-form input[name]"),
                     formData = {},
@@ -76,7 +82,7 @@
                     type: "post",
                     dataType: "json",
                     data: formData,
-                    success: function (json) {
+                    success: function(json) {
                         if (json && json.state) {
                             location.href = "/m";
                         } else {
@@ -85,7 +91,7 @@
                             setBtn(".j-login", true);
                         }
                     },
-                    error: function (msg) {
+                    error: function(msg) {
                         alert(msg || "登录异常！");
                         resetVCode();
                         setBtn(".j-login", true);
