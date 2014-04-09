@@ -150,6 +150,26 @@ singer.mix({
             }
         }
     },
+    clone:function(obj){
+        var objClone;
+        if (obj.constructor === Object){
+            objClone = new obj.constructor();
+        }else{
+            objClone = new obj.constructor(obj.valueOf());
+        }
+        for(var key in obj){
+            if ( objClone[key] != obj[key] ){
+                if ( typeof(obj[key]) == 'object' ){
+                    objClone[key] = obj[key].clone();
+                }else{
+                    objClone[key] = obj[key];
+                }
+            }
+        }
+        objClone.toString = obj.toString;
+        objClone.valueOf = obj.valueOf;
+        return objClone;
+    },
     favorite:function(title){
         var d = location.host;
         var c = title|| "四川省人民医院-健康体检中心，您的健康管理专家！";

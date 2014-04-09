@@ -7,7 +7,7 @@ using Shoy.Utility.Extend;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.BLL.Dict;
 
-namespace Tjzx.Official.BLL.ViewModels
+namespace Tjzx.Official.BLL
 {
     public class User
     {
@@ -16,7 +16,7 @@ namespace Tjzx.Official.BLL.ViewModels
         public int Role { get; set; }
         public string Ticket { get; set; }
 
-        public static string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！"};
+        private static readonly string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！"};
 
         public static User GetUser()
         {

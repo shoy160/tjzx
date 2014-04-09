@@ -23,7 +23,7 @@ namespace Tjzx.Official.Controllers.Manager
         {
             if (type == -1) type = Const.Ignore;
             if (state == -1) state = Const.Ignore;
-            return Json(NewsUtils.GetList((byte) type, (byte) state, page, size));
+            return Json(NewsBusi.GetList((byte) type, (byte) state, page, size));
         }
 
         [HttpPost]
@@ -31,7 +31,7 @@ namespace Tjzx.Official.Controllers.Manager
         [ActionName("add")]
         public JsonResult AddNews(NewsInfo info)
         {
-            return Json(NewsUtils.Insert(info));
+            return Json(NewsBusi.Insert(info));
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth(Role = ManagerRole.News)]
         public JsonResult UpdateNews(NewsInfo info)
         {
-            return Json(NewsUtils.Update(info));
+            return Json(NewsBusi.Update(info));
         }
 
         [HttpPost]
@@ -47,7 +47,7 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth(Role = ManagerRole.News)]
         public JsonResult UpdateNews(int newsId, int state)
         {
-            return Json(NewsUtils.UpdateState(newsId, (StateType) state));
+            return Json(NewsBusi.UpdateState(newsId, (StateType) state));
         }
     }
 }

@@ -95,5 +95,23 @@ var singer = window.SINGER = {
                 errorCallback && singer.isFunction(errorCallback) && errorCallback(data);
             }
         });
+    },
+    setFrameHeight:function(){
+        top.window && top.window.SetFrameHeight && top.window.SetFrameHeight();
     }
 };
+
+/**
+ *  绑定模板事件
+ */
+$(".m-panel-title")
+    .delegate("li", "click", function () {
+        if ($(this).hasClass("active")) return false;
+        var $t = $(this),
+            $lis = $t.parents(".m-panel").find(".m-panel-item"),
+            index = $t.parent().find("li").index($t);
+        $t.addClass("active").siblings("li").removeClass("active");
+        $lis.hide().eq(index).fadeIn();
+        singer.setFrameHeight();
+        return false;
+    });

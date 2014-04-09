@@ -3,7 +3,7 @@
 }
 @{
     ViewBag.Title = "后台首页";
-    var user = Tjzx.Official.BLL.ViewModels.User.GetUser();
+    var user = Tjzx.Official.BLL.User.GetUser();
     if (user == null)
     {
         Response.Redirect(FormsAuthentication.LoginUrl, true);
@@ -48,7 +48,7 @@
     </div>
 </div>
 @section Footer{
-    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/source/js/hTemplate.js" charset="utf-8"></script>
     <script type="text/javascript" src="//ued.tjzx.com/plugs/artDialog/v6/lib/sea.js" charset="utf-8"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-main.min.js"></script>
 }

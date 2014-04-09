@@ -10,7 +10,7 @@ using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.BLL.Business
 {
-    public class NewsUtils
+    public class NewsBusi
     {
         /// <summary>
         /// 发布新闻资讯
@@ -29,7 +29,7 @@ namespace Tjzx.Official.BLL.Business
                         Type = info.Type,
                         Content = content,
                         CreateOn = DateTime.Now,
-                        State = (byte) StateType.Display,
+                        State = (byte) StateType.Hidden,
                         CreatorId = user.UserId,
                         Creator = user.UserName,
                         Author = info.Author,

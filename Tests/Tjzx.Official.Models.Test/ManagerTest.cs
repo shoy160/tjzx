@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shoy.Utility.Extend;
+using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
-using Tjzx.Official.BLL.Dict;
-using System;
 
 namespace Tjzx.Official.Models.Test
 {
@@ -25,7 +25,8 @@ namespace Tjzx.Official.Models.Test
                         CreateOn = DateTime.Now,
                         Mobile = "18782246531",
                         Role =
-                            (ManagerRole.Package | ManagerRole.Reservation | ManagerRole.Users | ManagerRole.Health)
+                            (ManagerRole.News | ManagerRole.Package | ManagerRole.Reservation | ManagerRole.Users |
+                             ManagerRole.Health)
                                 .GetValue()
                     };
                 db.Managers.Add(manager);

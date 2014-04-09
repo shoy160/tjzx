@@ -32,9 +32,12 @@ var callback = window.CALLBACK = function (json) {
     }
     return true;
 };
-(function ($, S) {
+(function ($) {
+    var isArray=function(obj){
+        return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase() === "array";
+    };
     var fillTop = function (json) {
-        if (!S.isArray(json) || !json.length) return false;
+        if (!isArray(json) || !json.length) return false;
         json[0].activeCues = " class=\"active\"";
         var h = new hTemplate({
             tmp: '<li data-id="{id}">' +
@@ -48,7 +51,7 @@ var callback = window.CALLBACK = function (json) {
         return true;
     };
     var fillMenu = function (json) {
-        if (!S.isArray(json) || !json.length) return false;
+        if (!isArray(json) || !json.length) return false;
         var h = new hTemplate({
             tmp: '<li>' +
                 '<a href="{link}" title="{name}">' +
@@ -77,7 +80,7 @@ var callback = window.CALLBACK = function (json) {
             data: { parentId: parendId, t: Math.random() },
             success: function (json) {
                 if (!callback(json)) return false;
-                if (S.isObject(json) && json.length) {
+                if (isArray(json) && json.length) {
                     if (parendId == 0)
                         fillTop(json);
                     else
@@ -113,7 +116,7 @@ var callback = window.CALLBACK = function (json) {
                 $(".m-nav li[data-id='" + id + "']").click();
             return false;
         });
-})(jQuery, SINGER);
+})(jQuery);
 var setFrameHeight = window.SetFrameHeight = function () {
     var h = 1200,
         $frame = $("#framePage");

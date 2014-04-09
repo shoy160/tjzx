@@ -1,8 +1,8 @@
 ﻿@section Header{
-    <link href="//ued.tjzx.com/css/plugs/pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
 }
-@using Shoy.Utility.Extend;
-@using Tjzx.Official.BLL.Dict;
+@using Shoy.Utility.Extend
+@using Tjzx.Official.BLL.Dict
 @{
     ViewBag.Title = "新闻资讯";
 }
@@ -17,8 +17,12 @@
         <table class="m-table">
             <caption>资讯列表</caption>
             <colgroup>
-                <col class="col-06"/><col /><col class="col-08"/>
-                <col class="col-10"/><col class="col-08"/><col class="col-08"/>
+                <col class="col-06"/>
+                <col />
+                <col class="col-08"/>
+                <col class="col-10"/>
+                <col class="col-08"/>
+                <col class="col-08"/>
                 <col class="col-12"/>
             </colgroup>
             <thead>
@@ -32,22 +36,10 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>kk</td>
-                <td class="text-left">kk</td>
-                <td>kk</td>
-                <td>kk</td>
-                <td>kk</td>
-                <td>kk</td>
-                <td>
-                    <a href="">编辑</a>
-                    <a href="">删除</a>
-                </td>
-            </tr>
+            <tbody class="j-htemplate">
             </tbody>
         </table>
-        <div class="j-pager" data-pager="{count:152}"></div>
+        <div class="h-pager"></div>
     </div>
     <div class="m-panel-item hide">
         <div class="m-form">
@@ -95,29 +87,65 @@
         </div>
     </div>
 </div>
+<script type="text/h-temp" id="h-temp">
+    <tr>
+        <td>{id}</td>
+        <td class="text-left">{title}</td>
+        <td>{type}</td>
+        <td>{createon}</td>
+        <td>{creator}</td>
+        <td>{state}</td>
+        <td data-id="{id}">
+            <a href="#" class="j-edit">编辑</a>
+            <a href="#" class="j-delete">删除</a>
+        </td>
+    </tr>        
+</script>
+<script type="text/h-temp" id="h-empty">
+    <tr>
+        <td colspan="7">没找到相关资讯！<a href="#" class="j-send">去发布</a></td>
+    </tr>        
+</script>
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
-    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-pager.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
     <script type="text/javascript">
         (function ($) {
+            var h = new hTemplate({
+                tmp: $("#h-temp").html(),
+                empty: $("#h-empty").html(),
+                container: $(".j-htemplate"),
+                size: 15,
+                pager: $(".h-pager"),
+                pageClick: function (page) {
+                    newsList(page - 1);
+                },
+                complete: function () {
+                    singer.setFrameHeight();
+                }
+            });
+            var newsList = function (page) {
+                singer.getJson("/m/news/list", { page: page }, function (json) {
+                    if (json.state) {
+                        h.bind(json.data.list, json.data.count);
+                    }
+                });
+            };
+            newsList(1);
             window.UEDITOR_CONFIG.autoHeightEnabled = false;
             var editor = UE.getEditor("content");
             //form
             var vForm = $(".m-form").valid();
-
-            $(".m-panel-title")
-                .delegate("li", "click", function () {
-                    if ($(this).hasClass("active")) return false;
-                    var $t = $(this),
-                        $lis = $t.parents(".m-panel").find(".m-panel-item"),
-                        index = $t.parent().find("li").index($t);
-                    $t.addClass("active").siblings("li").removeClass("active");
-                    $lis.hide().eq(index).fadeIn();
-                    top.window && top.window.SetFrameHeight && top.window.SetFrameHeight();
+            if ("#send" === location.hash) {
+                $(".m-panel-title li:eq(1)").click();
+            }
+            $(".j-htemplate")
+                .delegate(".j-send", "click", function () {
+                    $(".m-panel-title li:eq(1)").click();
                     return false;
                 });
             $(document)

@@ -53,8 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AuthAttribute.cs" />
+    <Compile Include="Business\CategoryBusi.cs" />
     <Compile Include="Business\Const.cs" />
-    <Compile Include="Business\NewsUtils.cs" />
+    <Compile Include="Business\NewsBusi.cs" />
     <Compile Include="Business\ResultInfo.cs" />
     <Compile Include="Dict\AlbumType.cs" />
     <Compile Include="Dict\ManagerRole.cs" />
@@ -75,7 +76,7 @@
     <Compile Include="Config\TjzxConfig.cs" />
     <Compile Include="ViewModels\PackageInfo.cs" />
     <Compile Include="ViewModels\ReservationInfo.cs" />
-    <Compile Include="ViewModels\User.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="ViewModels\UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>

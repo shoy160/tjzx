@@ -24,10 +24,10 @@ namespace Tjzx.Official.Controllers.Manager
             {
                 return Json(new {state = 0, msg = "验证码错误！"});
             }
-            var code = BLL.ViewModels.User.Login(userName, userPwd);
+            var code = BLL.User.Login(userName, userPwd);
             if (code <= 0)
             {
-                return Json(new {state = 0, msg = BLL.ViewModels.User.GetErrorMsg(code)});
+                return Json(new {state = 0, msg = BLL.User.GetErrorMsg(code)});
             }
             return Json(new {state = 1});
         }
@@ -48,7 +48,7 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth]
         public JsonResult Menus(int parentId)
         {
-            var user = BLL.ViewModels.User.GetUser();
+            var user = BLL.User.GetUser();
             var mg = new MenuManager(user.Role);
             var list = mg.GetMenus(parentId);
             return new JsonResult

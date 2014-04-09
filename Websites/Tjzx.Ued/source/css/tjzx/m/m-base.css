@@ -232,6 +232,13 @@ body {
   height: 30px;
   line-height: 30px;
 }
+.m-form .m-form-controls .m-form-tip {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 15px;
+  *height: 20px;
+}
 .m-form .m-form-actions {
   padding-left: 140px;
   margin: 25px 10px;
@@ -320,6 +327,8 @@ body {
   background-position: 0 0;
   vertical-align: 2px;
   margin: 0 0 0 10px;
+  *background-position: 0 4px;
+  *vertical-align: 7px;
 }
 .valid-error {
   color: #d9534f;

@@ -46,8 +46,8 @@
                 value = valid.getValue.call(form, $t),
                 $tip = opt.tip ? $(opt.tip) : $t.siblings(".m-form-tip");
             if (!$tip || $tip.length != 1) {
-                $tip = $("<span class='m-form-tip'>");
-                $t.parent().append($tip);
+                $t.parent().append("<span class='m-form-tip'></span>");
+                $tip = $t.siblings(".m-form-tip");
             }
             if (!rule.test(value)) {
                 var msg = opt.msg || ps.rulesMsg[opt.type] || "输入错误！";
