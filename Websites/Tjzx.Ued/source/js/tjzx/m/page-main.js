@@ -1,18 +1,25 @@
+/**
+ * 后台管理中心 模板页面基础js
+ */
 seajs.config({
     alias: {
         "jquery": "jquery-1.10.2.js",
         "dialog": "//ued.tjzx.com/plugs/artDialog/v6/src/dialog"
     }
 });
-var msg = window.MSG = function (opt, state) {
+var msg = window.MSG = function (opt, url) {
     if ("string" === typeof opt || "number" === typeof opt) {
         opt = {
             title: "操作提示",
             content: opt,
             okValue: "确认",
             ok: function () {
-                if (-1 === state) {
+                if (-1 === url) {
                     location.href = "/m/login?return_url=" + encodeURI(location.href);
+                } else if ("reload" === url) {
+                    location.reload(true);
+                } else if ("string" === typeof url && url) {
+                    location.href = url;
                 }
                 this.close();
                 return false;
@@ -32,34 +39,27 @@ var callback = window.CALLBACK = function (json) {
     }
     return true;
 };
-(function ($) {
-    var isArray=function(obj){
-        return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase() === "array";
-    };
+(function ($, S) {
+    var topTemp = new hTemplate({
+        tmp: $("#h-topMenu").html(),
+        container: $(".m-nav ul"),
+        empty: ''
+    });
+    var menuTemp = new hTemplate({
+        tmp: $("#h-menu").html(),
+        container: $(".m-menus ul"),
+        empty: ''
+    });
     var fillTop = function (json) {
-        if (!isArray(json) || !json.length) return false;
-        json[0].activeCues = " class=\"active\"";
-        var h = new hTemplate({
-            tmp: '<li data-id="{id}">' +
-                '<a href="#"{active}>' +
-                '<i class="{cls}"></i>{name}</a>',
-            container: $(".m-nav ul"),
-            empty: ''
-        });
-        h.bind(json);
+        if (!S.isArray(json) || !json.length) return false;
+        json[0].active = " class=\"active\"";
+        topTemp.bind(json);
         $(".m-nav li:eq(0)").click();
         return true;
     };
     var fillMenu = function (json) {
-        if (!isArray(json) || !json.length) return false;
-        var h = new hTemplate({
-            tmp: '<li>' +
-                '<a href="{link}" title="{name}">' +
-                '<i class="{cls}"></i>{name}</a>',
-            container: $(".m-menus ul"),
-            empty: ''
-        });
-        h.bind(json);
+        if (!S.isArray(json) || !json.length) return false;
+        menuTemp.bind(json);
         $(".m-menus li:eq(0)").click();
         return true;
     };
@@ -68,20 +68,24 @@ var callback = window.CALLBACK = function (json) {
             $menu = $(".m-menus li a.active"),
             $crumbs = $(".m-crumbs");
         $crumbs.find("dd").remove();
-        $crumbs.append('<dd><a href="#" data-id="' + $top.parent().data("id") + '">' + $top.text() + '</a></dd>');
-        $crumbs.append('<dd class="active">' + $menu.text() + '</dd>');
+        $crumbs.append(
+            S.format('<dd><a href="#" data-id="{id}">{text}</a></dd>',
+                {id: $top.parent().data("id"), text: $top.text()}
+            )
+        );
+        $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.text()}));
     };
 
-    var getMenus = function (parendId) {
+    var getMenus = function (parentId) {
         $.ajax({
             url: '/m/menus',
             type: 'post',
             dataType: 'json',
-            data: { parentId: parendId, t: Math.random() },
+            data: { parentId: parentId, t: Math.random() },
             success: function (json) {
                 if (!callback(json)) return false;
-                if (isArray(json) && json.length) {
-                    if (parendId == 0)
+                if (S.isArray(json) && json.length) {
+                    if (parentId == 0)
                         fillTop(json);
                     else
                         fillMenu(json);
@@ -116,7 +120,7 @@ var callback = window.CALLBACK = function (json) {
                 $(".m-nav li[data-id='" + id + "']").click();
             return false;
         });
-})(jQuery);
+})(jQuery, SINGER);
 var setFrameHeight = window.SetFrameHeight = function () {
     var h = 1200,
         $frame = $("#framePage");

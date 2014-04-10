@@ -18,6 +18,11 @@ namespace Tjzx.Official.BLL
 
         private static readonly string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！"};
 
+        public bool HaseRole(ManagerRole role)
+        {
+            return (Role & (int) role) > 0;
+        }
+
         public static User GetUser()
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
@@ -74,6 +79,15 @@ namespace Tjzx.Official.BLL
                 url = FormsAuthentication.LoginUrl;
             }
             HttpContext.Current.Response.Redirect(url, true);
+        }
+
+        public static void RedirectToLogin()
+        {
+            var context = HttpContext.Current;
+            if (context == null) return;
+            var url = "{0}?return_url={1}".FormatWith(FormsAuthentication.LoginUrl,
+                                                      HttpUtility.UrlEncode(context.Request.RawUrl));
+            context.Response.Redirect(url, true);
         }
     }
 }

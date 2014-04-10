@@ -22,6 +22,43 @@ body {
 .show {
   display: block;
 }
+.m-loading{
+  background: url("//ued.tjzx.com/img/onLoad.gif") no-repeat;
+  background-position: 0 center;
+  line-height: 35px;
+  height: 35px;
+  margin: 0 auto;
+  padding-left: 22px;
+  .inline-block;
+}
+
+.col-04 {
+  width: 4em;
+}
+.col-06 {
+  width: 6em;
+}
+.col-08 {
+  width: 8em;
+}
+.col-10 {
+  width: 10em;
+}
+.col-12 {
+  width: 12em;
+}
+.col-16 {
+  width: 16em;
+}
+.col-20 {
+  width: 20em;
+}
+.col-24 {
+  width: 24em;
+}
+.col-30 {
+  width: 30em;
+}
 
 /* -- panel -- */
 .m-panel {
@@ -38,13 +75,15 @@ body {
     border-bottom: 1px solid @border-color;
     li {
       float: left;
-      padding: 0 15px;
+      padding: 0 18px;
       cursor: pointer;
+      border-left:1px solid @border-color;
       &.active {
         background-color: @default-color;
         color: #fff;
         font-weight: 700;
         cursor: default;
+        border-left: none;
       }
     }
   }
@@ -102,30 +141,6 @@ body {
       background-color: @background-hover-color;
     }
   }
-  .col-04 {
-    width: 4em;
-  }
-  .col-06 {
-    width: 6em;
-  }
-  .col-08 {
-    width: 8em;
-  }
-  .col-10 {
-    width: 10em;
-  }
-  .col-12 {
-    width: 12em;
-  }
-  .col-16 {
-    width: 16em;
-  }
-  .col-24 {
-    width: 24em;
-  }
-  .col-30 {
-    width: 30em;
-  }
 }
 
 /* -- form -- */
@@ -139,6 +154,12 @@ body {
   }
   .m-form-group {
     margin: 0 0 5px 0;
+    &.inline{
+      .inline-block;
+    }
+  }
+  .m-form-inline{
+    .inline-block;
   }
   .m-form-label,
   .m-form-controls {
@@ -196,16 +217,15 @@ body {
     select {
       background-color: #FFFFFF;
       border: 1px solid #CCCCCC;
-      width: 220px;
       .rounded-corners(4px);
       color: #555555;
       .inline-block;
-      font-size: 14px;
       height: 20px;
       line-height: 20px;
       margin-bottom: 10px;
       padding: 4px 6px;
       vertical-align: middle;
+      font-size:14px;
       &.control-error {
         background-color: #FFE7E7;
       }
@@ -217,17 +237,15 @@ body {
     }
     .m-form-tip{
       .inline-block;
-      height: 15px;
-      *height: 20px;
+      height: 20px;
     }
   }
   .m-form-actions {
     padding-left: 140px;
     margin: 25px 10px;
     .btn {
-      .inline-block;
       line-height: 20px;
-      padding: 4px 15px;
+      padding: 4px 15px 5px;
       border: 1px solid #ccc;
       .box-shadow(inset 0 1px 0 rgba(255, 255, 255, .2));
       .text-shadow(0 1px 1px rgba(255, 255, 255, 0.75));
@@ -237,6 +255,8 @@ body {
       vertical-align: middle;
       font-size: 14px;
       cursor: pointer;
+      .inline-block;
+      *padding-bottom:1px;
       &:hover {
         .transition(background-position .1s linear);
         text-decoration: none;
@@ -255,6 +275,7 @@ body {
       color: #fff;
       &:hover {
         background-color: #04c;
+        *background-color: #06c;
         color: #fff;
       }
     }
@@ -263,6 +284,9 @@ body {
       .transition(none);
       color: #666;
       background-position: 0, 0;
+    }
+    &.inline{
+      margin: 5px 10px;
     }
   }
 }
@@ -273,7 +297,7 @@ body {
 .valid-success {
   padding: 0 4px 0 20px;
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 0 center;
   vertical-align: 2px;
   margin: 0 0 0 10px;
   *background-position: 0 4px;

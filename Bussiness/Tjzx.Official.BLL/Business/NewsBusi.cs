@@ -13,6 +13,57 @@ namespace Tjzx.Official.BLL.Business
     public class NewsBusi
     {
         /// <summary>
+        /// 获取单个资讯的ResultInfo
+        /// </summary>
+        /// <param name="newsId"></param>
+        /// <returns></returns>
+        public static ResultInfo Item(int newsId)
+        {
+            var info = GetItem(newsId);
+            if (info == null)
+                return new ResultInfo(0, "未找到相关资讯！");
+            var user = User.GetUser();
+            if (!user.HaseRole(ManagerRole.News) && info.State != StateType.Display.GetValue())
+                return new ResultInfo(0, "资讯尚未发布！");
+            return new ResultInfo(1, "", new
+                {
+                    newsId = info.NewsId,
+                    title = info.Title,
+                    type = info.Type,
+                    author = info.Author,
+                    comefrom = info.Comefrom,
+                    content = info.Content,
+                    state = info.State
+                });
+        }
+
+        /// <summary>
+        /// 获取单个资讯
+        /// </summary>
+        /// <param name="newsId"></param>
+        /// <returns></returns>
+        public static NewsInfo GetItem(int newsId)
+        {
+            using (var db = new EFDbContext())
+            {
+                var item = db.Newses.FirstOrDefault(t => t.NewsId == newsId);
+                if (item == null) return null;
+                return new NewsInfo
+                    {
+                        NewsId = item.NewsId,
+                        Title = item.Title,
+                        Author = item.Author,
+                        Comefrom = item.Comefrom,
+                        Type = item.Type,
+                        State = item.State,
+                        Content = item.Content,
+                        Views = item.Views,
+                        CreateOn = item.CreateOn
+                    };
+            }
+        }
+
+        /// <summary>
         /// 发布新闻资讯
         /// </summary>
         /// <param name="info"></param>
@@ -55,21 +106,29 @@ namespace Tjzx.Official.BLL.Business
         /// <summary>
         /// 获取新闻资讯列表
         /// </summary>
-        /// <param name="type">类型</param>
-        /// <param name="state">状态</param>
-        /// <param name="page">页码</param>
-        /// <param name="size">每页显示数</param>
+        /// <param name="info"></param>
         /// <returns></returns>
-        public static ResultInfo GetList(byte type, byte state, int page, int size)
+        public static ResultInfo GetList(SearchInfo info)
         {
             using (var db = new EFDbContext())
             {
+                var count =
+                    db.Newses.Count(
+                        t =>
+                        (string.IsNullOrEmpty(info.Keyword) ||
+                         (t.Title.Contains(info.Keyword))) &&
+                        (info.Type == Const.Ignore || t.Type == info.Type) &&
+                        (info.State == Const.Ignore ? t.State != (byte)StateType.Delete : t.State == info.State));
                 var list =
                     db.Newses.Where(
-                        t => (type == Const.Ignore || t.Type == type) && (state == Const.Ignore || t.State == state))
+                        t =>
+                        (string.IsNullOrEmpty(info.Keyword) ||
+                         (t.Title.Contains(info.Keyword))) &&
+                        (info.Type == Const.Ignore || t.Type == info.Type) &&
+                        (info.State == Const.Ignore ? t.State != (byte)StateType.Delete : t.State == info.State))
                       .OrderByDescending(t => t.NewsId)
-                      .Skip(page*size)
-                      .Take(size)
+                      .Skip(info.Page*info.Size)
+                      .Take(info.Size)
                       .Select(t => new
                           {
                               id = t.NewsId,
@@ -85,12 +144,11 @@ namespace Tjzx.Official.BLL.Business
                               t.title,
                               t.creator,
                               createon = Const.FormatDate(t.createon),
-                              type = ((int) t.type).GetEnumText<NewsType>(),
-                              state = ((int) t.state).GetEnumText<StateType>()
+                              typeCN = ((int) t.type).GetEnumCssText<NewsType>(),
+                              t.state,
+                              stateCN =
+                                       ((StateType) t.state).GetEnumCssText(new[] {"Gray", "Green", "Red"})
                           });
-                var count =
-                    db.Newses.Count(
-                        t => (type == Const.Ignore || t.Type == type) && (state == Const.Ignore || t.State == state));
                 return new ResultInfo(1, "", new {count, list});
             }
         }
@@ -110,7 +168,10 @@ namespace Tjzx.Official.BLL.Business
                 if (item == null)
                     return new ResultInfo(0, "未找到相应的资讯！");
                 item.Title = info.Title;
+                var content = Utils.UrlDecode(info.Content, Encoding.UTF8);
+                item.Content = content;
                 item.Type = info.Type;
+                item.State = info.State;
                 item.Author = info.Author;
                 item.Comefrom = info.Comefrom;
                 var valid = db.Entry(item).GetValidationResult();

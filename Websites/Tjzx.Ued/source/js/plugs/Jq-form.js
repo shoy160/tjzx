@@ -34,6 +34,44 @@
             val = (val === u ? "" : val);
             return $.trim(val);
         },
+        setValue: function (name, value) {
+            var form = this,
+                $item, $list, obj;
+            obj = form.find('[name="' + name + '"]').eq(0);
+            if (obj.is(":radio")) {
+                $list = form.find(":radio[name='" + name + "']");
+                for (var i = 0; i < $list.length; i++) {
+                    $item = $list.eq(i);
+                    if (value === $item.val()) {
+                        $item.attr("checked", "checked");
+                        break;
+                    }
+                }
+            } else if (obj.is(":checkbox")) {
+                if ("string" === typeof value)
+                    value = value.split(',');
+                $list = form.find(":checkbox[name='" + name + "']");
+                $list.each(function () {
+                    $item = $(this);
+                    if ($.inArray($item.val(), value) >= 0) {
+                        $item.attr("checked", "checked");
+                    }
+                });
+            } else if (obj.is("select")) {
+                $list = form.find("select[name='" + name + "'] option");
+                value = value.toString();
+                for (var i = 0; i < $list.length; i++) {
+                    $item = $list.eq(i);
+                    if (value === $item.val()) {
+                        $item.get(0).selected = true;
+                        break;
+                    }
+                }
+            } else {
+                $list = form.find('[name="' + name + '"]');
+                $list.val(value) || $list.text(value);
+            }
+        },
         check: function (form) {
             var $t = $(this),
                 ps = $(form).data("valid"),
@@ -69,7 +107,8 @@
     var validForm = function (forms, options) {
         var opts = $.extend({
             rules: valid.rules,
-            rulesMsg: valid.rulesMsg
+            rulesMsg: valid.rulesMsg,
+            submit: f
         }, options || {});
         var $forms = this.forms = $(forms);
         $.each(this.forms, function (i) {
@@ -87,9 +126,9 @@
                 .delegate("[data-valid]", "blur", function () {
                     valid.check.call(this, $item);
                 })
-                .delegate(":text", "press", function (e) {
-                    if (13 === e.keyCode && ps.submitFn && "function" === typeof ps.submitFn) {
-                        ps.submitFn();
+                .delegate("[key-submit]", "keyup", function (e) {
+                    if (13 === e.keyCode) {
+                        ps.submit && "function" === typeof ps.submit && ps.submit.call(this);
                     }
                 });
         });
@@ -125,28 +164,30 @@
                 arr.push(t + '=' + encodeURI(json[t]));
             }
             return arr.join('&');
+        },
+        bind: function (json, i) {
+            if ("object" !== typeof json) return false;
+            var $form = this.forms.eq(i || 0);
+            for (var name in json) {
+                if (json.hasOwnProperty(name))
+                    valid.setValue.call($form, name, json[name]);
+            }
+        },
+        init: function () {
+            for (var i = 0; i < this.forms.length; i++) {
+                var $form = this.forms.eq(i);
+                if (!$form.data("init"))
+                    $form.data("init", this.json(i));
+            }
+        },
+        reset: function (i) {
+            var $form = this.forms.eq(i || 0);
+            $form.find(".m-form-tip").remove();
+            $form.find(".control-error").removeClass("control-error");
+            this.bind($form.data("init"), i);
         }
     };
     $.fn.extend({
-        serializeForm: function (type) {
-            var $form = $(this),
-                serializeObj = {};
-            if ("form" !== $form.get(0).tagName.toLowerCase()) {
-                $form = $("<form>").append($form.clone(true));
-            }
-            if (type && "string" === type) {
-                return $form.serialize();
-            } else if (type && "array" === type) {
-                return $form.serializeArray();
-            }
-            $($form.serializeArray()).each(function () {
-                if (!serializeObj.hasOwnProperty(this.name))
-                    serializeObj[this.name] = this.value;
-                else
-                    serializeObj[this.name] += "," + this.value;
-            });
-            return serializeObj;
-        },
         /**
          * form 表单验证
          */

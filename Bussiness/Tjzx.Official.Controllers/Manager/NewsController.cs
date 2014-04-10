@@ -18,12 +18,18 @@ namespace Tjzx.Official.Controllers.Manager
 
         [HttpPost]
         [Auth(Role = ManagerRole.News)]
-        [ActionName("list")]
-        public JsonResult GetNews(int type = -1, int state = -1, int page = 0, int size = 15)
+        [ActionName("item")]
+        public JsonResult Item(int newsId)
         {
-            if (type == -1) type = Const.Ignore;
-            if (state == -1) state = Const.Ignore;
-            return Json(NewsBusi.GetList((byte) type, (byte) state, page, size));
+            return Json(NewsBusi.Item(newsId));
+        }
+
+        [HttpPost]
+        [Auth(Role = ManagerRole.News)]
+        [ActionName("list")]
+        public JsonResult GetNews(SearchInfo info)
+        {
+            return Json(NewsBusi.GetList(info));
         }
 
         [HttpPost]
@@ -31,15 +37,9 @@ namespace Tjzx.Official.Controllers.Manager
         [ActionName("add")]
         public JsonResult AddNews(NewsInfo info)
         {
+            if (info.NewsId > 0)
+                return Json(NewsBusi.Update(info));
             return Json(NewsBusi.Insert(info));
-        }
-
-        [HttpPost]
-        [ActionName("update")]
-        [Auth(Role = ManagerRole.News)]
-        public JsonResult UpdateNews(NewsInfo info)
-        {
-            return Json(NewsBusi.Update(info));
         }
 
         [HttpPost]
@@ -48,6 +48,22 @@ namespace Tjzx.Official.Controllers.Manager
         public JsonResult UpdateNews(int newsId, int state)
         {
             return Json(NewsBusi.UpdateState(newsId, (StateType) state));
+        }
+
+        [HttpPost]
+        [ActionName("delete")]
+        [Auth(Role = ManagerRole.News)]
+        public JsonResult Delete(int newsId)
+        {
+            return Json(NewsBusi.UpdateState(newsId, StateType.Delete));
+        }
+
+        [HttpPost]
+        [ActionName("restore")]
+        [Auth(Role = ManagerRole.News)]
+        public JsonResult Restore(int newsId)
+        {
+            return Json(NewsBusi.UpdateState(newsId, StateType.Hidden));
         }
     }
 }

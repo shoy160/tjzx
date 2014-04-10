@@ -57,6 +57,7 @@
     <Compile Include="Business\Const.cs" />
     <Compile Include="Business\NewsBusi.cs" />
     <Compile Include="Business\ResultInfo.cs" />
+    <Compile Include="Business\SearchInfo.cs" />
     <Compile Include="Dict\AlbumType.cs" />
     <Compile Include="Dict\ManagerRole.cs" />
     <Compile Include="Dict\NewsType.cs" />

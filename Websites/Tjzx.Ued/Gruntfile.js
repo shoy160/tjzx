@@ -2,26 +2,11 @@ module.exports = function (grunt) {
     // 配置
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        //合并css/js文件
-//        concat: {
-//            options: {
-//                separator: '\n'
-//            },
-//            basic: {
-//                files: {
-//                    'build/seed.js': ['src/seed/src/singer.js', 'src/seed/src/*.js']
-//                }
-//            }
-//        },
         //js压缩
         uglify: {
             options: {
                 banner: '/*! <%= pkg.name %> version:<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %> */\n'
             },
-//            seed: {
-//                src: ['src/seed/src/singer.js', 'src/seed/src/*.js'],
-//                dest: 'build/seed.min.js'
-//            },
             list: {
                 files: [
                     {

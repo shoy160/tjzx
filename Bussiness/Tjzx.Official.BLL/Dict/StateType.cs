@@ -8,11 +8,6 @@ namespace Tjzx.Official.BLL.Dict
     public enum StateType
     {
         /// <summary>
-        /// 删除
-        /// </summary>
-        [Description("删除")] Delete = 2,
-
-        /// <summary>
         /// 隐藏
         /// </summary>
         [Description("隐藏")] Hidden = 0,
@@ -20,6 +15,11 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 正常
         /// </summary>
-        [Description("正常")] Display = 1
+        [Description("正常")] Display = 1,
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        [Description("删除")] Delete = 2
     }
 }

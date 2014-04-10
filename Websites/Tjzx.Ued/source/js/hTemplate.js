@@ -53,8 +53,8 @@ var hTemplate = window.hTemplate = (function ($, f) {
             page: 1,
             size: 20,
             total: 0,
-            filter: f,       //json数据过滤
-            fill: f,          //绑定前处理
+            filter: f,       //json数据过滤,返回json数据
+            fill: f,          //绑定前处理,返回字符串
             pageClick: f,     //页面点击事件
             complete: f        //完成绑定事件
         },

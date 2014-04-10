@@ -1,4 +1,5 @@
-﻿namespace Tjzx.Official.BLL.ViewModels
+﻿using System;
+namespace Tjzx.Official.BLL.ViewModels
 {
     /// <summary>
     /// 新闻资讯业务类
@@ -12,5 +13,7 @@
         public string Author { get; set; }
         public string Comefrom { get; set; }
         public string Content { get; set; }
+        public int Views { get; set; }
+        public DateTime CreateOn { get; set; }
     }
 }

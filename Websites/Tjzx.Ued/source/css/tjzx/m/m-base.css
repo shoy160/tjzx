@@ -17,6 +17,44 @@ body {
 .show {
   display: block;
 }
+.m-loading {
+  background: url("//ued.tjzx.com/img/onLoad.gif") no-repeat;
+  background-position: 0 center;
+  line-height: 35px;
+  height: 35px;
+  margin: 0 auto;
+  padding-left: 22px;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.col-04 {
+  width: 4em;
+}
+.col-06 {
+  width: 6em;
+}
+.col-08 {
+  width: 8em;
+}
+.col-10 {
+  width: 10em;
+}
+.col-12 {
+  width: 12em;
+}
+.col-16 {
+  width: 16em;
+}
+.col-20 {
+  width: 20em;
+}
+.col-24 {
+  width: 24em;
+}
+.col-30 {
+  width: 30em;
+}
 /* -- panel -- */
 .m-panel {
   width: 98%;
@@ -40,14 +78,16 @@ body {
 }
 .m-panel .m-panel-title li {
   float: left;
-  padding: 0 15px;
+  padding: 0 18px;
   cursor: pointer;
+  border-left: 1px solid #cccccc;
 }
 .m-panel .m-panel-title li.active {
   background-color: #1e71b1;
   color: #fff;
   font-weight: 700;
   cursor: default;
+  border-left: none;
 }
 .m-panel .m-panel-item {
   padding: 12px 20px;
@@ -101,30 +141,6 @@ body {
 .m-table tr:nth-child(2n) > td {
   background-color: #f5f5f5;
 }
-.m-table .col-04 {
-  width: 4em;
-}
-.m-table .col-06 {
-  width: 6em;
-}
-.m-table .col-08 {
-  width: 8em;
-}
-.m-table .col-10 {
-  width: 10em;
-}
-.m-table .col-12 {
-  width: 12em;
-}
-.m-table .col-16 {
-  width: 16em;
-}
-.m-table .col-24 {
-  width: 24em;
-}
-.m-table .col-30 {
-  width: 30em;
-}
 /* -- form -- */
 .m-form .m-form-head {
   text-align: center;
@@ -135,6 +151,16 @@ body {
 }
 .m-form .m-form-group {
   margin: 0 0 5px 0;
+}
+.m-form .m-form-group.inline {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.m-form .m-form-inline {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 .m-form .m-form-label,
 .m-form .m-form-controls {
@@ -207,7 +233,6 @@ body {
 .m-form .m-form-controls select {
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
-  width: 220px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -217,12 +242,12 @@ body {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  font-size: 14px;
   height: 20px;
   line-height: 20px;
   margin-bottom: 10px;
   padding: 4px 6px;
   vertical-align: middle;
+  font-size: 14px;
 }
 .m-form .m-form-controls select.control-error {
   background-color: #FFE7E7;
@@ -236,19 +261,15 @@ body {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  height: 15px;
-  *height: 20px;
+  height: 20px;
 }
 .m-form .m-form-actions {
   padding-left: 140px;
   margin: 25px 10px;
 }
 .m-form .m-form-actions .btn {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
   line-height: 20px;
-  padding: 4px 15px;
+  padding: 4px 15px 5px;
   border: 1px solid #ccc;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -271,6 +292,10 @@ body {
   vertical-align: middle;
   font-size: 14px;
   cursor: pointer;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  *padding-bottom: 1px;
 }
 .m-form .m-form-actions .btn:hover {
   -webkit-transition: background-position 0.1s linear;
@@ -306,6 +331,7 @@ body {
 }
 .m-form .m-form-actions .btn-primary:hover {
   background-color: #04c;
+  *background-color: #06c;
   color: #fff;
 }
 .m-form .m-form-actions .btn.disabled:hover {
@@ -318,13 +344,16 @@ body {
   color: #666;
   background-position: 0, 0;
 }
+.m-form .m-form-actions.inline {
+  margin: 5px 10px;
+}
 /* valid 验证*/
 .valid-info,
 .valid-error,
 .valid-success {
   padding: 0 4px 0 20px;
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 0 center;
   vertical-align: 2px;
   margin: 0 0 0 10px;
   *background-position: 0 4px;

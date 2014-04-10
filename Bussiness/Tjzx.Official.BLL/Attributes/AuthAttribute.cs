@@ -4,7 +4,6 @@ using System.Web;
 using System.Web.Mvc;
 using Shoy.Utility.Extend;
 using Tjzx.Official.BLL.Dict;
-using Tjzx.Official.BLL.ViewModels;
 
 namespace Tjzx.Official.BLL.Attributes
 {
@@ -27,9 +26,9 @@ namespace Tjzx.Official.BLL.Attributes
             var result = new ContentResult();
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                result.Content = result.Content = new { state = -1, msg = "操作需要登录系统，请先登录！" }.ToJson();
-
+                result.Content = new { state = -1, msg = "操作需要登录系统，请先登录！" }.ToJson();
                 filterContext.Result = result;
+                User.RedirectToLogin();
             }
             else
             {

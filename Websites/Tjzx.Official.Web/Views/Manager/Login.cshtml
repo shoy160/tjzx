@@ -59,39 +59,34 @@
             $(".j-vcode").attr("src", "/common/vcode?t=" + Math.random());
         };
         $(document)
-            .delegate(".j-vcode", "click", function() {
+            .delegate(".j-vcode", "click", function () {
                 resetVCode();
             })
-            .delegate(".m-form input[name]", "keyup", function(e) {
+            .delegate(".m-form input[name]", "keyup", function (e) {
                 if (13 === e.keyCode) {
                     $(".j-login").focus().click();
                 }
             })
-            .delegate(".j-login", "click", function() {
+            .delegate(".j-login", "click", function () {
                 if ($(this).hasClass("disabled") || !valid.check()) return false;
                 setBtn(this, false);
-                var $inputs = $(".m-form input[name]"),
-                    formData = {},
-                    $item;
-                for (var i = 0; i < $inputs.length; i++) {
-                    $item = $inputs.eq(i);
-                    formData[$item.attr("name")] = $item.val();
-                }
+                var formData = valid.json();
                 $.ajax({
                     url: "/m/login",
                     type: "post",
                     dataType: "json",
                     data: formData,
-                    success: function(json) {
+                    success: function (json) {
                         if (json && json.state) {
-                            location.href = "/m";
+                            var url = singer.uri().return_url || "/m";
+                            location.href = url;
                         } else {
                             alert(json.msg || "登录异常！");
                             resetVCode();
                             setBtn(".j-login", true);
                         }
                     },
-                    error: function(msg) {
+                    error: function (msg) {
                         alert(msg || "登录异常！");
                         resetVCode();
                         setBtn(".j-login", true);
