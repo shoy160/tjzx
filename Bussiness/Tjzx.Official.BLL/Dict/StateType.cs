@@ -13,9 +13,9 @@ namespace Tjzx.Official.BLL.Dict
         [Description("隐藏")] Hidden = 0,
 
         /// <summary>
-        /// 正常
+        /// 显示
         /// </summary>
-        [Description("正常")] Display = 1,
+        [Description("显示")] Display = 1,
 
         /// <summary>
         /// 删除

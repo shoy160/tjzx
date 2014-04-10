@@ -1,6 +1,7 @@
 ﻿@section Header{
     <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
 }
+@using System.Linq;
 @using Shoy.Utility.Extend
 @using Tjzx.Official.BLL.Business
 @using Tjzx.Official.BLL.Dict
@@ -42,7 +43,7 @@
                     <select name="state" class="col-08">
                         <option value="@Const.Ignore">所有状态</option>
                         @{
-                            foreach (StateType type in Enum.GetValues(typeof (StateType)))
+                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
                             {
                                 <option value="@type.GetValue()">@type.GetText()</option>
                             }
@@ -114,7 +115,7 @@
                 <div class="m-form-controls">
                     <select name="state" class="col-06">
                         @{
-                            foreach (StateType type in Enum.GetValues(typeof(StateType)))
+                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden })
                             {
                                 <option value="@type.GetValue()"@(type == StateType.Display ? " selected":"")>@type.GetText()</option>
                             }
@@ -165,9 +166,9 @@
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
-    <script type="text/javascript" src="//ued.tjzx.com/source/js/plugs/Jq-form.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
-    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-news.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-news.min.js?t=20140410"></script>
 }

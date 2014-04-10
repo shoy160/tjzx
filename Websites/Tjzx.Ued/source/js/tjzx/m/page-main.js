@@ -29,7 +29,7 @@ var msg = window.MSG = function (opt, url) {
     }
     seajs.use("dialog", function (D) {
         var d = D(opt);
-        (opt.modal && d.showModal()) || d.show();
+        (opt.modal && d.showModal()) || (opt.obj && d.show(opt.obj)) || d.show();
     });
 };
 var callback = window.CALLBACK = function (json) {

@@ -21,11 +21,11 @@
             newsList(page - 1);
         },
         filter: function (json) {
-            if (json.state != 2) {
-                json.links = '<a href="#" class="j-edit">编辑</a>' +
-                    '<a href="#" class="j-delete">删除</a>';
-            } else {
-                json.links = '<a href="#" class="j-restore">还原</a>';
+            json.links = '<a href="#" class="j-edit">编辑</a>';
+            if (json.state == 0) {
+                json.links += '<a href="#" class="j-state" data-state="1">显示</a>';
+            } else if (json.state == 1) {
+                json.links += '<a href="#" class="j-state" data-state="0">隐藏</a>';
             }
             return json;
         },
@@ -75,11 +75,13 @@
     if ("#send" === location.hash) {
         $(".m-panel-title li:eq(1)").click();
     }
+
     $(".j-htemplate")
         .delegate(".j-send", "click", function () {
             $(".m-panel-title li:eq(1)").click();
             return false;
         });
+    var stateArray = ["隐藏", "显示"], stateColor = ["Gray", "Green"];
     $(document)
         .delegate(".m-panel-title li:eq(1)", "click.form", function () {
             loadNews();
@@ -115,6 +117,36 @@
         .delegate(".j-edit", "click", function () {
             var id = $(this).parents("td").data("id");
             loadNews(id);
+            return false;
+        })
+        .delegate(".j-state", "click", function () {
+            var $t = $(this),
+                id = $t.parents("td").data("id"),
+                state = $t.data("state");
+            T.getJson("/m/news/updateState", {
+                newsId: id,
+                state: state
+            }, function (json) {
+                if (json.state) {
+                    $t.parent().prev().html(
+                        singer.format('<font color="{color}">{text}</font>',
+                            {
+                                color: stateColor[state],
+                                text: stateArray[state]
+                            })
+                    );
+                    var nState = Math.abs(state - 1);
+                    $t.data("state", nState).html(stateArray[nState]);
+//                    T.msg({
+//                        title: '操作提示',
+//                        content: '更新成功！',
+//                        quickClose: true,
+//                        obj: $t.get(0)
+//                    });
+                } else {
+                    T.msg(json.msg || "操作失败，请稍候重试！");
+                }
+            });
             return false;
         })
         .delegate(".j-delete", "click", function () {

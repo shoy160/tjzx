@@ -93,7 +93,7 @@
                 $tip.removeClass("valid-success").addClass("valid-error").html(msg);
                 if (!$(form).data("focus")) {
                     $t.focus();
-                    $(top.window || window).scrollTop(0);
+                    $(top.window || window).scrollTop($t);
                     $(form).data("focus", !f);
                 }
                 return false;
