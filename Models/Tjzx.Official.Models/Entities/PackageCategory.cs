@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace Tjzx.Official.Models.Entities
 {
@@ -17,7 +18,10 @@ namespace Tjzx.Official.Models.Entities
         public string Name { get; set; }
 
         public int Sort { get; set; }
+
         public byte State { get; set; }
+
+        public DateTime CreateOn { get; set; }
 
         public virtual List<MedicalPackage> MedicalPackages { get; set; }
     }

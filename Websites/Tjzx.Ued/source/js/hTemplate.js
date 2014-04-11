@@ -9,7 +9,8 @@ var hTemplate = window.hTemplate = (function ($, f) {
         };
     }
     String.prototype.bind = function (name, value) {
-        value = value || "";
+        if (isNaN(value))
+            value = value || "";
         return this.replaceAll('\\{' + name + '\\}', value);
     };
     String.prototype.fill = function (json) {
@@ -17,7 +18,7 @@ var hTemplate = window.hTemplate = (function ($, f) {
             return "";
         var t = this;
         for (var s in json) {
-            var value = json[s] || "";
+            var value = json[s];
             t = t.bind(s, value);
         }
         t = t.bind("[^}]+", "");

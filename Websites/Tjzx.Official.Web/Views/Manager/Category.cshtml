@@ -1,1 +1,121 @@
-﻿<div>套餐分类</div>
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+}
+@using Shoy.Utility.Extend
+@using Tjzx.Official.BLL.Business
+@using Tjzx.Official.BLL.Dict
+@{
+    ViewBag.Title = "套餐分类";
+}
+<div class="m-panel">
+    <div class="m-panel-title">
+        <ul>
+            <li class="active">分类列表</li>
+            <li>新增分类</li>
+        </ul>
+    </div>
+    <div class="m-panel-item">
+        <div class="m-form s-form">
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">分类名称：</label>
+                <div class="m-form-controls">
+                    <input type="text" name="keyword" key-submit class="col-16" />
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">分类状态：</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-08">
+                        <option value="@Const.Ignore">所有状态</option>
+                        @{
+                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            {
+                                <option value="@type.GetValue()">@type.GetText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-actions inline">
+                <button class="btn btn-primary j-search" data-tag="正在搜索...">搜　索</button>
+            </div>
+        </div>
+        <table class="m-table">
+            <caption>分类列表</caption>
+            <colgroup>
+                <col class="col-10"/>
+                <col />
+                <col class="col-12"/>
+                <col class="col-16"/>
+                <col class="col-12"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>分类ID</th>
+                    <th>分类名称</th>
+                    <th>产品数</th>
+                    <th>添加时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="j-htemplate">
+                <tr>
+                    <td colspan="6">
+                        <div class="m-loading">加载中...</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="h-pager"></div>
+    </div>
+    <div class="m-panel-item hide">
+        <div class="m-form j-form">
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>分类名称</label>
+                <div class="m-form-controls">
+                    <input type="text" class="text" name="name" data-valid="{type:'require',msg:'不能为空！'}" />
+                    <input type="hidden" name="cateId" value="0"/>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>分类状态</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-06">
+                        @{
+                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden })
+                            {
+                                <option value="@type.GetValue()"@(type == StateType.Display ? " selected":"")>@type.GetText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-actions">
+                <button type="button" class="btn btn-primary j-submit">确认提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/h-temp" id="h-temp">
+    <tr>
+        <td>{id}</td>
+        <td>{name}</td>
+        <td>{count}</td>
+        <td>{createon}</td>
+        <td>{stateCN}</td>
+        <td data-id="{id}">{links}</td>
+    </tr>        
+</script>
+<script type="text/h-temp" id="h-empty">
+    <tr>
+        <td colspan="6">没找到相关分类！</td>
+    </tr>        
+</script>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/source/js/tjzx/m/page-category.js"></script>
+}

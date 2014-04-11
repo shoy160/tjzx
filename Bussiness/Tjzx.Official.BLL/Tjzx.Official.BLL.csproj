@@ -53,11 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\AuthAttribute.cs" />
+    <Compile Include="Business\BusiBase.cs" />
     <Compile Include="Business\CategoryBusi.cs" />
     <Compile Include="Business\Const.cs" />
     <Compile Include="Business\NewsBusi.cs" />
+    <Compile Include="Business\PackageBusi.cs" />
     <Compile Include="Business\ResultInfo.cs" />
     <Compile Include="Business\SearchInfo.cs" />
+    <Compile Include="Business\UserBusi.cs" />
     <Compile Include="Dict\AlbumType.cs" />
     <Compile Include="Dict\ManagerRole.cs" />
     <Compile Include="Dict\NewsType.cs" />
@@ -72,6 +75,7 @@
     <Compile Include="Config\IndexConfig.cs" />
     <Compile Include="Config\MenuConfig.cs" />
     <Compile Include="ViewModels\ConsultingInfo.cs" />
+    <Compile Include="ViewModels\InfoBase.cs" />
     <Compile Include="ViewModels\MemberInfo.cs" />
     <Compile Include="ViewModels\NewsInfo.cs" />
     <Compile Include="Config\TjzxConfig.cs" />

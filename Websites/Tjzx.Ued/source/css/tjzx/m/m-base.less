@@ -164,10 +164,10 @@ body {
   .m-form-label,
   .m-form-controls {
     .inline-block;
+    line-height: 35px;
   }
   .m-form-label {
     width: 130px;
-    line-height: 35px;
     text-align: right;
     padding-right: 20px;
     vertical-align: top;
@@ -178,8 +178,10 @@ body {
     }
   }
   .m-form-controls {
-    input,
-    textarea {
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    .text{
       background-color: #fff;
       border: 1px solid #ccc;
       height: 20px;
@@ -238,6 +240,7 @@ body {
     .m-form-tip{
       .inline-block;
       height: 20px;
+      line-height: 22px;
     }
   }
   .m-form-actions {
@@ -287,6 +290,32 @@ body {
     }
     &.inline{
       margin: 5px 10px;
+    }
+  }
+}
+
+/* checkbox */
+.m-radio,.m-checkbox{
+  min-height: 20px;
+  padding-left: 20px;
+  display: block;
+  margin-bottom: 5px;
+  line-height: 25px;
+  cursor: pointer;
+  input{
+    float: left;
+    margin-left: -18px;
+    margin-top: 6px;
+  }
+  &.inline{
+    .inline-block;
+    margin-right: 20px;
+    input{
+    }
+  }
+  &.disabled{
+    color: #999;
+    input{
     }
   }
 }

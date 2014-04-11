@@ -7,10 +7,17 @@
     {
         private byte _type = Const.Ignore;
         private byte _state = Const.Ignore;
+        private int _role = Const.Ignore;
         private int _page = 0;
         private int _size = 15;
 
         public string Keyword { get; set; }
+
+        public int Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
 
         public byte Type
         {

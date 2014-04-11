@@ -1,5 +1,5 @@
 /**
- * 后台管理-新闻资讯
+ * 后台管理-用户管理
  */
 (function ($, T) {
     //form
@@ -11,6 +11,8 @@
         });
     vForm.init();
 
+    T.stateArray["0"] = "停用";
+    T.stateArray["1"] = "启用";
     var h = new hTemplate({
         tmp: $("#h-temp").html(),
         empty: $("#h-empty").html(),
@@ -23,9 +25,9 @@
         filter: function (json) {
             json.links = '<a href="#" class="j-edit">编辑</a>';
             if (json.state == 0) {
-                json.links += '<a href="#" class="j-state" data-state="1">显示</a>';
+                json.links += singer.format('<a href="#" class="j-state" data-state="1">{0}</a>', T.stateArray["1"]);
             } else if (json.state == 1) {
-                json.links += '<a href="#" class="j-state" data-state="0">隐藏</a>';
+                json.links += singer.format('<a href="#" class="j-state" data-state="0">{0}</a>', T.stateArray["0"]);
             }
             return json;
         },
@@ -37,41 +39,40 @@
         var data = sForm.json(),
             $t = $(this);
         singer.mix(data, { page: page });
-        T.getJson("/m/news/list", data, function (json) {
+        T.getJson("/m/package/list", data, function (json) {
             if (json.state) {
                 h.bind(json.data.list, json.data.count);
             }
             $t.hasClass("btn") && T.setBtn($t, true);
+        }, function () {
+            h.bind();
         });
     };
-    var loadNews = function (id) {
+    var loadItem = function (id) {
+        var $pwd =$('input[name="password"]');
         if (!id || id <= 0) {
             vForm.reset();
-            editor.setContent("");
-            $(".j-back").hide();
+            $pwd.data("rule",{type:"^[\\w\\W]{4,16}$",msg:"请输入4-16位字符！"});
             return false;
         }
-        T.getJson("/m/news/item", {
-            newsId: id
+        $pwd.data("rule","");
+        T.getJson("/m/package/item", {
+            userId: id
         }, function (json) {
             if (!json.state) {
-                T.msg(json.msg || "获取资讯信息失败！");
+                T.msg(json.msg || "获取用户信息失败！");
                 return false;
             }
             $(".m-panel-title li").removeClass("active");
-            $(".m-panel-title ul").append("<li class=\"m-panel-add active\">编辑资讯</li>");
+            $(".m-panel-title ul").append("<li class=\"m-panel-add active\">编辑用户</li>");
             $(".j-back").show();
             vForm.bind(json.data);
-            editor.setContent(json.data.content);
             $(".m-panel-item").hide().eq(1).fadeIn();
             T.setFrameHeight();
             return false;
         });
     };
     getList(0);
-    window.UEDITOR_CONFIG.autoHeightEnabled = false;
-    var editor = UE.getEditor("content");
-
     if ("#send" === location.hash) {
         $(".m-panel-title li:eq(1)").click();
     }
@@ -81,10 +82,10 @@
             $(".m-panel-title li:eq(1)").click();
             return false;
         });
-    var stateArray = ["隐藏", "显示"], stateColor = ["Gray", "Green"];
+    var stateColor = ["Gray", "Green"];
     $(document)
         .delegate(".m-panel-title li:eq(1)", "click.form", function () {
-            loadNews();
+            loadItem();
         })
         .delegate(".j-search", "click", function () {
             if ($(this).hasClass("disabled")) return false;
@@ -92,31 +93,25 @@
             getList.call(this, 0);
             return false;
         })
-        .delegate(".j-release", "click", function () {
+        .delegate(".j-submit", "click", function () {
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
-            var content = encodeURIComponent(editor.getContent());
-            if (content == "" || content == null) {
-                T.msg("请填写资讯内容！");
-                return false;
-            }
             T.setBtn(this, false);
             var formData = vForm.json();
-            formData.content = content;
-            T.getJson("/m/news/add", formData, function (json) {
+            T.getJson("/m/package/add", formData, function (json) {
                 if (json.state) {
-                    T.msg(formData.newsId > 0 ? "编辑成功！" : "发布成功！", "reload");
+                    T.msg(formData.userId > 0 ? "编辑成功！" : "添加成功！", "reload");
                 } else {
                     T.msg(json.msg || "操作异常！");
-                    T.setBtn(".j-release", true);
+                    T.setBtn(".j-submit", true);
                 }
             }, function () {
-                T.setBtn(".j-release", true);
+                T.setBtn(".j-submit", true);
             });
             return false;
         })
         .delegate(".j-edit", "click", function () {
             var id = $(this).parents("td").data("id");
-            loadNews(id);
+            loadItem(id);
             return false;
         })
         .delegate(".j-state", "click", function () {
@@ -125,16 +120,16 @@
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);
-            T.getJson("/m/news/updateState", {
-                newsId: id,
+            T.getJson("/m/package/updateState", {
+                userId: id,
                 state: state
             }, function (json) {
                 if (json.state) {
                     $t.parent().prev().html(
-                        singer.format('<span style="color:{color}">{text}</font>',
+                        singer.format('<span style="color:{color}">已{text}</font>',
                             {
                                 color: stateColor[state],
-                                text: stateArray[state]
+                                text: T.stateArray[state + ""]
                             })
                     );
                     var nState = Math.abs(state - 1);
@@ -147,9 +142,9 @@
         })
         .delegate(".j-delete", "click", function () {
             var id = $(this).parents("td").data("id");
-            if (!confirm("确认删除该资讯？")) return false;
-            T.getJson("/m/news/delete", {
-                newsId: id
+            if (!confirm("确认删除该用户？")) return false;
+            T.getJson("/m/package/delete", {
+                userId: id
             }, function (json) {
                 if (json.state) {
                     T.msg(json.msg || "删除成功！");
@@ -162,9 +157,9 @@
         })
         .delegate(".j-restore", "click", function () {
             var id = $(this).parents("td").data("id");
-            if (!confirm("确认还原该资讯？")) return false;
-            T.getJson("/m/news/restore", {
-                newsId: id
+            if (!confirm("确认还原该用户？")) return false;
+            T.getJson("/m/package/restore", {
+                userId: id
             }, function (json) {
                 if (json.state) {
                     T.msg(json.msg || "还原成功！");

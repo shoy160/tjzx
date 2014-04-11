@@ -1,1 +1,164 @@
-﻿<div>人员管理</div>
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+}
+@using Shoy.Utility.Extend
+@using Tjzx.Official.BLL.Business
+@using Tjzx.Official.BLL.Dict
+@{
+    ViewBag.Title = "人员管理";
+}
+<div class="m-panel">
+    <div class="m-panel-title">
+        <ul>
+            <li class="active">人员列表</li>
+            <li>新增人员</li>
+        </ul>
+    </div>
+    <div class="m-panel-item">
+        <div class="m-form s-form">
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">姓名/帐号：</label>
+                <div class="m-form-controls">
+                    <input type="text" name="keyword" key-submit class="col-16" />
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">用户权限：</label>
+                <div class="m-form-controls">
+                    <select name="role" class="col-08">
+                        <option value="@Const.Ignore">所有权限</option>
+                        @{
+                            foreach (ManagerRole type in Enum.GetValues(typeof(ManagerRole)))
+                            {
+                                <option value="@type.GetValue()">@type.GetText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">人员状态：</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-08">
+                        <option value="@Const.Ignore">所有状态</option>
+                        @{
+                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            {
+                                <option value="@type.GetValue()">@type.UserStateText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-actions inline">
+                <button class="btn btn-primary j-search" data-tag="正在搜索...">搜　索</button>
+            </div>
+        </div>
+        <table class="m-table">
+            <caption>人员列表</caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col class="col-12" />
+                <col class="col-08"/>
+                <col />
+                <col class="col-10"/>
+                <col class="col-08"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>人员ID</th>
+                    <th>登录帐号</th>
+                    <th>姓名</th>
+                    <th>拥有权限</th>
+                    <th>添加时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="j-htemplate">
+                <tr>
+                    <td colspan="7">
+                        <div class="m-loading">加载中...</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="h-pager"></div>
+    </div>
+    <div class="m-panel-item hide">
+        <div class="m-form j-form">
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>姓　　名</label>
+                <div class="m-form-controls">
+                    <input type="text" class="text" name="name" data-valid="{type:'require',msg:'姓名不能为空！'}" />
+                    <input type="hidden" name="userId" value="0"/>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>登录帐号</label>
+                <div class="m-form-controls">
+                    <input type="text" name="account" class="text" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位字符！'}" />
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>登录密码</label>
+                <div class="m-form-controls">
+                    <input type="password" name="password" class="text" />
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>人员状态</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-06">
+                        @{
+                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden })
+                            {
+                                <option value="@type.GetValue()"@(type == StateType.Display ? " selected":"")>@type.UserStateText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>用户权限</label>
+                <div class="m-form-controls">
+                    @{
+                        foreach (ManagerRole role in Enum.GetValues(typeof(ManagerRole)))
+                        {
+                            <label class="m-checkbox inline">
+                                <input type="checkbox" name="roles" value="@role.GetValue()"/>
+                                @role.GetText()
+                            </label>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="m-form-actions">
+                <button type="button" class="btn btn-primary j-submit">确认提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/h-temp" id="h-temp">
+    <tr>
+        <td>{id}</td>
+        <td>{account}</td>
+        <td>{name}</td>
+        <td>{roles}</td>
+        <td>{createon}</td>
+        <td>{stateCN}</td>
+        <td data-id="{id}">{links}</td>
+    </tr>        
+</script>
+<script type="text/h-temp" id="h-empty">
+    <tr>
+        <td colspan="7">没找到相关人员！</td>
+    </tr>        
+</script>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-user.min.js"></script>
+}

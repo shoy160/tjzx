@@ -3,22 +3,26 @@ using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
 using Tjzx.Official.BLL.Dict;
+using Shoy.Utility.Extend;
+using System;
 
 namespace Tjzx.Official.BLL.Business
 {
     /// <summary>
     /// 套餐分类 业务逻辑
     /// </summary>
-    public class CategoryBusi
+    public class CategoryBusi:BusiBase<CategoryInfo>
     {
-        public static ResultInfo Insert(CategoryInfo info)
+        public override ResultInfo Insert(CategoryInfo info)
         {
             using (var db = new EFDbContext())
             {
                 var item = new PackageCategory
                     {
                         Name = info.Name,
-                        Sort = info.Sort
+                        State = info.State,
+                        Sort = info.Sort,
+                        CreateOn = DateTime.Now
                     };
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
@@ -34,17 +38,18 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
-        public static ResultInfo Update(CategoryInfo info)
+        public override ResultInfo Update(CategoryInfo info)
         {
-            if (info == null || info.CategoryId <= 0)
+            if (info == null || info.CateId <= 0)
                 return new ResultInfo(0, "未找到相应的套餐分类！");
             using (var db = new EFDbContext())
             {
-                var item = db.PackageCategories.FirstOrDefault(t => t.CategoryId == info.CategoryId);
+                var item = db.PackageCategories.FirstOrDefault(t => t.CategoryId == info.CateId);
                 if (item == null)
                     return new ResultInfo(0, "未找到相应的套餐分类！");
                 item.Name = info.Name;
                 item.Sort = info.Sort;
+                item.State = info.State;
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
                 {
@@ -58,30 +63,82 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
-        public static ResultInfo UpdateState(int categoryId, StateType state)
+        public override ResultInfo GetList(SearchInfo info)
         {
-            if (categoryId <= 0)
+            using (var db = new EFDbContext())
+            {
+                var count = db.PackageCategories.Count(t =>
+                    (string.IsNullOrEmpty(info.Keyword) || t.Name.Contains(info.Keyword)) &&
+                    (info.State == Const.Ignore || t.State == info.State));
+                var list =
+                    db.PackageCategories.Where(
+                        t => (string.IsNullOrEmpty(info.Keyword) ||
+                              t.Name.Contains(info.Keyword)) &&
+                             (info.State == Const.Ignore || t.State == info.State))
+                      .OrderBy(t => t.Sort)
+                      .Skip(info.Page*info.Size)
+                      .Take(info.Size)
+                      .ToList()
+                      .Select(t => new
+                          {
+                              id = t.CategoryId,
+                              name = t.Name,
+                              count = t.MedicalPackages.Count,
+                              createon = Const.FormatDate(t.CreateOn),
+                              state = t.State,
+                              stateCN = ((StateType)t.State).GetCssText()
+                          }).ToList();
+                return new ResultInfo(1, "", new {count, list});
+            }
+        }
+
+        public override ResultInfo UpdateState(int[] ids, StateType state)
+        {
+            if (ids == null || ids.Length == 0)
                 return new ResultInfo(0, "未找到相应的套餐分类！");
             using (var db = new EFDbContext())
             {
-                var item = db.PackageCategories.FirstOrDefault(t => t.CategoryId == categoryId);
-                if (item == null)
+                var list = db.PackageCategories.Where(t => ids.Contains(t.CategoryId));
+                if (!list.Any())
                     return new ResultInfo(0, "未找到相应的套餐分类！");
-                item.State = (byte) state;
+                foreach (var item in list)
+                {
+                    item.State = (byte) state;
+                }
                 db.SaveChanges();
                 return new ResultInfo(1);
             }
         }
 
-        public static ResultInfo GetList(byte state)
+        public override CategoryInfo GetItem(int id)
         {
             using (var db = new EFDbContext())
             {
-                var list = db.PackageCategories.Where(t => (state == Const.Ignore || t.State == state))
-                             .OrderBy(t => t.Sort)
-                             .ToList();
-                return new ResultInfo(1, "", new {count = list.Count, list});
+                var item = db.PackageCategories.FirstOrDefault(t => t.CategoryId == id);
+                if (item == null) return null;
+                return new CategoryInfo
+                    {
+                        CateId = item.CategoryId,
+                        Name = item.Name,
+                        State = item.State,
+                        Sort = item.Sort,
+                        CreateOn = item.CreateOn
+                    };
             }
+        }
+
+        public override ResultInfo Item(int id)
+        {
+            var info = GetItem(id);
+            if (info == null)
+                return new ResultInfo(0, "未找到相关分类！");
+            return new ResultInfo(1, "", new
+                {
+                    cateId = info.CateId,
+                    name = info.Name,
+                    sort = info.Sort,
+                    state = info.State
+                });
         }
     }
 }

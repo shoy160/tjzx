@@ -3,8 +3,8 @@
     /// <summary>
     /// 体检套餐业务类
     /// </summary>
-    public class PackageInfo
+    public class PackageInfo:InfoBase
     {
-
+        public int PackageId { get; set; }
     }
 }

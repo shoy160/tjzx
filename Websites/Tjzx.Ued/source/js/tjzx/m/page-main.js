@@ -17,11 +17,11 @@ var msg = window.MSG = function (opt, url) {
                 if (-1 === url) {
                     location.href = "/m/login?return_url=" + encodeURI(location.href);
                 } else if ("reload" === url) {
-                    location.reload(true);
+                    frameLoad();
                 } else if ("string" === typeof url && url) {
-                    location.href = url;
+                    frameLoad(url);
                 }
-                this.close();
+                this.close().remove();
                 return false;
             },
             modal: true
@@ -129,6 +129,11 @@ var setFrameHeight = window.SetFrameHeight = function () {
     } catch (e) {
     }
     $frame.css("height", h + 20);
+};
+var frameLoad = function (url) {
+    if (!url)
+        window.frames['framePage'].location.reload();
+    $("#framePage").attr("src", url);
 };
 $("#framePage").load(function () {
     setFrameHeight();

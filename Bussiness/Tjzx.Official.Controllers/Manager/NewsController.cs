@@ -9,6 +9,8 @@ namespace Tjzx.Official.Controllers.Manager
 {
     public class NewsController : BaseController
     {
+        private readonly NewsBusi _busi = new NewsBusi();
+
         [HttpGet]
         [Auth(Role = ManagerRole.News)]
         public ActionResult Index(int page = 0)
@@ -21,7 +23,7 @@ namespace Tjzx.Official.Controllers.Manager
         [ActionName("item")]
         public JsonResult Item(int newsId)
         {
-            return Json(NewsBusi.Item(newsId));
+            return Json(_busi.Item(newsId));
         }
 
         [HttpPost]
@@ -29,7 +31,7 @@ namespace Tjzx.Official.Controllers.Manager
         [ActionName("list")]
         public JsonResult GetNews(SearchInfo info)
         {
-            return Json(NewsBusi.GetList(info));
+            return Json(_busi.GetList(info));
         }
 
         [HttpPost]
@@ -38,8 +40,8 @@ namespace Tjzx.Official.Controllers.Manager
         public JsonResult AddNews(NewsInfo info)
         {
             if (info.NewsId > 0)
-                return Json(NewsBusi.Update(info));
-            return Json(NewsBusi.Insert(info));
+                return Json(_busi.Update(info));
+            return Json(_busi.Insert(info));
         }
 
         [HttpPost]
@@ -47,7 +49,15 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth(Role = ManagerRole.News)]
         public JsonResult UpdateNews(int newsId, int state)
         {
-            return Json(NewsBusi.UpdateState(newsId, (StateType) state));
+            return Json(_busi.UpdateState(newsId, (StateType) state));
+        }
+
+        [HttpPost]
+        [ActionName("updateStates")]
+        [Auth(Role = ManagerRole.News)]
+        public JsonResult UpdateNews(int[] newsIds, int state)
+        {
+            return Json(_busi.UpdateState(newsIds, (StateType) state));
         }
 
         [HttpPost]
@@ -55,7 +65,7 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth(Role = ManagerRole.News)]
         public JsonResult Delete(int newsId)
         {
-            return Json(NewsBusi.UpdateState(newsId, StateType.Delete));
+            return Json(_busi.UpdateState(newsId, StateType.Delete));
         }
 
         [HttpPost]
@@ -63,7 +73,7 @@ namespace Tjzx.Official.Controllers.Manager
         [Auth(Role = ManagerRole.News)]
         public JsonResult Restore(int newsId)
         {
-            return Json(NewsBusi.UpdateState(newsId, StateType.Hidden));
+            return Json(_busi.UpdateState(newsId, StateType.Hidden));
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Tjzx.Official.Models.Test
                         {
                             new MenuItem{MenuId = 1,Name = "内容管理",Class = "icon-04",Depth = 0,Sort = 1},
                             new MenuItem{MenuId = 2,Name = "健康管理",Class = "icon-05",Depth = 0,Sort = 2},
-                            new MenuItem{MenuId = 3,Name = "用户管理",Class = "icon-07",Depth = 0,Sort = 3},
+                            new MenuItem{MenuId = 3,Name = "系统管理",Class = "icon-01",Depth = 0,Sort = 3},
                             new MenuItem{MenuId = 101, ParentId = 1,Name = "新闻资讯",Link = "/m/news/index",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
                             new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category/index",Class = "icon-02",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/package/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
@@ -70,7 +70,7 @@ namespace Tjzx.Official.Models.Test
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Link = "/m/picture/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
                             new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
                             new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
-                            new MenuItem{MenuId = 301, ParentId = 3,Name = "系统管理",Link = "/m/user/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1}
+                            new MenuItem{MenuId = 301, ParentId = 3,Name = "用户管理",Link = "/m/user/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1}
                         }
                 };
             ConfigUtils<MenuConfig>.Instance().Set(menu);

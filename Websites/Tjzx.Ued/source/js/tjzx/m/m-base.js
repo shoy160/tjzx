@@ -3,11 +3,12 @@
  * @type {{}|*|window.TJZX}
  */
 var tjzx = window.TJZX = window.TJZX || {};
-(function ($,S, T) {
+(function ($, S, T) {
+    $(".btn").removeAttr("disabled");
     S.mix(T, {
-        msg: function (msg,url) {
+        msg: function (msg, url) {
             if (top.window && top.window.MSG)
-                top.window.MSG(msg,url);
+                top.window.MSG(msg, url);
             else {
                 var content = "";
                 if (S.isString(msg))
@@ -15,9 +16,9 @@ var tjzx = window.TJZX = window.TJZX || {};
                 else if (S.isObject(msg))
                     content = (msg.content || "");
                 alert(content);
-                if("reload" === url){
+                if ("reload" === url) {
                     location.reload(true);
-                }else if(url && "string" === typeof url){
+                } else if (url && "string" === typeof url) {
                     location.href = url;
                 }
             }
@@ -38,6 +39,31 @@ var tjzx = window.TJZX = window.TJZX || {};
                 }
             });
         },
+        stateArray: {
+            "0": "隐藏",
+            "1": "显示",
+            "2": "删除"
+        },
+        /**
+         * 设置状态更新链接
+         * @param json
+         * @param state
+         * @returns {boolean}
+         */
+        setStateBtn: function (json, state) {
+            var t = this;
+            if (!t || !t.is("a")) return false;
+            if (S.isBoolean(json) && !json) {
+                t.data("state", "").css("color", "#333").html("正在提交...");
+            } else if (S.isObject(json)) {
+                var color = (json.state ? "Green" : "Red"),
+                    msg = (json.state ? "更新成功" : (json.msg || "更新失败！"));
+                t.data("state", "").css("color", color).html(msg);
+                setTimeout(function () {
+                    t.data("state", state).css("color", "#428BCA").html(T.stateArray[state]);
+                }, 1200);
+            }
+        },
         getJson: function (url, data, callback, errorCallback) {
             S.mix(data, {t: Math.random()});
             $.ajax({
@@ -49,7 +75,7 @@ var tjzx = window.TJZX = window.TJZX || {};
                     callback && S.isFunction(callback) && callback(data);
                 },
                 error: function (data) {
-                    T.msg('获取数据异常！');
+                    //T.msg('获取数据异常！');
                     errorCallback && S.isFunction(errorCallback) && errorCallback(data);
                 }
             });
@@ -58,7 +84,7 @@ var tjzx = window.TJZX = window.TJZX || {};
             top.window && top.window.SetFrameHeight && top.window.SetFrameHeight();
         }
     });
-})(jQuery,SINGER, TJZX);
+})(jQuery, SINGER, TJZX);
 
 /**
  *  绑定模板事件

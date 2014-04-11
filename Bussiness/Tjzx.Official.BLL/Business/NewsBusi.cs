@@ -10,14 +10,14 @@ using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.BLL.Business
 {
-    public class NewsBusi
+    public class NewsBusi:BusiBase<NewsInfo>
     {
         /// <summary>
         /// 获取单个资讯的ResultInfo
         /// </summary>
         /// <param name="newsId"></param>
         /// <returns></returns>
-        public static ResultInfo Item(int newsId)
+        public override ResultInfo Item(int newsId)
         {
             var info = GetItem(newsId);
             if (info == null)
@@ -42,7 +42,7 @@ namespace Tjzx.Official.BLL.Business
         /// </summary>
         /// <param name="newsId"></param>
         /// <returns></returns>
-        public static NewsInfo GetItem(int newsId)
+        public override NewsInfo GetItem(int newsId)
         {
             using (var db = new EFDbContext())
             {
@@ -68,7 +68,7 @@ namespace Tjzx.Official.BLL.Business
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static ResultInfo Insert(NewsInfo info)
+        public override ResultInfo Insert(NewsInfo info)
         {
             var content = Utils.UrlDecode(info.Content, Encoding.UTF8);
             var user = User.GetUser();
@@ -108,7 +108,7 @@ namespace Tjzx.Official.BLL.Business
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static ResultInfo GetList(SearchInfo info)
+        public override ResultInfo GetList(SearchInfo info)
         {
             using (var db = new EFDbContext())
             {
@@ -147,7 +147,7 @@ namespace Tjzx.Official.BLL.Business
                               typeCN = ((int) t.type).GetEnumCssText<NewsType>(),
                               t.state,
                               stateCN =
-                                       ((StateType) t.state).GetEnumCssText(new[] {"Gray", "Green", "Red"})
+                                       ((StateType) t.state).GetCssText()
                           });
                 return new ResultInfo(1, "", new {count, list});
             }
@@ -158,7 +158,7 @@ namespace Tjzx.Official.BLL.Business
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        public static ResultInfo Update(NewsInfo info)
+        public override ResultInfo Update(NewsInfo info)
         {
             if (info == null || info.NewsId <= 0)
                 return new ResultInfo(0, "未找到相应的资讯！");
@@ -190,19 +190,22 @@ namespace Tjzx.Official.BLL.Business
         /// <summary>
         /// 更新新闻资讯状态
         /// </summary>
-        /// <param name="newsId">新闻资讯ID</param>
+        /// <param name="ids">新闻资讯ID</param>
         /// <param name="state">状态</param>
         /// <returns></returns>
-        public static ResultInfo UpdateState(int newsId, StateType state)
+        public override ResultInfo UpdateState(int[] ids, StateType state)
         {
-            if (newsId <= 0)
+            if (ids.Length <= 0)
                 return new ResultInfo(0, "未找到相应的资讯！");
             using (var db = new EFDbContext())
             {
-                var item = db.Newses.FirstOrDefault(t => t.NewsId == newsId);
-                if (item == null)
+                var list = db.Newses.Where(t => ids.Contains(t.NewsId));
+                if (!list.Any())
                     return new ResultInfo(0, "未找到相应的资讯！");
-                item.State = (byte) state;
+                foreach (var item in list)
+                {
+                    item.State = (byte) state;
+                }
                 db.SaveChanges();
                 return new ResultInfo(1);
             }

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/4/8 11:16:22                            */
+/* Created on:     2014/4/11 18:31:46                           */
 /*==============================================================*/
 
 
@@ -300,7 +300,7 @@ create table Member (
    UserName             varchar(50)          not null,
    Mobile               varchar(20)          null,
    [PassWord]           varchar(120)         not null,
-   Ticket               varchar(50)          null,
+   Ticket               varchar(100)         null,
    LastLoginTime        datetime             null,
    LastLoginIp          varchar(30)          null,
    UserLevel            tinyint              not null,
@@ -355,6 +355,7 @@ create table PackageCategory (
    Name                 varchar(150)         not null,
    Sort                 int                  not null,
    [State]              tinyint              null,
+   CreateOn             datetime             not null,
    constraint PK_PACKAGECATEGORY primary key nonclustered (CategoryId)
 )
 go
