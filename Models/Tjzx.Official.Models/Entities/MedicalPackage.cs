@@ -30,6 +30,13 @@ namespace Tjzx.Official.Models.Entities
         public virtual PackageCategory Category { get; set; }
 
         /// <summary>
+        /// 套餐图片
+        /// </summary>
+        [Required]
+        [MaxLength(200)]
+        public string Picture { get; set; }
+
+        /// <summary>
         /// 套餐适用性别:0,都适用；1：男性；2：女性
         /// </summary>
         public byte Sex { get; set; }

@@ -245,13 +245,15 @@
             var setTimer = function () {
                 if (!options.auto) return;
                 timer = setInterval(function () {
-                    if (!stop)
+                    if (!moving)
                         moveStep(options.step, true);
                 }, options.sleep);
+                stop = false;
             };
             var clearTimer = function () {
                 if (!options.auto) return;
                 clearInterval(timer);
+                stop = true;
             };
             if (options.auto) {
                 setTimer();

@@ -39,14 +39,8 @@
             <div class="m-form-group m-form-inline">
                 <label class="m-form-label">套餐分类：</label>
                 <div class="m-form-controls">
-                    <select name="state" class="col-08">
+                    <select name="categoryId" class="col-12">
                         <option value="@Const.Ignore">所有分类</option>
-                        @{
-                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
-                            {
-                                <option value="@type.GetValue()">@type.GetText()</option>
-                            }
-                        }
                     </select>
                 </div>
             </div>
@@ -95,21 +89,60 @@
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>套餐名称</label>
                 <div class="m-form-controls">
-                    <input type="text" class="text" name="name" data-valid="{type:'require',msg:'不能为空！'}" />
-                    <input type="hidden" name="cateId" value="0"/>
+                    <input type="text" class="input-large" name="name" data-valid="{type:'require',msg:'不能为空！'}" />
+                    <input type="hidden" name="packageId" value="0"/>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>套餐图片</label>
+                <div class="m-form-controls">
+                    <img src="" alt="" />
+                    <div class="flash" id="fsUploadProgress"></div>  
+                    <div style="padding-left: 5px;">  
+                        <span id="spanButtonPlaceholder"></span>  
+                        <input id="btnCancel" type="button" value="取消" onclick="cancelQueue(upload);"   
+                               disabled="disabled" style="margin-left: 2px; height: 22px; font-size: 8pt;" />  
+                    </div>
+                    <input type="hidden" name="picture" />
                 </div>
             </div>
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>套餐分类</label>
                 <div class="m-form-controls">
-                    <select name="state" class="col-06">
-                        @{
-                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden })
-                            {
-                                <option value="@type.GetValue()"@(type == StateType.Display ? " selected":"")>@type.GetText()</option>
-                            }
-                        }
+                    <select name="categoryId" class="col-12" data-valid="{type:'^[1-9]([0-9]*)$',msg:'请选择分类'}">
+                        <option value="-1">请选择套餐分类</option>
                     </select>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>适用性别</label>
+                <div class="m-form-controls">
+                    <label class="m-checkbox inline">
+                        <input type="checkbox" value="1" name="sex" checked />
+                        女士
+                    </label>
+                    <label class="m-checkbox inline">
+                        <input type="checkbox" value="2" name="sex" checked />
+                        男士
+                    </label>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>适用人群</label>
+                <div class="m-form-controls">
+                    <textarea type="text" class="input-large" rows="2" name="ForTheCrowd" data-valid="{type:'^[\\w\\W]{6,}$',msg:'请填写6个以上字符！'}"></textarea>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>套餐特点</label>
+                <div class="m-form-controls">
+                    <textarea type="text" class="input-large" rows="2" name="Feature" data-valid="{type:'^[\\w\\W]{6,}$',msg:'请填写6个以上字符！'}"></textarea>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>套餐详情</label>
+                <div class="m-form-controls">
+                    <script type="text/plain" id="content" class="content"></script>
                 </div>
             </div>
             <div class="m-form-actions">
@@ -125,7 +158,7 @@
         <td>{category}</td>
         <td>{sex}</td>
         <td>{ftc}</td>
-        <td>{Feature}</td>
+        <td>{feature}</td>
         <td>{createon}</td>
         <td>{stateCN}</td>
         <td data-id="{id}">{links}</td>
@@ -133,12 +166,16 @@
 </script>
 <script type="text/h-temp" id="h-empty">
     <tr>
-        <td colspan="9">没找到相关体检套餐！</td>
+        <td colspan="9">没找到相关体检套餐！<a href="#" class="j-send">去添加</a></td>
     </tr>        
 </script>
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
-    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-package.min.js"></script>
+    <script type="text/javascript" src="/ueditor/third-party/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/source/js/tjzx/m/page-package.js"></script>
 }

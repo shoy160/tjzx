@@ -68,11 +68,12 @@
     (function ($) {
         wh = $(".wheel").wheelMove({
             items: ">p",
-            loop: false,
+            loop: true,
             step: 3,
             direction: "left",
             blank: false,
             easing: "easeInOutBack",
+            auto:true,
             speed: 1000
         });
     })(jQuery);

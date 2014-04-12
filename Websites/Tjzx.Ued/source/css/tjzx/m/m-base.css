@@ -89,6 +89,9 @@ body {
   cursor: default;
   border-left: none;
 }
+.m-panel .m-panel-title li:hover {
+  font-weight: 700;
+}
 .m-panel .m-panel-item {
   padding: 12px 20px;
 }
@@ -223,6 +226,9 @@ body {
 .m-form .m-form-controls .text.control-error {
   background-color: #FFE7E7;
 }
+.m-form .m-form-controls textarea {
+  height: 40px;
+}
 .m-form .m-form-controls .input-small {
   width: 6em;
 }
@@ -235,6 +241,7 @@ body {
 .m-form .m-form-controls .content {
   width: 65%;
   height: 450px;
+  line-height: 120%;
 }
 .m-form .m-form-controls select {
   background-color: #FFFFFF;

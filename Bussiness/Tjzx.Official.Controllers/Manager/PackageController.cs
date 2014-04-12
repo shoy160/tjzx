@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Shoy.Utility.Extend;
 using Tjzx.Official.BLL.Attributes;
 using Tjzx.Official.BLL.Business;
 using Tjzx.Official.BLL.Dict;
@@ -19,8 +20,16 @@ namespace Tjzx.Official.Controllers.Manager
         [HttpPost]
         [ActionName("add")]
         [Auth(Role = ManagerRole.Package)]
-        public JsonResult Insert(PackageInfo info)
+        public JsonResult Insert(PackageInfo info, string sex)
         {
+            if (!string.IsNullOrEmpty(sex))
+            {
+                var sexs = sex.To(new byte[] {});
+                foreach (var i in sexs)
+                {
+                    info.Sex |= i;
+                }
+            }
             if (info.PackageId > 0)
                 return Json(_busi.Update(info));
             return Json(_busi.Insert(info));

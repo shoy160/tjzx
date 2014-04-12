@@ -2,6 +2,24 @@
  * 后台管理-体检套餐管理
  */
 (function ($, T) {
+    //初始化 分类
+    T.getJson("/m/category/list", {
+        state: 1
+    }, function (json) {
+        var list = json.data.list;
+        if (json.state && list && list.length > 0) {
+            var $sels = $("select[name='categoryId']");
+            var html = "";
+            for (var i = 0; i < list.length; i++) {
+                html += singer.format("<option value='{id}'>{name}</option> ", list[i]);
+            }
+            $sels.append(html);
+        }
+    });
+    //百度编辑器
+    window.UEDITOR_CONFIG.autoHeightEnabled = false;
+    var editor = UE.getEditor("content");
+
     //form
     var vForm = $(".j-form").valid(),
         sForm = $(".s-form").valid({
@@ -49,13 +67,13 @@
         });
     };
     var loadItem = function (id) {
-        var $pwd =$('input[name="password"]');
+        var $pwd = $('input[name="password"]');
         if (!id || id <= 0) {
             vForm.reset();
-            $pwd.data("rule",{type:"^[\\w\\W]{4,16}$",msg:"请输入4-16位字符！"});
+            $pwd.data("rule", {type: "^[\\w\\W]{4,16}$", msg: "请输入4-16位字符！"});
             return false;
         }
-        $pwd.data("rule","");
+        $pwd.data("rule", "");
         T.getJson("/m/package/item", {
             packageId: id
         }, function (json) {
@@ -97,6 +115,7 @@
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
             T.setBtn(this, false);
             var formData = vForm.json();
+            formData.details = encodeURIComponent(editor.getContent());
             T.getJson("/m/package/add", formData, function (json) {
                 if (json.state) {
                     T.msg(formData.packageId > 0 ? "编辑成功！" : "添加成功！", "reload");

@@ -39,7 +39,7 @@
         var data = sForm.json(),
             $t = $(this);
         singer.mix(data, { page: page });
-        T.getJson("/m/package/list", data, function (json) {
+        T.getJson("/m/user/list", data, function (json) {
             if (json.state) {
                 h.bind(json.data.list, json.data.count);
             }
@@ -56,7 +56,7 @@
             return false;
         }
         $pwd.data("rule","");
-        T.getJson("/m/package/item", {
+        T.getJson("/m/user/item", {
             userId: id
         }, function (json) {
             if (!json.state) {
@@ -97,7 +97,7 @@
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
             T.setBtn(this, false);
             var formData = vForm.json();
-            T.getJson("/m/package/add", formData, function (json) {
+            T.getJson("/m/user/add", formData, function (json) {
                 if (json.state) {
                     T.msg(formData.userId > 0 ? "编辑成功！" : "添加成功！", "reload");
                 } else {
@@ -120,7 +120,7 @@
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);
-            T.getJson("/m/package/updateState", {
+            T.getJson("/m/user/updateState", {
                 userId: id,
                 state: state
             }, function (json) {
@@ -143,7 +143,7 @@
         .delegate(".j-delete", "click", function () {
             var id = $(this).parents("td").data("id");
             if (!confirm("确认删除该用户？")) return false;
-            T.getJson("/m/package/delete", {
+            T.getJson("/m/user/delete", {
                 userId: id
             }, function (json) {
                 if (json.state) {
@@ -158,7 +158,7 @@
         .delegate(".j-restore", "click", function () {
             var id = $(this).parents("td").data("id");
             if (!confirm("确认还原该用户？")) return false;
-            T.getJson("/m/package/restore", {
+            T.getJson("/m/user/restore", {
                 userId: id
             }, function (json) {
                 if (json.state) {

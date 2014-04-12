@@ -78,12 +78,16 @@ body {
       padding: 0 18px;
       cursor: pointer;
       border-left:1px solid @border-color;
-      &.active {
+      &.active{
         background-color: @default-color;
         color: #fff;
         font-weight: 700;
         cursor: default;
         border-left: none;
+      }
+      &:hover{
+//        text-decoration: underline;
+        font-weight: 700;
       }
     }
   }
@@ -203,6 +207,9 @@ body {
         background-color: #FFE7E7;
       }
     }
+    textarea{
+      height: 40px;
+    }
     .input-small {
       width: 6em;
     }
@@ -215,6 +222,7 @@ body {
     .content {
       width: 65%;
       height: 450px;
+      line-height: 120%;
     }
     select {
       background-color: #FFFFFF;
