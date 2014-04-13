@@ -33,7 +33,7 @@ namespace Tjzx.Official.Models.Entities
         /// 套餐图片
         /// </summary>
         [Required]
-        [MaxLength(200)]
+        [MaxLength(300)]
         public string Picture { get; set; }
 
         /// <summary>

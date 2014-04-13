@@ -6,5 +6,6 @@ namespace Tjzx.Official.BLL.ViewModels
     /// </summary>
     public class ReservationInfo
     {
+        public int ReservationId { get; set; }
     }
 }

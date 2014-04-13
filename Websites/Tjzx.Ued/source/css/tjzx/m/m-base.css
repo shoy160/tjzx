@@ -82,6 +82,9 @@ body {
   cursor: pointer;
   border-left: 1px solid #cccccc;
 }
+.m-panel .m-panel-title li:first-child {
+  border-left: medium none;
+}
 .m-panel .m-panel-title li.active {
   background-color: #1e71b1;
   color: #fff;

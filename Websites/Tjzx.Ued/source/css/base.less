@@ -17,12 +17,13 @@
 @brand-danger: #d9534f;
 
 .brand-border(@color:#fff) {
-  border:1px solid darken(@color, 5%);
+  border: 1px solid darken(@color, 5%);
 }
 
 //颜色计算
-@color: #663333;
-@bgcolor: #eeffee;
+@color: @gray;
+@border-color: #ccc;
+@background-color: #ffffff;
 @color01: spin(@color, 180);
 @color02: darken(spin(@color, 180), 5%);
 @color03: lighten(@color, 15%);
@@ -53,33 +54,34 @@
 }
 
 //方块阴影
-.box-shadow(@shadow){
+.box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
   -moz-box-shadow: @shadow;
   box-shadow: @shadow;
 }
 
-.box-shadow(@inset,@shadow){
-  -webkit-box-shadow:inset @inset,@shadow;
+.box-shadow(@inset,@shadow) {
+  -webkit-box-shadow: inset @inset,@shadow;
   -moz-box-shadow: inset @inset,@shadow;
   box-shadow: inset @inset,@shadow;
 }
 
-.text-shadow(@shadow){
+.text-shadow(@shadow) {
   -webkit-text-shadow: @shadow;
   -moz-text-shadow: @shadow;
   text-shadow: @shadow;
 }
 
 //元素过滤效果
-.transition(@t1,@t2){
+.transition(@t1,@t2) {
   -webkit-transition: @t1,@t2;
   -moz-transition: @t1,@t2;
   -ms-transition: @t1,@t2;
   -o-transition: @t1,@t2;
   transition: @t1,@t2;
 }
-.transition(@t){
+
+.transition(@t) {
   -webkit-transition: @t;
   -moz-transition: @t;
   -ms-transition: @t;
@@ -150,13 +152,13 @@
   margin: 0;
   padding: 0;
   dt,
-  dd{
+  dd {
     display: inline;
     padding: 0;
     margin: 0;
     overflow: hidden;
   }
-  dt{
+  dt {
 
   }
   dd {

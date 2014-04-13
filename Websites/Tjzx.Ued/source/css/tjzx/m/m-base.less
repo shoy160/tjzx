@@ -78,6 +78,9 @@ body {
       padding: 0 18px;
       cursor: pointer;
       border-left:1px solid @border-color;
+      &:first-child{
+        border-left: medium none;
+      }
       &.active{
         background-color: @default-color;
         color: #fff;
@@ -262,6 +265,7 @@ body {
       .text-shadow(0 1px 1px rgba(255, 255, 255, 0.75));
       .rounded-corners(4px);
       .gradient(to bottom, #fff, #e6e6e6);
+      .user-select;
       background-repeat: repeat-x;
       vertical-align: middle;
       font-size: 14px;

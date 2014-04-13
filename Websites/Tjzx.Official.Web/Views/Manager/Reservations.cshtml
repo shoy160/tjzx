@@ -2,7 +2,7 @@
     <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
 }
 @using Shoy.Utility.Extend
-@using Tjzx.Official.BLL.Business
+@using Tjzx.Official.BLL
 @using Tjzx.Official.BLL.Dict
 @{
     ViewBag.Title = "预约列表";
@@ -43,7 +43,7 @@
                         @{
                             foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
                             {
-                                <option value="@type.GetValue()">@type.GetText()</option>
+                                <option value="@type.GetValue()">@type.ConsultingStateText()</option>
                             }
                         }
                     </select>

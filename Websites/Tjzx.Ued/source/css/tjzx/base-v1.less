@@ -1,37 +1,222 @@
 @import "../base";
-.width(){
-  width:1000px;
+
+body {
+  font: 13px/2.0 'Microsoft YaHei', Tahoma, Verdana, Simsun;
+  color: @color;
+  background-color: @background-color;
 }
+
+h1, h2, h3, h4, h5, ul, li, ol, dl, dt, dd, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li, ol, dl, dt, dd {
+  list-style: none;
+}
+
+a {
+  &:link,
+  &:active,
+  &:visited {
+    color: @color;
+    text-decoration: none;
+  }
+  &:hover {
+    color: @brand-primary;
+    text-decoration: underline;
+  }
+}
+
+.width() {
+  width: 1000px;
+  margin: 0 auto;
+}
+
 img {
   max-width: 100%;
   height: auto;
   width: auto !important; /* ie8 */
 }
+
 .video embed,
 .video object,
 .video iframe {
   width: 100%;
   height: auto;
 }
-header{
-  nav{
-    line-height: 28px;
+
+.t-top {
+  height: 90px;
+  position: relative;
+  .width();
+  .t-logo-box {
+    float: left;
+    .t-logo {
+      width: 215px;
+      height: 54px;
+      margin: 13px 0;
+      display: block;
+      overflow: hidden;
+    }
+    .t-desc {
+      position: absolute;
+      border-left: 1px solid @border-color;
+      padding-left: 12px;
+      left: 230px;
+      top: 12px;
+      width: 180px;
+      line-height: 22px;
+      height: 65px;
+      overflow: hidden;
+    }
   }
-  background-color: @bgcolor;
-  color: spin(@color,100);
-  margin:0 auto 8px;
-  .rounded-corners(3px);
-  .box-shadow(0 3px 3px 2px,@color01);
+  .t-service {
+    float: right;
+    margin-right: 12px;
+    line-height: 26px;
+    h2 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 14px;
+    }
+  }
+}
+
+header {
+  background-color: @background-color;
+  margin: 0;
+  nav {
+    line-height: 35px;
+    border-top: 1px solid @border-color;
+    border-bottom: 1px solid @border-color;
+    position: relative;
+    overflow: hidden;
+  }
+  .t-nav {
+    .width();
+    overflow: hidden;
+    position: relative;
+    li {
+      float: left;
+      min-width: 77px;
+      width: 110px;
+      height: 35px;
+      line-height: 35px;
+      overflow: hidden;
+      text-align: center;
+      border-left: 1px solid @border-color;
+      &:last-child {
+        border-right: 1px solid @border-color;
+      }
+      &.hot {
+        font-weight: 600;
+        font-size: 14px;
+      }
+      &.active{
+        background-color: @brand-primary;
+        a:link,
+        a:active,
+        a:visited{
+          color: #fff;
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+      a {
+        .inline-block;
+        height: 35px;
+        overflow: hidden;
+        &:link,
+        &:active,
+        &:visited {
+          color: @color;
+          text-decoration: none;
+        }
+        &:hover{
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.t-box {
+  margin: 0 auto;
   .width();
 }
-.t-box{
-  margin:0 auto;
-  .width();
-}
-footer{
-  background-color: @bgcolor;
-  margin: 10px auto 8px;
-  .rounded-corners(3px);
-  .box-shadow(0 2px 3px 2px,@color02);
-  .width();
+
+footer {
+  .width;
+  background-color: @background-color;
+  margin: 12px auto;
+  border: 1px solid @border-color;
+  line-height: 28px;
+  padding: 5px 0 0;
+  .t-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 5px 15px 15px;
+    .t-footer-item {
+      float: left;
+      min-width: 130px;
+      text-align: center;
+      width: 252px;
+      height: 120px;
+      border-right: 1px solid @border-color;
+      overflow: hidden;
+      h3 {
+        color: @gray-light;
+        margin-bottom: 8px;
+      }
+      ul {
+        position: relative;
+        overflow: hidden;
+      }
+      li {
+        float: left;
+        padding: 0 13px;
+      }
+    }
+    .t-footer-contact {
+      float: right;
+      text-align: center;
+      h3 {
+        font-weight: 500;
+        font-size: 14px;
+        border-bottom: 1px solid @border-color;
+      }
+      p {
+        line-height: 26px;
+        strong {
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .t-copyright {
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    border-top: 1px solid @border-color;
+    padding: 0 15px;
+    font-size: 12px;
+    color: @gray-light;
+    .copyright {
+      float: left;
+    }
+    .t-footer-fn {
+      float: right;
+    }
+    .t-share, .t-statistics {
+      float: left;
+      margin-right: 8px;
+    }
+    .t-share {
+      margin-top: 2px;
+    }
+  }
 }

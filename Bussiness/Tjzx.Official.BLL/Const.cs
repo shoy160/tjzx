@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tjzx.Official.BLL.Business
+namespace Tjzx.Official.BLL
 {
     public class Const
     {

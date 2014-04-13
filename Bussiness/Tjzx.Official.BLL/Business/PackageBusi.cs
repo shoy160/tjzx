@@ -23,8 +23,8 @@ namespace Tjzx.Official.BLL.Business
                         Picture = info.Picture,
                         CategoryId = info.CategoryId,
                         Sex = info.Sex,
-                        MarketPrice = 1000,
-                        Price = 1000,
+                        MarketPrice = 0,
+                        Price = 0,
                         Type = info.Type,
                         ForTheCrowd = info.ForTheCrowd,
                         Feature = info.Feature,
@@ -140,7 +140,7 @@ namespace Tjzx.Official.BLL.Business
         {
             using (var db = new EFDbContext())
             {
-                var item = db.MedicalPackages.FirstOrDefault(t => t.CategoryId == id);
+                var item = db.MedicalPackages.FirstOrDefault(t => t.PackageId == id);
                 if (item == null) return null;
                 return new PackageInfo
                     {

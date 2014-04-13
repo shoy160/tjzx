@@ -1,3 +1,41 @@
+body {
+  font: 13px/2 'Microsoft YaHei', Tahoma, Verdana, Simsun;
+  color: #555555;
+  background-color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li,
+ol,
+dl,
+dt,
+dd {
+  list-style: none;
+}
+a:link,
+a:active,
+a:visited {
+  color: #555555;
+  text-decoration: none;
+}
+a:hover {
+  color: #428bca;
+  text-decoration: underline;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -10,37 +48,180 @@ img {
   width: 100%;
   height: auto;
 }
-header {
-  background-color: #eeffee;
-  color: #446633;
-  margin: 0 auto 8px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  box-shadow: 0 3px 3px 2px #336666;
-  -webkit-box-shadow: 0 3px 3px 2px #336666;
-  -moz-box-shadow: 0 3px 3px 2px #336666;
+.t-top {
+  height: 90px;
+  position: relative;
   width: 1000px;
+  margin: 0 auto;
+}
+.t-top .t-logo-box {
+  float: left;
+}
+.t-top .t-logo-box .t-logo {
+  width: 215px;
+  height: 54px;
+  margin: 13px 0;
+  display: block;
+  overflow: hidden;
+}
+.t-top .t-logo-box .t-desc {
+  position: absolute;
+  border-left: 1px solid #cccccc;
+  padding-left: 12px;
+  left: 230px;
+  top: 12px;
+  width: 180px;
+  line-height: 22px;
+  height: 65px;
+  overflow: hidden;
+}
+.t-top .t-service {
+  float: right;
+  margin-right: 12px;
+  line-height: 26px;
+}
+.t-top .t-service h2 {
+  font-size: 18px;
+}
+.t-top .t-service h3 {
+  font-size: 14px;
+}
+header {
+  background-color: #ffffff;
+  margin: 0;
 }
 header nav {
-  line-height: 28px;
+  line-height: 35px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  position: relative;
+  overflow: hidden;
+}
+header .t-nav {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+header .t-nav li {
+  float: left;
+  min-width: 77px;
+  width: 110px;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  text-align: center;
+  border-left: 1px solid #cccccc;
+}
+header .t-nav li:last-child {
+  border-right: 1px solid #cccccc;
+}
+header .t-nav li.hot {
+  font-weight: 600;
+  font-size: 14px;
+}
+header .t-nav li.active {
+  background-color: #428bca;
+}
+header .t-nav li.active a:link,
+header .t-nav li.active a:active,
+header .t-nav li.active a:visited {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+header .t-nav li a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 35px;
+  overflow: hidden;
+}
+header .t-nav li a:link,
+header .t-nav li a:active,
+header .t-nav li a:visited {
+  color: #555555;
+  text-decoration: none;
+}
+header .t-nav li a:hover {
+  font-size: 14px;
+  font-weight: 600;
 }
 .t-box {
-  margin: 0 auto;
   width: 1000px;
+  margin: 0 auto;
 }
 footer {
-  background-color: #eeffee;
-  margin: 10px auto 8px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  box-shadow: 0 2px 3px 2px #2b5555;
-  -webkit-box-shadow: 0 2px 3px 2px #2b5555;
-  -moz-box-shadow: 0 2px 3px 2px #2b5555;
   width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin: 12px auto;
+  border: 1px solid #cccccc;
+  line-height: 28px;
+  padding: 5px 0 0;
+}
+footer .t-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 5px 15px 15px;
+}
+footer .t-footer .t-footer-item {
+  float: left;
+  min-width: 130px;
+  text-align: center;
+  width: 252px;
+  height: 120px;
+  border-right: 1px solid #cccccc;
+  overflow: hidden;
+}
+footer .t-footer .t-footer-item h3 {
+  color: #999999;
+  margin-bottom: 8px;
+}
+footer .t-footer .t-footer-item ul {
+  position: relative;
+  overflow: hidden;
+}
+footer .t-footer .t-footer-item li {
+  float: left;
+  padding: 0 13px;
+}
+footer .t-footer .t-footer-contact {
+  float: right;
+  text-align: center;
+}
+footer .t-footer .t-footer-contact h3 {
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 1px solid #cccccc;
+}
+footer .t-footer .t-footer-contact p {
+  line-height: 26px;
+}
+footer .t-footer .t-footer-contact p strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+footer .t-copyright {
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  border-top: 1px solid #cccccc;
+  padding: 0 15px;
+  font-size: 12px;
+  color: #999999;
+}
+footer .t-copyright .copyright {
+  float: left;
+}
+footer .t-copyright .t-footer-fn {
+  float: right;
+}
+footer .t-copyright .t-share,
+footer .t-copyright .t-statistics {
+  float: left;
+  margin-right: 8px;
+}
+footer .t-copyright .t-share {
+  margin-top: 2px;
 }

@@ -4,5 +4,8 @@
     <script type="text/javascript"> window.TJZX = { compatible:true,mapContainer: 'map' }; </script>
 }
 @section Footer{@{ Html.RenderPartial("_BaiduMap"); }}
+@{
+    ViewBag.Channel = "contact";
+}
 <div>联系我们</div>
 <div id="map"></div>

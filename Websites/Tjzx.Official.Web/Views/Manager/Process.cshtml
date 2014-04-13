@@ -1,1 +1,30 @@
-﻿<div>流程及注意事项</div>
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+}
+@using Shoy.Utility.Extend
+@using Tjzx.Official.BLL
+@using Tjzx.Official.BLL.Dict
+@{
+    ViewBag.Title = "流程及注意事项";
+}
+<div class="m-panel">
+    <div class="m-panel-title">
+        <ul>
+            <li class="active">体检流程</li>
+            <li>注意事项</li>
+        </ul>
+    </div>
+    <div class="m-panel-item">
+    </div>
+    <div class="m-panel-item hide">
+        <div class="m-form j-form">
+            <div class="m-form-actions">
+                <button type="button" class="btn btn-primary j-submit">确认提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-process.min.js"></script>
+}

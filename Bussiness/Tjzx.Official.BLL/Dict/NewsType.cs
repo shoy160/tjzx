@@ -12,6 +12,11 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 中心公告
         /// </summary>
-        [Description("中心公告")] Announcement = 1
+        [Description("中心公告")] Announcement = 1,
+
+        /// <summary>
+        /// 健康知识
+        /// </summary>
+        [Description("健康知识")] HealthKnowledge = 2,
     }
 }
