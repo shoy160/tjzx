@@ -34,6 +34,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="base.less" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/css/base.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="1" selection-start="758" selection-end="758" vertical-scroll-proportion="0.40453687" vertical-offset="600" max-vertical-offset="4048">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="page-common.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-common.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,10 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base-v1.less" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base-v1.less" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="34" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.25461254" vertical-offset="3360" max-vertical-offset="5544">
+            <state line="53" column="16" selection-start="740" selection-end="740" vertical-scroll-proportion="-9.741936" vertical-offset="864" max-vertical-offset="5544">
               <folding />
             </state>
           </provider>
@@ -206,83 +215,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tjzx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tjzx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -410,13 +343,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="11" selection-start="2031" selection-end="2031" vertical-scroll-proportion="-1.9277109" vertical-offset="2590" max-vertical-offset="10406">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="16" selection-start="1278" selection-end="1325" vertical-scroll-proportion="0.76134455" vertical-offset="471" max-vertical-offset="4048">
@@ -529,7 +455,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="34" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.25461254" vertical-offset="3360" max-vertical-offset="5544">
+        <state line="53" column="16" selection-start="740" selection-end="740" vertical-scroll-proportion="-9.741936" vertical-offset="864" max-vertical-offset="5544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="1" selection-start="758" selection-end="758" vertical-scroll-proportion="0.40453687" vertical-offset="600" max-vertical-offset="4048">
           <folding />
         </state>
       </provider>
