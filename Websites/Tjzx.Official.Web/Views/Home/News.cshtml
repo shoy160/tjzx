@@ -1,4 +1,62 @@
-﻿@{
-    ViewBag.Channel = "news";
+﻿@section Header{
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/page-news.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/base-responsive.min.css" media="all" />
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">window.TJZX ={ compatible: true }</script>
 }
-<div>News</div>
+<div class="t-location">
+    <h3>当前位置：首页 > 新闻资讯</h3>
+</div>
+<div class="t-panel-box">
+    <div class="t-panel-title">新闻资讯</div>
+    <ul class="t-news-list">
+    </ul>
+    <div class="h-pager"></div>
+</div>
+<script type="text/h-temp" id="h-temp">
+    <li>
+        <h4><a href="/news/{id}">{title}</a><span>{time}</span></h4>
+        <div class="t-content">
+            {content}
+        </div>
+    </li>
+</script>
+<script type="text/h-temp" id="h-empty">
+    <div class="t-empty">
+        暂无新闻资讯！
+    </div>        
+</script>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            var getList = function (page) {
+                var newsList = [];
+                for (var i = 0; i < 10; i++) {
+                    var item = {
+                        id: page + 12,
+                        time: "2014-04-15 12:11",
+                        title: page + "中国高端健康产业的未来在哪里？",
+                        content: page + "中国梦是中国人的富强梦、品质梦，是13亿中国人为之奋斗的目标，高端健康产业作为国人生活品质进一步提升的支柱产业，在中国人实现品质生活。中国梦是中国人的富强梦、品质梦，是13亿中国人为之奋斗的目标，高端健康产业..."
+                    };
+                    newsList.push(item);
+                }
+                return newsList;
+            },
+                count = 230;
+            var h = new hTemplate({
+                tmp: $("#h-temp").html(),
+                empty: $("#h-empty").html(),
+                container: $(".t-news-list"),
+                pager: $(".h-pager"),
+                size: 10,
+                pageClick: function (page) {
+                    h.bind(getList(page), count);
+                    $('body,html').animate({ scrollTop: 0 }, $(window).scrollTop() / 5);
+                }
+            });
+
+            h.bind(getList(1), count);
+        })(jQuery);
+    </script>
+}

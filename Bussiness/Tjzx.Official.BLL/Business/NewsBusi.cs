@@ -37,6 +37,40 @@ namespace Tjzx.Official.BLL.Business
                 });
         }
 
+        public ResultInfo GetNonCustomItem(byte type)
+        {
+            using (var db = new EFDbContext())
+            {
+                var item = db.Newses.FirstOrDefault(t => t.Type == type);
+                if (item == null)
+                {
+                    return new ResultInfo(1, "", new {content = ""});
+                }
+                return new ResultInfo(1, "", new {content = item.Content});
+            }
+        }
+
+        public ResultInfo UpdateItem(byte type, string content)
+        {
+            using (var db = new EFDbContext())
+            {
+                var info = new NewsInfo
+                    {
+                        Title = ((NewsType) type).GetText(),
+                        State = (byte) StateType.Display,
+                        Type = type,
+                        Content = content
+                    };
+                var item = db.Newses.FirstOrDefault(t => t.Type == type);
+                if (item == null)
+                {
+                    return Insert(info);
+                }
+                info.NewsId = item.NewsId;
+                return Update(info);
+            }
+        }
+
         /// <summary>
         /// 获取单个资讯
         /// </summary>
@@ -80,7 +114,7 @@ namespace Tjzx.Official.BLL.Business
                         Type = info.Type,
                         Content = content,
                         CreateOn = DateTime.Now,
-                        State = (byte) StateType.Hidden,
+                        State = info.State,
                         CreatorId = user.UserId,
                         Creator = user.UserName,
                         Author = info.Author,
@@ -117,15 +151,19 @@ namespace Tjzx.Official.BLL.Business
                         t =>
                         (string.IsNullOrEmpty(info.Keyword) ||
                          (t.Title.Contains(info.Keyword))) &&
-                        (info.Type == Const.Ignore || t.Type == info.Type) &&
-                        (info.State == Const.Ignore ? t.State != (byte)StateType.Delete : t.State == info.State));
+                        (info.Type == Const.Ignore
+                             ? (t.Type <= NewsTypeManager.CustomNewsTypeLimit)
+                             : t.Type == info.Type) &&
+                        (info.State == Const.Ignore ? t.State != (byte) StateType.Delete : t.State == info.State));
                 var list =
                     db.Newses.Where(
                         t =>
                         (string.IsNullOrEmpty(info.Keyword) ||
                          (t.Title.Contains(info.Keyword))) &&
-                        (info.Type == Const.Ignore || t.Type == info.Type) &&
-                        (info.State == Const.Ignore ? t.State != (byte)StateType.Delete : t.State == info.State))
+                        (info.Type == Const.Ignore
+                             ? (t.Type <= NewsTypeManager.CustomNewsTypeLimit)
+                             : t.Type == info.Type) &&
+                        (info.State == Const.Ignore ? t.State != (byte) StateType.Delete : t.State == info.State))
                       .OrderByDescending(t => t.NewsId)
                       .Skip(info.Page*info.Size)
                       .Take(info.Size)

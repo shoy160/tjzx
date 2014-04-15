@@ -41,9 +41,9 @@
                     <select name="state" class="col-08">
                         <option value="@Const.Ignore">所有状态</option>
                         @{
-                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            foreach (ReservationState type in Enum.GetValues(typeof(ReservationState)))
                             {
-                                <option value="@type.GetValue()">@type.ConsultingStateText()</option>
+                                <option value="@type.GetValue()">@type.GetText()</option>
                             }
                         }
                     </select>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <table class="m-table">
-            <caption>预约列表</caption>
+            <caption>预约列表<small>共找到<em>0</em>条记录</small></caption>
             <colgroup>
                 <col class="col-06"/>
                 <col />
@@ -69,10 +69,10 @@
             <thead>
                 <tr>
                     <th>预约ID</th>
-                    <th>套餐类型</th>
-                    <th>预约套餐</th>
                     <th>预约人</th>
                     <th>联系方式</th>
+                    <th>套餐类型</th>
+                    <th>预约套餐</th>
                     <th>提交时间</th>
                     <th>预约时间</th>
                     <th>状态</th>
@@ -94,11 +94,11 @@
     <tr>
         <td>{id}</td>
         <td>{name}</td>
-        <td>{category}</td>
-        <td>{sex}</td>
-        <td>{ftc}</td>
-        <td>{Feature}</td>
-        <td>{createon}</td>
+        <td>{mobile}</td>
+        <td>{typeCN}</td>
+        <td>{packageId}</td>
+        <td>{createOn}</td>
+        <td>{reservationDate}</td>
         <td>{stateCN}</td>
         <td data-id="{id}">{links}</td>
     </tr>        

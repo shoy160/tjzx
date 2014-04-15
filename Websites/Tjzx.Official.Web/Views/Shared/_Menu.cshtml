@@ -16,8 +16,8 @@
         </div>
         <div class="t-service">
             <h2>全国统一服务热线</h2>
-            <h3>个人：</h3>
-            <h3>团队：</h3>
+            <h3>个人：028-87394720</h3>
+            <h3>团队：028-87394720</h3>
         </div>
     </div>
     <nav>
@@ -45,4 +45,19 @@
             }
         </ul>
     </nav>
+    <script type="text/javascript">
+        (function () {
+            //设置导航
+            var navs = document.getElementsByTagName("nav")[0].getElementsByTagName("a"),
+            url = location.href;
+            for (var i = 1; i < navs.length; i++) {
+                var href = navs[i].getAttribute("href").toLowerCase();
+                if (url.indexOf(href) >= 0) {
+                    navs[0].parentNode.className = "";
+                    navs[i].parentNode.className += " active";
+                    break;
+                }
+            }
+        })();
+    </script>
 </header>

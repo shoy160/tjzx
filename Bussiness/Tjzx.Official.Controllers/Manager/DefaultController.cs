@@ -59,24 +59,11 @@ namespace Tjzx.Official.Controllers.Manager
                 };
         }
 
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
+        [ActionName("package")]
+        [Auth(Role = ManagerRole.Package)]
+        public ActionResult Package()
+        {
+            return View("/Views/Manager/PackageList.cshtml");
+        }
     }
 }

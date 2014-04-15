@@ -74,7 +74,8 @@ namespace Tjzx.Official.BLL.Business
                         t => (string.IsNullOrEmpty(info.Keyword) ||
                               t.Name.Contains(info.Keyword)) &&
                              (info.State == Const.Ignore || t.State == info.State))
-                      .OrderBy(t => t.Sort)
+                      .OrderByDescending(t => t.CategoryId)
+                      .ThenBy(t => t.Sort)
                       .Skip(info.Page*info.Size)
                       .Take(info.Size)
                       .ToList()
@@ -85,7 +86,7 @@ namespace Tjzx.Official.BLL.Business
                               count = t.MedicalPackages.Count,
                               createon = Const.FormatDate(t.CreateOn),
                               state = t.State,
-                              stateCN = ((StateType)t.State).GetCssText()
+                              stateCN = ((StateType) t.State).GetCssText()
                           }).ToList();
                 return new ResultInfo(1, "", new {count, list});
             }

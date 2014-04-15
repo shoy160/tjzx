@@ -1,11 +1,37 @@
 ﻿@section Header{
-    <style type="text/css">#map{ width: 400px;height: 420px;}</style>
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/page-contact.min.css" media="all" />
     <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/base-responsive.min.css" media="all" />
     <script type="text/javascript"> window.TJZX = { compatible:true,mapContainer: 'map' }; </script>
 }
 @section Footer{@{ Html.RenderPartial("_BaiduMap"); }}
 @{
-    ViewBag.Channel = "contact";
+    ViewBag.Title = "联系我们";
 }
-<div>联系我们</div>
-<div id="map"></div>
+<div class="t-location">
+    <h3>当前位置：首页 > 联系我们</h3>
+</div>
+<div class="t-panel-box">
+    <div class="t-panel-title">联系我们</div>
+    <div class="t-contact-box">
+        <h4>本部：</h4>
+        <div class="t-contact-item">
+            <p>地址：成都市一环路西二段32号四川省人民医院新门诊大楼四楼</p>
+            <p>咨询电话：028-87394273</p>
+            <p>团队联系人：杨女士  黄女士  戴女士</p>
+            <p>团队预约电话：028-87791910  028-87394720</p>
+            <p>传真：028-87394272</p>
+            <p>E-mail：sc_tjzx@163.com</p>
+        </div>
+        <div id="map"></div>  
+    </div>
+    <div class="t-contact-box">
+        <h4>草堂分部：</h4>
+        <div class="t-contact-item">
+            <p>地址：成都市大石西路62号四川省人民医院草堂病区内</p>
+            <p>联系人：杨女士</p>
+            <p>联系电话：028-87025858  028-87027575</p>
+            <p>传真：028-87027575</p>
+            <p>E-mail：sc_tjzx@163.com</p>
+        </div>
+    </div>
+</div>

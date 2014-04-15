@@ -167,6 +167,7 @@
                     prev: '.w-prev',
                     next: '.w-next',
                     direction: 'top',
+                    wheel: true,             //滚轮事件
                     step: 1,                //每次移动几个元素
                     min: 2,                 //最少元素，低于将无效果
                     start: 0,               //从第几个开始
@@ -177,14 +178,17 @@
                     auto: false,            //是否自动滚动
                     sleep: 4000,            //自动滚动间歇
                     pause: true,            //鼠标经过时暂停滚动
-                    control: '',            //控制器
+                    controls: '',            //控制器
+                    controlEvent: 'click.wheel',   //控制器触发事件
                     activeClass: 'active',  //
                     easing: ''              //切换效果
                 }, options),
                 $t = $(this),
                 perPixel,
                 moving = false,
-                target = {};
+                target = {},
+                $controls = $(options.controls),
+                lastAction;
             target.items = $t.find(options.items);
             target.len = target.items.length;
 
@@ -196,12 +200,17 @@
                 perPixel = $v.outerWidth();
             }
             $t.data("index", 0);
+
             var moveStep = function (step, isTimer) {
-                if (moving) return false;
-                !isTimer && clearTimer();
-                moving = true;
                 var index = $t.data("index");
                 index += step;
+                if (moving) {
+                    lastAction = {index: index, isTimer: isTimer};
+                    return false;
+                }
+                lastAction = "";
+                !isTimer && clearTimer();
+                moving = true;
                 //判断循环设置
                 if (step > 0) {
                     //向下
@@ -221,7 +230,14 @@
                 if (index < 0) index = (target.len - last);
                 if (index >= target.len) index = 0;
                 var easyIn = {
-                    duration: options.speed
+                    duration: options.speed,
+                    complete: function () {
+                        moving = false;
+                        !isTimer && setTimer();
+                        if (lastAction) {
+                            target.to(lastAction.index);
+                        }
+                    }
                 };
                 if (options.easing) {
                     easyIn.easing = options.easing;
@@ -235,25 +251,29 @@
                         "margin-left": (0 - index * perPixel)
                     }, easyIn);
                 }
-                setTimeout(function () {
-                    moving = false;
-                    !isTimer && setTimer();
-                }, options.speed);
+                if ($controls.length) {
+                    $controls.removeClass(options.activeClass).eq(index).addClass(options.activeClass);
+                }
                 $t.data("index", index);
             };
             var timer, stop = false;
             var setTimer = function () {
                 if (!options.auto) return;
-                timer = setInterval(function () {
-                    if (!moving)
-                        moveStep(options.step, true);
-                }, options.sleep);
-                stop = false;
+                if (!timer) {
+                    timer = setInterval(function () {
+                        if (!moving)
+                            moveStep(options.step, true);
+                    }, options.sleep);
+                    stop = false;
+                }
             };
             var clearTimer = function () {
                 if (!options.auto) return;
-                clearInterval(timer);
-                stop = true;
+                if (timer) {
+                    clearTimeout(timer);
+                    timer = undefined;
+                    stop = true;
+                }
             };
             if (options.auto) {
                 setTimer();
@@ -275,9 +295,28 @@
             options.next && $(options.next).bind("click", function () {
                 target.next();
             });
-            $t.bind("mousewheel.wheelmove", function (e, delta) {
-                moveStep(delta < 0 ? options.step : 0 - options.step);
-                return false;
+
+            if ($controls.length) {
+                $controls.bind(options.controlEvent, function () {
+                    var index = $controls.index($(this));
+                    target.to(index);
+                });
+            }
+
+            if (options.wheel) {
+                $t.bind("mousewheel.wheelmove", function (e, delta) {
+                    moveStep(delta < 0 ? options.step : 0 - options.step);
+                    return false;
+                });
+            }
+            //支持响应式
+            $(window).bind("resize.wheelmove", function () {
+                if ("top" === options.direction) {
+                    perPixel = $v.outerHeight();
+                } else {
+                    perPixel = $v.outerWidth();
+                }
+                target.to($t.data("index"));
             });
             target.reset = function () {
                 target.items = $t.find(options.items);

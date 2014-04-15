@@ -8,6 +8,7 @@
         private byte _type = Const.Ignore;
         private byte _state = Const.Ignore;
         private int _role = Const.Ignore;
+        private int _categoryId = Const.Ignore;
         private int _page = 0;
         private int _size = 15;
 
@@ -41,6 +42,12 @@
         {
             get { return _size; }
             set { _size = value; }
+        }
+
+        public int CategoryId
+        {
+            get { return _categoryId; }
+            set { _categoryId = value; }
         }
     }
 }

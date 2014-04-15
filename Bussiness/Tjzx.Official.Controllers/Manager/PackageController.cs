@@ -5,12 +5,17 @@ using Tjzx.Official.BLL.Business;
 using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Web;
+using Tjzx.Official.BLL;
+using Tjzx.BLL;
+using System.Web;
 
 namespace Tjzx.Official.Controllers.Manager
 {
     public class PackageController:BaseController
     {
         private readonly PackageBusi _busi = new PackageBusi();
+        private readonly Logger _logger = Logger.L<PackageController>();
+
         [Auth(Role = ManagerRole.Package)]
         public ActionResult Index()
         {
@@ -24,10 +29,10 @@ namespace Tjzx.Official.Controllers.Manager
         {
             if (!string.IsNullOrEmpty(sex))
             {
-                var sexs = sex.To(new byte[] {});
+                var sexs = sex.To(new int[] {});
                 foreach (var i in sexs)
                 {
-                    info.Sex |= i;
+                    info.Sex |= (byte) i;
                 }
             }
             if (info.PackageId > 0)
@@ -77,10 +82,23 @@ namespace Tjzx.Official.Controllers.Manager
 
         [HttpPost]
         [ActionName("restore")]
-        [Auth(Role = ManagerRole.Users)]
+        [Auth(Role = ManagerRole.Package)]
         public JsonResult Restore(int packageId)
         {
             return Json(_busi.UpdateState(packageId, StateType.Hidden));
+        }
+
+        /// <summary>
+        /// 首图上传
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("uploadImage")]
+        public JsonResult UploadImage(HttpPostedFileBase fileData, int packageId = 0)
+        {
+            _logger.I(packageId + "");
+            var uploader = new Uploader(System.Web.HttpContext.Current);
+            return Json(uploader.SavePackageImage(packageId));
         }
     }
 }

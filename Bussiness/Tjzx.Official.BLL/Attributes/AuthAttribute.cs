@@ -16,8 +16,15 @@ namespace Tjzx.Official.BLL.Attributes
         {
             Users = users;
             Role = role;
+            Type = UserType.Manager;
         }
 
+        public AuthAttribute(UserType type)
+        {
+            Type = type;
+        }
+
+        public UserType Type { get; set; }
         public string Users { get; set; }
         public ManagerRole Role { get; set; }
 
@@ -26,21 +33,22 @@ namespace Tjzx.Official.BLL.Attributes
             var result = new ContentResult();
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                result.Content = new { state = -1, msg = "操作需要登录系统，请先登录！" }.ToJson();
+                result.Content = new {state = -1, msg = "操作需要登录系统，请先登录！"}.ToJson();
                 filterContext.Result = result;
-                User.RedirectToLogin();
+                User.RedirectToLogin(Type);
             }
             else
             {
-                if (string.IsNullOrEmpty(Users) && Role == ManagerRole.None)
+                var user = User.GetUser();
+                if (user == null || user.Type != Type.GetValue())
                 {
+                    result.Content = new { state = -1, msg = "操作需要登录系统，请先登录！" }.ToJson();
+                    filterContext.Result = result;
+                    User.RedirectToLogin(Type);
                     return;
                 }
-                var user = User.GetUser();
-                if (user == null)
+                if (string.IsNullOrEmpty(Users) && Role == ManagerRole.None)
                 {
-                    result.Content = new {state = 0, msg = "身份验证不通过！"}.ToJson();
-                    filterContext.Result = result;
                     return;
                 }
 
@@ -49,7 +57,7 @@ namespace Tjzx.Official.BLL.Attributes
                     var users = Users.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
                     if (!users.Contains(user.UserName))
                     {
-                        result.Content = new { state = 0, msg = "用户权限被限制！" }.ToJson();
+                        result.Content = new {state = 0, msg = "用户权限被限制！"}.ToJson();
                         filterContext.Result = result;
                         return;
                     }

@@ -6,6 +6,8 @@ using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
+using System.IO;
+using System.Security.AccessControl;
 
 namespace Tjzx.Official.BLL.Business
 {
@@ -28,7 +30,7 @@ namespace Tjzx.Official.BLL.Business
                         Type = info.Type,
                         ForTheCrowd = info.ForTheCrowd,
                         Feature = info.Feature,
-                        Recommends = info.Recommends??"recommends",
+                        Recommends = info.Recommends ?? "recommends",
                         Details = details,
                         State = info.State,
                         Sort = info.Sort,
@@ -41,6 +43,12 @@ namespace Tjzx.Official.BLL.Business
                 {
                     db.MedicalPackages.Add(item);
                     db.SaveChanges();
+                    var picture = CheckImage(item.PackageId, item.CreateOn, item.Picture);
+                    if (!string.IsNullOrEmpty(picture))
+                    {
+                        item.Picture = picture;
+                        db.SaveChanges();
+                    }
                     return new ResultInfo(1);
                 }
                 var msg = valid.ValidationErrors.FirstOrDefault();
@@ -50,30 +58,59 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
+        private string CheckImage(int packageId, DateTime createOn, string picture)
+        {
+            string result = string.Empty;
+            if (packageId <= 0 || string.IsNullOrEmpty(picture) || picture.Contains("/" + packageId + "/"))
+                return result;
+            string name = Path.GetFileName(picture),
+                   path = Utils.GetMapPath(picture),
+                   newUrl = "/upload/" + Const.PackageImageDirectory + "/" +
+                            createOn.ToString("yyyyMM") + "/" + packageId + "/",
+                   newPath = Utils.GetMapPath(newUrl);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
+            try
+            {
+                File.Move(path, newPath + name);
+                return newUrl + name;
+            }
+            catch
+            {
+                return result;
+            }
+        }
+
         public override ResultInfo GetList(SearchInfo info)
         {
             using (var db = new EFDbContext())
             {
-                var count = db.MedicalPackages.Count(t =>
-                                                     (string.IsNullOrEmpty(info.Keyword) ||
-                                                      t.Name.Contains(info.Keyword)) &&
-                                                     (info.State == Const.Ignore || t.State == info.State));
+                var count = db.MedicalPackages.Count(
+                    t =>
+                    (string.IsNullOrEmpty(info.Keyword) ||
+                     t.Name.Contains(info.Keyword)) &&
+                    (info.CategoryId == Const.Ignore || t.CategoryId == info.CategoryId) &&
+                    (info.State == Const.Ignore || t.State == info.State));
                 var list =
                     db.MedicalPackages.Where(
                         t => (string.IsNullOrEmpty(info.Keyword) ||
                               t.Name.Contains(info.Keyword)) &&
+                             (info.CategoryId == Const.Ignore || t.CategoryId == info.CategoryId) &&
                              (info.State == Const.Ignore || t.State == info.State))
-                      .OrderBy(t => t.Sort)
+                      .OrderByDescending(t => t.PackageId)
+                      .ThenBy(t => t.Sort)
                       .Skip(info.Page*info.Size)
                       .Take(info.Size)
                       .ToList()
                       .Select(t => new
                           {
-                              id = t.CategoryId,
+                              id = t.PackageId,
                               name = t.Name,
-                              picture=t.Picture,
+                              picture = t.Picture,
                               category = t.Category.Name,
-                              sex = t.Sex,
+                              sex = (t.Sex == 3 ? "不限" : t.Sex == 2 ? "男士" : "女士"),
                               ftc = t.ForTheCrowd,
                               feature = t.Feature,
                               createon = Const.FormatDate(t.CreateOn),
@@ -104,10 +141,14 @@ namespace Tjzx.Official.BLL.Business
                 item.Recommends = info.Recommends ?? "recommends";
                 item.Details = details;
                 item.Sort = info.Sort;
-                item.State = info.State;
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
                 {
+                    var picture = CheckImage(item.PackageId, item.CreateOn, item.Picture);
+                    if (!string.IsNullOrEmpty(picture))
+                    {
+                        item.Picture = picture;
+                    }
                     db.SaveChanges();
                     return new ResultInfo(1);
                 }
@@ -164,15 +205,15 @@ namespace Tjzx.Official.BLL.Business
         {
             var info = GetItem(id);
             if (info == null)
-                return new ResultInfo(0, "未找到相关分类！");
+                return new ResultInfo(0, "未找到相关套餐！");
             return new ResultInfo(1, "", new
                 {
                     packageId = info.PackageId,
-                    cateId = info.CategoryId,
+                    categoryId = info.CategoryId,
                     name = info.Name,
                     picture = info.Picture,
                     sex = info.Sex,
-                    ftc = info.ForTheCrowd,
+                    forTheCrowd = info.ForTheCrowd,
                     feature = info.Feature,
                     recommends = info.Recommends,
                     details = info.Details,

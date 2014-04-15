@@ -15,15 +15,5 @@ namespace Tjzx.Official.Controllers
             var code = new VerifyImagePage();
             return File(code.VcodeByte(), "image/jpeg");
         }
-
-        /// <summary>
-        /// 图片上传
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public JsonResult SaveImage()
-        {
-            return Json(new {});
-        }
     }
 }

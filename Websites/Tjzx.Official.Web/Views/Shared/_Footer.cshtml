@@ -5,7 +5,7 @@
 }
 <footer>
     <div class="t-footer">
-        <div class="t-footer-item">
+        <div class="t-footer-item t-footer-package">
             <h3>体检套餐</h3>
             <ul>
                 @if (config != null && config.Categories != null)
@@ -17,7 +17,7 @@
                 }
             </ul>
         </div>
-        <div class="t-footer-item">
+        <div class="t-footer-item t-footer-links">
             <h3>友情链接</h3>
             <ul>
                 @if (config != null && config.FriendsLink != null)
@@ -29,7 +29,7 @@
                 }
             </ul>
         </div>
-        <div class="t-footer-item">
+        <div class="t-footer-item t-footer-helper">
             <h3>健康助手</h3>
             <ul>
             </ul>
@@ -53,17 +53,17 @@
                     <a href="#" class="bds_renren" data-cmd="renren"></a>
                     <a href="#" class="bds_weixin" data-cmd="weixin"></a>
                 </div>
-                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "image": { "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"], "viewText": "分享到：", "viewSize": "16" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {}, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
             </div>
             <div class="t-statistics">
-                百度统计
+                <!--百度统计-->
+                <script type="text/javascript">
+                    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faf89062e689c1f4be120d5c8791a3fa0' type='text/javascript'%3E%3C/script%3E"));
+                </script>
             </div>
         </div>
     </div>
 </footer>
 <script src="//ued.tjzx.com/js/jquery.min.js"></script>
-<!--百度统计-->
-@*<script type="text/javascript">
-    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Faf89062e689c1f4be120d5c8791a3fa0' type='text/javascript'%3E%3C/script%3E"));
-</script>*@
+<script src="//ued.tjzx.com/js/tjzx/page-common.min.js"></script>

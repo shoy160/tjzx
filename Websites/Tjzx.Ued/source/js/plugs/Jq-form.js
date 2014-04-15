@@ -55,8 +55,11 @@
                     }
                 }
             } else if (obj.is(":checkbox")) {
+                var valueArray = [];
                 if (value && "string" === typeof value)
-                    value = value.split(',');
+                    valueArray = value.split(',');
+                else if (!isNaN(value))
+                    valueArray.push(value);
                 $list = form.find(":checkbox[name='" + name + "']");
                 if ("" === value) {
                     $list.each(function () {
@@ -67,9 +70,8 @@
                 $list.each(function () {
                     $item = $(this);
                     var v = $item.val();
-                    if ($.inArray(v, value) >= 0 || (!isNaN(v) && $.inArray(~~v, value) >= 0)) {
-                        $item.get(0).checked = true;
-                    }
+                    var checked = ($.inArray(v, valueArray) >= 0 || (!isNaN(v) && $.inArray(~~v, valueArray) >= 0));
+                    $item.get(0).checked = checked;
                 });
             } else if (obj.is("select")) {
                 $list = form.find("select[name='" + name + "'] option");
@@ -83,6 +85,7 @@
                 }
             } else {
                 $list = form.find('[name="' + name + '"]');
+
                 $list.val(value) || $list.text(value);
             }
         },
@@ -140,11 +143,11 @@
             $inputs.each(function () {
                 $(this).data("rule", $(this).data("valid") || $(this).attr("data-valid"));
             });
-            $form.find("[name]").bind("blur",function(){
-                if($(this).data("rule"))
-                    valid.check.call(this,$form);
+            $form.find("[name]").bind("blur", function () {
+                if ($(this).data("rule"))
+                    valid.check.call(this, $form);
             });
-            $form.find("[key-submit]").bind("keyup",function(e){
+            $form.find("[key-submit]").bind("keyup", function (e) {
                 if (13 === e.keyCode) {
                     ps.submit && "function" === typeof ps.submit && ps.submit.call(this);
                 }
@@ -187,7 +190,7 @@
             var $form = this.forms.eq(i || 0);
             $form.find(".control-error").removeClass("control-error");
             $form.find(".m-form-tip").remove();
-            if ("object" !== typeof json){
+            if ("object" !== typeof json) {
                 this.reset(i);
                 return false;
             }

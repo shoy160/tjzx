@@ -7,10 +7,11 @@
 @if (Model != null)
 {
     <div class="t-slider">
-        <ul>
-            @if (Model.Sliders != null)
-            {
-                foreach (var slider in Model.Sliders.OrderBy(t=>t.Sort))
+        @if (Model.Sliders != null)
+        {
+            var count = Model.Sliders.Count;
+            <ul>
+                @foreach (var slider in Model.Sliders.OrderBy(t => t.Sort))
                 {
                     <li>
                         <a href="@slider.Link" title="@slider.Title">
@@ -18,27 +19,48 @@
                         </a>
                     </li>
                 }
-            }
-        </ul>
+            </ul>
+            <div class="t-slider-controls">
+                <ol style="width: @(count*23)px">
+                    @for (var i = 0; i < count; i++)
+                    {
+                        var cls = i == 0 ? "active" : "";
+                        <li class="@cls"></li>
+                    }
+                </ol>
+            </div>
+        }
+    </div>
+    <div class="t-panel-box t-panel-box-01">
+        <div class="t-panel-title">中心概况</div>
+    </div>
+    <div class="t-panel-box t-panel-box-02">
+        <div class="t-panel-title">热门资讯</div>
+    </div>
+    <div class="t-panel-box t-panel-box-03">
+        <div class="t-panel-title">健康快车</div>
     </div>
     <div class="t-panel-box">
         <div class="t-panel-title">体检套餐</div>
-        <ul>
+        <ul class="t-category">
             @if (Model.Categories != null)
             {
                 foreach (var category in Model.Categories)
                 {
                     <li>
-                        <a class="t-img" href="/package/@category.CategoryId" title="@category.CategoryName">
+                        <a class="t-img" href="/packages/@category.CategoryId" title="@category.CategoryName">
                             <img src="@category.ImageUrl" alt="@category.CategoryName" />
                         </a>
                         <h3>
-                            <a href="/package/@category.CategoryId" title="@category.CategoryName">@category.CategoryName</a>
+                            <a href="/packages/@category.CategoryId" title="@category.CategoryName">@category.CategoryName</a>
                         </h3>
                     </li>
                 }
             }
         </ul>
+    </div>
+    <div class="t-panel-box">
+        <div class="t-panel-title">中心环境</div>
     </div>
 }
 @section Footer{
@@ -49,7 +71,11 @@
             step: 1,
             direction: "left",
             easing: "easeInOutBack",
-            speed: 1200
+            speed: 1200,
+            controls: ".t-slider-controls li",
+            wheel: false,
+            auto: true,
+            sleep: 5000
         });
     </script>
 }

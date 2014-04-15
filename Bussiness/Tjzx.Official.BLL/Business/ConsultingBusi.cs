@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Shoy.Utility;
+using Shoy.Utility.Extend;
 using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Official.Models.Concrete;
@@ -24,12 +25,11 @@ namespace Tjzx.Official.BLL.Business
                         Mobile = info.Mobile,
                         CreatorIp = Utils.GetRealIp(),
                         State = (byte) StateType.Hidden,
-                        CreateOn = DateTime.Now,
-                        MemberId = info.MemberId
+                        CreateOn = DateTime.Now
                     };
-                //var user = User.GetUser();
-                //if (user != null)
-                //    item.MemberId = user.UserId;
+                var user = User.GetUser();
+                if (user != null && user.Type == UserType.Member.GetValue())
+                    item.MemberId = user.UserId;
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
                 {
@@ -108,7 +108,7 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
-        public override ResultInfo UpdateState(int[] ids, Dict.StateType state)
+        public override ResultInfo UpdateState(int[] ids, StateType state)
         {
             if (ids == null || ids.Length == 0)
                 return new ResultInfo(0, "未找到相应的咨询！");

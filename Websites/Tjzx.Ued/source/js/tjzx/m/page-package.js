@@ -16,6 +16,32 @@
             $sels.append(html);
         }
     });
+    //uploadify
+    $("#fileUp").uploadify({
+        'swf': '/uploadify/uploadify.swf',
+        'uploader': '/m/package/uploadImage',
+        'formData': {packageId: $("input[name=packageId]").val()},
+        'buttonText': '选择文件',
+        'fileTypeExts': '*.jpg;*.jpeg;*.gif;*.png',
+        'fileTypeDesc': '图片文件',
+        'fileSizeLimit': '500k',
+        'multi': false,
+        'fileObjName': 'fileData',
+        'onUploadError': function () {
+
+        },
+        'onUploadSuccess': function (file, json) {
+            json = eval('(' + json + ')');
+            if (json && json.state) {
+                $('input[name="picture"]').val(json.data.url);
+                $(".t-package-img").html(singer.format('<img src="{0}" />', json.data.url));
+            }
+        },
+        'onUploadComplete': function () {
+
+        }
+    });
+
     //百度编辑器
     window.UEDITOR_CONFIG.autoHeightEnabled = false;
     var editor = UE.getEditor("content");
@@ -60,6 +86,7 @@
         T.getJson("/m/package/list", data, function (json) {
             if (json.state) {
                 h.bind(json.data.list, json.data.count);
+                $(".m-table caption em").html(json.data.count);
             }
             $t.hasClass("btn") && T.setBtn($t, true);
         }, function () {
@@ -67,13 +94,6 @@
         });
     };
     var loadItem = function (id) {
-        var $pwd = $('input[name="password"]');
-        if (!id || id <= 0) {
-            vForm.reset();
-            $pwd.data("rule", {type: "^[\\w\\W]{4,16}$", msg: "请输入4-16位字符！"});
-            return false;
-        }
-        $pwd.data("rule", "");
         T.getJson("/m/package/item", {
             packageId: id
         }, function (json) {
@@ -85,6 +105,8 @@
             $(".m-panel-title ul").append("<li class=\"m-panel-add active\">编辑套餐</li>");
             $(".j-back").show();
             vForm.bind(json.data);
+            $(".t-package-img").html(singer.format('<img src="{0}" />', json.data.picture));
+            editor.setContent(json.data.details);
             $(".m-panel-item").hide().eq(1).fadeIn();
             T.setFrameHeight();
             return false;

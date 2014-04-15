@@ -2,23 +2,34 @@
     <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
 }
 @using Shoy.Utility.Extend
-@using Tjzx.Official.BLL
+@using Tjzx.Official.BLL.Business
 @using Tjzx.Official.BLL.Dict
 @{
     ViewBag.Title = "流程及注意事项";
+    string content = "";
+    var item = (new NewsBusi()).GetNonCustomItem((byte)NewsType.MedicalProcess);
+    if (item != null)
+    {
+        content = item.data.GetType().GetProperty("content").GetValue(item.data, null).ToString();
+    }
 }
 <div class="m-panel">
     <div class="m-panel-title">
         <ul>
-            <li class="active">体检流程</li>
-            <li>注意事项</li>
+            <li class="active" data-type="@NewsType.MedicalProcess.GetValue()">体检流程</li>
+            <li data-type="@NewsType.Attention.GetValue()">注意事项</li>
         </ul>
     </div>
     <div class="m-panel-item">
-    </div>
-    <div class="m-panel-item hide">
-        <div class="m-form j-form">
-            <div class="m-form-actions">
+        <div class="m-form">
+            <div class="m-form-group">
+                <label class="m-form-label">体检流程</label>
+                <div class="m-form-controls" style="height: 510px">
+                    <script type="text/plain" id="content" class="content">@Html.Raw(content)</script>
+                    <input type="hidden" name="type" value="@NewsType.MedicalProcess.GetValue()" />
+                </div>
+            </div>
+            <div class="m-form-actions well">
                 <button type="button" class="btn btn-primary j-submit">确认提交</button>
             </div>
         </div>
@@ -26,5 +37,8 @@
 </div>
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-process.min.js"></script>
 }

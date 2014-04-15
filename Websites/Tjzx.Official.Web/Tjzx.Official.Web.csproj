@@ -356,6 +356,11 @@
     <Content Include="ueditor\ueditor.config.js" />
     <Content Include="ueditor\ueditor.parse.js" />
     <Content Include="ueditor\ueditor.parse.min.js" />
+    <Content Include="uploadify\jquery.uploadify.js" />
+    <Content Include="uploadify\jquery.uploadify.min.js" />
+    <Content Include="uploadify\uploadify-cancel.png" />
+    <Content Include="uploadify\uploadify.css" />
+    <Content Include="uploadify\uploadify.swf" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -502,6 +507,7 @@
     <None Include="ueditor\third-party\video-js\font\vjs.svg" />
     <None Include="ueditor\third-party\video-js\font\vjs.ttf" />
     <None Include="ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="Views\Manager\Members.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

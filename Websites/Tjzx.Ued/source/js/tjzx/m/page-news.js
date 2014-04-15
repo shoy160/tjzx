@@ -40,6 +40,7 @@
         T.getJson("/m/news/list", data, function (json) {
             if (json.state) {
                 h.bind(json.data.list, json.data.count);
+                $(".m-table caption em").html(json.data.count);
             }
             $t.hasClass("btn") && T.setBtn($t, true);
         });

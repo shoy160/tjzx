@@ -9,7 +9,6 @@ namespace Tjzx.Web
 
         public BaseController()
         {
-            _logger.I("Init Controller");
         }
     }
 }

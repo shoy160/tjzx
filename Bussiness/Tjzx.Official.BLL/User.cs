@@ -14,6 +14,7 @@ namespace Tjzx.Official.BLL
         public int UserId { get; set; }
         public string UserName { get; set; }
         public int Role { get; set; }
+        public int Type { get; set; }
         public string Ticket { get; set; }
 
         private static readonly string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！"};
@@ -56,7 +57,8 @@ namespace Tjzx.Official.BLL
                         UserId = uItem.ManagerId,
                         UserName = uItem.UserName,
                         Role = uItem.Role,
-                        Ticket = tick
+                        Ticket = tick,
+                        Type = UserType.Manager.GetValue()
                     };
                 var ticket = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddHours(2),
                                                            false, user.ToJson());
@@ -81,11 +83,14 @@ namespace Tjzx.Official.BLL
             HttpContext.Current.Response.Redirect(url, true);
         }
 
-        public static void RedirectToLogin()
+        public static void RedirectToLogin(UserType type = UserType.Manager)
         {
             var context = HttpContext.Current;
             if (context == null) return;
-            var url = "{0}?return_url={1}".FormatWith(FormsAuthentication.LoginUrl,
+            var login = FormsAuthentication.LoginUrl;
+            if (type == UserType.Member)
+                login = "/h/login";
+            var url = "{0}?return_url={1}".FormatWith(login,
                                                       HttpUtility.UrlEncode(context.Request.RawUrl));
             context.Response.Redirect(url, true);
         }

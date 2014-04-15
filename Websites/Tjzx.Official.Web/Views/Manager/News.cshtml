@@ -28,7 +28,7 @@
                     <select name="type" class="col-08">
                         <option value="@Const.Ignore">所有类型</option>
                         @{
-                            foreach (NewsType type in Enum.GetValues(typeof (NewsType)))
+                            foreach (NewsType type in NewsTypeManager.GetCustomNewsType())
                             {
                                 <option value="@type.GetValue()">@type.GetText()</option>
                             }
@@ -55,7 +55,7 @@
             </div>
         </div>
         <table class="m-table">
-            <caption>资讯列表</caption>
+            <caption>资讯列表<small>共找到<em>0</em>条记录</small></caption>
             <colgroup>
                 <col class="col-06"/>
                 <col />
@@ -101,7 +101,7 @@
                     <select name="type" class="col-10" data-valid="{type:'^[0-9]+$',msg:'请选择类型！'}">
                         <option value="-1">请选择类型</option>
                         @{
-                            foreach (NewsType type in Enum.GetValues(typeof (NewsType)))
+                            foreach (NewsType type in NewsTypeManager.GetCustomNewsType())
                             {
                                 <option value="@type.GetValue()">@type.GetText()</option>
                             }
@@ -140,7 +140,7 @@
                     <script type="text/plain" id="content" class="content"></script>
                 </div>
             </div>
-            <div class="m-form-actions">
+            <div class="m-form-actions well">
                 <button type="button" class="btn btn-primary j-release">发布资讯</button>
             </div>
         </div>

@@ -87,6 +87,7 @@
     <Compile Include="Manager\ConsultingController.cs" />
     <Compile Include="Manager\HealthController.cs" />
     <Compile Include="Manager\DefaultController.cs" />
+    <Compile Include="Manager\MemberController.cs" />
     <Compile Include="Manager\PackageController.cs" />
     <Compile Include="Manager\PictureController.cs" />
     <Compile Include="Manager\ProcessController.cs" />

@@ -11,6 +11,7 @@ using Shoy.Utility.Extend;
 using Tjzx.BLL;
 using Tjzx.BLL.Config;
 using Tjzx.Official.BLL.Config;
+using Tjzx.Official.BLL.Business;
 
 namespace Tjzx.Official.BLL
 {
@@ -80,7 +81,25 @@ namespace Tjzx.Official.BLL
             }
         }
 
-        public Hashtable SaveFile(string dir = "",UploadType type = UploadType.Image)
+
+        public ResultInfo SavePackageImage(int packageId)
+        {
+            var path = Const.PackageImageDirectory;
+            if (packageId > 0)
+            {
+                var busi = new PackageBusi();
+                var item = busi.GetItem(packageId);
+                if (item == null) return new ResultInfo(0, "");
+
+                path += "/" + item.CreateOn.ToString("yyyyMM") + "/" + packageId;
+            }
+            var hashTable = SaveFile(path);
+            if ((string) hashTable["state"] == "SUCCESS")
+                return new ResultInfo(1, "", new {url = hashTable["url"]});
+            return new ResultInfo(0);
+        }
+
+        public Hashtable SaveFile(string dir = "", UploadType type = UploadType.Image)
         {
             if (_context == null || _context.Request.Files.Count == 0)
             {
@@ -148,7 +167,7 @@ namespace Tjzx.Official.BLL
             return new Hashtable
                 {
                     {"state", "SUCCESS"},
-                    {"url", _urlPath},
+                    {"url", _urlPath.Replace("\\", "/")},
                     {"currentType", ext},
                     {"originalName", fileName}
                 };
