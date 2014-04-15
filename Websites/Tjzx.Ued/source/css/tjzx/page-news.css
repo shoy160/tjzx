@@ -1,0 +1,19 @@
+.t-news-list li {
+  margin: 0 0 12px 0;
+}
+h4 {
+  line-height: 35px;
+}
+h4:before {
+  content: "·";
+  padding: 0 7px;
+  color: #666;
+}
+h4 span {
+  margin-left: 32px;
+}
+.t-content {
+  color: #888;
+  text-indent: 2em;
+  line-height: 28px;
+}
