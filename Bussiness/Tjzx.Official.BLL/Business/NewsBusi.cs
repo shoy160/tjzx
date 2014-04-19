@@ -192,6 +192,49 @@ namespace Tjzx.Official.BLL.Business
         }
 
         /// <summary>
+        /// 获取新闻列表
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public ResultInfo GetDynamicNews(int page,int size)
+        {
+            using (var db = new EFDbContext())
+            {
+                var count =
+                    db.Newses.Count(
+                        t => t.Type == (byte) NewsType.Dynamic &&
+                             t.State == (byte) StateType.Display);
+                var list =
+                    db.Newses.Where(
+                        t => t.Type == (byte) NewsType.Dynamic &&
+                             t.State == (byte) StateType.Display)
+                      .OrderByDescending(t => t.NewsId)
+                      .Skip(page*size)
+                      .Take(size)
+                      .Select(t => new
+                          {
+                              id = t.NewsId,
+                              title = t.Title,
+                              author = t.Author,
+                              comefrom = t.Comefrom,
+                              createon = t.CreateOn,
+                              content = t.Content
+                          }).ToList()
+                      .Select(t => new
+                          {
+                              t.id,
+                              t.title,
+                              author = (string.IsNullOrEmpty(t.author) ? "未知" : t.author),
+                              comefrom = (string.IsNullOrEmpty(t.comefrom) ? "未知" : t.comefrom),
+                              time = Const.FormatDate(t.createon),
+                              content = Utils.ClearHtml(t.content).Sub(300, "...")
+                          });
+                return new ResultInfo(1, "", new {count, list});
+            }
+        }
+        
+
+        /// <summary>
         /// 更新新闻资讯
         /// </summary>
         /// <param name="info"></param>

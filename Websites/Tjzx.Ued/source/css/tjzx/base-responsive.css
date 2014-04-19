@@ -27,14 +27,6 @@
     width: 255px;
     margin: 5px 20px 5px 0;
   }
-  .t-panel-box-01 {
-    width: 500px;
-  }
-  .t-panel-box-02,
-  .t-panel-box-03 {
-    width: 280px;
-    margin: 0 0 0 18px;
-  }
 }
 /*普屏*/
 @media screen and (min-width: 1000px) and (max-width: 1220px) {
@@ -57,14 +49,6 @@
   .t-panel-box .t-category li {
     margin: 5px 13px 5px 0;
     width: 210px;
-  }
-  .t-panel-box-01 {
-    width: 400px;
-  }
-  .t-panel-box-02,
-  .t-panel-box-03 {
-    margin: 0 0 0 10px;
-    width: 238px;
   }
 }
 /*窄屏*/
@@ -93,14 +77,6 @@
   }
   .t-slider ul li img {
     margin-left: -216px;
-  }
-  .t-panel-box-01 {
-    width: 300px;
-  }
-  .t-panel-box-02,
-  .t-panel-box-03 {
-    margin: 0 0 0 2px;
-    width: 180px;
   }
   .t-panel-box .t-category li {
     margin: 5px 8px 5px 0;
@@ -136,14 +112,6 @@
   width: 255px;
   margin: 5px 20px 5px 0;
 }
-.wide-01 .t-panel-box-01 {
-  width: 500px;
-}
-.wide-01 .t-panel-box-02,
-.wide-01 .t-panel-box-03 {
-  width: 280px;
-  margin: 0 0 0 18px;
-}
 .wide-02 {
   /* home */
 }
@@ -165,14 +133,6 @@
 .wide-02 .t-panel-box .t-category li {
   margin: 5px 13px 5px 0;
   width: 210px;
-}
-.wide-02 .t-panel-box-01 {
-  width: 400px;
-}
-.wide-02 .t-panel-box-02,
-.wide-02 .t-panel-box-03 {
-  margin: 0 0 0 10px;
-  width: 238px;
 }
 .wide-03 {
   /* home */
@@ -200,14 +160,6 @@
 }
 .wide-03 .t-slider ul li img {
   margin-left: -216px;
-}
-.wide-03 .t-panel-box-01 {
-  width: 300px;
-}
-.wide-03 .t-panel-box-02,
-.wide-03 .t-panel-box-03 {
-  margin: 0 0 0 2px;
-  width: 180px;
 }
 .wide-03 .t-panel-box .t-category li {
   margin: 5px 8px 5px 0;

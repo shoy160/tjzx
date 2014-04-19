@@ -13,13 +13,13 @@ namespace Tjzx.Web
                 "Home",
                 "{action}/{id}",
                 new {controller = "Home", action = "Index", id = 0},
-                new {action = "[a-z]{3,}", id = "\\d+"}
+                new {action = "[a-z_]{3,}", id = "\\d+"}
                 );
             routes.MapRoute(
                 "Health",
                 "h/{action}",
                 new {controller = "Default", action = "Index"},
-                new {action = "[a-z]{3,}"},
+                new {action = "[a-z_]{3,}"},
                 new[] {"Tjzx.Official.Controllers.Health"}
                 );
 
@@ -27,7 +27,7 @@ namespace Tjzx.Web
                 "ManagerDefault",
                 "m/{action}",
                 new {controller = "Default", action = "Index"},
-                new {action = "[a-z]{3,}"},
+                new {action = "[a-z_]{3,}"},
                 new[] {"Tjzx.Official.Controllers.Manager"}
                 );
 
@@ -35,7 +35,7 @@ namespace Tjzx.Web
                 "Manager",
                 "m/{controller}/{action}",
                 new {controller = "Default", action = "Index"},
-                new {action = "[a-z]{3,}"},
+                new {action = "[a-z_]{3,}"},
                 new[] {"Tjzx.Official.Controllers.Manager"}
                 );
 

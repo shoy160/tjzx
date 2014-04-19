@@ -3,6 +3,7 @@ using Tjzx.BLL;
 using Tjzx.BLL.Config;
 using Tjzx.Official.BLL.Config;
 using Tjzx.Web;
+using Tjzx.Official.BLL.Business;
 
 namespace Tjzx.Official.Controllers
 {
@@ -72,6 +73,13 @@ namespace Tjzx.Official.Controllers
         {
             ViewBag.Title = "新闻资讯";
             return View();
+        }
+
+        public JsonResult NewsList(int page = 0, int size = 10)
+        {
+            if (size > 20) size = 20;
+            var busi = new NewsBusi();
+            return Json(busi.GetDynamicNews(page, size));
         }
     }
 }
