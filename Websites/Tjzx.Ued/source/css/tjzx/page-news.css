@@ -17,3 +17,22 @@ h4 span {
   text-indent: 2em;
   line-height: 28px;
 }
+/**
+* 展示页
+*/
+.t-news-box {
+  padding: 15px 30px;
+}
+.t-news-box h2 {
+  text-align: center;
+  margin: 12px 0 15px;
+}
+.t-news-box h3 {
+  font-size: 13px;
+  color: #999999;
+  border-bottom: 1px solid #cccccc;
+}
+.t-news-box .t-news-content {
+  margin-top: 35px;
+  line-height: 32px;
+}

@@ -1,15 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Shoy.Utility.Extend;
 using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
-using System;
-using System.Collections.Generic;
 
 namespace Tjzx.Official.BLL.Business
 {
-    public class UserBusi:BusiBase<UserInfo>
+    public class ManagerBusi:BusiBase<UserInfo>
     {
         public override ResultInfo GetList(SearchInfo info)
         {

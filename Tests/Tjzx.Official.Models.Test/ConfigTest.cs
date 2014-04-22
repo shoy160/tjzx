@@ -19,7 +19,7 @@ namespace Tjzx.Official.Models.Test
                     Navigations = new List<Navigation>
                         {
                             new Navigation{Id = 1,Name = "关于我们",Sort = 1,Link = "/About",Class = "",Target = "_blank"},
-                            new Navigation{Id = 2,Name = "新闻资讯",Sort = 2,Link = "/News",Class = "",Target = "_blank"},
+                            new Navigation{Id = 2,Name = "健康资讯",Sort = 2,Link = "/News",Class = "",Target = "_blank"},
                             new Navigation{Id = 3,Name = "体检套餐",Sort = 3,Link = "/Medical",Class = "hot",Target = "_blank"},
                             new Navigation{Id = 4,Name = "体检预约",Sort = 4,Link = "/Reservation",Class = "hot",Target = "_blank"},
                             new Navigation{Id = 5,Name = "健康管理",Sort = 5,Link = "/Health",Class = "hot",Target = "_blank"},
@@ -61,7 +61,7 @@ namespace Tjzx.Official.Models.Test
                             new MenuItem{MenuId = 1,Name = "内容管理",Class = "icon-04",Depth = 0,Sort = 1},
                             new MenuItem{MenuId = 2,Name = "健康管理",Class = "icon-05",Depth = 0,Sort = 2},
                             new MenuItem{MenuId = 3,Name = "系统管理",Class = "icon-01",Depth = 0,Sort = 3},
-                            new MenuItem{MenuId = 101, ParentId = 1,Name = "新闻资讯",Link = "/m/news/index",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 101, ParentId = 1,Name = "健康资讯",Link = "/m/news/index",Class = "icon-01",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
                             new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category/index",Class = "icon-02",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/package/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "流程及事项",Link = "/m/process/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
@@ -86,7 +86,7 @@ namespace Tjzx.Official.Models.Test
                     Uploader = new UploaderConfig
                         {
                             BasePath = "/upload/",
-                            Directories = new[] {"新闻资讯", "中心公告"},
+                            Directories = new[] {"健康资讯", "中心公告"},
                             ImageExts = ".jpg,.jpeg,.gif,.png",
                             ImageSizeLimit = 500,
                             AttachExts = ".rar,.zip,.doc,.docx,.txt,.pdf,.swf,.avi,.rm,.rmvb,.mp4",

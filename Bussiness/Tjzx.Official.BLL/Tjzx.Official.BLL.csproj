@@ -55,6 +55,7 @@
     <Compile Include="Attributes\AuthAttribute.cs" />
     <Compile Include="Business\BusiBase.cs" />
     <Compile Include="Business\CategoryBusi.cs" />
+    <Compile Include="Business\MemberBusi.cs" />
     <Compile Include="Business\ReservationBusi.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="Business\ConsultingBusi.cs" />
@@ -62,9 +63,10 @@
     <Compile Include="Business\PackageBusi.cs" />
     <Compile Include="Business\ResultInfo.cs" />
     <Compile Include="Business\SearchInfo.cs" />
-    <Compile Include="Business\UserBusi.cs" />
+    <Compile Include="Business\ManagerBusi.cs" />
     <Compile Include="Dict\AlbumType.cs" />
     <Compile Include="Dict\ManagerRole.cs" />
+    <Compile Include="Dict\MemberLevel.cs" />
     <Compile Include="Dict\NewsType.cs" />
     <Compile Include="Dict\PackageType.cs" />
     <Compile Include="Dict\ReservationState.cs" />

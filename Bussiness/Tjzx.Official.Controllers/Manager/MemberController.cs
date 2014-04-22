@@ -5,6 +5,9 @@ using Tjzx.Official.BLL.Dict;
 
 namespace Tjzx.Official.Controllers.Manager
 {
+    /// <summary>
+    /// 会员管理Controller
+    /// </summary>
     public class MemberController : BaseController
     {
         [HttpGet]

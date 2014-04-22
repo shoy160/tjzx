@@ -8,10 +8,10 @@
                dataType:"json",
                data:data,
                success:function(json){
-                   success && S.isFunction(success) && success.apply(json);
+                   success && S.isFunction(success) && success.call(this,json);
                },
                error:function(json){
-                   error && S.isFunction(error) && error.apply(json);
+                   error && S.isFunction(error) && error.call(this,json);
                }
            });
        }

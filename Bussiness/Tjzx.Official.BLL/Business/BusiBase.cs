@@ -6,7 +6,6 @@ namespace Tjzx.Official.BLL.Business
     public abstract class BusiBase<T>
         where T : InfoBase
     {
-        
         public abstract ResultInfo Insert(T info);
 
         public abstract ResultInfo GetList(SearchInfo info);

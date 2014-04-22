@@ -2,7 +2,7 @@
 namespace Tjzx.Official.BLL.ViewModels
 {
     /// <summary>
-    /// 新闻资讯业务类
+    /// 健康资讯业务类
     /// </summary>
     public class NewsInfo:InfoBase
     {

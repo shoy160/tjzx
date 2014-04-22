@@ -10,7 +10,7 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 新闻动态
         /// </summary>
-        [Description("新闻资讯")] Dynamic = 0,
+        [Description("健康资讯")] Dynamic = 0,
 
         /// <summary>
         /// 中心公告

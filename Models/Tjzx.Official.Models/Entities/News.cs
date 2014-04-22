@@ -6,7 +6,7 @@ using System.ComponentModel;
 namespace Tjzx.Official.Models.Entities
 {
     /// <summary>
-    /// 新闻资讯类
+    /// 健康资讯类
     /// </summary>
     [Table("News")]
     public class News : EntityBase

@@ -71,15 +71,26 @@ namespace Tjzx.Official.Controllers
         [HttpGet]
         public ActionResult News()
         {
-            ViewBag.Title = "新闻资讯";
+            ViewBag.Title = "健康资讯";
             return View();
         }
 
+        [HttpPost]
+        [ActionName("news_list")]
         public JsonResult NewsList(int page = 0, int size = 10)
         {
             if (size > 20) size = 20;
             var busi = new NewsBusi();
             return Json(busi.GetDynamicNews(page, size));
+        }
+
+        [HttpGet]
+        [ActionName("news_item")]
+        public ActionResult NewsItem(int id = 0)
+        {
+            var busi = new NewsBusi();
+            busi.UpdateViews(id);
+            return View("/Views/Home/NewsItem.cshtml", busi.GetItem(id));
         }
     }
 }

@@ -65,7 +65,9 @@ namespace Tjzx.Official.BLL.Business
                     t =>
                     (string.IsNullOrEmpty(info.Keyword) ||
                      t.Name.Contains(info.Keyword)) &&
-                    (info.State == Const.Ignore || t.State == info.State));
+                    (info.State == Const.Ignore || t.State == info.State) &&
+                    (info.StartTime == null || t.ReservationDate > info.StartTime) &&
+                    (info.EndTime == null || t.ReservationDate <= info.EndTime));
                 var list =
                     db.Reservations.Where(
                         t => (string.IsNullOrEmpty(info.Keyword) ||

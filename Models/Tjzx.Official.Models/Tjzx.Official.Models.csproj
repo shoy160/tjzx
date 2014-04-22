@@ -82,6 +82,7 @@
     <Compile Include="Entities\Member.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\PackageCategory.cs" />
+    <Compile Include="Entities\Report.cs" />
     <Compile Include="Entities\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
