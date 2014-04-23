@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框</title>
+    <style>
+        .t-select-label{
+            position: relative;
+            font-size: 12px;
+            overflow: hidden;
+        }
+        .t-select-box{
+            float: left;
+        }
+        .t-select-box:hover{
+            cursor: pointer;
+        }
+        .t-select-box:hover .t-selected,
+        .t-select-box:hover .t-select-drop{
+            border-color: #0070a9;
+        }
+        .t-select-box:hover .t-selected-right-top{
+            border-color: #0b97c4;
+        }
+        .t-selected{
+            background-color: #fff;
+            border:1px solid #cdcdcd;
+            cursor: pointer;
+            position: relative;
+            float: left;
+            padding-right: 5px;
+            height: 98px;
+            z-index: 11;
+        }
+        .t-selected-img{
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin: 9px 12px;
+        }
+        .t-selected-img img{
+            width: 80px;
+            height: 80px;
+        }
+        .t-selected-right{
+            float: left;
+            height: 98px;
+            width: 200px;
+            overflow: hidden;
+        }
+        .t-selected-right-top{
+            height: 50px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        .t-selected-right-top h3{
+            line-height: 28px;
+            height: 28px;
+            margin: 0;
+            padding:0;
+        }
+        .t-selected-bottom{
+            height: 44px;
+            line-height: 22px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .t-select-drop{
+            float: left;
+            height: 98px;
+            line-height: 98px;
+            position: relative;
+            overflow: hidden;
+            margin-left: -1px;
+            vertical-align: middle;
+            border: 1px solid #cdcdcd;
+            background-color: #f5f5f5;
+        }
+        .t-select-drop span{
+            margin-left: 11px;
+            width: 65px;
+            display: inline-block;
+            text-decoration: none;
+            vertical-align: top;
+            text-align: center;
+            color: #0078B6;
+        }
+        .t-select-icon{
+            height: 8px;
+            display: inline;
+            float: right;
+            margin: 45px 6px 0 0;
+            width: 8px;
+            transition:all 0.3s ease-in 0s;
+            position: relative;
+        }
+        .t-select-box:hover .t-select-icon{
+            transition:all .5s ease-in;
+            transform: rotate(180deg);
+        }
+        .t-select-icon em,
+        .t-select-icon b{
+            border-color: transparent;
+            border-style: solid;
+            border-width: 4px 4px 0;
+            height: 0;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 0;
+            font-size: 0;
+        }
+        .t-select-icon em{
+            border-top-color: #6C6C6C;
+            top: 2px;
+        }
+        .t-select-icon b{
+            border-top-color: #F5F5F5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="t-select-label">
+        <div class="t-select-box">
+            <div class="t-selected">
+                <div class="t-selected-img">
+                    <img src="" />
+                </div>
+                <div class="t-selected-right">
+                    <div class="t-selected-right-top">
+                        <h3>常规体检套餐</h3>
+                        <span>适用人群：青少年</span>
+                    </div>
+                    <div class="t-selected-bottom">
+                        此套餐适用于时间较少，身体健康状况尚可的年轻人
+                        此套餐适用于时间较少，身体健康状况尚可的年轻人
+                        此套餐适用于时间较少，身体健康状况尚可的年轻人
+                    </div>
+                </div>
+            </div>
+            <div class="t-select-drop">
+                <span>更换套餐</span>
+                <i class="t-select-icon">
+                    <em></em>
+                    <b></b>
+                </i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
