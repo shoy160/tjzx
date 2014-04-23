@@ -8,7 +8,6 @@
         size: size,
         pageClick: function (page) {
             getList(page - 1);
-            $("body,html").animate({scrollTop: 0}.$(window).scrollTop() / 5);
             return false;
         }
     });
@@ -25,6 +24,7 @@
                 for (var i = 0; i < 32; i++)
                     list.push(json.data.list[0]);
                 h.bind(list, 259);
+                $("body,html").animate({scrollTop: 0}.$(window).scrollTop() / 5);
             }
         });
     };
