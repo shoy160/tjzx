@@ -1,9 +1,11 @@
 ﻿using System.Web.Mvc;
 using Tjzx.BLL;
 using Tjzx.BLL.Config;
+using Tjzx.Official.BLL;
 using Tjzx.Official.BLL.Config;
 using Tjzx.Web;
 using Tjzx.Official.BLL.Business;
+using Tjzx.Official.BLL.Dict;
 
 namespace Tjzx.Official.Controllers
 {
@@ -34,17 +36,33 @@ namespace Tjzx.Official.Controllers
         }
 
         [HttpGet]
-        public ActionResult Packages(int id)
+        public ActionResult Packages(int id = 0)
         {
-            ViewBag.Title = "体检套餐" + id;
+            ViewBag.Title = "体检套餐";
             return View();
+        }
+
+        [HttpPost]
+        [ActionName("package_list")]
+        public JsonResult PackageList(int id, int page = 0, int size = 10)
+        {
+            var busi = new PackageBusi();
+            return Json(
+                busi.GetList(new SearchInfo
+                    {
+                        CategoryId = (id <= 0 ? Const.Ignore : id),
+                        Page = page,
+                        Size = size,
+                        State = (byte) StateType.Display
+                    })
+                );
         }
 
         [HttpGet]
         public ActionResult Item(int id)
         {
-            ViewBag.Title = "套餐详情" + id;
-            return View();
+            var busi = new PackageBusi();
+            return View(busi.GetItem(id));
         }
 
         [HttpGet]

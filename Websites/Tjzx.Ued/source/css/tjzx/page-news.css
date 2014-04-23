@@ -31,6 +31,15 @@ h4 span {
   font-size: 13px;
   color: #999999;
   border-bottom: 1px solid #cccccc;
+  font-weight: normal;
+}
+.t-news-box h3 span {
+  width: 23%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding-left: 1%;
+  text-align: center;
 }
 .t-news-box .t-news-content {
   margin-top: 35px;

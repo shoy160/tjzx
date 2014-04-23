@@ -1,4 +1,5 @@
-﻿@model Tjzx.Official.BLL.ViewModels.NewsInfo
+﻿@using Tjzx.Official.BLL
+@model Tjzx.Official.BLL.ViewModels.NewsInfo
 @{
     ViewBag.Title = Model.Title +  " - 健康资讯";
 }
@@ -14,7 +15,12 @@
     <div class="t-panel-title">资讯详情</div>
     <div class="t-news-box">
         <h2>@Model.Title</h2>
-        <h3>@Model.Author - @Model.Comefrom - @Model.CreateOn - @Model.Views</h3>
+        <h3>
+            <span>来源：@Model.Comefrom</span>
+            <span>作者：@Model.Author</span>
+            <span>发布时间：@Const.FormatDate(Model.CreateOn)</span>
+            <span>浏览次数：@Model.Views</span>
+        </h3>
         <div class="t-news-content">@Html.Raw(Model.Content)</div>
     </div>
 </div>

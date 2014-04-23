@@ -14,6 +14,7 @@ namespace Tjzx.BLL.Config
         private static readonly IDictionary<string, object> ConfigCache = new Dictionary<string, object>();
         private static readonly string ConfigPath;
         private static readonly Logger Logger = Logger.L<ConfigManager>();
+        private static readonly object LockObj = new object();
 
         static ConfigManager()
         {
@@ -34,20 +35,23 @@ namespace Tjzx.BLL.Config
         }
 
         public static T GetConfig<T>(string fileName)
-            where T:ConfigBase
+            where T : ConfigBase
         {
-            if (ConfigCache.ContainsKey(fileName))
+            lock (LockObj)
             {
-                return ConfigCache[fileName].ObjectToT<T>();
+                if (ConfigCache.ContainsKey(fileName))
+                {
+                    return ConfigCache[fileName].ObjectToT<T>();
+                }
+                T config = default(T);
+                var path = Path.Combine(ConfigPath, fileName);
+                if (File.Exists(path))
+                {
+                    config = XmlHelper.XmlDeserialize<T>(path);
+                    ConfigCache.Add(fileName, config);
+                }
+                return config;
             }
-            T config = default(T);
-            var path = Path.Combine(ConfigPath, fileName);
-            if (File.Exists(path))
-            {
-                config = XmlHelper.XmlDeserialize<T>(path);
-                ConfigCache.Add(fileName, config);
-            }
-            return config;
         }
 
         public static void SetConfig<T>(string fileName, T config)
