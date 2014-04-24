@@ -37,6 +37,12 @@ namespace Tjzx.Official.BLL.Business
                 });
         }
 
+
+        /// <summary>
+        /// 获取非自定义类型资讯,如体检流程、注意事项
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public ResultInfo GetNonCustomItem(byte type)
         {
             using (var db = new EFDbContext())
@@ -50,6 +56,12 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
+        /// <summary>
+        /// 更新非自定义类型资讯,如体检流程、注意事项
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
         public ResultInfo UpdateItem(byte type, string content)
         {
             using (var db = new EFDbContext())
@@ -68,6 +80,23 @@ namespace Tjzx.Official.BLL.Business
                 }
                 info.NewsId = item.NewsId;
                 return Update(info);
+            }
+        }
+
+        /// <summary>
+        /// 更新浏览量
+        /// </summary>
+        /// <param name="newsId"></param>
+        /// <returns></returns>
+        public ResultInfo UpdateViews(int newsId)
+        {
+            using (var db = new EFDbContext())
+            {
+                var item = db.Newses.FirstOrDefault(t => t.NewsId == newsId);
+                if (item == null) return new ResultInfo(0, "资讯不存在！");
+                item.Views += 1;
+                db.SaveChanges();
+                return new ResultInfo(1);
             }
         }
 
@@ -98,7 +127,7 @@ namespace Tjzx.Official.BLL.Business
         }
 
         /// <summary>
-        /// 发布新闻资讯
+        /// 发布健康资讯
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
@@ -138,7 +167,7 @@ namespace Tjzx.Official.BLL.Business
         }
 
         /// <summary>
-        /// 获取新闻资讯列表
+        /// 获取健康资讯列表
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
@@ -192,7 +221,51 @@ namespace Tjzx.Official.BLL.Business
         }
 
         /// <summary>
-        /// 更新新闻资讯
+        /// 获取新闻列表
+        /// </summary>
+        /// <param name="page">页码，从0开始</param>
+        /// <param name="size">每页显示数量</param>
+        /// <returns></returns>
+        public ResultInfo GetDynamicNews(int page,int size)
+        {
+            using (var db = new EFDbContext())
+            {
+                var count =
+                    db.Newses.Count(
+                        t => t.Type == (byte) NewsType.Dynamic &&
+                             t.State == (byte) StateType.Display);
+                var list =
+                    db.Newses.Where(
+                        t => t.Type == (byte) NewsType.Dynamic &&
+                             t.State == (byte) StateType.Display)
+                      .OrderByDescending(t => t.NewsId)
+                      .Skip(page*size)
+                      .Take(size)
+                      .Select(t => new
+                          {
+                              id = t.NewsId,
+                              title = t.Title,
+                              author = t.Author,
+                              comefrom = t.Comefrom,
+                              createon = t.CreateOn,
+                              content = t.Content
+                          }).ToList()
+                      .Select(t => new
+                          {
+                              t.id,
+                              t.title,
+                              author = (string.IsNullOrEmpty(t.author) ? "未知" : t.author),
+                              comefrom = (string.IsNullOrEmpty(t.comefrom) ? "未知" : t.comefrom),
+                              time = Const.FormatDate(t.createon),
+                              content = Utils.ClearHtml(t.content).Sub(300, "...")
+                          });
+                return new ResultInfo(1, "", new {count, list});
+            }
+        }
+        
+
+        /// <summary>
+        /// 更新健康资讯
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
@@ -226,9 +299,9 @@ namespace Tjzx.Official.BLL.Business
         }
 
         /// <summary>
-        /// 更新新闻资讯状态
+        /// 更新健康资讯状态
         /// </summary>
-        /// <param name="ids">新闻资讯ID</param>
+        /// <param name="ids">健康资讯ID</param>
         /// <param name="state">状态</param>
         /// <returns></returns>
         public override ResultInfo UpdateState(int[] ids, StateType state)

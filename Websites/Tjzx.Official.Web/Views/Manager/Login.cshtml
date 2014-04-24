@@ -38,6 +38,9 @@
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript">
+        (function ($) {
+            $('input[name="userName"]').focus();
+        })(jQuery);
         var valid = $(".m-form").valid();
         var setBtn = function(obj, state) {
             var $btns = $(obj);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Shoy.Utility;
@@ -6,8 +7,6 @@ using Tjzx.Official.BLL.Dict;
 using Tjzx.Official.BLL.ViewModels;
 using Tjzx.Official.Models.Concrete;
 using Tjzx.Official.Models.Entities;
-using System.IO;
-using System.Security.AccessControl;
 
 namespace Tjzx.Official.BLL.Business
 {

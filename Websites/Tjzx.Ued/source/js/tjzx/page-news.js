@@ -6,13 +6,12 @@
         pager: $(".h-pager"),
         size: 10,
         pageClick: function (page) {
-            getList(page-1);
-            $('body,html').animate({ scrollTop: 0 }, $(window).scrollTop() / 5);
+            getList(page);
+            $("body,html").animate({scrollTop: 0}.$(window).scrollTop() / 5);
         }
     });
-
     var getList = function (page) {
-        T.getJson("/news_list",{
+        T.getJson("/news_list", {
             page:page,
             size:10
         },function(json){

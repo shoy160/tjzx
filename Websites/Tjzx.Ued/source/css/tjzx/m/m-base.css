@@ -395,10 +395,10 @@ body {
 }
 .m-radio input,
 .m-checkbox input {
-  float: left;
   margin-left: -18px;
   margin-top: 6px;
   cursor: pointer;
+  vertical-align: -2px;
 }
 .m-radio.inline,
 .m-checkbox.inline {

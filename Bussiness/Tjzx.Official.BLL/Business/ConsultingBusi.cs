@@ -71,7 +71,9 @@ namespace Tjzx.Official.BLL.Business
                               mobile = t.Mobile,
                               createon = Const.FormatDate(t.CreateOn),
                               state = t.State,
-                              stateCN = ((StateType) t.State).GetCssText()
+                              stateCN = ((StateType) t.State).GetCssText(),
+                              deelInfo = t.DeelSituation,
+                              deelTime = Const.FormatDate(t.DeelTime)
                           }).ToList();
                 return new ResultInfo(1, "", new {count, list});
             }

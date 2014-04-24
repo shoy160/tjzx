@@ -17,7 +17,7 @@ namespace Tjzx.Official.BLL
         public int Type { get; set; }
         public string Ticket { get; set; }
 
-        private static readonly string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！"};
+        private static readonly string[] ErrorMsg = new[] {"用户名不存在！", "登录密码错误！","无效的登录类型！"};
 
         public bool HaseRole(ManagerRole role)
         {
@@ -42,13 +42,27 @@ namespace Tjzx.Official.BLL
             return "操作异常,请重试！";
         }
 
-        public static int Login(string userName, string userPwd)
+        public static int Login(string userName, string userPwd,UserType type = UserType.Manager)
+        {
+                switch (type)
+                {
+                    case UserType.Manager:
+                        return ManagerLogin(userName, userPwd);
+                    case UserType.Member:
+                        return MemberLogin(userName, userPwd);
+                    default:
+                        return -3;
+                }
+        }
+
+        private static int ManagerLogin(string userName,string userPwd)
         {
             using (var db = new EFDbContext())
             {
                 var uItem =
                     db.Managers.SingleOrDefault(t => t.UserName == userName && t.State == (byte) StateType.Display);
-                if (uItem == null) return -1;
+                if (uItem == null)
+                     return  -1;
                 if (!uItem.PassWord.Equals(userPwd.Md5(), StringComparison.CurrentCultureIgnoreCase))
                     return -2;
                 var tick = Guid.NewGuid().ToString().ToLower().Sub(5, 20, "");
@@ -72,13 +86,46 @@ namespace Tjzx.Official.BLL
             }
         }
 
-        public static void LoginOut()
+        private static int MemberLogin(string userName, string userPwd)
+        {
+            using (var db = new EFDbContext())
+            {
+                var uItem =
+                    db.Members.SingleOrDefault(t => t.UserName == userName);
+                if (uItem == null)
+                    return -1;
+                if (!uItem.PassWord.Equals(userPwd.Md5(), StringComparison.CurrentCultureIgnoreCase))
+                    return -2;
+                var tick = Guid.NewGuid().ToString().ToLower().Sub(5, 20, "");
+                var user = new User
+                {
+                    UserId = uItem.MemberId,
+                    UserName = uItem.UserName,
+                    Ticket = tick,
+                    Type = UserType.Manager.GetValue()
+                };
+                var ticket = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddHours(2),
+                                                           false, user.ToJson());
+                var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+                uItem.Ticket = tick;
+                uItem.LastLoginIp = Utils.GetRealIp();
+                uItem.LastLoginTime = DateTime.Now;
+                db.SaveChanges();
+                CookieCls.Set(FormsAuthentication.FormsCookieName, encryptedTicket, CookieCls.GetHour(2));
+                return 1;
+            }
+        }
+
+        public static void LoginOut(UserType type = UserType.Manager)
         {
             var url = "return_url".QueryOrForm("");
             CookieCls.Delete(FormsAuthentication.FormsCookieName);
             if (string.IsNullOrEmpty(url) || !Utils.IsUrl(url))
             {
-                url = FormsAuthentication.LoginUrl;
+                var login = FormsAuthentication.LoginUrl;
+                if (type == UserType.Member)
+                    login = "/h/login";
+                url = login;
             }
             HttpContext.Current.Response.Redirect(url, true);
         }

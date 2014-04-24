@@ -2,6 +2,8 @@
  * 后台管理-预约管理
  */
 (function ($, T) {
+    //calendar
+    $(".j-startTime,.j-endTime").calendar();
     //form
     var vForm = $(".j-form").valid(),
         sForm = $(".s-form").valid({

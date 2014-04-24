@@ -117,7 +117,7 @@ header .t-nav li:last-child {
   border-right: 1px solid #cccccc;
 }
 header .t-nav li.hot {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
 }
 header .t-nav li.active {
@@ -128,12 +128,10 @@ header .t-nav li.active a:active,
 header .t-nav li.active a:visited {
   color: #fff;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
 header .t-nav li a {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  display: block;
   height: 35px;
   overflow: hidden;
 }
@@ -145,7 +143,7 @@ header .t-nav li a:visited {
 }
 header .t-nav li a:hover {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .t-box {
   width: 1000px;

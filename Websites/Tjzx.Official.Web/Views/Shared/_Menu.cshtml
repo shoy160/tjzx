@@ -52,6 +52,8 @@
             url = location.href;
             for (var i = 1; i < navs.length; i++) {
                 var href = navs[i].getAttribute("href").toLowerCase();
+                if (/\/item\/\d+/.test(url))
+                    url = "/packages";
                 if (url.indexOf(href) >= 0) {
                     navs[0].parentNode.className = "";
                     navs[i].parentNode.className += " active";

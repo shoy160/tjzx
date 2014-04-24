@@ -60,6 +60,9 @@
                     valueArray = value.split(',');
                 else if (!isNaN(value))
                     valueArray.push(value);
+                if ($.isArray(value)) {
+                    valueArray = value;
+                }
                 $list = form.find(":checkbox[name='" + name + "']");
                 if ("" === value) {
                     $list.each(function () {
@@ -71,7 +74,7 @@
                     $item = $(this);
                     var v = $item.val();
                     var checked = ($.inArray(v, valueArray) >= 0 || (!isNaN(v) && $.inArray(~~v, valueArray) >= 0));
-                    $item.get(0).checked = checked;
+                    $item[0].checked = checked;
                 });
             } else if (obj.is("select")) {
                 $list = form.find("select[name='" + name + "'] option");

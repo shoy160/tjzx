@@ -1,8 +1,11 @@
 ﻿using System.Web.Mvc;
 using Tjzx.BLL;
 using Tjzx.BLL.Config;
+using Tjzx.Official.BLL;
 using Tjzx.Official.BLL.Config;
 using Tjzx.Web;
+using Tjzx.Official.BLL.Business;
+using Tjzx.Official.BLL.Dict;
 
 namespace Tjzx.Official.Controllers
 {
@@ -33,17 +36,33 @@ namespace Tjzx.Official.Controllers
         }
 
         [HttpGet]
-        public ActionResult Packages(int id)
+        public ActionResult Packages(int id = 0)
         {
-            ViewBag.Title = "体检套餐" + id;
+            ViewBag.Title = "体检套餐";
             return View();
+        }
+
+        [HttpPost]
+        [ActionName("package_list")]
+        public JsonResult PackageList(int id, int page = 0, int size = 10)
+        {
+            var busi = new PackageBusi();
+            return Json(
+                busi.GetList(new SearchInfo
+                    {
+                        CategoryId = (id <= 0 ? Const.Ignore : id),
+                        Page = page,
+                        Size = size,
+                        State = (byte) StateType.Display
+                    })
+                );
         }
 
         [HttpGet]
         public ActionResult Item(int id)
         {
-            ViewBag.Title = "套餐详情" + id;
-            return View();
+            var busi = new PackageBusi();
+            return View(busi.GetItem(id));
         }
 
         [HttpGet]
@@ -70,8 +89,26 @@ namespace Tjzx.Official.Controllers
         [HttpGet]
         public ActionResult News()
         {
-            ViewBag.Title = "新闻资讯";
+            ViewBag.Title = "健康资讯";
             return View();
+        }
+
+        [HttpPost]
+        [ActionName("news_list")]
+        public JsonResult NewsList(int page = 0, int size = 10)
+        {
+            if (size > 20) size = 20;
+            var busi = new NewsBusi();
+            return Json(busi.GetDynamicNews(page, size));
+        }
+
+        [HttpGet]
+        [ActionName("news_item")]
+        public ActionResult NewsItem(int id = 0)
+        {
+            var busi = new NewsBusi();
+            busi.UpdateViews(id);
+            return View("/Views/Home/NewsItem.cshtml", busi.GetItem(id));
         }
     }
 }

@@ -12,9 +12,9 @@ namespace Tjzx.Official.BLL.Dict
         [Description("无权限")] None = 0,
 
         /// <summary>
-        /// 新闻资讯
+        /// 健康资讯
         /// </summary>
-        [Description("新闻资讯")] News = 0x1,
+        [Description("健康资讯")] News = 0x1,
 
         /// <summary>
         /// 体检套餐

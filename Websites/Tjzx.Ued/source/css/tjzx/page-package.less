@@ -1,0 +1,58 @@
+@import "../base";
+
+.t-package-list {
+  position: relative;
+  li {
+    float: left;
+    width: 240px;
+    padding: 5px 10px;
+    margin: 5px 15px 10px;
+    border: 1px solid @border-color;
+    position: relative;
+    &.active {
+      background-color: @gray-lighter;
+      border-color: @brand-primary;
+      a {
+        color: @brand-primary;
+      }
+      .p-feature {
+        padding: 5px 0;
+        height: 50px;
+        line-height: 25px;
+        bottom: -60px;
+        border: 1px solid @brand-primary;
+        border-top: none;
+      }
+    }
+    a {
+      display: block;
+      text-align: center;
+      img {
+        width: 240px;
+        height: 240px;
+      }
+    }
+    .p-name {
+      text-align: center;
+      line-height: 24px;
+      height: 24px;
+    }
+    .p-feature {
+      text-indent: 2em;
+      position: absolute;
+      bottom: 0;
+      z-index: 20;
+      left: -1px;
+      right: -1px;
+      overflow: hidden;
+      background-color: @gray-lighter;
+      height: 0;
+      .transition(all 0.5s ease-in-out);
+    }
+  }
+}
+
+.h-pager {
+  float: left;
+  width: 100%;
+}

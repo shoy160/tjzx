@@ -508,6 +508,7 @@
     <None Include="ueditor\third-party\video-js\font\vjs.ttf" />
     <None Include="ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Views\Manager\Members.cshtml" />
+    <Content Include="Views\Home\NewsItem.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
