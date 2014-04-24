@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Tjzx.Official.BLL.ViewModels
 {
     /// <summary>

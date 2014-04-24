@@ -32,13 +32,9 @@ namespace Tjzx.Official.Models.Entities
         [Required]
         public int CreatorId { get; set; }
 
-        /// <summary>
-        /// 相册类型
-        /// </summary>
-        [Required]
-        public byte Type { get; set; }
-
         public int Sort { get; set; }
+
+        public byte State { get; set; }
 
         [Required]
         [MaxLength(30)]
