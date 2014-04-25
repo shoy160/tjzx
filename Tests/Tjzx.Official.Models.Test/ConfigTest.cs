@@ -67,11 +67,12 @@ namespace Tjzx.Official.Models.Test
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "流程及事项",Link = "/m/process/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "预约列表",Link = "/m/reservation/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
                             new MenuItem{MenuId = 103, ParentId = 1,Name = "咨询交流",Link = "/m/consulting/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Link = "/m/picture/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "图片专栏",Link = "/m/album/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
                             new MenuItem{MenuId = 201, ParentId = 2,Name = "会员管理",Link = "/m/member/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
                             new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
                             new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 3},
-                            new MenuItem{MenuId = 301, ParentId = 3,Name = "用户管理",Link = "/m/user/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1}
+                            new MenuItem{MenuId = 301, ParentId = 3,Name = "用户管理",Link = "/m/user/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 302, ParentId = 3,Name = "报告管理",Link = "/m/report/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Report.GetValue(),Sort = 2}
                         }
                 };
             ConfigUtils<MenuConfig>.Instance().Set(menu);

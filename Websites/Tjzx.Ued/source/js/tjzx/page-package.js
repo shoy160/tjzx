@@ -12,8 +12,11 @@
         }
     });
     var getList = function (page) {
-        /\/packages\/(\d+)/.exec(location.href);
-        var id = RegExp.$1 || 0;
+        var reg = /\/packages\/(\d+)/;
+        var id = 0;
+        if (reg.test(location.href)) {
+            id = RegExp.$1 || 0;
+        }
         T.getJson("/package_list", {
             id: id,
             page: page,
@@ -24,17 +27,12 @@
                 for (var i = 0; i < 32; i++)
                     list.push(json.data.list[0]);
                 h.bind(list, 259);
-                $("body,html").animate({scrollTop: 0}.$(window).scrollTop() / 5);
+                $("body,html").animate({scrollTop: 0}, $(window).scrollTop() / 5);
+                $(".t-package-list li").hover(function(){
+                    $(this).toggleClass("active").find(".p-feature").fadeToggle();
+                });
             }
         });
     };
     getList(0);
-    $(".t-package-list")
-        .delegate("li", "mouseover", function () {
-            $(this).addClass("active");
-        })
-        .delegate("li", "mouseout", function () {
-            $(this).removeClass("active");
-        })
-    ;
 })(jQuery, TJZX);

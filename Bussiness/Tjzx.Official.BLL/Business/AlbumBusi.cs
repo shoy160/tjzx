@@ -14,7 +14,7 @@ namespace Tjzx.Official.BLL.Business
         {
             var user = User.GetUser();
             if (user == null || user.Type != (byte) UserType.Manager)
-                return new ResultInfo(0, "用户未登录！");
+                return new ResultInfo(-1, "操作需要登录！");
             using (var db = new EFDbContext())
             {
                 var item = new Album
@@ -67,6 +67,7 @@ namespace Tjzx.Official.BLL.Business
                       .Select(t => new
                           {
                               id = t.AlbumId,
+                              picture=t.Picture,
                               name = t.Name,
                               t.Description,
                               t.GroupId,
@@ -78,6 +79,7 @@ namespace Tjzx.Official.BLL.Business
                       .Select(t => new
                           {
                               t.id,
+                              t.picture,
                               t.name,
                               desc = t.Description,
                               groupId = t.GroupId,
@@ -168,7 +170,7 @@ namespace Tjzx.Official.BLL.Business
                 {
                     albumId = info.AlbumId,
                     name = info.Name,
-                    desc = info.Description,
+                    description = info.Description,
                     picture = info.Picture,
                     groupId = info.GroupId,
                     group = info.Group,

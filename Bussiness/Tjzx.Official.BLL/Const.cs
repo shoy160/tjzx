@@ -11,6 +11,8 @@ namespace Tjzx.Official.BLL
 
         public const string PackageImageDirectory = "MedicalPackages";
 
+        public const string AlbumImageDirectory = "Album";
+
         public const string DefaultPackageName = "到院选择";
 
         /// <summary>
@@ -21,6 +23,11 @@ namespace Tjzx.Official.BLL
         public static string FormatDate(DateTime date)
         {
             return date.ToString("yyyy-MM-dd HH:mm");
+        }
+
+        public static string CreateGuid()
+        {
+            return Guid.NewGuid().ToString().Replace("-", "").ToLower();
         }
     }
 }

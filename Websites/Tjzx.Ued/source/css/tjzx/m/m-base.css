@@ -138,6 +138,7 @@ body {
 .m-table td {
   padding: 0 8px;
   text-align: center;
+  *padding: 0 5px;
 }
 .m-table td.text-left {
   text-align: left;
@@ -179,6 +180,9 @@ body {
   *display: inline;
   *zoom: 1;
 }
+.m-form .m-form-inline .m-form-controls {
+  width: auto;
+}
 .m-form .m-form-label,
 .m-form .m-form-controls {
   display: inline-block;
@@ -189,13 +193,16 @@ body {
 .m-form .m-form-label {
   width: 130px;
   text-align: right;
-  padding-right: 20px;
+  padding-right: 15px;
   vertical-align: top;
 }
 .m-form .m-form-label em {
   font-style: normal;
   color: red;
   padding: 0 4px;
+}
+.m-form .m-form-controls {
+  width: 75%;
 }
 .m-form .m-form-controls input[type="text"],
 .m-form .m-form-controls input[type="password"],
@@ -253,7 +260,7 @@ body {
   width: 45em;
 }
 .m-form .m-form-controls .content {
-  width: 65%;
+  width: 90%;
   height: 450px;
   line-height: 120%;
 }

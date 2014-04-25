@@ -54,9 +54,12 @@
   <ItemGroup>
     <Compile Include="Attributes\AuthAttribute.cs" />
     <Compile Include="Business\AlbumBusi.cs" />
+    <Compile Include="Business\AlbumGroupBusi.cs" />
     <Compile Include="Business\BusiBase.cs" />
     <Compile Include="Business\CategoryBusi.cs" />
     <Compile Include="Business\MemberBusi.cs" />
+    <Compile Include="Business\SystemLogBusi.cs" />
+    <Compile Include="ViewModels\AlbumGroupInfo.cs" />
     <Compile Include="ViewModels\ReportInfo.cs" />
     <Compile Include="Business\ReservationBusi.cs" />
     <Compile Include="Const.cs" />
@@ -89,7 +92,8 @@
     <Compile Include="ViewModels\PackageInfo.cs" />
     <Compile Include="ViewModels\ReservationInfo.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="ViewModels\UserInfo.cs" />
+    <Compile Include="ViewModels\ManagerInfo.cs" />
+    <Compile Include="ViewModels\SystemLogInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Tjzx.BLL\Tjzx.BLL.csproj">

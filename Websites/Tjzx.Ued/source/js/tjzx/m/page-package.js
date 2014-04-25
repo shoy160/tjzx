@@ -35,6 +35,7 @@
             if (json && json.state) {
                 $('input[name="picture"]').val(json.data.url);
                 $(".t-package-img").html(singer.format('<img src="{0}" />', json.data.url));
+                T.setFrameHeight();
             }
         },
         'onUploadComplete': function () {
@@ -94,6 +95,10 @@
         });
     };
     var loadItem = function (id) {
+        if (!id || id <= 0) {
+            vForm.reset();
+            return false;
+        }
         T.getJson("/m/package/item", {
             packageId: id
         }, function (json) {

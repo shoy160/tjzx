@@ -2,17 +2,19 @@
  * 后台管理-用户管理
  */
 (function ($, T) {
-    //form
+    //初始化表单
     var vForm = $(".j-form").valid(),
         sForm = $(".s-form").valid({
             submit: function () {
                 $(".j-search").click();
             }
         });
-    vForm.init();
+    vForm.init(); //init缓存问题
 
+    //初始化状态
     T.stateArray["0"] = "停用";
     T.stateArray["1"] = "启用";
+    //js模板
     var h = new hTemplate({
         tmp: $("#h-temp").html(),
         empty: $("#h-empty").html(),
@@ -35,6 +37,10 @@
             T.setFrameHeight();
         }
     });
+    /**
+     * 获取管理员列表
+     * @param page
+     */
     var getList = function (page) {
         var data = sForm.json(),
             $t = $(this);
@@ -48,6 +54,12 @@
             h.bind();
         });
     };
+
+    /**
+     * 获取单个管理员信息
+     * @param id
+     * @returns {boolean}
+     */
     var loadItem = function (id) {
         var $pwd =$('input[name="password"]');
         if (!id || id <= 0) {
@@ -72,11 +84,14 @@
             return false;
         });
     };
+    //初始化列表
     getList(0);
+    //hash支持
     if ("#send" === location.hash) {
         $(".m-panel-title li:eq(1)").click();
     }
 
+    //事件绑定
     $(".j-htemplate")
         .delegate(".j-send", "click", function () {
             $(".m-panel-title li:eq(1)").click();
@@ -85,15 +100,18 @@
     var stateColor = ["Gray", "Green"];
     $(document)
         .delegate(".m-panel-title li:eq(1)", "click.form", function () {
+            //新增标签事件
             loadItem();
         })
         .delegate(".j-search", "click", function () {
+            //搜索按钮事件
             if ($(this).hasClass("disabled")) return false;
             T.setBtn(this, false);
             getList.call(this, 0);
             return false;
         })
         .delegate(".j-submit", "click", function () {
+            //保存按钮事件
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
             T.setBtn(this, false);
             var formData = vForm.json();
@@ -110,6 +128,7 @@
             return false;
         })
         .delegate(".j-edit", "click", function () {
+            //编辑按钮事件
             var id = $(this).parents("td").data("id");
             loadItem(id);
             return false;

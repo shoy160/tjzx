@@ -462,7 +462,7 @@
     <Content Include="Views\Manager\Consultings.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Manager\Pictures.cshtml" />
+    <Content Include="Views\Manager\Albums.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Manager\Managers.cshtml" />

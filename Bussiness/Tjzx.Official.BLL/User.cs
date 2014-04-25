@@ -65,7 +65,7 @@ namespace Tjzx.Official.BLL
                      return  -1;
                 if (!uItem.PassWord.Equals(userPwd.Md5(), StringComparison.CurrentCultureIgnoreCase))
                     return -2;
-                var tick = Guid.NewGuid().ToString().ToLower().Sub(5, 20, "");
+                var tick = Const.CreateGuid().Substring(5, 15);
                 var user = new User
                     {
                         UserId = uItem.ManagerId,
@@ -96,7 +96,7 @@ namespace Tjzx.Official.BLL
                     return -1;
                 if (!uItem.PassWord.Equals(userPwd.Md5(), StringComparison.CurrentCultureIgnoreCase))
                     return -2;
-                var tick = Guid.NewGuid().ToString().ToLower().Sub(5, 20, "");
+                var tick = Const.CreateGuid().Substring(5, 15);
                 var user = new User
                 {
                     UserId = uItem.MemberId,

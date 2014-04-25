@@ -15,6 +15,7 @@ namespace Tjzx.Official.BLL.ViewModels
         public string RealName { get; set; }
         public string NickName { get; set; }
         public string Mobile { get; set; }
+        public string Ticket { get; set; }
         public byte Level { get; set; }
         public DateTime CreateOn { get; set; }
     }

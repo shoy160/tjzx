@@ -146,6 +146,7 @@ body {
   td {
     padding: 0 8px;
     text-align: center;
+    *padding:0 5px;
     &.text-left {
       text-align: left;
     }
@@ -187,6 +188,9 @@ body {
   }
   .m-form-inline {
     .inline-block;
+    .m-form-controls{
+      width: auto;
+    }
   }
   .m-form-label,
   .m-form-controls {
@@ -196,7 +200,7 @@ body {
   .m-form-label {
     width: 130px;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 15px;
     vertical-align: top;
     em {
       font-style: normal;
@@ -205,6 +209,7 @@ body {
     }
   }
   .m-form-controls {
+    width: 75%;
     input[type="text"],
     input[type="password"],
     textarea,
@@ -243,7 +248,7 @@ body {
       width: 45em;
     }
     .content {
-      width: 65%;
+      width: 90%;
       height: 450px;
       line-height: 120%;
     }

@@ -17,7 +17,7 @@ namespace Tjzx.Official.Models.Entities
         public string GroupName { get; set; }
 
         [Required]
-        public int State { get; set; }
+        public byte State { get; set; }
 
         public int Sort { get; set; }
     }

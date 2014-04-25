@@ -170,10 +170,10 @@ artDialog.create = function (options) {
 
 
     // 按钮组点击
-    $popup.on('click', '[data-id]', function (event) {
+    $popup.on('click', '[data-dialog-button]', function (event) {
         var $this = $(this);
         if (!$this.attr('disabled')) {// IE BUG
-            that._trigger($this.data('id'));
+            that._trigger($this.data('dialog-button'));
         }
     
         event.preventDefault();
@@ -192,23 +192,21 @@ artDialog.create = function (options) {
 
     // ESC 快捷键关闭对话框
     this._esc = function (event) {
-        var target = event.target;
-        var nodeName = target.nodeName;
-        var rinput = /^input|textarea$/i;
         var isTop = Popup.current === that;
         var keyCode = event.keyCode;
-
-        // 避免输入状态中 ESC 误操作关闭
-        if (!isTop || rinput.test(nodeName) && target.type !== 'button') {
-            return;
-        }
         
-        if (keyCode === 27) {
+        if (isTop && keyCode === 27 && that.options.cancel !== false) {
             that._trigger('cancel');
         }
     };
 
+
+    // 避免使用 keyup 事件，否则中文输入法可能出问题
+    // @see: https://www.imququ.com/post/60.html
     $(document).on('keydown', this._esc);
+
+
+    // 对话框卸载的时候进行清理
     this.addEventListener('remove', function () {
         $(document).off('keydown', this._esc);
         delete artDialog.list[this.id];
@@ -385,7 +383,7 @@ $.extend(prototype, {
                 html +=
                   '<button'
                 + ' type="button"'
-                + ' data-id="' + val.id + '"'
+                + ' data-dialog-button="' + val.id + '"'
                 + (val.disabled ? ' disabled' : '')
                 + (val.autofocus ? ' autofocus class="ui-dialog-autofocus"' : '')
                 + '>'
@@ -418,9 +416,11 @@ $.extend(prototype, {
     _trigger: function (id) {
     
         var fn = this.callbacks[id];
-            
-        return typeof fn !== 'function' || fn.call(this) !== false ?
-            this.close().remove() : this;
+        
+        if (typeof fn !== 'function' || fn.call(this) !== false) {
+            this.close().remove();
+        }
+
     }
     
 });
@@ -458,6 +458,10 @@ artDialog.list = {};
  */
 artDialog.defaults = defaults;
 
+
+
+Popup.dialog = artDialog;
+artDialog.Popup = Popup;
 
 
 return artDialog;

@@ -50,13 +50,10 @@
         });
     };
     var loadItem = function (id) {
-        var $pwd =$('input[name="password"]');
         if (!id || id <= 0) {
             vForm.reset();
-            $pwd.data("rule",{type:"^[\\w\\W]{4,16}$",msg:"请输入4-16位字符！"});
             return false;
         }
-        $pwd.data("rule","");
         T.getJson("/m/category/item", {
             cateId: id
         }, function (json) {

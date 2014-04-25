@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using Shoy.Utility.Extend;
 using Tjzx.Official.BLL.Dict;
+using Tjzx.Official.BLL.Business;
 
 namespace Tjzx.Official.BLL.Attributes
 {
@@ -30,47 +31,71 @@ namespace Tjzx.Official.BLL.Attributes
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var result = new ContentResult();
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                result.Content = new {state = -1, msg = "操作需要登录系统，请先登录！"}.ToJson();
-                filterContext.Result = result;
-                User.RedirectToLogin(Type);
+                DeelResult(filterContext, "操作需要登录系统，请先登录！");
+                return;
             }
-            else
+            var user = User.GetUser();
+            if (user == null || user.Type != Type.GetValue())
             {
-                var user = User.GetUser();
-                if (user == null || user.Type != Type.GetValue())
+                DeelResult(filterContext, "登录已失效，请先登录！");
+                return;
+            }
+            //判断凭证
+            if (user.Type == (byte) UserType.Manager)
+            {
+                var busi = new ManagerBusi();
+                var uItem = busi.GetItem(user.UserId);
+                if (uItem == null || uItem.Ticket != user.Ticket)
                 {
-                    result.Content = new { state = -1, msg = "操作需要登录系统，请先登录！" }.ToJson();
-                    filterContext.Result = result;
-                    User.RedirectToLogin(Type);
+                    DeelResult(filterContext, "登录已失效，请先登录！");
                     return;
-                }
-                if (string.IsNullOrEmpty(Users) && Role == ManagerRole.None)
-                {
-                    return;
-                }
-
-                if (!string.IsNullOrEmpty(Users))
-                {
-                    var users = Users.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
-                    if (!users.Contains(user.UserName))
-                    {
-                        result.Content = new {state = 0, msg = "用户权限被限制！"}.ToJson();
-                        filterContext.Result = result;
-                        return;
-                    }
-                }
-                if (Role != ManagerRole.None)
-                {
-                    if ((user.Role & Role.GetValue()) == 0)
-                    {
-                        result.Content = new {state = 0, msg = "权限验证不通过！"}.ToJson();
-                        filterContext.Result = result;
-                    }
                 }
             }
+            else if (user.Type == (byte) UserType.Member)
+            {
+                var busi = new MemberBusi();
+                var uItem = busi.GetItem(user.UserId);
+                if (uItem == null || uItem.Ticket != user.Ticket)
+                {
+                    DeelResult(filterContext, "登录已失效，请先登录！");
+                    return;
+                }
+            }
+            if (string.IsNullOrEmpty(Users) && Role == ManagerRole.None)
+            {
+                return;
+            }
+            if (!string.IsNullOrEmpty(Users))
+            {
+                var users = Users.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
+                if (!users.Contains(user.UserName))
+                {
+                    DeelResult(filterContext, "用户权限被限制！");
+                    return;
+                }
+            }
+            if (Role != ManagerRole.None)
+            {
+                if ((user.Role & Role.GetValue()) == 0)
+                {
+                    DeelResult(filterContext, "权限验证不通过！");
+                }
+            }
+        }
+
+        private void DeelResult(ActionExecutingContext filterContext, string msg)
+        {
+            var result = new ContentResult();
+
+            if (filterContext.HttpContext.Request.IsAjaxRequest())
+            {
+                result.Content = new {state = -1, msg}.ToJson();
+                filterContext.Result = result;
+                return;
+            }
+            User.RedirectToLogin(Type);
         }
     }
 }

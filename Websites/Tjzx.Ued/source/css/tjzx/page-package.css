@@ -16,14 +16,6 @@
 .t-package-list li.active a {
   color: #428bca;
 }
-.t-package-list li.active .p-feature {
-  padding: 5px 0;
-  height: 50px;
-  line-height: 25px;
-  bottom: -60px;
-  border: 1px solid #428bca;
-  border-top: none;
-}
 .t-package-list li a {
   display: block;
   text-align: center;
@@ -36,22 +28,31 @@
   text-align: center;
   line-height: 24px;
   height: 24px;
+  overflow: hidden;
 }
 .t-package-list li .p-feature {
-  text-indent: 2em;
   position: absolute;
-  bottom: 0;
   z-index: 20;
   left: -1px;
   right: -1px;
   overflow: hidden;
   background-color: #eeeeee;
-  height: 0;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  padding: 5px 10px;
+  line-height: 25px;
+  border: 1px solid #428bca;
+  border-top: none;
+  display: none;
+  font-size: 12px;
+}
+.t-package-list li .p-feature h4 {
+  border-top: 1px solid #428bca;
+}
+.t-package-list li .p-feature span {
+  text-indent: 2em;
+  display: block;
+  line-height: 22px;
+  max-height: 44px;
+  overflow: hidden;
 }
 .h-pager {
   float: left;

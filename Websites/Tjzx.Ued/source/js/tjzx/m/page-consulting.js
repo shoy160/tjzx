@@ -50,6 +50,10 @@
         });
     };
     var loadItem = function (id) {
+        if (!id || id <= 0) {
+            vForm.reset();
+            return false;
+        }
         T.getJson("/m/consulting/item", {
             consultingId: id
         }, function (json) {

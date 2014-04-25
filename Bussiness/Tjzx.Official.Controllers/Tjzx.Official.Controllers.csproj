@@ -89,7 +89,7 @@
     <Compile Include="Manager\DefaultController.cs" />
     <Compile Include="Manager\MemberController.cs" />
     <Compile Include="Manager\PackageController.cs" />
-    <Compile Include="Manager\PictureController.cs" />
+    <Compile Include="Manager\AlbumController.cs" />
     <Compile Include="Manager\ProcessController.cs" />
     <Compile Include="Manager\ReservationController.cs" />
     <Compile Include="Manager\UserController.cs" />

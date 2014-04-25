@@ -30,7 +30,7 @@ namespace Tjzx.Official.Controllers.Manager
         [HttpPost]
         [ActionName("add")]
         [Auth(Role = ManagerRole.Users)]
-        public JsonResult Insert(UserInfo info,string roles)
+        public JsonResult Insert(ManagerInfo info,string roles)
         {
             if (!string.IsNullOrEmpty(roles))
             {

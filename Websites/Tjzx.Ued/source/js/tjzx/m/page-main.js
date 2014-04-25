@@ -4,37 +4,64 @@
 seajs.config({
     alias: {
         "jquery": "jquery-1.10.2.js",
-        "dialog": "//ued.tjzx.com/plugs/artDialog/v6/src/dialog"
+        "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog",
+        "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-plus"
     }
 });
-var msg = window.MSG = function (opt, url) {
-    if ("string" === typeof opt || "number" === typeof opt) {
-        opt = {
+
+var Dialog = window.Dialog = function (opt) {
+        seajs.use("plus", function (dialog) {
+            var d = dialog(opt);
+            if (opt.modal) {
+                d.showModal();
+            } else if (opt.element) {
+                d.show(opt.element);
+            } else {
+                d.show();
+            }
+        });
+    },
+    call = function (callback) {
+        callback && "function" === typeof callback && callback.call(this);
+    },
+    Alert = window.Alert = function (msg, callback) {
+        var opt = {
             title: "操作提示",
-            content: opt,
+            content: msg,
+            padding: 20,
             okValue: "确认",
-            ok: function () {
-                if (-1 === url) {
-                    location.href = "/m/login?return_url=" + encodeURI(location.href);
-                } else if ("reload" === url) {
-                    frameLoad();
-                } else if ("string" === typeof url && url) {
-                    frameLoad(url);
-                }
-                this.close().remove();
-                return false;
+            ok: true,
+            onclose: function () {
+                call(callback);
             },
             modal: true
         };
-    }
-    seajs.use("dialog", function (D) {
-        var d = D(opt);
-        (opt.modal && d.showModal()) || (opt.obj && d.show(opt.obj)) || d.show();
-    });
-};
+        Dialog(opt);
+    },
+    Confirm = window.Confirm = function (msg, ok, cancel) {
+        var opt = {
+            title: "操作提示",
+            content: msg,
+            padding: 20,
+            okValue: "确认",
+            ok: function () {
+                call(ok);
+            },
+            cancelValue: "取消",
+            cancel: function () {
+                call(cancel);
+            },
+            modal: true
+        };
+        Dialog(opt);
+    };
 var callback = window.CALLBACK = function (json) {
     if (!json || json.state < 1) {
-        msg(json.msg || "操作异常！", json.state || 0);
+        Alert(json.msg || "操作异常！", function () {
+            if (json.state == -1) {
+                location.href = "/m/login?return_url=" + encodeURIComponent(location.href);
+            }
+        });
         return false;
     }
     return true;
@@ -92,7 +119,8 @@ var callback = window.CALLBACK = function (json) {
                 }
             },
             error: function (json) {
-                //gotoLogin();
+                console.log(json);
+                Alert("加载异常..！");
             }
         });
     };

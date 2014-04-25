@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/4/11 18:31:46                           */
+/* Created on:     2014/4/25 16:41:18                           */
 /*==============================================================*/
 
 
@@ -23,6 +23,13 @@ if exists (select 1
    where r.fkeyid = object_id('MedicalPackage') and o.name = 'FK_MEDICALP_RELATIONS_PACKAGEC')
 alter table MedicalPackage
    drop constraint FK_MEDICALP_RELATIONS_PACKAGEC
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('MedicalReport') and o.name = 'FK_MEDICALR_RELATIONS_MEMBER')
+alter table MedicalReport
+   drop constraint FK_MEDICALR_RELATIONS_MEMBER
 go
 
 if exists (select 1
@@ -102,6 +109,22 @@ if exists (select 1
 go
 
 if exists (select 1
+            from  sysindexes
+           where  id    = object_id('MedicalReport')
+            and   name  = 'Relationship_5_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index MedicalReport.Relationship_5_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('MedicalReport')
+            and   type = 'U')
+   drop table MedicalReport
+go
+
+if exists (select 1
             from  sysobjects
            where  id = object_id('Member')
             and   type = 'U')
@@ -138,6 +161,13 @@ if exists (select 1
    drop table Reservation
 go
 
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('SystemLog')
+            and   type = 'U')
+   drop table SystemLog
+go
+
 /*==============================================================*/
 /* Table: Album                                                 */
 /*==============================================================*/
@@ -149,6 +179,7 @@ create table Album (
    [Description]        text                 null,
    CreatorId            int                  not null,
    [Type]               tinyint              not null,
+   [State]              tinyint              not null,
    Sort                 int                  null,
    Creator              varchar(30)          not null,
    CreateOn             datetime             not null,
@@ -291,6 +322,27 @@ CategoryId ASC
 go
 
 /*==============================================================*/
+/* Table: MedicalReport                                         */
+/*==============================================================*/
+create table MedicalReport (
+   ReportId             int                  identity,
+   MemberId             int                  not null,
+   MedicalNumber        varchar(100)         not null,
+   MedicalDate          datetime             not null,
+   ReportContent        text                 not null,
+   constraint PK_MEDICALREPORT primary key nonclustered (ReportId)
+)
+go
+
+/*==============================================================*/
+/* Index: Relationship_5_FK                                     */
+/*==============================================================*/
+create index Relationship_5_FK on MedicalReport (
+MemberId ASC
+)
+go
+
+/*==============================================================*/
 /* Table: Member                                                */
 /*==============================================================*/
 create table Member (
@@ -368,12 +420,14 @@ create table Reservation (
    PackageId            int                  null,
    [Type]               tinyint              not null,
    Name                 varchar(150)         not null,
+   IdNumber             varchar(20)          null,
    Company              varchar(120)         null,
    [Address]            varchar(200)         null,
    Mobile               varchar(20)          not null,
    Email                varchar(150)         not null,
    ReservationDate      datetime             not null,
    Remark               varchar(600)         null,
+   MemberId             int                  null,
    CreateOn             datetime             not null,
    CreatorIp            varchar(20)          not null,
    [State]              tinyint              not null,
@@ -407,6 +461,24 @@ PackageId ASC
 )
 go
 
+/*==============================================================*/
+/* Table: SystemLog                                             */
+/*==============================================================*/
+create table SystemLog (
+   LogId                int                  not null,
+   LogTitle             varchar(300)         not null,
+   LogDescription       varchar(600)         null,
+   LogContent           text                 not null,
+   LogType              tinyint              not null,
+   LogLevel             tinyint              not null,
+   CreatorId            int                  not null,
+   Creator              varchar(150)         not null,
+   CreateOn             datetime             not null,
+   CreatorIp            varchar(20)          not null,
+   constraint PK_SYSTEMLOG primary key nonclustered (LogId)
+)
+go
+
 alter table Album
    add constraint FK_ALBUM_RELATIONS_ALBUMGRO foreign key (GroupId)
       references AlbumGroup (GroupId)
@@ -420,6 +492,11 @@ go
 alter table MedicalPackage
    add constraint FK_MEDICALP_RELATIONS_PACKAGEC foreign key (CategoryId)
       references PackageCategory (CategoryId)
+go
+
+alter table MedicalReport
+   add constraint FK_MEDICALR_RELATIONS_MEMBER foreign key (MemberId)
+      references Member (MemberId)
 go
 
 alter table Reservation

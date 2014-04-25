@@ -3,7 +3,7 @@
 namespace Tjzx.Official.BLL.ViewModels
 {
     /// <summary>
-    /// 咨询交流
+    /// 咨询交流业务类
     /// </summary>
     public class ConsultingInfo:InfoBase
     {

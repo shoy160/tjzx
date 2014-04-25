@@ -49,7 +49,6 @@
         if (!id || id <= 0) {
             vForm.reset();
             editor.setContent("");
-            $(".j-back").hide();
             return false;
         }
         T.getJson("/m/news/item", {

@@ -48,7 +48,8 @@ namespace Tjzx.Official.BLL.Business
                 var count = db.Members.Count(
                     t =>
                     (string.IsNullOrEmpty(info.Keyword) || t.UserName.Contains(info.Keyword) ||
-                     t.RealName.Contains(info.Keyword)));
+                     t.RealName.Contains(info.Keyword))
+                    && (info.Role == Const.Ignore || t.UserLevel == info.Role));
                 var list =
                     db.Members.Where(
                         t =>
@@ -112,7 +113,8 @@ namespace Tjzx.Official.BLL.Business
                         UserName = item.UserName,
                         Mobile = item.Mobile,
                         Level = item.UserLevel,
-                        CreateOn = item.CreateOn
+                        CreateOn = item.CreateOn,
+                        Ticket = item.Ticket
                     };
             }
         }

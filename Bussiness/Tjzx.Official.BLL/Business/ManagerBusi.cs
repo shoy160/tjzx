@@ -8,7 +8,7 @@ using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.BLL.Business
 {
-    public class ManagerBusi:BusiBase<UserInfo>
+    public class ManagerBusi:BusiBase<ManagerInfo>
     {
         public override ResultInfo GetList(SearchInfo info)
         {
@@ -54,7 +54,7 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
-        public override ResultInfo Insert(UserInfo info)
+        public override ResultInfo Insert(ManagerInfo info)
         {
             using (var db = new EFDbContext())
             {
@@ -84,7 +84,7 @@ namespace Tjzx.Official.BLL.Business
             return new ResultInfo(1);
         }
 
-        public override ResultInfo Update(UserInfo info)
+        public override ResultInfo Update(ManagerInfo info)
         {
             if (info == null || info.UserId <= 0)
                 return new ResultInfo(0, "未找到相应的人员！");
@@ -130,20 +130,21 @@ namespace Tjzx.Official.BLL.Business
             }
         }
 
-        public override UserInfo GetItem(int id)
+        public override ManagerInfo GetItem(int id)
         {
             using (var db = new EFDbContext())
             {
                 var item = db.Managers.FirstOrDefault(t => t.ManagerId == id);
                 if (item == null) return null;
-                return new UserInfo
+                return new ManagerInfo
                     {
                         UserId = item.ManagerId,
                         Name = item.RealName,
                         Account = item.UserName,
                         State = item.State,
                         Roles = GetRoles(item.Role),
-                        CreateOn = item.CreateOn
+                        CreateOn = item.CreateOn,
+                        Ticket = item.Ticket
                     };
             }
         }

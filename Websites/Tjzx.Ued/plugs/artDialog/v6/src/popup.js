@@ -311,10 +311,12 @@ $.extend(Popup.prototype, {
     blur: function () {
 
         var activeElement = this.__activeElement;
-        var isBlur = arguments[0];
+        var isBlur = arguments[0] !== false;
+        var node = this.node;
+        var active = this.__getActive();
 
 
-        if (isBlur !== false) {
+        if (isBlur && ($.contains(node, active) || active == node)) {
             this.__focus(activeElement);
         }
 

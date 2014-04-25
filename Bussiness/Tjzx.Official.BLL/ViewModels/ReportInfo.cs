@@ -1,5 +1,8 @@
 ﻿namespace Tjzx.Official.BLL.ViewModels
 {
+    /// <summary>
+    /// 体检报告业务类
+    /// </summary>
     public class ReportInfo:InfoBase
     {
         public int ReportId { get; set; }

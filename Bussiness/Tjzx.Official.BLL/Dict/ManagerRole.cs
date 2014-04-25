@@ -46,6 +46,15 @@ namespace Tjzx.Official.BLL.Dict
         /// </summary>
         [Description("人员管理")] Users = 0x40,
 
+        /// <summary>
+        /// 报告管理
+        /// </summary>
+        [Description("报告管理")] Report = 0x80,
+
+        /// <summary>
+        /// 会员管理
+        /// </summary>
+        [Description("会员管理")] Member = 0x100,
 
         /// <summary>
         /// 超级管理员

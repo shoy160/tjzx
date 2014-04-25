@@ -52,6 +52,10 @@
         });
     };
     var loadItem = function (id) {
+        if (!id || id <= 0) {
+            vForm.reset();
+            return false;
+        }
         T.getJson("/m/reservation/item", {
             reservationId: id
         }, function (json) {

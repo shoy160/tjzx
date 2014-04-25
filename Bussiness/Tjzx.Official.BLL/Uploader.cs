@@ -99,6 +99,23 @@ namespace Tjzx.Official.BLL
             return new ResultInfo(0);
         }
 
+        public ResultInfo SaveAlbumImage(int albumId)
+        {
+            var path = Const.AlbumImageDirectory;
+            if (albumId > 0)
+            {
+                var busi = new AlbumBusi();
+                var item = busi.GetItem(albumId);
+                if (item == null) return new ResultInfo(0, "");
+
+                path += "/" + item.CreateOn.ToString("yyyyMM") + "/" + albumId;
+            }
+            var hashTable = SaveFile(path);
+            if ((string) hashTable["state"] == "SUCCESS")
+                return new ResultInfo(1, "", new {url = hashTable["url"]});
+            return new ResultInfo(0);
+        }
+
         public Hashtable SaveFile(string dir = "", UploadType type = UploadType.Image)
         {
             if (_context == null || _context.Request.Files.Count == 0)
