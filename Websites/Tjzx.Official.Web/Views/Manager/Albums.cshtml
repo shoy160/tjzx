@@ -1,0 +1,150 @@
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .t-package-img img{
+            width: 150px
+        }
+    </style>
+}
+@using Shoy.Utility.Extend
+@using Tjzx.Official.BLL
+@using Tjzx.Official.BLL.Dict
+@{
+    ViewBag.Title = "中心概况-相册管理";
+}
+<div class="m-panel">
+    <div class="m-panel-title">
+        <ul>
+            <li class="active">相册列表</li>
+            <li>新增相册</li>
+        </ul>
+    </div>
+    <div class="m-panel-item">
+        <div class="m-form s-form">
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">相册名称：</label>
+                <div class="m-form-controls">
+                    <input type="text" name="keyword" key-submit class="col-16" />
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">相册状态：</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-08">
+                        <option value="@Const.Ignore">所有状态</option>
+                        @{
+                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            {
+                                <option value="@type.GetValue()">@type.GetText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">相册分组：</label>
+                <div class="m-form-controls">
+                    <select name="groupId" class="col-12">
+                        <option value="@Const.Ignore">所有分组</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-actions inline">
+                <button class="btn btn-primary j-search" data-tag="正在搜索...">搜　索</button>
+            </div>
+        </div>
+        <table class="m-table">
+            <caption>相册列表<small>共找到<em>0</em>条记录</small></caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col />
+                <col class="col-12"/>
+                <col class="col-12"/>
+                <col class="col-08"/>
+                <col class="col-10"/>
+                <col class="col-06"/>
+                <col class="col-10"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>相册ID</th>
+                    <th>相册预览</th>
+                    <th>相册名称</th>
+                    <th>相册描述</th>
+                    <th>相册分组</th>
+                    <th>添加时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="j-htemplate">
+                <tr>
+                    <td colspan="9">
+                        <div class="m-loading">加载中...</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="h-pager"></div>
+    </div>
+    <div class="m-panel-item hide">
+        <div class="m-form j-form">
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>相册名称</label>
+                <div class="m-form-controls">
+                    <input type="text" class="input-large" name="name" data-valid="{type:'require',msg:'不能为空！'}" />
+                    <input type="hidden" name="albumId" value="0"/>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>相册图片</label>
+                <div class="m-form-controls">
+                    <div class="t-package-img">
+                    </div>
+                    <div id="fileUp"></div>
+                    <input type="hidden" name="picture" data-valid="{type:'require',msg:'请上传相册图片！'}" />
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>相册描述</label>
+                <div class="m-form-controls">
+                    <textarea rows="2" class="input-large" name="description" data-valid="{type:'require',msg:'不能为空！'}"></textarea>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>相册分组</label>
+                <div class="m-form-controls">
+                    <select name="groupId" class="col-12" data-valid="{type:'^[1-9]([0-9]*)$',msg:'请选择分类'}">
+                        <option value="-1">请选择相册分组</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-actions well">
+                <button type="button" class="btn btn-primary j-submit">确认提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="h-temp">
+    <tr>
+        <td>{id}</td>
+        <td><img src="{picture}" style="width:150px" /></td>
+        <td>{name}</td>        
+        <td>{desc}</td>
+        <td>{groupName}</td>
+        <td>{createon}</td>
+        <td>{stateCN}</td>
+        <td data-id="{id}">{links}</td>
+    </tr>        
+</script>
+<script type="text/template" id="h-empty">
+    <tr>
+        <td colspan="9">没找到相关相册！<a href="#" class="j-send">去添加</a></td>
+    </tr>        
+</script>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="/uploadify/jquery.uploadify.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-album.min.js"></script>
+}
