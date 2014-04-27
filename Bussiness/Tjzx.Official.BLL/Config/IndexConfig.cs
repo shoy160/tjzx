@@ -84,6 +84,9 @@ namespace Tjzx.Official.BLL.Config
 
         [XmlAttribute("sort")]
         public int Sort { get; set; }
+
+        [XmlAttribute("bgcolor")]
+        public string BackgroundColor { get; set; }
     }
 
     public class WordLink

@@ -114,10 +114,10 @@ header .t-nav li {
   border-right: 1px solid #61D5F9;
 }
 header .t-nav li:first-child {
-  border-left: 1px solid #61D5F9;
+  border-left: 1px solid #0FADE1;
 }
 header .t-nav li:first-child a {
-  border-left: 1px solid #0FADE1;
+  border-left: 1px solid #61D5F9;
 }
 header .t-nav li.hot {
   font-weight: 700;
@@ -151,6 +151,7 @@ header .t-nav li a:hover {
 .t-box {
   width: 1000px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .t-location {
   border-bottom: 1px solid #cccccc;
@@ -162,19 +163,54 @@ header .t-nav li a:hover {
 }
 .t-panel-box {
   margin: 12px 0;
-  border: 1px solid #cccccc;
-  padding: 5px 15px;
   overflow: hidden;
   position: relative;
 }
 .t-panel-box .t-panel-title {
-  border-bottom: 1px solid #cccccc;
-  font-size: 14px;
-  font-weight: 600;
   line-height: 32px;
   height: 32px;
   margin-bottom: 12px;
-  width: 145px;
+  position: relative;
+}
+.t-panel-box .t-panel-title em {
+  width: 3px;
+  height: 16px;
+  position: absolute;
+  top: 9px;
+  left: 0;
+  background-color: #14B4E6;
+  font-size: 11px;
+  margin-right: 15px;
+}
+.t-panel-box .t-panel-title .em01 {
+  background-color: #FE0000;
+}
+.t-panel-box .t-panel-title .em02 {
+  background-color: #A300FE;
+}
+.t-panel-box .t-panel-title .em03 {
+  background-color: #FF7200;
+}
+.t-panel-box .t-panel-title .em04 {
+  background-color: #00CD34;
+}
+.t-panel-box .t-panel-title b {
+  font-size: 14px;
+  margin-left: 18px;
+}
+.t-panel-box .t-panel-title i {
+  position: absolute;
+  top: 16px;
+  left: 90px;
+  right: 70px;
+  height: 0;
+  border-top: 1px dotted #cccccc;
+}
+.t-panel-box .t-panel-title a {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: #555555;
 }
 footer {
   background-color: #FBFBFB;

@@ -1,8 +1,9 @@
 .t-slider {
-  height: 210px;
+  height: 330px;
   overflow: hidden;
   position: relative;
-  margin: 12px 0;
+  background-color: #9BBE6E;
+  margin: 0;
 }
 .t-slider ul {
   overflow: hidden;
@@ -11,7 +12,7 @@
 .t-slider ul li {
   float: left;
   width: 1000px;
-  height: 210px;
+  height: 330px;
   background-color: #eeeeee;
   overflow: hidden;
 }
@@ -22,7 +23,7 @@
 }
 .t-slider .t-slider-controls {
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 0;
   right: 0;
   text-align: center;
@@ -31,23 +32,20 @@
   margin: 0 auto;
 }
 .t-slider .t-slider-controls ol li {
-  background-color: #222222;
+  background-color: #ccc;
   float: left;
-  height: 18px;
+  height: 7px;
   margin: 0 5px 0 0;
-  width: 18px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+  width: 35px;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
   cursor: pointer;
 }
 .t-slider .t-slider-controls ol li.active {
-  background-color: #E4393C;
-  color: #fff;
+  background-color: #FF6600;
 }
 .t-panel-group {
+  margin-top: 15px;
   overflow: hidden;
   position: relative;
 }

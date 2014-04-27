@@ -52,7 +52,7 @@
         setBoxHeight = function (h) {
             for (var i = 0; i < autoBoxs.length; i++) {
                 var $a = $(autoBoxs[i]);
-                $a.data("left", ~~$a.data("left") + h);
+                $a.data("left", ~~$a.data("left") - h);
                 $a.css({height: $a.height() + h});
             }
         };
@@ -181,7 +181,8 @@
                     controls: '',            //控制器
                     controlEvent: 'click.wheel',   //控制器触发事件
                     activeClass: 'active',  //
-                    easing: ''              //切换效果
+                    easing: '',              //切换效果
+                    callback:false          //回调
                 }, options),
                 $t = $(this),
                 perPixel,
@@ -237,6 +238,7 @@
                         if (lastAction) {
                             target.to(lastAction.index);
                         }
+                        options.callback && "function" === typeof options.callback && options.callback.call(this,index);
                     }
                 };
                 if (options.easing) {

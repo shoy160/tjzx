@@ -7,80 +7,98 @@
 @if (Model != null)
 {
     <div class="t-slider">
-        @if (Model.Sliders != null)
-        {
-            var count = Model.Sliders.Count;
-            <ul>
-                @foreach (var slider in Model.Sliders.OrderBy(t => t.Sort))
+        <div class="t-box">
+            @if (Model.Sliders != null)
+            {
+                var count = Model.Sliders.Count;
+                <ul>
+                    @foreach (var slider in Model.Sliders.OrderBy(t => t.Sort))
+                    {
+                        <li data-bg="@slider.BackgroundColor">
+                            <a href="@slider.Link" title="@slider.Title">
+                                <img src="@slider.ImageUrl" alt="@slider.Title" />
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="t-slider-controls">
+                    <ol style="width: @(count*40)px">
+                        @for (var i = 0; i < count; i++)
+                        {
+                            var cls = i == 0 ? "active" : "";
+                            <li class="@cls"></li>
+                        }
+                    </ol>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="t-box">
+        <div class="t-panel-group">
+            <div class="panel-col01">
+                <div class="t-panel-box">
+                    <div class="t-panel-title">
+                        <em></em>
+                        <b>健康资讯</b>
+                        <i></i>
+                        <a href="#">more>></a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-col02">
+                <div class="t-panel-box">
+                    <div class="t-panel-title">
+                        <em class="em01"></em>
+                        <b>中心简介</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="t-panel-box">
+            <div class="t-panel-title">
+                <em class="em02"></em>
+                <b>体检套餐</b>
+                <i></i>
+                <a href="#">more>></a>
+            </div>
+            <ul class="t-category">
+                @if (Model.Categories != null)
                 {
-                    <li>
-                        <a href="@slider.Link" title="@slider.Title">
-                            <img src="@slider.ImageUrl" alt="@slider.Title" />
-                        </a>
-                    </li>
+                    foreach (var category in Model.Categories)
+                    {
+                        <li>
+                            <a class="t-img" href="/packages/@category.CategoryId" title="@category.CategoryName">
+                                <img src="@category.ImageUrl" alt="@category.CategoryName" />
+                            </a>
+                            <h3>
+                                <a href="/packages/@category.CategoryId" title="@category.CategoryName">@category.CategoryName</a>
+                            </h3>
+                        </li>
+                    }
                 }
             </ul>
-            <div class="t-slider-controls">
-                <ol style="width: @(count*23)px">
-                    @for (var i = 0; i < count; i++)
-                    {
-                        var cls = i == 0 ? "active" : "";
-                        <li class="@cls"></li>
-                    }
-                </ol>
-            </div>
-        }
-    </div>
-    <div class="t-panel-group">
-        <div class="panel-col01">
-            <div class="t-panel-box">
-                <div class="t-panel-title">中心概况</div>
-            </div>
         </div>
-        <div class="panel-col02">
-            <div class="t-panel-box">
-                <div class="t-panel-title">热门资讯</div>
+        <div class="t-panel-group">
+            <div class="panel-col01">
+                <div class="t-panel-box">
+                    <div class="t-panel-title">
+                        <em class="em03"></em>
+                        <b>中心环境</b>
+                        <i></i>
+                        <a href="#">more>></a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="panel-col03">
-            <div class="t-panel-box">
-                <div class="t-panel-title">健康快车</div>
+            <div class="panel-col02">
+                <div class="t-panel-box">
+                    <div class="t-panel-title">
+                        <em class="em04"></em>
+                        <b>健康知识</b>
+                        <i></i>
+                        <a href="#">more>></a>
+                    </div>
+                </div>
             </div>
-            <div class="t-panel-btns">
-                <button type="button">体检预约</button>
-                <button type="button">报告查询</button>
-            </div>
-        </div>
-    </div>
-    <div class="t-panel-box">
-        <div class="t-panel-title">体检套餐</div>
-        <ul class="t-category">
-            @if (Model.Categories != null)
-            {
-                foreach (var category in Model.Categories)
-                {
-                    <li>
-                        <a class="t-img" href="/packages/@category.CategoryId" title="@category.CategoryName">
-                            <img src="@category.ImageUrl" alt="@category.CategoryName" />
-                        </a>
-                        <h3>
-                            <a href="/packages/@category.CategoryId" title="@category.CategoryName">@category.CategoryName</a>
-                        </h3>
-                    </li>
-                }
-            }
-        </ul>
-    </div>
-    <div class="t-panel-box">
-        <div class="t-panel-title">中心环境</div>
-        <div class="t-envrion-box">
-            <div class="t-envrion-left"></div>
-            <div class="t-envrion-father">
-                <ul>
-                    
-                </ul>
-            </div>
-            <div class="t-envrion-right"></div>
         </div>
     </div>
 }
@@ -96,7 +114,11 @@
             controls: ".t-slider-controls li",
             wheel: false,
             auto: true,
-            sleep: 5000
+            sleep: 5000,
+            callback: function(index) {
+                var $li = $(".t-slider li").eq(index);
+                $(".t-slider").css("background-color", $li.data("bg"));
+            }
         });
     </script>
 }

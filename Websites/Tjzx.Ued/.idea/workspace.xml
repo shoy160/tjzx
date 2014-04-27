@@ -25,30 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page-main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
+      <file leaf-file-name="base-v1.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="20" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="3806">
+            <state line="188" column="5" selection-start="3235" selection-end="3235" vertical-scroll-proportion="-12.0" vertical-offset="3412" max-vertical-offset="6140">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-news.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
+      <file leaf-file-name="page-home.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/css/tjzx/page-home.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="39" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.0" vertical-offset="2024" max-vertical-offset="4026">
-              <folding>
-                <marker date="1398420076000" expanded="false" signature="4559:4572" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-v1.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="258" column="17" selection-start="4617" selection-end="4617" vertical-scroll-proportion="-8.967742" vertical-offset="5398" max-vertical-offset="5962">
+            <state line="39" column="24" selection-start="743" selection-end="743" vertical-scroll-proportion="-12.413794" vertical-offset="420" max-vertical-offset="2280">
               <folding />
             </state>
           </provider>
@@ -57,16 +46,7 @@
       <file leaf-file-name="base-responsive.less" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-responsive.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="9" selection-start="949" selection-end="949" vertical-scroll-proportion="0.4680851" vertical-offset="1122" max-vertical-offset="2816">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.less" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/css/base.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="26" selection-start="473" selection-end="480" vertical-scroll-proportion="-5.903226" vertical-offset="367" max-vertical-offset="4048">
+            <state line="90" column="26" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.069767445" vertical-offset="1752" max-vertical-offset="2560">
               <folding />
             </state>
           </provider>
@@ -82,8 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-main.js" />
-        <option value="$PROJECT_DIR$/source/js/tjzx/m/m-base.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-picture.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-consulting.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-category.js" />
@@ -96,6 +74,8 @@
         <option value="$PROJECT_DIR$/plugs/artDialog/v6/css/ui-dialog.css" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-news.js" />
         <option value="$PROJECT_DIR$/source/css/base.less" />
+        <option value="$PROJECT_DIR$/source/js/plugs/Jq-common.js" />
+        <option value="$PROJECT_DIR$/source/css/tjzx/page-home.less" />
         <option value="$PROJECT_DIR$/source/css/tjzx/base-v1.less" />
         <option value="$PROJECT_DIR$/source/css/tjzx/base-responsive.less" />
       </list>
@@ -104,8 +84,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -183,6 +163,36 @@
               <option name="myItemId" value="source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -235,8 +245,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../singer" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -255,14 +265,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -271,6 +273,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -313,14 +323,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2569546" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25694445" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -347,21 +357,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-consulting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="9" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.3697479" vertical-offset="990" max-vertical-offset="3234" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="9" selection-start="1723" selection-end="1723" vertical-scroll-proportion="0.59159666" vertical-offset="858" max-vertical-offset="3872" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-reservation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="9" selection-start="1786" selection-end="1786" vertical-scroll-proportion="0.5546219" vertical-offset="924" max-vertical-offset="3278" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="26" selection-start="1826" selection-end="1826" vertical-scroll-proportion="0.53752184" vertical-offset="1122" max-vertical-offset="4334" />
@@ -370,11 +365,6 @@
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-package.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="102" column="25" selection-start="3231" selection-end="3231" vertical-scroll-proportion="0.66554624" vertical-offset="1848" max-vertical-offset="4928" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-album.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="29" selection-start="3247" selection-end="3247" vertical-scroll-proportion="0.0" vertical-offset="1848" max-vertical-offset="4796" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
@@ -406,7 +396,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="20" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3806">
+        <state line="42" column="20" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="3460">
           <folding />
         </state>
       </provider>
@@ -414,29 +404,55 @@
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="39" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.0" vertical-offset="2024" max-vertical-offset="4026">
-          <folding>
-            <marker date="1398420076000" expanded="false" signature="4559:4572" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/base.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="26" selection-start="473" selection-end="480" vertical-scroll-proportion="-5.903226" vertical-offset="367" max-vertical-offset="4048">
+        <state line="26" column="26" selection-start="508" selection-end="508" vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="3680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/base-v1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="363" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="23" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="238" column="56" selection-start="10753" selection-end="10753" vertical-scroll-proportion="0.0" vertical-offset="4433" max-vertical-offset="7000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/page-home.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="24" selection-start="743" selection-end="743" vertical-scroll-proportion="-12.413794" vertical-offset="420" max-vertical-offset="2280">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="258" column="17" selection-start="4617" selection-end="4617" vertical-scroll-proportion="-8.967742" vertical-offset="5398" max-vertical-offset="5962">
+        <state line="188" column="5" selection-start="3235" selection-end="3235" vertical-scroll-proportion="-12.0" vertical-offset="3412" max-vertical-offset="6140">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-responsive.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="9" selection-start="949" selection-end="949" vertical-scroll-proportion="0.4680851" vertical-offset="1122" max-vertical-offset="2816">
+        <state line="90" column="26" selection-start="1417" selection-end="1417" vertical-scroll-proportion="0.069767445" vertical-offset="1752" max-vertical-offset="2560">
           <folding />
         </state>
       </provider>

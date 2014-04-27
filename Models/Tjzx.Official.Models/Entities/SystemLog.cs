@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tjzx.Official.Models.Entities
 {
+    /// <summary>
+    /// 系统日志类
+    /// </summary>
     [Table("SystemLog")]
     public class SystemLog : EntityBase
     {

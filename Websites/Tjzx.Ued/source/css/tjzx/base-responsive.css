@@ -54,7 +54,7 @@
   }
 }
 /*窄屏*/
-@media screen and (min-width: 768px) and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .t-top,
   header .t-nav,
   .t-box,
@@ -63,7 +63,7 @@
     width: 768px;
   }
   header .t-nav li {
-    width: 94.875px;
+    width: 94.75px;
   }
   footer .t-footer .t-footer-item {
     width: 182px;
@@ -150,7 +150,7 @@
   width: 768px;
 }
 .wide-03 header .t-nav li {
-  width: 94.875px;
+  width: 94.75px;
 }
 .wide-03 footer .t-footer .t-footer-item {
   width: 182px;

@@ -7,9 +7,7 @@
     <body>
         @{Html.RenderPartial("_BaseJs");}
         @{Html.RenderPartial("_Menu");}
-        <div class="t-box">
-            @RenderBody()
-        </div>
+        @RenderBody()
         @{
             Html.RenderPartial("_Footer");
         }
