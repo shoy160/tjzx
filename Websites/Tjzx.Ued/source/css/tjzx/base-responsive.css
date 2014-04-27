@@ -4,11 +4,12 @@
   .t-top,
   header .t-nav,
   .t-box,
-  footer {
+  footer .t-footer,
+  footer .t-copyright .t-copyright-box {
     width: 1200px;
   }
   header .t-nav li {
-    width: 132.2px;
+    width: 148.75px;
   }
   footer .t-footer .t-footer-item {
     width: 320px;
@@ -33,11 +34,12 @@
   .t-top,
   header .t-nav,
   .t-box,
-  footer {
+  footer .t-footer,
+  footer .t-copyright .t-copyright-box {
     width: 1000px;
   }
   header .t-nav li {
-    width: 110px;
+    width: 123.75px;
   }
   footer .t-footer .t-footer-item {
     width: 252px;
@@ -56,11 +58,12 @@
   .t-top,
   header .t-nav,
   .t-box,
-  footer {
+  footer .t-footer,
+  footer .t-copyright .t-copyright-box {
     width: 768px;
   }
   header .t-nav li {
-    width: 84.2px;
+    width: 94.875px;
   }
   footer .t-footer .t-footer-item {
     width: 182px;
@@ -90,11 +93,12 @@
 .wide-01 .t-top,
 .wide-01 header .t-nav,
 .wide-01 .t-box,
-.wide-01 footer {
+.wide-01 footer .t-footer,
+.wide-01 footer .t-copyright .t-copyright-box {
   width: 1200px;
 }
 .wide-01 header .t-nav li {
-  width: 132.2px;
+  width: 148.75px;
 }
 .wide-01 footer .t-footer .t-footer-item {
   width: 320px;
@@ -118,11 +122,12 @@
 .wide-02 .t-top,
 .wide-02 header .t-nav,
 .wide-02 .t-box,
-.wide-02 footer {
+.wide-02 footer .t-footer,
+.wide-02 footer .t-copyright .t-copyright-box {
   width: 1000px;
 }
 .wide-02 header .t-nav li {
-  width: 110px;
+  width: 123.75px;
 }
 .wide-02 footer .t-footer .t-footer-item {
   width: 252px;
@@ -140,11 +145,12 @@
 .wide-03 .t-top,
 .wide-03 header .t-nav,
 .wide-03 .t-box,
-.wide-03 footer {
+.wide-03 footer .t-footer,
+.wide-03 footer .t-copyright .t-copyright-box {
   width: 768px;
 }
 .wide-03 header .t-nav li {
-  width: 84.2px;
+  width: 94.875px;
 }
 .wide-03 footer .t-footer .t-footer-item {
   width: 182px;

@@ -1,5 +1,9 @@
 @import "../base";
 
+@nav-color: #fff;
+@nav-bg-color: #30C4F4;
+@nav-bg-color-active: #14B4E6;
+
 body {
   font: 13px/2.0 'Microsoft YaHei', Tahoma, Verdana, Simsun;
   color: @color;
@@ -84,15 +88,16 @@ img {
   }
 }
 
+//顶部导航菜单
 header {
   background-color: @background-color;
   margin: 0;
   nav {
     line-height: 35px;
-    border-top: 1px solid @border-color;
-    border-bottom: 1px solid @border-color;
     position: relative;
     overflow: hidden;
+    background-color: @nav-bg-color;
+    color: @nav-color;
   }
   .t-nav {
     .width();
@@ -100,43 +105,48 @@ header {
     position: relative;
     li {
       float: left;
-      min-width: 77px;
-      width: 110px;
+      min-width: 73px;
+      width: 123.75px;
       height: 35px;
       line-height: 35px;
       overflow: hidden;
       text-align: center;
-      border-left: 1px solid @border-color;
-      &:last-child {
-        border-right: 1px solid @border-color;
+      border-right: 1px solid #61D5F9;
+      &:first-child {
+        border-left: 1px solid #61D5F9;
+        a {
+          border-left: 1px solid #0FADE1;
+        }
       }
       &.hot {
         font-weight: 700;
         font-size: 14px;
       }
-      &.active{
-        background-color: @brand-primary;
+      &.active {
         a:link,
         a:active,
-        a:visited{
+        a:visited {
           color: #fff;
           font-size: 14px;
           font-weight: 700;
+          background-color: @nav-bg-color-active;
         }
       }
       a {
-        display:block;
+        display: block;
         height: 35px;
         overflow: hidden;
+        border-right: 1px solid #0FADE1;
+        font-size: 14px;
+        font-weight: 700;
         &:link,
         &:active,
         &:visited {
-          color: @color;
+          color: @nav-color;
           text-decoration: none;
         }
-        &:hover{
-          font-size: 14px;
-          font-weight: 700;
+        &:hover {
+          background-color: @nav-bg-color-active;
         }
       }
     }
@@ -147,14 +157,16 @@ header {
   margin: 0 auto;
   .width();
 }
-.t-location{
+
+.t-location {
   border-bottom: 1px solid @border-color;
   line-height: 35px;
-  h3{
+  h3 {
     font-size: 12px;
     font-weight: 600;
   }
 }
+
 .t-panel-box {
   margin: 12px 0;
   border: 1px solid @border-color;
@@ -171,14 +183,17 @@ header {
     width: 145px;
   }
 }
+
+//全站底部
 footer {
-  .width;
-  background-color: @background-color;
-  margin: 12px auto;
-  border: 1px solid @border-color;
+  background-color: #FBFBFB;
+  margin-top: 12px;
+  border-top: 1px solid #e8e8e8;
   line-height: 28px;
   padding: 5px 0 0;
+  overflow: hidden;
   .t-footer {
+    .width;
     position: relative;
     overflow: hidden;
     padding: 5px 0 15px;
@@ -223,25 +238,29 @@ footer {
     }
   }
   .t-copyright {
-    height: 32px;
-    line-height: 32px;
+    line-height: 35px;
     position: relative;
-    border-top: 1px solid @border-color;
-    padding: 0 15px;
-    font-size: 12px;
-    color: @gray-light;
-    .copyright {
-      float: left;
-    }
-    .t-footer-fn {
-      float: right;
-    }
-    .t-share, .t-statistics {
-      float: left;
-      margin:5px 8px 0 0;
-    }
-    .t-share {
-      margin-top: 2px;
+    background-color: #14B4E6;
+    .box-shadow(0 1px 1px #14B4E6);
+    .t-copyright-box {
+      .width;
+      height: 35px;
+      color: #fff;
+      font-size: 12px;
+
+      .copyright {
+        float: left;
+      }
+      .t-footer-fn {
+        float: right;
+      }
+      .t-share, .t-statistics {
+        float: left;
+        margin: 7px 8px 0 0;
+      }
+      .t-share {
+        margin-top: 5px;
+      }
     }
   }
 }

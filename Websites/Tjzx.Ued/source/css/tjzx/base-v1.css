@@ -92,10 +92,10 @@ header {
 }
 header nav {
   line-height: 35px;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
   position: relative;
   overflow: hidden;
+  background-color: #30c4f4;
+  color: #ffffff;
 }
 header .t-nav {
   width: 1000px;
@@ -105,23 +105,23 @@ header .t-nav {
 }
 header .t-nav li {
   float: left;
-  min-width: 77px;
-  width: 110px;
+  min-width: 73px;
+  width: 123.75px;
   height: 35px;
   line-height: 35px;
   overflow: hidden;
   text-align: center;
-  border-left: 1px solid #cccccc;
+  border-right: 1px solid #61D5F9;
 }
-header .t-nav li:last-child {
-  border-right: 1px solid #cccccc;
+header .t-nav li:first-child {
+  border-left: 1px solid #61D5F9;
+}
+header .t-nav li:first-child a {
+  border-left: 1px solid #0FADE1;
 }
 header .t-nav li.hot {
   font-weight: 700;
   font-size: 14px;
-}
-header .t-nav li.active {
-  background-color: #428bca;
 }
 header .t-nav li.active a:link,
 header .t-nav li.active a:active,
@@ -129,21 +129,24 @@ header .t-nav li.active a:visited {
   color: #fff;
   font-size: 14px;
   font-weight: 700;
+  background-color: #14b4e6;
 }
 header .t-nav li a {
   display: block;
   height: 35px;
   overflow: hidden;
+  border-right: 1px solid #0FADE1;
+  font-size: 14px;
+  font-weight: 700;
 }
 header .t-nav li a:link,
 header .t-nav li a:active,
 header .t-nav li a:visited {
-  color: #555555;
+  color: #ffffff;
   text-decoration: none;
 }
 header .t-nav li a:hover {
-  font-size: 14px;
-  font-weight: 700;
+  background-color: #14b4e6;
 }
 .t-box {
   width: 1000px;
@@ -174,15 +177,16 @@ header .t-nav li a:hover {
   width: 145px;
 }
 footer {
-  width: 1000px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  margin: 12px auto;
-  border: 1px solid #cccccc;
+  background-color: #FBFBFB;
+  margin-top: 12px;
+  border-top: 1px solid #e8e8e8;
   line-height: 28px;
   padding: 5px 0 0;
+  overflow: hidden;
 }
 footer .t-footer {
+  width: 1000px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
   padding: 5px 0 15px;
@@ -227,25 +231,31 @@ footer .t-footer .t-footer-contact p strong {
   font-weight: 600;
 }
 footer .t-copyright {
-  height: 32px;
-  line-height: 32px;
+  line-height: 35px;
   position: relative;
-  border-top: 1px solid #cccccc;
-  padding: 0 15px;
-  font-size: 12px;
-  color: #999999;
+  background-color: #14B4E6;
+  -webkit-box-shadow: 0 1px 1px #14b4e6;
+  -moz-box-shadow: 0 1px 1px #14b4e6;
+  box-shadow: 0 1px 1px #14b4e6;
 }
-footer .t-copyright .copyright {
+footer .t-copyright .t-copyright-box {
+  width: 1000px;
+  margin: 0 auto;
+  height: 35px;
+  color: #fff;
+  font-size: 12px;
+}
+footer .t-copyright .t-copyright-box .copyright {
   float: left;
 }
-footer .t-copyright .t-footer-fn {
+footer .t-copyright .t-copyright-box .t-footer-fn {
   float: right;
 }
-footer .t-copyright .t-share,
-footer .t-copyright .t-statistics {
+footer .t-copyright .t-copyright-box .t-share,
+footer .t-copyright .t-copyright-box .t-statistics {
   float: left;
-  margin: 5px 8px 0 0;
+  margin: 7px 8px 0 0;
 }
-footer .t-copyright .t-share {
-  margin-top: 2px;
+footer .t-copyright .t-copyright-box .t-share {
+  margin-top: 5px;
 }

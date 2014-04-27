@@ -18,21 +18,20 @@ namespace Tjzx.Official.Models.Test
                 {
                     Navigations = new List<Navigation>
                         {
-                            new Navigation{Id = 1,Name = "关于我们",Sort = 1,Link = "/About",Class = "",Target = "_blank"},
-                            new Navigation{Id = 2,Name = "健康资讯",Sort = 2,Link = "/News",Class = "",Target = "_blank"},
-                            new Navigation{Id = 3,Name = "体检套餐",Sort = 3,Link = "/Medical",Class = "hot",Target = "_blank"},
-                            new Navigation{Id = 4,Name = "体检预约",Sort = 4,Link = "/Reservation",Class = "hot",Target = "_blank"},
-                            new Navigation{Id = 5,Name = "健康管理",Sort = 5,Link = "/Health",Class = "hot",Target = "_blank"},
-                            new Navigation{Id = 6,Name = "中心概况",Sort = 6,Link = "/Overview",Class = "",Target = "_blank"},
-                            new Navigation{Id = 7,Name = "咨询交流",Sort = 7,Link = "/Exchanges",Class = "",Target = "_blank"},
-                            new Navigation{Id = 8,Name = "联系我们",Sort = 8,Link = "/Contact",Class = "",Target = "_blank"}
+                            new Navigation{Id = 2,Name = "健康快车",Sort = 4,Link = "/news",Class = "",Target = ""},
+                            new Navigation{Id = 3,Name = "体检套餐",Sort = 1,Link = "/packages",Class = "hot",Target = ""},
+                            new Navigation{Id = 4,Name = "体检预约",Sort = 2,Link = "/reservation",Class = "hot",Target = "_blank"},
+                            new Navigation{Id = 5,Name = "健康管理",Sort = 5,Link = "/h",Class = "hot",Target = ""},
+                            new Navigation{Id = 6,Name = "中心概况",Sort = 3,Link = "/overview",Class = "",Target = ""},
+                            new Navigation{Id = 7,Name = "咨询交流",Sort = 6,Link = "/exchanges",Class = "",Target = ""},
+                            new Navigation{Id = 8,Name = "联系我们",Sort = 7,Link = "/contact",Class = "",Target = ""}
                         },
                     Sliders = new List<Slider>
                         {
-                            new Slider{Id = 1,ImageUrl = "http://ued.tjzx.com/img/nopic01.gif",Link = "http://www.baidu.com",Sort = 4,Title = "百度"},
-                            new Slider{Id = 2,ImageUrl = "http://ued.tjzx.com/img/nopic02.gif",Link = "http://www.baidu.com",Sort = 1,Title = "百度"},
-                            new Slider{Id = 3,ImageUrl = "http://ued.tjzx.com/img/nopic03.gif",Link = "http://www.baidu.com",Sort = 3,Title = "百度"},
-                            new Slider{Id = 4,ImageUrl = "http://ued.tjzx.com/img/nopic04.gif",Link = "http://www.baidu.com",Sort = 2,Title = "百度"}
+                            new Slider{Id = 1,ImageUrl = "http://ued.tjzx.com/img/pic01.jpg",Link = "http://www.baidu.com",Sort = 4,Title = "百度"},
+                            new Slider{Id = 2,ImageUrl = "http://ued.tjzx.com/img/pic02.jpg",Link = "http://www.baidu.com",Sort = 1,Title = "百度"},
+                            new Slider{Id = 3,ImageUrl = "http://ued.tjzx.com/img/pic03.jpg",Link = "http://www.baidu.com",Sort = 3,Title = "百度"},
+                            new Slider{Id = 4,ImageUrl = "http://ued.tjzx.com/img/pic04.jpg",Link = "http://www.baidu.com",Sort = 2,Title = "百度"}
                         },
                     Categories = new List<Category>
                         {
