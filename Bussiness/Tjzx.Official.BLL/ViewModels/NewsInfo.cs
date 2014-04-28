@@ -11,6 +11,7 @@ namespace Tjzx.Official.BLL.ViewModels
         public string Title { get; set; }
         public byte Type { get; set; }
         public byte State { get; set; }
+        public bool IsRecommend { get; set; }
         public string Author { get; set; }
         public string Comefrom { get; set; }
         public string Content { get; set; }

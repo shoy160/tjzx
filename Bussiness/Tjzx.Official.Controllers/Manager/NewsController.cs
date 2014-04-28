@@ -75,5 +75,13 @@ namespace Tjzx.Official.Controllers.Manager
         {
             return Json(_busi.UpdateState(newsId, StateType.Hidden));
         }
+        
+        [HttpPost]
+        [ActionName("recommend")]
+        [Auth(Role=ManagerRole.News)]
+        public JsonResult SetRecommend(int newsId, bool recommend)
+        {
+            return Json(_busi.SetRecommend(newsId, recommend));
+        }
     }
 }

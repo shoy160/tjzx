@@ -203,7 +203,8 @@ namespace Tjzx.Official.BLL.Business
                               creator = t.Creator,
                               createon = t.CreateOn,
                               type = t.Type,
-                              state = t.State
+                              state = t.State,
+                              recommend = t.IsRecommend
                           }).ToList()
                       .Select(t => new
                           {
@@ -211,10 +212,12 @@ namespace Tjzx.Official.BLL.Business
                               t.title,
                               t.creator,
                               createon = Const.FormatDate(t.createon),
+                              t.type,
                               typeCN = ((int) t.type).GetEnumCssText<NewsType>(),
                               t.state,
                               stateCN =
-                                       ((StateType) t.state).GetCssText()
+                                       ((StateType) t.state).GetCssText(),
+                              t.recommend
                           });
                 return new ResultInfo(1, "", new {count, list});
             }
@@ -320,6 +323,35 @@ namespace Tjzx.Official.BLL.Business
                 db.SaveChanges();
                 return new ResultInfo(1);
             }
+        }
+
+        /// <summary>
+        /// 是否推荐
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <param name="isRecommend"></param>
+        /// <returns></returns>
+        public ResultInfo SetRecommend(int[] ids, bool isRecommend)
+        {
+            if (ids.Length <= 0)
+                return new ResultInfo(0, "未找到相应的资讯！");
+            using (var db = new EFDbContext())
+            {
+                var list = db.Newses.Where(t => ids.Contains(t.NewsId));
+                if (!list.Any())
+                    return new ResultInfo(0, "未找到相应的资讯！");
+                foreach (var item in list)
+                {
+                    item.IsRecommend = isRecommend;
+                }
+                db.SaveChanges();
+                return new ResultInfo(1);
+            }
+        }
+
+        public ResultInfo SetRecommend(int id, bool isRecommend)
+        {
+            return SetRecommend(new[] {id}, isRecommend);
         }
     }
 }

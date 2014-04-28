@@ -62,6 +62,11 @@ namespace Tjzx.Official.Models.Entities
         /// </summary>
         public byte State { get; set; }
 
+        /// <summary>
+        /// 是否推荐
+        /// </summary>
+        public bool IsRecommend { get; set; }
+
         public int CreatorId { get; set; }
 
         [MaxLength(30)]

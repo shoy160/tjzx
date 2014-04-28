@@ -2,6 +2,7 @@
 @w02: 1000px;
 @w03: 768px;
 
+/* 宽屏 */
 .l-width() {
   .t-top,
   header .t-nav,
@@ -26,12 +27,28 @@
   .t-slider ul li img{
     margin-left: 0;
   }
+  /* panel */
+  .t-panel-group{
+    .panel-col01{
+      width: 530px;
+    }
+    .panel-col02{
+      width: 120px;
+    }
+    .panel-col03{
+      width: 790px;
+    }
+    .panel-col04{
+      width: 400px;
+    }
+  }
   .t-panel-box .t-category li{
     width: 255px;
     margin: 5px 20px 5px 0;
   }
 }
 
+/* 普屏 */
 .n-width() {
   .t-top,
   header .t-nav,
@@ -52,12 +69,29 @@
     width: @w02;
   }
 
+  /* panel */
+  .t-panel-group{
+    .panel-col01{
+      width: 430px;
+    }
+    .panel-col02{
+      width: 120px;
+    }
+    .panel-col03{
+      width: 650px;
+    }
+    .panel-col04{
+      width: 340px;
+    }
+  }
+
   .t-panel-box .t-category li{
     margin: 5px 13px 5px 0;
     width: 210px;
   }
 }
 
+/* 窄屏 */
 .s-width() {
   .t-top,
   header .t-nav,
@@ -85,6 +119,24 @@
   }
   .t-slider ul li img{
     margin-left: -216px;
+  }
+
+  /* panel */
+  .t-panel-group{
+    .panel-col01{
+      width: 324px;
+      margin-right: 5px;
+    }
+    .panel-col02{
+      width: 110px;
+    }
+    .panel-col03{
+      width: 508px;
+      margin-right: 5px;
+    }
+    .panel-col04{
+      width: 255px;
+    }
   }
 
   .t-panel-box .t-category li{

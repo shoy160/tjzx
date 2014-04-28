@@ -27,6 +27,13 @@
             } else if (json.state == 1) {
                 json.links += '<a href="#" class="j-state" data-state="0">隐藏</a>';
             }
+            if(json.type < 100){
+                if(json.recommend){
+                    json.links += '<a href="#" class="j-recommend" data-state="0">取消置顶</a>';
+                }else{
+                    json.links += '<a href="#" class="j-recommend" data-state="1">置顶</a>';
+                }
+            }
             return json;
         },
         complete: function () {

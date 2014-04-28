@@ -200,7 +200,7 @@ header .t-nav li a:hover {
 }
 .t-panel-box .t-panel-title i {
   position: absolute;
-  top: 16px;
+  top: 17px;
   left: 90px;
   right: 70px;
   height: 0;
@@ -210,7 +210,7 @@ header .t-nav li a:hover {
   position: absolute;
   right: 5px;
   top: 0;
-  color: #555555;
+  color: #999999;
 }
 footer {
   background-color: #FBFBFB;
