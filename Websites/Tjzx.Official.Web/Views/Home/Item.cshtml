@@ -10,4 +10,12 @@
     <div class="t-location">
         <h3>当前位置：首页 > 体检套餐 > @Model.Name</h3>
     </div>
+    <div class="d">
+        <img src="@Model.Picture" />
+        套餐名称：@Model.Name<br/>
+        适用人群：@Model.ForTheCrowd<br/>
+        套餐特点：@Model.Feature<br/>
+        人气指数：@Model.Sort<br/>
+        套餐详情：@Html.Raw(Model.Details)<br/>
+    </div>
 </div>

@@ -26,6 +26,9 @@ dt,
 dd {
   list-style: none;
 }
+.hide {
+  display: none;
+}
 a:link,
 a:active,
 a:visited {

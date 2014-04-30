@@ -135,6 +135,8 @@ namespace Tjzx.Official.BLL.Business
         {
             var content = Utils.UrlDecode(info.Content, Encoding.UTF8);
             var user = User.GetUser();
+            if (user == null || user.Type != UserType.Manager.GetValue())
+                return new ResultInfo(0, "用户未登录！");
             using (var db = new EFDbContext())
             {
                 var item = new News

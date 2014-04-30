@@ -68,6 +68,7 @@
     <Compile Include="PackageCategoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MedicalPackageTest.cs" />
+    <Compile Include="SpiderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Bussiness\Tjzx.Official.BLL\Tjzx.Official.BLL.csproj">

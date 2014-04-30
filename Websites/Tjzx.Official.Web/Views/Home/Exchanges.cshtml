@@ -1,4 +1,6 @@
 ﻿@section Header{
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/t-form.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/page-exchanges.min.css" media="all" />
     <link type="text/css" rel="stylesheet" href="//ued.tjzx.com/css/tjzx/base-responsive.min.css" media="all" />
     <script type="text/javascript">window.TJZX = { compatible: true }</script>
 }
@@ -8,5 +10,70 @@
     </div>
     <div class="t-panel-box">
         <div class="t-panel-title">咨询交流</div>
+        <div class="t-exchanges">
+            <div class="t-exchanges-title-box">
+                <div class="t-exchanges-title">咨询列表</div>
+                <div class="t-exchanges-title active">我要咨询</div>
+            </div>
+            <div class="t-exchanges-item hide">
+                
+            </div>
+            <div class="t-exchanges-item">
+                <form class="t-form">
+                    <div class="t-form-group">
+                        <label class="t-form-label"><em>*</em>咨询主题：</label>
+                        <div class="t-form-controls">
+                            <input type="text" name="title" class="input-large" data-valid="{type:'require',msg:'咨询主题不能为空！'}" />
+                        </div>
+                    </div>
+                    <div class="t-form-group">
+                        <label class="t-form-label"><em>*</em>详细说明：</label>
+                        <div class="t-form-controls">
+                            <textarea type="text" name="description" class="input-larger row04" data-valid="{type:'require',msg:'详细说明不能为空！'}"></textarea>
+                        </div>
+                    </div>
+                    <div class="t-form-notify">
+                        请留下您的联系方式，以便我们及时与您取得联系。
+                    </div>
+                    <div class="t-form-group">
+                        <label class="t-form-label">联系人：</label>
+                        <div class="t-form-controls">
+                            <input type="text" name="contactor" class="input" />
+                        </div>
+                    </div>
+                    <div class="t-form-group">
+                        <label class="t-form-label">联系方式：</label>
+                        <div class="t-form-controls">
+                            <input type="text" name="mobile" class="input" />
+                        </div>
+                    </div>
+                    <div class="t-form-actions well">
+                        <button type="button" class="btn btn-primary">确认提交</button>
+                        <button type="reset" class="btn">信息重置</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            var vForm = $(".t-form").valid();
+            $(".t-form").delegate(".btn-primary", "click", function () {
+                if (!vForm.check()) return false;
+                console.log(vForm.json());
+                return false;
+            });
+            $(".t-exchanges-title").bind("click", function () {
+                if ($(this).hasClass("active")) return false;
+                var $t = $(this),
+                    index = $(".t-exchanges-title").index($t),
+                    $items = $(".t-exchanges-item");
+                $(this).addClass("active").siblings(".t-exchanges-title").removeClass("active");
+                $items.hide().eq(index).show();
+            });
+        })(jQuery);
+    </script>
+}

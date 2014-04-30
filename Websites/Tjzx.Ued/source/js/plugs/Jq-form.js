@@ -115,7 +115,6 @@
                 $tip.removeClass("valid-success").addClass("valid-error").html(msg);
                 if (!$(form).data("focus")) {
                     $t.focus();
-                    $(top.window || window).scrollTop($t);
                     $(form).data("focus", !f);
                 }
                 return false;
@@ -131,7 +130,7 @@
             rules: valid.rules,
             rulesMsg: valid.rulesMsg,
             submit: f
-        }, options || {});
+        }, options || {});arguments
         var $forms = this.forms = $(forms);
         $.each(this.forms, function (i) {
             var $form = $forms.eq(i),
