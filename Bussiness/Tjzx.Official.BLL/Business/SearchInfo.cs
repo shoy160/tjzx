@@ -9,6 +9,7 @@ namespace Tjzx.Official.BLL.Business
     {
         private byte _type = Const.Ignore;
         private byte _state = Const.Ignore;
+        private byte _deelState = Const.Ignore;
         private int _role = Const.Ignore;
         private int _categoryId = Const.Ignore;
         private int _size = 15;
@@ -51,6 +52,15 @@ namespace Tjzx.Official.BLL.Business
         {
             get { return _state; }
             set { _state = value; }
+        }
+
+        /// <summary>
+        /// 处理情况
+        /// </summary>
+        public byte DeelState
+        {
+            get { return _deelState; }
+            set { _deelState = value; }
         }
 
         /// <summary>

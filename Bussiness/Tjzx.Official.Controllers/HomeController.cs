@@ -6,6 +6,7 @@ using Tjzx.Official.BLL.Config;
 using Tjzx.Web;
 using Tjzx.Official.BLL.Business;
 using Tjzx.Official.BLL.Dict;
+using Tjzx.Official.BLL.ViewModels;
 
 namespace Tjzx.Official.Controllers
 {
@@ -77,6 +78,14 @@ namespace Tjzx.Official.Controllers
         {
             ViewBag.Title = "咨询交流";
             return View();
+        }
+
+        [HttpPost]
+        [ActionName("AddConsulting")]
+        public JsonResult SubmitExchanges(ConsultingInfo info)
+        {
+            var busi = new ConsultingBusi();
+            return Json(busi.Insert(info));
         }
 
         [HttpGet]

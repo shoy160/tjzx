@@ -67,7 +67,6 @@
             }
             $(".m-panel-title li").removeClass("active");
             $(".m-panel-title ul").append("<li class=\"m-panel-add active\">编辑资讯</li>");
-            $(".j-back").show();
             vForm.bind(json.data);
             editor.setContent(json.data.content);
             $(".m-panel-item").hide().eq(1).fadeIn();
@@ -122,13 +121,13 @@
             return false;
         })
         .delegate(".j-edit", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             loadNews(id);
             return false;
         })
         .delegate(".j-state", "click", function () {
             var $t = $(this),
-                id = $t.parents("td").data("id"),
+                id = $t.parents("tr").data("id"),
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);

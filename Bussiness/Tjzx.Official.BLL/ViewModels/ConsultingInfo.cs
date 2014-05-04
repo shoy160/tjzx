@@ -21,7 +21,7 @@ namespace Tjzx.Official.BLL.ViewModels
 
         public string DeelSituation { get; set; }
 
-        public DateTime DeelTime { get; set; }
+        public DateTime? DeelTime { get; set; }
 
         public DateTime CreateOn { get; set; }
 

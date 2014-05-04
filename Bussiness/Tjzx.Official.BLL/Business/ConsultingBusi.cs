@@ -10,13 +10,16 @@ using Tjzx.Official.Models.Entities;
 
 namespace Tjzx.Official.BLL.Business
 {
+    /// <summary>
+    /// 咨询交流业务逻辑
+    /// </summary>
     public class ConsultingBusi : BusiBase<ConsultingInfo>
     {
         public override ResultInfo Insert(ConsultingInfo info)
         {
             using (var db = new EFDbContext())
             {
-                var content = Utils.UrlDecode(info.Contact, Encoding.UTF8);
+                var content = Utils.UrlDecode(info.Content, Encoding.UTF8);
                 var item = new Consulting
                     {
                         Title = info.Title,
@@ -52,12 +55,18 @@ namespace Tjzx.Official.BLL.Business
                     t =>
                     (string.IsNullOrEmpty(info.Keyword) ||
                      t.Title.Contains(info.Keyword)) &&
-                    (info.State == Const.Ignore || t.State == info.State));
+                    (info.State == Const.Ignore || t.State == info.State)
+                    &&
+                    (info.DeelState == Const.Ignore ||
+                     (info.DeelState == (byte) StateType.Hidden ? !t.DeelTime.HasValue : t.DeelTime.HasValue)));
                 var list =
                     db.Consultings.Where(
                         t => (string.IsNullOrEmpty(info.Keyword) ||
                               t.Title.Contains(info.Keyword)) &&
-                             (info.State == Const.Ignore || t.State == info.State))
+                             (info.State == Const.Ignore || t.State == info.State)
+                             &&
+                             (info.DeelState == Const.Ignore ||
+                              (info.DeelState == (byte) StateType.Hidden ? !t.DeelTime.HasValue : t.DeelTime.HasValue)))
                       .OrderByDescending(t => t.ConsultingId)
                       .Skip(info.Page*info.Size)
                       .Take(info.Size)
@@ -70,10 +79,14 @@ namespace Tjzx.Official.BLL.Business
                               contact = t.Contact,
                               mobile = t.Mobile,
                               createon = Const.FormatDate(t.CreateOn),
+                              deelState =
+                                       (t.DeelTime.HasValue
+                                            ? "<span style=\"color:Green;\">已处理</span>"
+                                            : "<span style=\"color:Gray;\">未处理</span>"),
                               state = t.State,
                               stateCN = ((StateType) t.State).GetCssText(),
                               deelInfo = t.DeelSituation,
-                              deelTime = Const.FormatDate(t.DeelTime)
+                              deelTime = t.DeelTime.HasValue ? Const.FormatDate(t.DeelTime.Value) : ""
                           }).ToList();
                 return new ResultInfo(1, "", new {count, list});
             }
@@ -96,7 +109,7 @@ namespace Tjzx.Official.BLL.Business
                     return new ResultInfo(0, "未找到相应的咨询！");
                 item.DeelSituation = info.DeelSituation;
                 item.DeelTime = DateTime.Now;
-                item.State = (byte) StateType.Display;
+                item.State = info.State;
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
                 {
@@ -160,8 +173,9 @@ namespace Tjzx.Official.BLL.Business
                     title = info.Title,
                     content = info.Content,
                     contact = info.Contact,
-                    deel = info.DeelSituation,
-                    deelTime = Const.FormatDate(info.DeelTime),
+                    state = info.State,
+                    deelSituation = info.DeelSituation,
+                    deelTime = (info.DeelTime.HasValue ? Const.FormatDate(info.DeelTime.Value) : ""),
                     createOn = Const.FormatDate(info.CreateOn)
                 });
         }

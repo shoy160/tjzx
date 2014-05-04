@@ -16,8 +16,13 @@ namespace Tjzx.Official.Controllers.Health
         [HttpGet]
         public ActionResult Login()
         {
-            ViewBag.Title = "登录 - 健康管理";
             return View("/Views/Health/Login.cshtml");
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View("/Views/Health/Register.cshtml");
         }
     }
 }

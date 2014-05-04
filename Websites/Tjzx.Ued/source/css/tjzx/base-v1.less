@@ -5,7 +5,7 @@
 @nav-bg-color-active: #14B4E6;
 
 body {
-  font: 13px/2.0 'Microsoft YaHei', Tahoma, Verdana, Simsun;
+  font: 12px/150% Arial,Verdana,"宋体";
   color: @color;
   background-color: @background-color;
 }
@@ -51,6 +51,38 @@ img {
   width: 100%;
   height: auto;
 }
+
+/* 临时 */
+.t-top-nav {
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #F2F2F2;
+  height: 28px;
+}
+.t-top-nav .t-box {
+  position: relative;
+  height: 28px;
+  overflow: visible;
+}
+.nav-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 28px;
+}
+.nav-list li {
+  float: left;
+  position: relative;
+  padding: 0 11px 0 12px;
+}
+.nav-list li s {
+  border-left: 1px solid #ddd;
+  position: absolute;
+  left: 0;
+  top: 9px;
+  height: 12px;
+  width: 0;
+}
+
 
 .t-top {
   height: 90px;

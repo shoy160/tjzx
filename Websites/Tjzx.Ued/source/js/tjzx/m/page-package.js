@@ -109,6 +109,7 @@
             $(".m-panel-title li").removeClass("active");
             $(".m-panel-title ul").append("<li class=\"m-panel-add active\">编辑套餐</li>");
             $(".j-back").show();
+            if (3 === json.data.sex) json.data.sex = [1, 2];
             vForm.bind(json.data);
             $(".t-package-img").html(singer.format('<img src="{0}" />', json.data.picture));
             editor.setContent(json.data.details);
@@ -156,13 +157,13 @@
             return false;
         })
         .delegate(".j-edit", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             loadItem(id);
             return false;
         })
         .delegate(".j-state", "click", function () {
             var $t = $(this),
-                id = $t.parents("td").data("id"),
+                id = $t.parents("tr").data("id"),
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);

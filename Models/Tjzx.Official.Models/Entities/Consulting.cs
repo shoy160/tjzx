@@ -49,7 +49,7 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 处理时间
         /// </summary>
-        public DateTime DeelTime { get; set; }
+        public DateTime? DeelTime { get; set; }
 
         public DateTime CreateOn { get; set; }
 

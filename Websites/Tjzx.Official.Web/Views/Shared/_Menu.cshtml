@@ -4,6 +4,19 @@
     var config = ConfigUtils<IndexConfig>.Instance().Get();
 }
 <header>
+    <div class="t-top-nav">
+        <div class="t-box">
+            <ul class="nav-list">
+                <li>
+                    <a href="#">体检预约</a>
+                </li>
+                <li>
+                    <s></s>
+                    <a href="#">网站导航</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="t-top">
         <div class="t-logo-box">
             <a class="t-logo" href="/">
@@ -49,7 +62,7 @@
         (function () {
             //设置导航
             var navs = document.getElementsByTagName("nav")[0].getElementsByTagName("a"),
-            url = location.href;
+                url = location.href;
             for (var i = 1; i < navs.length; i++) {
                 var href = navs[i].getAttribute("href");
                 if (/\/item\/\d+/i.test(url))

@@ -22,14 +22,28 @@
                 </div>
             </div>
             <div class="m-form-group m-form-inline">
-                <label class="m-form-label">咨询状态：</label>
+                <label class="m-form-label">处理情况：</label>
+                <div class="m-form-controls">
+                    <select name="deelState" class="col-08">
+                        <option value="@Const.Ignore">所有状态</option>
+                        @{
+                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            {
+                                <option value="@type.GetValue()">@type.ConsultingStateText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
+                <label class="m-form-label">显示状态：</label>
                 <div class="m-form-controls">
                     <select name="state" class="col-08">
                         <option value="@Const.Ignore">所有状态</option>
                         @{
                             foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
                             {
-                                <option value="@type.GetValue()">@type.ConsultingStateText()</option>
+                                <option value="@type.GetValue()">@type.GetText()</option>
                             }
                         }
                     </select>
@@ -44,10 +58,10 @@
             <colgroup>
                 <col class="col-06"/>
                 <col />
-                <col class="col-12"/>
                 <col class="col-06"/>
                 <col class="col-12"/>
                 <col class="col-16"/>
+                <col class="col-10"/>
                 <col class="col-10"/>
                 <col class="col-12"/>
             </colgroup>
@@ -55,11 +69,11 @@
                 <tr>
                     <th>预约ID</th>
                     <th>咨询主题</th>
-                    <th>咨询内容</th>
                     <th>联系人</th>
                     <th>联系方式</th>
                     <th>提交时间</th>
-                    <th>状态</th>
+                    <th>处理情况</th>
+                    <th>显示状态</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -73,17 +87,56 @@
         </table>
         <div class="h-pager"></div>
     </div>
+    <div class="m-panel-item hide">
+        <div class="m-form j-form">
+            <div class="m-form-group">
+                <label class="m-form-label">咨询主题</label>
+                <div class="m-form-controls">
+                    <div class="b-title"></div>
+                    <input type="hidden" name="id" value="0"/>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">咨询内容</label>
+                <div class="m-form-controls">
+                    <div class="b-content"></div>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>显示状态</label>
+                <div class="m-form-controls">
+                    <select name="state" class="col-06">
+                        @{
+                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden })
+                            {
+                                <option value="@type.GetValue()"@(type == StateType.Display ? " selected":"")>@type.GetText()</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label"><em>*</em>处理信息</label>
+                <div class="m-form-controls">
+                    <textarea class="input-large row02" name="deelSituation" data-valid="{type:'require',msg:'请填写处理信息！'}"></textarea>
+                </div>
+            </div>
+            <div class="m-form-actions well">
+                <button type="button" class="btn btn-primary j-submit">确认提交</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/h-temp" id="h-temp">
-    <tr>
+    <tr data-id="{id}">
         <td>{id}</td>
-        <td>{title}</td>
-        <td>{content}</td>
+        <td><a href="#" class="j-edit">{title}</a></td>
         <td>{contact}</td>
         <td>{mobile}</td>        
         <td>{createon}</td>
+        <td>{deelState}</td>
         <td>{stateCN}</td>
-        <td data-id="{id}">{links}</td>
+        <td>{links}</td>
     </tr>        
 </script>
 <script type="text/h-temp" id="h-empty">
@@ -94,5 +147,5 @@
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
-    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-consulting.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/source/js/tjzx/m/page-consulting.js"></script>
 }

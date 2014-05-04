@@ -29,7 +29,7 @@
                     <div class="t-form-group">
                         <label class="t-form-label"><em>*</em>详细说明：</label>
                         <div class="t-form-controls">
-                            <textarea type="text" name="description" class="input-larger row04" data-valid="{type:'require',msg:'详细说明不能为空！'}"></textarea>
+                            <textarea type="text" name="content" class="input-larger row04" data-valid="{type:'require',msg:'详细说明不能为空！'}"></textarea>
                         </div>
                     </div>
                     <div class="t-form-notify">
@@ -38,7 +38,7 @@
                     <div class="t-form-group">
                         <label class="t-form-label">联系人：</label>
                         <div class="t-form-controls">
-                            <input type="text" name="contactor" class="input" />
+                            <input type="text" name="contact" class="input" />
                         </div>
                     </div>
                     <div class="t-form-group">
@@ -59,11 +59,13 @@
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript">
-        (function ($) {
+        (function ($, T) {
             var vForm = $(".t-form").valid();
             $(".t-form").delegate(".btn-primary", "click", function () {
                 if (!vForm.check()) return false;
-                console.log(vForm.json());
+                T.getJson("AddConsulting", vForm.json(), function(json) {
+                    console.log(json);
+                });
                 return false;
             });
             $(".t-exchanges-title").bind("click", function () {
@@ -74,6 +76,6 @@
                 $(this).addClass("active").siblings(".t-exchanges-title").removeClass("active");
                 $items.hide().eq(index).show();
             });
-        })(jQuery);
+        })(jQuery, TJZX);
     </script>
 }

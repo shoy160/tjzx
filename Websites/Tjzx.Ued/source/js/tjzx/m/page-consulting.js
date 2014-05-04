@@ -11,8 +11,8 @@
         });
     vForm.init();
 
-    T.stateArray["0"] = "未处理";
-    T.stateArray["1"] = "已处理";
+    T.stateArray["0"] = "隐藏";
+    T.stateArray["1"] = "显示";
     var h = new hTemplate({
         tmp: $("#h-temp").html(),
         empty: $("#h-empty").html(),
@@ -23,7 +23,7 @@
             getList(page - 1);
         },
         filter: function (json) {
-            json.links = '<a href="#" class="j-edit">编辑</a>';
+            json.links = '<a href="#" class="j-edit">处理</a>';
             if (json.state == 0) {
                 json.links += singer.format('<a href="#" class="j-state" data-state="1">{0}</a>', T.stateArray["1"]);
             } else if (json.state == 1) {
@@ -55,7 +55,7 @@
             return false;
         }
         T.getJson("/m/consulting/item", {
-            consultingId: id
+            id: id
         }, function (json) {
             if (!json.state) {
                 T.msg(json.msg || "获取咨询信息失败！");
@@ -63,7 +63,8 @@
             }
             $(".m-panel-title li").removeClass("active");
             $(".m-panel-title ul").append("<li class=\"m-panel-add active\">处理咨询</li>");
-            $(".j-back").show();
+            $(".b-title").html(json.data.title);
+            $(".b-content").html(json.data.content);
             vForm.bind(json.data);
             $(".m-panel-item").hide().eq(1).fadeIn();
             T.setFrameHeight();
@@ -95,10 +96,9 @@
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
             T.setBtn(this, false);
             var formData = vForm.json();
-            formData.details = encodeURIComponent(editor.getContent());
             T.getJson("/m/consulting/add", formData, function (json) {
                 if (json.state) {
-                    T.msg(formData.packageId > 0 ? "编辑成功！" : "添加成功！", "reload");
+                    T.msg(formData.id > 0 ? "编辑成功！" : "添加成功！", "reload");
                 } else {
                     T.msg(json.msg || "操作异常！");
                     T.setBtn(".j-submit", true);
@@ -109,18 +109,18 @@
             return false;
         })
         .delegate(".j-edit", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             loadItem(id);
             return false;
         })
         .delegate(".j-state", "click", function () {
             var $t = $(this),
-                id = $t.parents("td").data("id"),
+                id = $t.parents("tr").data("id"),
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);
             T.getJson("/m/consulting/updateState", {
-                packageId: id,
+                id: id,
                 state: state
             }, function (json) {
                 if (json.state) {

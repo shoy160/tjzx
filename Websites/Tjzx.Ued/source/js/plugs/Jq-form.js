@@ -130,7 +130,7 @@
             rules: valid.rules,
             rulesMsg: valid.rulesMsg,
             submit: f
-        }, options || {});arguments
+        }, options || {});
         var $forms = this.forms = $(forms);
         $.each(this.forms, function (i) {
             var $form = $forms.eq(i),
