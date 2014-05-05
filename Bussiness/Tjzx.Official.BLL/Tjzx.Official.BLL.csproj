@@ -57,10 +57,14 @@
     <Compile Include="Business\AlbumGroupBusi.cs" />
     <Compile Include="Business\BusiBase.cs" />
     <Compile Include="Business\CategoryBusi.cs" />
+    <Compile Include="Business\DiseasesBusi.cs" />
+    <Compile Include="Business\DiseasesDepartmentBusi.cs" />
     <Compile Include="Business\MemberBusi.cs" />
     <Compile Include="Business\NewsSpider.cs" />
     <Compile Include="Business\SystemLogBusi.cs" />
     <Compile Include="ViewModels\AlbumGroupInfo.cs" />
+    <Compile Include="ViewModels\DiseasesInfo.cs" />
+    <Compile Include="ViewModels\DiseasesDepartmentInfo.cs" />
     <Compile Include="ViewModels\ReportInfo.cs" />
     <Compile Include="Business\ReservationBusi.cs" />
     <Compile Include="Const.cs" />

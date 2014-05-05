@@ -76,6 +76,8 @@
     <Compile Include="Entities\AlbumGroup.cs" />
     <Compile Include="Entities\Assessment.cs" />
     <Compile Include="Entities\Consulting.cs" />
+    <Compile Include="Entities\Diseases.cs" />
+    <Compile Include="Entities\DiseasesDepartment.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\MedicalPackage.cs" />

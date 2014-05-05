@@ -57,6 +57,11 @@ namespace Tjzx.Official.BLL.Dict
         [Description("会员管理")] Member = 0x100,
 
         /// <summary>
+        /// 疾病百科
+        /// </summary>
+        [Description("疾病百科")] Diseases= 0x200,
+
+        /// <summary>
         /// 超级管理员
         /// </summary>
         [Description("超级管理员")] Admin = 0xFFFFFFF

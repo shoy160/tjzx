@@ -64,5 +64,15 @@ namespace Tjzx.Official.Models.Concrete
         /// 体检报告
         /// </summary>
         public DbSet<MedicalReport> Reports { get; set; }
+
+        /// <summary>
+        /// 疾病科室
+        /// </summary>
+        public DbSet<DiseasesDepartment> DiseasesDepartments { get; set; }
+
+        /// <summary>
+        /// 疾病
+        /// </summary>
+        public DbSet<Diseases> Diseaseses { get; set; } 
     }
 }

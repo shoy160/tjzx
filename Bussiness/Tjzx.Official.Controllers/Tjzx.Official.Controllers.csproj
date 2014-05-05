@@ -85,6 +85,7 @@
     <Compile Include="Manager\AssessController.cs" />
     <Compile Include="Manager\CategoryController.cs" />
     <Compile Include="Manager\ConsultingController.cs" />
+    <Compile Include="Manager\DiseasesController.cs" />
     <Compile Include="Manager\HealthController.cs" />
     <Compile Include="Manager\DefaultController.cs" />
     <Compile Include="Manager\MemberController.cs" />
