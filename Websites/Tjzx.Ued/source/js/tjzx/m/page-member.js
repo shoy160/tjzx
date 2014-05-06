@@ -42,6 +42,7 @@
         T.getJson("/m/member/list", data, function (json) {
             if (json.state) {
                 h.bind(json.data.list, json.data.count);
+                $(".m-table caption em").html(json.data.count);
             }
             $t.hasClass("btn") && T.setBtn($t, true);
         }, function () {
@@ -49,7 +50,7 @@
         });
     };
     var loadItem = function (id) {
-        var $pwd =$('input[name="password"]');
+        var $pwd =$('input[name="userPwd"]');
         if (!id || id <= 0) {
             vForm.reset();
             $pwd.data("rule",{type:"^[\\w\\W]{4,16}$",msg:"请输入4-16位字符！"});
@@ -99,7 +100,7 @@
             var formData = vForm.json();
             T.getJson("/m/member/add", formData, function (json) {
                 if (json.state) {
-                    T.msg(formData.userId > 0 ? "编辑成功！" : "添加成功！", "reload");
+                    T.msg(formData.memberId > 0 ? "编辑成功！" : "添加成功！", "reload");
                 } else {
                     T.msg(json.msg || "操作异常！");
                     T.setBtn(".j-submit", true);
@@ -110,13 +111,13 @@
             return false;
         })
         .delegate(".j-edit", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             loadItem(id);
             return false;
         })
         .delegate(".j-state", "click", function () {
             var $t = $(this),
-                id = $t.parents("td").data("id"),
+                id = $t.parents("tr").data("id"),
                 state = $t.data("state");
             if (!id || "" === state) return false;
             T.setStateBtn.call($t, false);
@@ -141,7 +142,7 @@
             return false;
         })
         .delegate(".j-delete", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             if (!confirm("确认删除该会员？")) return false;
             T.getJson("/m/member/delete", {
                 userId: id
@@ -156,7 +157,7 @@
             return false;
         })
         .delegate(".j-restore", "click", function () {
-            var id = $(this).parents("td").data("id");
+            var id = $(this).parents("tr").data("id");
             if (!confirm("确认还原该会员？")) return false;
             T.getJson("/m/member/restore", {
                 userId: id

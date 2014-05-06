@@ -13,15 +13,19 @@ namespace Tjzx.Official.BLL.Dict
         [Description("健康资讯")] Dynamic = 0,
 
         /// <summary>
-        /// 中心公告
-        /// </summary>
-        [Description("中心公告")] Announcement = 1,
-
-        /// <summary>
         /// 健康知识
         /// </summary>
-        [Description("健康知识")] HealthKnowledge = 2,
+        [Description("健康知识")] HealthKnowledge = 1,
 
+        /// <summary>
+        /// 中心公告
+        /// </summary>
+        [Description("中心公告")] Announcement = 2,
+
+        /// <summary>
+        /// 中心动态
+        /// </summary>
+        [Description("中心动态")] CenterNews = 3,
 
         /// <summary>
         /// 体检流程
@@ -31,7 +35,22 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 注意事项
         /// </summary>
-        [Description("注意事项")] Attention = 102
+        [Description("注意事项")] Attention = 102,
+
+        /// <summary>
+        /// 检前须知
+        /// </summary>
+        [Description("检前须知")] BeforeNotice = 103,
+
+        /// <summary>
+        /// 特殊项目注意事项
+        /// </summary>
+        [Description("特殊项目注意事项")] SpecialNotice = 104,
+
+        /// <summary>
+        /// 检后须知
+        /// </summary>
+        [Description("检后须知")] AfterNotice = 105
     }
 
     public static class NewsTypeManager

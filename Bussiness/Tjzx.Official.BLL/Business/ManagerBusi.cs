@@ -58,6 +58,11 @@ namespace Tjzx.Official.BLL.Business
         {
             using (var db = new EFDbContext())
             {
+                //用户名重复检测
+                if (!CheckUserName(info.Name, 0, db))
+                {
+                    return new ResultInfo(0, "登录名不能重复！");
+                }
                 var item = new Manager
                     {
                         RealName = info.Name,
@@ -90,6 +95,11 @@ namespace Tjzx.Official.BLL.Business
                 return new ResultInfo(0, "未找到相应的人员！");
             using (var db = new EFDbContext())
             {
+                var count = db.Managers.Count(t => t.UserName == info.Name && t.ManagerId != info.UserId);
+                if (count > 0)
+                {
+                    return new ResultInfo(0, "登录名不能重复！");
+                }
                 var item = db.Managers.FirstOrDefault(t => t.ManagerId == info.UserId);
                 if (item == null)
                     return new ResultInfo(0, "未找到相应的人员！");
@@ -178,6 +188,24 @@ namespace Tjzx.Official.BLL.Business
                     roles = info.Roles,
                     state = info.State
                 });
+        }
+
+        /// <summary>
+        /// 检验用户名重复
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <param name="userId">会员ID</param>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public bool CheckUserName(string userName, int userId, EFDbContext db)
+        {
+            return db.Managers.Count(t => t.UserName == userName && t.ManagerId != userId) == 0;
+        }
+
+        public bool CheckUserName(string userName, int userId)
+        {
+            using (var db = new EFDbContext())
+                return CheckUserName(userName, userId, db);
         }
     }
 }

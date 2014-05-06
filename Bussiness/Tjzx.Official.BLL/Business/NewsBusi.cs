@@ -195,7 +195,8 @@ namespace Tjzx.Official.BLL.Business
                              ? (t.Type <= NewsTypeManager.CustomNewsTypeLimit)
                              : t.Type == info.Type) &&
                         (info.State == Const.Ignore ? t.State != (byte) StateType.Delete : t.State == info.State))
-                      .OrderByDescending(t => t.NewsId)
+                      .OrderByDescending(t => t.IsRecommend)
+                      .ThenByDescending(t => t.NewsId)
                       .Skip(info.Page*info.Size)
                       .Take(info.Size)
                       .Select(t => new
@@ -243,7 +244,8 @@ namespace Tjzx.Official.BLL.Business
                     db.Newses.Where(
                         t => t.Type == (byte) NewsType.Dynamic &&
                              t.State == (byte) StateType.Display)
-                      .OrderByDescending(t => t.NewsId)
+                      .OrderByDescending(t => t.IsRecommend)
+                      .ThenByDescending(t => t.NewsId)
                       .Skip(page*size)
                       .Take(size)
                       .Select(t => new
@@ -253,7 +255,8 @@ namespace Tjzx.Official.BLL.Business
                               author = t.Author,
                               comefrom = t.Comefrom,
                               createon = t.CreateOn,
-                              content = t.Content
+                              content = t.Content,
+                              recommend = t.IsRecommend
                           }).ToList()
                       .Select(t => new
                           {
@@ -262,7 +265,8 @@ namespace Tjzx.Official.BLL.Business
                               author = (string.IsNullOrEmpty(t.author) ? "未知" : t.author),
                               comefrom = (string.IsNullOrEmpty(t.comefrom) ? "未知" : t.comefrom),
                               time = Const.FormatDate(t.createon),
-                              content = Utils.ClearHtml(t.content).Sub(300, "...")
+                              content = Utils.ClearHtml(t.content).Sub(300, "..."),
+                              t.recommend
                           });
                 return new ResultInfo(1, "", new {count, list});
             }

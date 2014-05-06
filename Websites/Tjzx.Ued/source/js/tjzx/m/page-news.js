@@ -27,13 +27,15 @@
             } else if (json.state == 1) {
                 json.links += '<a href="#" class="j-state" data-state="0">隐藏</a>';
             }
-            if(json.type < 100){
-                if(json.recommend){
+            if (json.type < 100) {
+                if (json.recommend) {
                     json.links += '<a href="#" class="j-recommend" data-state="0">取消置顶</a>';
-                }else{
+                } else {
                     json.links += '<a href="#" class="j-recommend" data-state="1">置顶</a>';
                 }
             }
+            if (json.recommend)
+                json.title += '<span style="color: Red;padding-left: 6px">[置顶]</span>';
             return json;
         },
         complete: function () {
@@ -89,15 +91,18 @@
         });
     var stateArray = ["隐藏", "显示"], stateColor = ["Gray", "Green"];
     $(document)
+        //新增
         .delegate(".m-panel-title li:eq(1)", "click.form", function () {
             loadNews();
         })
+        //搜索
         .delegate(".j-search", "click", function () {
             if ($(this).hasClass("disabled")) return false;
             T.setBtn(this, false);
             getList.call(this, 0);
             return false;
         })
+        //提交
         .delegate(".j-release", "click", function () {
             if ($(this).hasClass("disabled") || !vForm.check()) return false;
             var content = encodeURIComponent(editor.getContent());
@@ -120,11 +125,13 @@
             });
             return false;
         })
+        //编辑
         .delegate(".j-edit", "click", function () {
             var id = $(this).parents("tr").data("id");
             loadNews(id);
             return false;
         })
+        //更改状态
         .delegate(".j-state", "click", function () {
             var $t = $(this),
                 id = $t.parents("tr").data("id"),
@@ -151,9 +158,28 @@
             });
             return false;
         })
+        //置顶
+        .delegate(".j-recommend", "click", function () {
+            var id = $(this).parents("tr").data("id"),
+                state = $(this).data("state");
+            T.getJson("/m/news/recommend", {
+                newsId: id,
+                recommend: state
+            }, function (json) {
+                if (json.state) {
+                    Alert(json.msg || (state ? "置顶成功！" : "取消置顶成功！"),function(){
+                        location.reload(true);
+                    });
+                } else {
+                    T.msg(json.msg || "操作失败，请稍候重试！");
+                }
+            });
+            return false;
+        })
+        //删除
         .delegate(".j-delete", "click", function () {
-            var id = $(this).parents("td").data("id");
-            if (!confirm("确认删除该资讯？")) return false;
+            var id = $(this).parents("tr").data("id");
+            if (!Confirm("确认删除该资讯？")) return false;
             T.getJson("/m/news/delete", {
                 newsId: id
             }, function (json) {
@@ -166,9 +192,10 @@
             });
             return false;
         })
+        //还原
         .delegate(".j-restore", "click", function () {
-            var id = $(this).parents("td").data("id");
-            if (!confirm("确认还原该资讯？")) return false;
+            var id = $(this).parents("tr").data("id");
+            if (!Confirm("确认还原该资讯？")) return false;
             T.getJson("/m/news/restore", {
                 newsId: id
             }, function (json) {

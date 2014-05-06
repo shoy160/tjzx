@@ -14,6 +14,25 @@
         <!--[if lt IE 9]>
             <script src="//ued.tjzx.com/js/html5shiv.min.js"></script>
         <![endif]-->
+        <script type="text/javascript" src="//ued.tjzx.com/plugs/artDialog/v6/lib/sea.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            seajs.config({
+                alias: {
+                    "jquery": "jquery-1.10.2.js",
+                    "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog",
+                    "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-plus"
+                },
+                preload: ["plus"]
+            });
+            (function () {
+                /**
+                * 暴露到全局
+                */
+                seajs.use("plus", function (dialog) {
+                    window.artDialog = window.D = dialog;
+                });
+            })();
+        </script>
         @RenderSection("Header", false)
     </head>
     <body>
@@ -21,7 +40,6 @@
         @RenderBody()
         <script type="text/javascript" src="//ued.tjzx.com/js/jquery.min.js"></script>
         <script type="text/javascript" src="//ued.tjzx.com/js/hTemplate.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="//ued.tjzx.com/plugs/artDialog/v6/lib/sea.js" charset="utf-8"></script>
         @RenderSection("Footer",false)
     </body>
 </html>

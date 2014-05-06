@@ -1,25 +1,22 @@
-/**
+/** -------
  * 后台管理中心 模板页面基础js
- */
-seajs.config({
-    alias: {
-        "jquery": "jquery-1.10.2.js",
-        "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog",
-        "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-plus"
-    }
-});
+ --------*/
 
+/**
+ * 弹出层 重写
+ * @type {Function}
+ */
 var Dialog = window.Dialog = function (opt) {
-        seajs.use("plus", function (dialog) {
-            var d = dialog(opt);
-            if (opt.modal) {
-                d.showModal();
-            } else if (opt.element) {
-                d.show(opt.element);
-            } else {
-                d.show();
-            }
-        });
+        if(!window.artDialog) return false;
+        var d = window.artDialog(opt);
+        if (opt.modal) {
+            d.showModal();
+        } else if (opt.element) {
+            d.show(opt.element);
+        } else {
+            d.show();
+        }
+        return d;
     },
     call = function (callback) {
         callback && "function" === typeof callback && callback.call(this);
@@ -55,6 +52,10 @@ var Dialog = window.Dialog = function (opt) {
         };
         Dialog(opt);
     };
+/**
+ * 全局异常处理
+ * @type {Function}
+ */
 var callback = window.CALLBACK = function (json) {
     if (!json || json.state < 1) {
         Alert(json.msg || "操作异常！", function () {
@@ -66,6 +67,7 @@ var callback = window.CALLBACK = function (json) {
     }
     return true;
 };
+var loadDialog;
 (function ($, S) {
     var topTemp = new hTemplate({
         tmp: $("#h-topMenu").html(),
@@ -77,6 +79,12 @@ var callback = window.CALLBACK = function (json) {
         container: $(".m-menus ul"),
         empty: ''
     });
+
+    /**
+     * 填充顶级菜单
+     * @param json
+     * @returns {boolean}
+     */
     var fillTop = function (json) {
         if (!S.isArray(json) || !json.length) return false;
         json[0].active = " class=\"active\"";
@@ -84,12 +92,22 @@ var callback = window.CALLBACK = function (json) {
         $(".m-nav li:eq(0)").click();
         return true;
     };
+
+    /**
+     * 填充二级菜单
+     * @param json
+     * @returns {boolean}
+     */
     var fillMenu = function (json) {
         if (!S.isArray(json) || !json.length) return false;
         menuTemp.bind(json);
         $(".m-menus li:eq(0)").click();
         return true;
     };
+
+    /**
+     * 设置面包屑导航
+     */
     var setCrumbs = function () {
         var $top = $(".m-nav li a.active"),
             $menu = $(".m-menus li a.active"),
@@ -103,6 +121,10 @@ var callback = window.CALLBACK = function (json) {
         $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.text()}));
     };
 
+    /**
+     * 获取菜单项
+     * @param parentId
+     */
     var getMenus = function (parentId) {
         $.ajax({
             url: '/m/menus',
@@ -136,7 +158,7 @@ var callback = window.CALLBACK = function (json) {
                 getMenus(id);
             } else {
                 var link = $a.attr("href");
-                $("#framePage").attr("src", link);
+                frameLoad(link);
                 setCrumbs();
             }
             return false;
@@ -157,12 +179,19 @@ var setFrameHeight = window.SetFrameHeight = function () {
     } catch (e) {
     }
     $frame.css("height", h + 20);
+    if (loadDialog) {
+        loadDialog.close().remove();
+    }
 };
 var frameLoad = function (url) {
     if (!url)
         window.frames['framePage'].location.reload();
     $("#framePage").attr("src", url);
+    loadDialog = Dialog({modal: true});
 };
 $("#framePage").load(function () {
     setFrameHeight();
+    if (loadDialog) {
+        loadDialog.close().remove();
+    }
 });

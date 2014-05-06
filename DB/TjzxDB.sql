@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/4/25 16:41:18                           */
+/* Created on:     2014/5/6 7:55:40                             */
 /*==============================================================*/
 
 
@@ -178,7 +178,6 @@ create table Album (
    Name                 varchar(200)         not null,
    [Description]        text                 null,
    CreatorId            int                  not null,
-   [Type]               tinyint              not null,
    [State]              tinyint              not null,
    Sort                 int                  null,
    Creator              varchar(30)          not null,
@@ -347,8 +346,8 @@ go
 /*==============================================================*/
 create table Member (
    MemberId             int                  identity,
-   IdNumber             varchar(18)          not null,
-   RealName             varchar(20)          not null,
+   IdNumber             varchar(18)          null,
+   RealName             varchar(20)          null,
    UserName             varchar(50)          not null,
    Mobile               varchar(20)          null,
    [PassWord]           varchar(120)         not null,

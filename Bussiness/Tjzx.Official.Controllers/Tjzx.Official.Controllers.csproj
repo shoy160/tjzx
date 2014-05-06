@@ -92,6 +92,7 @@
     <Compile Include="Manager\PackageController.cs" />
     <Compile Include="Manager\AlbumController.cs" />
     <Compile Include="Manager\ProcessController.cs" />
+    <Compile Include="Manager\ReportController.cs" />
     <Compile Include="Manager\ReservationController.cs" />
     <Compile Include="Manager\UserController.cs" />
     <Compile Include="Manager\NewsController.cs" />

@@ -16,14 +16,12 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 身份证号码，全局唯一
         /// </summary>
-        [Required]
         [MaxLength(18)]
         public string IdNumber { get; set; }
 
         /// <summary>
         /// 真实姓名
         /// </summary>
-        [Required]
         [MaxLength(20)]
         public string RealName { get; set; }
 
@@ -31,7 +29,7 @@ namespace Tjzx.Official.Models.Entities
         /// 用户名，用于自定义登录名，开通时默认为身份证号码
         /// </summary>
         [Required]
-        [MinLength(6)]
+        [MinLength(4,ErrorMessage = "用户名需要大于3位字符！")]
         [MaxLength(25)]
         public string UserName { get; set; }
 
@@ -54,7 +52,7 @@ namespace Tjzx.Official.Models.Entities
         /// <summary>
         /// 最后一次登录时间
         /// </summary>
-        public DateTime LastLoginTime { get; set; }
+        public DateTime? LastLoginTime { get; set; }
 
         /// <summary>
         /// 最后一次登录Ip
@@ -68,5 +66,7 @@ namespace Tjzx.Official.Models.Entities
         public byte UserLevel { get; set; }
 
         public DateTime CreateOn { get; set; }
+
+        public byte State { get; set; }
     }
 }

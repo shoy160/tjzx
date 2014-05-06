@@ -79,9 +79,9 @@ namespace Tjzx.Official.Controllers.Manager
         [HttpPost]
         [ActionName("recommend")]
         [Auth(Role=ManagerRole.News)]
-        public JsonResult SetRecommend(int newsId, bool recommend)
+        public JsonResult SetRecommend(int newsId, int recommend)
         {
-            return Json(_busi.SetRecommend(newsId, recommend));
+            return Json(_busi.SetRecommend(newsId, recommend == 1));
         }
     }
 }

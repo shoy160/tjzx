@@ -38,6 +38,7 @@
             </div>
             <div class="m-form-actions inline">
                 <button class="btn btn-primary j-search" data-tag="正在搜索...">搜　索</button>
+                <button class="btn disabled" disabled data-tag="正在导入...">导入会员</button>
             </div>
         </div>
         <table class="m-table">
@@ -57,7 +58,7 @@
                     <th>登录帐号</th>
                     <th>姓名</th>
                     <th>会员等级</th>
-                    <th>添加时间</th>
+                    <th>注册时间</th>
                     <th>状态</th>
                     <th>操作</th>
                 </tr>
@@ -77,26 +78,26 @@
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>姓　　名</label>
                 <div class="m-form-controls">
-                    <input type="text" class="text" name="RealName" data-valid="{type:'require',msg:'姓名不能为空！'}" />
-                    <input type="hidden" name="userId" value="0"/>
+                    <input type="text" class="text" name="realName" data-valid="{type:'require',msg:'姓名不能为空！'}" />
+                    <input type="hidden" name="memberId" value="0"/>
                 </div>
             </div>
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>登录帐号</label>
                 <div class="m-form-controls">
-                    <input type="text" name="UserName" class="text" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位字符！'}" />
+                    <input type="text" name="userName" class="text" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位字符！'}" />
                 </div>
             </div>
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>登录密码</label>
                 <div class="m-form-controls">
-                    <input type="password" name="UserPwd" class="text" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位字符！'}" />
+                    <input type="password" name="userPwd" class="text" data-valid="{type:'^[a-z0-9]{4,16}$',msg:'请输入4-16位字符！'}" />
                 </div>
             </div>
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>会员等级</label>
                 <div class="m-form-controls">
-                    <select name="Level" class="col-10">
+                    <select name="level" class="col-10">
                         <option value="@Const.Ignore">选择等级</option>
                         @{
                             foreach (MemberLevel type in Enum.GetValues(typeof(MemberLevel)))
@@ -114,14 +115,14 @@
     </div>
 </div>
 <script type="text/h-temp" id="h-temp">
-    <tr>
+    <tr data-id="{id}">
         <td>{id}</td>
-        <td>{account}</td>
-        <td>{name}</td>
-        <td>{level}</td>
-        <td>{stateCN}</td>
-        <td>{createon}</td>        
-        <td data-id="{id}">{links}</td>
+        <td>{userName}</td>
+        <td>{realName}</td>
+        <td>{levelDesc}</td>
+        <td>{createon}</td>
+        <td>{stateCN}</td>                
+        <td>{links}</td>
     </tr>        
 </script>
 <script type="text/h-temp" id="h-empty">

@@ -24,7 +24,71 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="page-member.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-member.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="104" column="47" selection-start="3544" selection-end="3544" vertical-scroll-proportion="0.0" vertical-offset="1914" max-vertical-offset="3938">
+              <folding>
+                <marker date="1399336144000" expanded="true" signature="4448:4461" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m-base.less" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="308" column="7" selection-start="5898" selection-end="5898" vertical-scroll-proportion="-3.1084337" vertical-offset="6518" max-vertical-offset="10516">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-main.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="19" selection-start="77" selection-end="77" vertical-scroll-proportion="0.22184874" vertical-offset="0" max-vertical-offset="4444">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-user.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="12" selection-start="1839" selection-end="1901" vertical-scroll-proportion="0.0" vertical-offset="1241" max-vertical-offset="4334">
+              <folding>
+                <marker date="1398395368000" expanded="false" signature="4657:4670" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page-news.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="21" selection-start="2807" selection-end="2807" vertical-scroll-proportion="0.0" vertical-offset="1848" max-vertical-offset="4752">
+              <folding>
+                <marker date="1399344632000" expanded="true" signature="1252:1280" placeholder="..." />
+                <marker date="1399344632000" expanded="true" signature="5027:5040" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="m-base.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="10" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0" vertical-offset="2640" max-vertical-offset="3718">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -34,9 +98,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-album.js" />
-        <option value="$PROJECT_DIR$/source/css/tjzx/m/m-base.less" />
-        <option value="$PROJECT_DIR$/plugs/ui-dialog.css" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/plugs/artDialog/v6/css/ui-dialog.css" />
         <option value="$PROJECT_DIR$/source/css/base.less" />
@@ -47,9 +108,12 @@
         <option value="$PROJECT_DIR$/source/css/tjzx/page-exchanges.less" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-form.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-consulting.js" />
-        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-news.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-package.js" />
         <option value="$PROJECT_DIR$/source/css/tjzx/base-v1.less" />
+        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-member.js" />
+        <option value="$PROJECT_DIR$/source/css/tjzx/m/m-base.less" />
+        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-main.js" />
+        <option value="$PROJECT_DIR$/source/js/tjzx/m/page-news.js" />
       </list>
     </option>
   </component>
@@ -85,6 +149,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -103,9 +168,106 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="m" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -115,8 +277,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../singer" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -135,6 +297,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -143,14 +313,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -200,7 +362,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19033675" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19033675" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -227,21 +389,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/base-v1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="363" max-vertical-offset="1080" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="23" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="238" column="56" selection-start="10753" selection-end="10753" vertical-scroll-proportion="0.0" vertical-offset="4433" max-vertical-offset="7000" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-responsive.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="24" selection-start="2019" selection-end="2019" vertical-scroll-proportion="0.0" vertical-offset="2508" max-vertical-offset="3960" />
@@ -257,63 +404,32 @@
         <state line="16" column="25" selection-start="502" selection-end="502" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="638" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="7" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3718" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="392" column="13" selection-start="2905" selection-end="7418" vertical-scroll-proportion="-11.16129" vertical-offset="8278" max-vertical-offset="10516">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/page-exchanges.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="3" selection-start="665" selection-end="665" vertical-scroll-proportion="0.37588653" vertical-offset="470" max-vertical-offset="1034">
-          <folding />
-        </state>
+        <state line="31" column="3" selection-start="665" selection-end="665" vertical-scroll-proportion="0.37588653" vertical-offset="470" max-vertical-offset="1034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/t-form.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="0" selection-start="4447" selection-end="4447" vertical-scroll-proportion="0.33687943" vertical-offset="4628" max-vertical-offset="5192">
-          <folding />
-        </state>
+        <state line="219" column="0" selection-start="4447" selection-end="4447" vertical-scroll-proportion="0.33687943" vertical-offset="4628" max-vertical-offset="5192" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="21" selection-start="5054" selection-end="5054" vertical-scroll-proportion="0.62857145" vertical-offset="2508" max-vertical-offset="5126">
-          <folding />
-        </state>
+        <state line="131" column="21" selection-start="5054" selection-end="5054" vertical-scroll-proportion="0.62857145" vertical-offset="2508" max-vertical-offset="5126" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-consulting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="29" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.48067227" vertical-offset="1056" max-vertical-offset="3234">
-          <folding>
-            <marker date="1399177726000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="57" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.7394958" vertical-offset="2772" max-vertical-offset="4158">
-          <folding>
-            <marker date="1399186036000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-package.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="111" column="60" selection-start="3624" selection-end="3624" vertical-scroll-proportion="0.5546219" vertical-offset="2112" max-vertical-offset="4950">
-          <folding>
-            <marker date="1399186492000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -326,8 +442,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="25" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.37588653" vertical-offset="3616" max-vertical-offset="7502">
+        <state line="174" column="25" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.37588653" vertical-offset="3616" max-vertical-offset="7502" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="12" selection-start="1839" selection-end="1901" vertical-scroll-proportion="0.0" vertical-offset="1241" max-vertical-offset="4334">
+          <folding>
+            <marker date="1398395368000" expanded="false" signature="4657:4670" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-member.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="47" selection-start="3544" selection-end="3544" vertical-scroll-proportion="0.0" vertical-offset="1914" max-vertical-offset="3938">
+          <folding>
+            <marker date="1399336144000" expanded="true" signature="4448:4461" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/m/m-base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="308" column="7" selection-start="5898" selection-end="5898" vertical-scroll-proportion="-3.1084337" vertical-offset="6518" max-vertical-offset="10516">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="10" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0" vertical-offset="2640" max-vertical-offset="3718">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-news.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="21" selection-start="2807" selection-end="2807" vertical-scroll-proportion="0.0" vertical-offset="1848" max-vertical-offset="4752">
+          <folding>
+            <marker date="1399344632000" expanded="true" signature="1252:1280" placeholder="..." />
+            <marker date="1399344632000" expanded="true" signature="5027:5040" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="19" selection-start="77" selection-end="77" vertical-scroll-proportion="0.22184874" vertical-offset="0" max-vertical-offset="4444">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
