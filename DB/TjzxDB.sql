@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/5/6 7:55:40                             */
+/* Created on:     2014/5/7 11:42:03                            */
 /*==============================================================*/
 
 
@@ -20,16 +20,16 @@ go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MedicalPackage') and o.name = 'FK_MEDICALP_RELATIONS_PACKAGEC')
-alter table MedicalPackage
-   drop constraint FK_MEDICALP_RELATIONS_PACKAGEC
+   where r.fkeyid = object_id('Diseases') and o.name = 'FK_DISEASES_RELATIONS_DISEASES')
+alter table Diseases
+   drop constraint FK_DISEASES_RELATIONS_DISEASES
 go
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
-   where r.fkeyid = object_id('MedicalReport') and o.name = 'FK_MEDICALR_RELATIONS_MEMBER')
-alter table MedicalReport
-   drop constraint FK_MEDICALR_RELATIONS_MEMBER
+   where r.fkeyid = object_id('MedicalPackage') and o.name = 'FK_MEDICALP_RELATIONS_PACKAGEC')
+alter table MedicalPackage
+   drop constraint FK_MEDICALP_RELATIONS_PACKAGEC
 go
 
 if exists (select 1
@@ -86,6 +86,29 @@ if exists (select 1
 go
 
 if exists (select 1
+            from  sysindexes
+           where  id    = object_id('Diseases')
+            and   name  = 'Relationship_6_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index Diseases.Relationship_6_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Diseases')
+            and   type = 'U')
+   drop table Diseases
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('DiseasesDepartment')
+            and   type = 'U')
+   drop table DiseasesDepartment
+go
+
+if exists (select 1
             from  sysobjects
            where  id = object_id('Manager')
             and   type = 'U')
@@ -106,15 +129,6 @@ if exists (select 1
            where  id = object_id('MedicalPackage')
             and   type = 'U')
    drop table MedicalPackage
-go
-
-if exists (select 1
-            from  sysindexes
-           where  id    = object_id('MedicalReport')
-            and   name  = 'Relationship_5_FK'
-            and   indid > 0
-            and   indid < 255)
-   drop index MedicalReport.Relationship_5_FK
 go
 
 if exists (select 1
@@ -143,6 +157,20 @@ if exists (select 1
            where  id = object_id('PackageCategory')
             and   type = 'U')
    drop table PackageCategory
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('PackageCollection')
+            and   type = 'U')
+   drop table PackageCollection
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Region')
+            and   type = 'U')
+   drop table Region
 go
 
 if exists (select 1
@@ -251,6 +279,79 @@ MemberId ASC
 go
 
 /*==============================================================*/
+/* Table: Diseases                                              */
+/*==============================================================*/
+create table Diseases (
+   DiseasesId           int                  identity,
+   DiseasesDepartmentId int                  not null,
+   DiseasesName         varchar(60)          not null,
+   DiseasesDescription  text                 not null,
+   Sort                 int                  null,
+   [State]              tinyint              not null,
+   CreateOn             datetime             not null,
+   CreatorId            int                  not null,
+   Creator              varchar(50)          not null,
+   constraint PK_DISEASES primary key nonclustered (DiseasesId)
+)
+go
+
+if exists (select 1 
+from sys.extended_properties 
+where major_id = object_id('Diseases') 
+and minor_id = 0 and name = 'MS_Description') 
+begin 
+declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description', 
+'user', @CurrentUser, 'table', 'Diseases' 
+ 
+end 
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description', 
+'疾病', 
+'user', @CurrentUser, 'table', 'Diseases'
+go
+
+/*==============================================================*/
+/* Index: Relationship_6_FK                                     */
+/*==============================================================*/
+create index Relationship_6_FK on Diseases (
+DiseasesDepartmentId ASC
+)
+go
+
+/*==============================================================*/
+/* Table: DiseasesDepartment                                    */
+/*==============================================================*/
+create table DiseasesDepartment (
+   DiseasesDepartmentId int                  identity,
+   DiseasesDepartmentName varchar(50)          not null,
+   [Sort]               int                  null,
+   [State]              tinyint              not null,
+   constraint PK_DISEASESDEPARTMENT primary key nonclustered (DiseasesDepartmentId)
+)
+go
+
+if exists (select 1 
+from sys.extended_properties 
+where major_id = object_id('DiseasesDepartment') 
+and minor_id = 0 and name = 'MS_Description') 
+begin 
+declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description', 
+'user', @CurrentUser, 'table', 'DiseasesDepartment' 
+ 
+end 
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description', 
+'疾病分科', 
+'user', @CurrentUser, 'table', 'DiseasesDepartment'
+go
+
+/*==============================================================*/
 /* Table: Manager                                               */
 /*==============================================================*/
 create table Manager (
@@ -325,19 +426,10 @@ go
 /*==============================================================*/
 create table MedicalReport (
    ReportId             int                  identity,
-   MemberId             int                  not null,
    MedicalNumber        varchar(100)         not null,
    MedicalDate          datetime             not null,
    ReportContent        text                 not null,
    constraint PK_MEDICALREPORT primary key nonclustered (ReportId)
-)
-go
-
-/*==============================================================*/
-/* Index: Relationship_5_FK                                     */
-/*==============================================================*/
-create index Relationship_5_FK on MedicalReport (
-MemberId ASC
 )
 go
 
@@ -409,6 +501,71 @@ create table PackageCategory (
    CreateOn             datetime             not null,
    constraint PK_PACKAGECATEGORY primary key nonclustered (CategoryId)
 )
+go
+
+/*==============================================================*/
+/* Table: PackageCollection                                     */
+/*==============================================================*/
+create table PackageCollection (
+   PackageCollectId     int                  identity,
+   MemberId             int                  not null,
+   PackageId            int                  not null,
+   CreateOn             datetime             not null,
+   constraint PK_PACKAGECOLLECTION primary key nonclustered (PackageCollectId)
+)
+go
+
+if exists (select 1 
+from sys.extended_properties 
+where major_id = object_id('PackageCollection') 
+and minor_id = 0 and name = 'MS_Description') 
+begin 
+declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description', 
+'user', @CurrentUser, 'table', 'PackageCollection' 
+ 
+end 
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description', 
+'套餐收藏', 
+'user', @CurrentUser, 'table', 'PackageCollection'
+go
+
+/*==============================================================*/
+/* Table: Region                                                */
+/*==============================================================*/
+create table Region (
+   RegionId             int                  identity,
+   RegionCode           varchar(100)         not null,
+   RegionName           varchar(100)         not null,
+   ParentId             int                  not null,
+   RegionLevel          int                  not null,
+   RegionOrder          int                  not null,
+   RegionNameEn         varchar(100)         not null,
+   RegionShortNameEn    varchar(15)          not null,
+   [State]              tinyint              not null,
+   constraint PK_REGION primary key nonclustered (RegionId)
+)
+go
+
+if exists (select 1 
+from sys.extended_properties 
+where major_id = object_id('Region') 
+and minor_id = 0 and name = 'MS_Description') 
+begin 
+declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description', 
+'user', @CurrentUser, 'table', 'Region' 
+ 
+end 
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description', 
+'全国的省市区域', 
+'user', @CurrentUser, 'table', 'Region'
 go
 
 /*==============================================================*/
@@ -488,14 +645,14 @@ alter table Consulting
       references Member (MemberId)
 go
 
+alter table Diseases
+   add constraint FK_DISEASES_RELATIONS_DISEASES foreign key (DiseasesDepartmentId)
+      references DiseasesDepartment (DiseasesDepartmentId)
+go
+
 alter table MedicalPackage
    add constraint FK_MEDICALP_RELATIONS_PACKAGEC foreign key (CategoryId)
       references PackageCategory (CategoryId)
-go
-
-alter table MedicalReport
-   add constraint FK_MEDICALR_RELATIONS_MEMBER foreign key (MemberId)
-      references Member (MemberId)
 go
 
 alter table Reservation

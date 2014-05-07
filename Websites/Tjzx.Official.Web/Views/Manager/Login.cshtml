@@ -35,6 +35,7 @@
     </div>
 </div>
 @section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
     <script type="text/javascript">
         (function ($) {
@@ -64,9 +65,9 @@
             .delegate(".j-vcode", "click", function () {
                 resetVCode();
             })
-            .delegate(".m-form input[name]", "keyup", function (e) {
+            .delegate(".m-form input[name]", "keypress", function (e) {
                 if (13 === e.keyCode) {
-                    $(".j-login").focus().click();
+                    $(".j-login").click();
                 }
             })
             .delegate(".j-login", "click", function () {
@@ -83,13 +84,15 @@
                             var url = singer.uri().return_url || "/m";
                             location.href = url;
                         } else {
-                            alert(json.msg || "登录异常！");
+                            Alert(json.msg || "登录异常！", function() {
+                                json.code && $("input[name='" + json.code + "']").focus();
+                            });
                             resetVCode();
                             setBtn(".j-login", true);
                         }
                     },
                     error: function (msg) {
-                        alert(msg || "登录异常！");
+                        Alert(msg || "登录异常！");
                         resetVCode();
                         setBtn(".j-login", true);
                     }

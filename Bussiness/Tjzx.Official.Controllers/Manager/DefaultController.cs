@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Tjzx.Official.BLL.Attributes;
 using Tjzx.Official.BLL.Config;
 using Tjzx.Official.BLL.Dict;
+using System;
 
 namespace Tjzx.Official.Controllers.Manager
 {
@@ -22,12 +23,24 @@ namespace Tjzx.Official.Controllers.Manager
         {
             if (!Web.VerifyImagePage.IsValidatedCode(vCode))
             {
-                return Json(new {state = 0, msg = "验证码错误！"});
+                return Json(new {state = 0, msg = "验证码错误！", code = "vCode"});
             }
             var code = BLL.User.Login(userName, userPwd);
             if (code <= 0)
             {
-                return Json(new {state = 0, msg = BLL.User.GetErrorMsg(code)});
+                var codes = new[] {"userName", "userPwd", "userName"};
+                string codeName = string.Empty;
+                int index = Math.Abs(code) - 1;
+                if (codes.Length > index)
+                    codeName = codes[index];
+                return
+                    Json(
+                        new
+                            {
+                                state = 0,
+                                msg = BLL.User.GetErrorMsg(code),
+                                code = codeName
+                            });
             }
             return Json(new {state = 1});
         }

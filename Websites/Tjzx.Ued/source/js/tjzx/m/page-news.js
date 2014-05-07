@@ -168,7 +168,7 @@
             }, function (json) {
                 if (json.state) {
                     Alert(json.msg || (state ? "置顶成功！" : "取消置顶成功！"),function(){
-                        location.reload(true);
+                        getList.call(this, 0);
                     });
                 } else {
                     T.msg(json.msg || "操作失败，请稍候重试！");
