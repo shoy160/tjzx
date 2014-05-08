@@ -11,6 +11,9 @@ namespace Tjzx.Official.BLL.Config
     {
         [XmlElement("uploader")]
         public UploaderConfig Uploader { get; set; }
+
+        [XmlElement("email")]
+        public EmailConfig Email { get; set; }
     }
 
     [Serializable]
@@ -49,5 +52,48 @@ namespace Tjzx.Official.BLL.Config
         /// </summary>
         [XmlElement("attachLimit")]
         public int AttachSizeLimit { get; set; }
+    }
+
+    /// <summary>
+    /// 邮件配置
+    /// </summary>
+    [Serializable]
+    public class EmailConfig
+    {
+        /// <summary>
+        /// 发送邮箱
+        /// </summary>
+        [XmlAttribute("senderEmail")]
+        public string SenderEmail { get; set; }
+
+        /// <summary>
+        /// 发件箱密码
+        /// </summary>
+        [XmlAttribute("senderPwd")]
+        public string SenderPwd { get; set; }
+
+        /// <summary>
+        /// 发件者
+        /// </summary>
+        [XmlAttribute("senderName")]
+        public string SenderName { get; set; }
+
+        /// <summary>
+        /// smtp 站点
+        /// </summary>
+        [XmlAttribute("smtpHost")]
+        public string SmtpHost { get; set; }
+
+        /// <summary>
+        /// smtp 端口号
+        /// </summary>
+        [XmlAttribute("smtpPort")]
+        public int SmtpPort { get; set; }
+
+        /// <summary>
+        /// 是否启用https
+        /// </summary>
+        [XmlAttribute("useSsl")]
+        public bool UseSsl { get; set; }
     }
 }

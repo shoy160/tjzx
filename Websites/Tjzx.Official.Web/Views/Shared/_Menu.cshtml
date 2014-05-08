@@ -8,11 +8,25 @@
         <div class="t-box">
             <ul class="nav-list">
                 <li>
-                    <a href="#">体检预约</a>
+                    <div class="t-menu-hd">
+                        <a href="#">体检预约</a>
+                    </div>
                 </li>
-                <li>
+                <li class="j-menu">
                     <s></s>
-                    <a href="#">网站导航</a>
+                    <div class="t-menu-hd">
+                        <span class="icon icon-menu">&#xf03a;</span>
+                        <a href="#">网站导航</a>
+                        <i>
+                            <em></em>
+                            <span></span>
+                        </i>
+                    </div>
+                    <div class="t-menu-bd">
+                        <div class="t-menu-panel">
+                            
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -40,7 +54,7 @@
             </li>
             @if (config != null && config.Navigations != null)
             {
-                foreach (var nav in config.Navigations)
+                foreach (var nav in config.Navigations.OrderBy(t=>t.Sort))
                 {
                     string attr = string.Empty, css = string.Empty;
                     if (!string.IsNullOrEmpty(nav.Class))

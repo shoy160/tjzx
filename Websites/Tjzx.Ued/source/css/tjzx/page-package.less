@@ -2,6 +2,7 @@
 
 .t-package-list {
   position: relative;
+  z-index: 15;
   li {
     float: left;
     width: 240px;
@@ -9,6 +10,7 @@
     margin: 5px 15px 10px;
     border: 1px solid @border-color;
     position: relative;
+    z-index: 10;
     &.active {
       background-color: @gray-lighter;
       border-color: @brand-primary;
@@ -20,7 +22,7 @@
       display: block;
       text-align: center;
       img {
-        width: 240px;
+        width: 240px !important;
         height: 240px;
       }
     }
@@ -45,6 +47,7 @@
       font-size: 12px;
       h4{
         border-top: 1px solid @brand-primary;
+        font-size: 12px;
       }
       span{
         text-indent: 2em;
@@ -60,4 +63,5 @@
 .h-pager {
   float: left;
   width: 100%;
+  z-index: 10;
 }

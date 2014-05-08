@@ -61,6 +61,7 @@
     <Compile Include="Business\DiseasesDepartmentBusi.cs" />
     <Compile Include="Business\MemberBusi.cs" />
     <Compile Include="Business\SystemLogBusi.cs" />
+    <Compile Include="EmailHelper.cs" />
     <Compile Include="ViewModels\AlbumGroupInfo.cs" />
     <Compile Include="ViewModels\DiseasesInfo.cs" />
     <Compile Include="ViewModels\DiseasesDepartmentInfo.cs" />

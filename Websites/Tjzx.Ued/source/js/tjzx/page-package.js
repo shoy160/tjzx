@@ -28,9 +28,17 @@
                     list.push(json.data.list[0]);
                 h.bind(list, 259);
                 $("body,html").animate({scrollTop: 0}, $(window).scrollTop() / 5);
-                $(".t-package-list li").hover(function(){
-                    $(this).toggleClass("active").find(".p-feature").fadeToggle();
-                });
+                $(".t-package-list li")
+                    .bind("mouseenter", function () {
+                        var $t = $(this);
+                        $t.css("z-index", 15).addClass("active").find(".p-feature").fadeIn("fast");
+                    })
+                    .bind("mouseleave", function () {
+                        var $t = $(this);
+                        $t.removeClass("active").find(".p-feature").fadeOut("fast", function () {
+                            $t.css("z-index", 10);
+                        });
+                    });
             }
         });
     };

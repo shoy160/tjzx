@@ -7,7 +7,6 @@
  * @type {Function}
  */
 var Dialog = window.Dialog = function (opt) {
-        if(!window.artDialog) return false;
         var d = window.artDialog(opt);
         if (opt.modal) {
             d.showModal();
@@ -115,10 +114,10 @@ var loadDialog;
         $crumbs.find("dd").remove();
         $crumbs.append(
             S.format('<dd><a href="#" data-id="{id}">{text}</a></dd>',
-                {id: $top.parent().data("id"), text: $top.text()}
+                {id: $top.parent().data("id"), text: $top.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi,"")}
             )
         );
-        $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.text()}));
+        $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi,"")}));
     };
 
     /**

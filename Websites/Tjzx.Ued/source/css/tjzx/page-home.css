@@ -4,6 +4,9 @@
   position: relative;
   margin: 0;
 }
+.t-slider .t-box {
+  overflow: hidden;
+}
 .t-slider ul {
   overflow: hidden;
   width: 9999px;

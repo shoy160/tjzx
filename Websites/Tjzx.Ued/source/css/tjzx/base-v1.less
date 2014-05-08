@@ -3,9 +3,14 @@
 @nav-color: #fff;
 @nav-bg-color: #30C4F4;
 @nav-bg-color-active: #14B4E6;
+@font-face {
+  font-family: global-iconfont;
+  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot);
+  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg")
+}
 
 body {
-  font: 12px/150% Arial,Verdana,"宋体";
+  font: 12px/150% Arial, Verdana, "宋体";
   color: @color;
   background-color: @background-color;
 }
@@ -18,9 +23,57 @@ h1, h2, h3, h4, h5, ul, li, ol, dl, dt, dd, p {
 ul, li, ol, dl, dt, dd {
   list-style: none;
 }
-.hide{
+
+.hide {
   display: none;
 }
+
+.clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+    line-height: 0;
+    height: 0;
+    font-size: 0;
+    visibility: visible;
+  }
+  *zoom: 1;
+}
+.icon{
+  font-family: global-iconfont;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  display: inline;
+  font-style: normal;
+  font-weight: normal;
+  height: auto;
+  line-height: normal;
+  margin-top: 0;
+  text-decoration: inherit;
+  vertical-align: baseline;
+  width: auto;
+  font-size: 14px;
+}
+.icon-spin{
+  .animation(spin 2s infinite linear);
+  .inline-block;
+}
+@-moz-keyframes spin{0%{-moz-transform:rotate(0deg);} 100%{-moz-transform:rotate(359deg);}}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg);} 100%{-webkit-transform:rotate(359deg);}}@-o-keyframes spin{0%{-o-transform:rotate(0deg);} 100%{-o-transform:rotate(359deg);}}@-ms-keyframes spin{0%{-ms-transform:rotate(0deg);} 100%{-ms-transform:rotate(359deg);}}@keyframes spin{0%{transform:rotate(0deg);} 100%{transform:rotate(359deg);}}
+.icon-small{
+  font-size: 12px;
+}
+.icon-smaller{
+  font-size: 10px;
+}
+.icon-big{
+  font-size: 18px;
+}
+.icon-bigger{
+  font-size: 32px;
+}
+
 a {
   &:link,
   &:active,
@@ -57,32 +110,125 @@ img {
   background-color: #F5F5F5;
   border-bottom: 1px solid #F2F2F2;
   height: 28px;
+  .t-box {
+    position: relative;
+    height: 28px;
+    overflow: visible;
+  }
 }
-.t-top-nav .t-box {
-  position: relative;
-  height: 28px;
-  overflow: visible;
-}
+
 .nav-list {
   position: absolute;
   top: 0;
   right: 0;
   line-height: 28px;
+  li {
+    float: left;
+    position: relative;
+    &.j-menu {
+      padding-left: 7px;
+    }
+    s {
+      border-left: 1px solid #ddd;
+      position: absolute;
+      left: 0;
+      top: 9px;
+      height: 12px;
+      width: 0;
+    }
+    .t-menu-hd {
+      overflow: hidden;
+      padding: 0 6px;
+      position: relative;
+      height: 28px;
+      z-index: 2014;
+      .icon-menu {
+        float: left;
+        display: inline;
+        cursor: pointer;
+        margin-right: 7px;
+        color: #777;
+        line-height: 28px;
+      }
+    }
+    .t-menu-bd {
+      display: none;
+      margin-top: -1px;
+      position: relative;
+      z-index: 1987;
+      .t-menu-panel {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #EEEEEE;
+        right: 0;
+        line-height: normal;
+        padding: 8px;
+        position: absolute;
+        top: 0;
+        height: 50px;
+        width: 210px;
+      }
+    }
+    a {
+      display: inline;
+      float: left;
+      margin-right: 7px;
+      *margin-top: 1px;
+    }
+    i {
+      display: inline;
+      float: left;
+      height: 6px;
+      margin: 12px 0;
+      position: relative;
+      .transition(all 0.3s ease-in 0s);
+      width: 6px;
+      em, span {
+        border-color: rgba(255, 255, 255, 0);
+        border-style: solid dashed dashed;
+        border-width: 3px 3px 0;
+        height: 0;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 0;
+      }
+      em {
+        border-top-color: #6C6C6C;
+        top: 1px;
+      }
+      span {
+        border-top-color: #F5F5F5;
+      }
+    }
+    &.menu-hover {
+      .t-menu-hd {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border-color: #EEEEEE;
+        border-style: solid;
+        border-width: 0 1px;
+        padding: 0 5px 1px;
+      }
+      .icon-menu {
+        color: #ff4400;
+      }
+      .t-menu-bd {
+        display: block;
+      }
+      a {
+        color: #ff4400;
+        text-decoration: none;
+      }
+      i {
+        .transform(rotate(180deg));
+        margin: 11px 0 13px !important;
+        em {
+          border-top-color: #ff4400;
+        }
+      }
+    }
+  }
 }
-.nav-list li {
-  float: left;
-  position: relative;
-  padding: 0 11px 0 12px;
-}
-.nav-list li s {
-  border-left: 1px solid #ddd;
-  position: absolute;
-  left: 0;
-  top: 9px;
-  height: 12px;
-  width: 0;
-}
-
 
 .t-top {
   height: 90px;
@@ -140,7 +286,7 @@ header {
     li {
       float: left;
       min-width: 73px;
-      width: 123.75px;
+      width: 141.7px;
       height: 35px;
       line-height: 35px;
       overflow: hidden;
@@ -190,7 +336,8 @@ header {
 .t-box {
   margin: 0 auto;
   .width();
-  overflow: hidden;
+  position: relative;
+  z-index: 12;
 }
 
 .t-location {
@@ -204,7 +351,6 @@ header {
 
 .t-panel-box {
   margin: 12px 0;
-  overflow: hidden;
   position: relative;
   .t-panel-title {
     line-height: 32px;
@@ -221,19 +367,19 @@ header {
       font-size: 11px;
       margin-right: 15px;
     }
-    .em01{
-      background-color:  #FE0000;
+    .em01 {
+      background-color: #FE0000;
     }
-    .em02{
-      background-color:  #A300FE;
+    .em02 {
+      background-color: #A300FE;
     }
-    .em03{
-      background-color:  #FF7200;
+    .em03 {
+      background-color: #FF7200;
     }
-    .em04{
-      background-color:  #00CD34;
+    .em04 {
+      background-color: #00CD34;
     }
-    b{
+    b {
       font-size: 14px;
       margin-left: 18px;
     }
@@ -245,7 +391,7 @@ header {
       height: 0;
       border-top: 1px dotted #cccccc;
     }
-    a{
+    a {
       position: absolute;
       right: 5px;
       top: 0;
@@ -262,6 +408,8 @@ footer {
   line-height: 28px;
   padding: 5px 0 0;
   overflow: hidden;
+  position: relative;
+  z-index: 10;
   .t-footer {
     .width;
     position: relative;

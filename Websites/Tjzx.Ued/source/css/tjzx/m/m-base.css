@@ -1,3 +1,8 @@
+@font-face {
+  font-family: global-iconfont;
+  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot);
+  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg");
+}
 ul,
 li,
 ol,
@@ -10,6 +15,96 @@ dd {
 }
 body {
   font: 12px/1.8 'Microsoft YaHei', Tahoma, Verdana, Simsun;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+  line-height: 0;
+  height: 0;
+  font-size: 0;
+  visibility: visible;
+}
+.icon {
+  font-family: global-iconfont;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  display: inline;
+  font-style: normal;
+  font-weight: normal;
+  height: auto;
+  line-height: normal;
+  margin-top: 0;
+  text-decoration: inherit;
+  vertical-align: baseline;
+  width: auto;
+  font-size: 14px;
+}
+.icon-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  -ms-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.icon-small {
+  font-size: 12px;
+}
+.icon-smaller {
+  font-size: 10px;
+}
+.icon-big {
+  font-size: 18px;
+}
+.icon-bigger {
+  font-size: 32px;
 }
 .hide {
   display: none;
@@ -359,6 +454,9 @@ body {
   background-image: linear-gradient(to bottom, #cccccc, #eeeeee);
   color: #bbb;
   cursor: not-allowed;
+}
+.m-form .m-form-actions .btn .icon {
+  padding: 0 6px 0 0;
 }
 .m-form .m-form-actions .btn-primary {
   background-color: #0088cc;

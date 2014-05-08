@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AlbumGroupTest.cs" />
     <Compile Include="ConfigTest.cs" />
+    <Compile Include="EmailTester.cs" />
     <Compile Include="ManagerTest.cs" />
     <Compile Include="PackageCategoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

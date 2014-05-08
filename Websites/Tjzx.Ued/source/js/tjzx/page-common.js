@@ -16,4 +16,7 @@
            });
        }
     });
+    $(".j-menu").hover(function(){
+        $(this).toggleClass("menu-hover");
+    });
 })(jQuery,TJZX,SINGER);
