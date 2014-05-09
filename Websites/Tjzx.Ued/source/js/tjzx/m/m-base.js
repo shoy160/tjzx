@@ -16,7 +16,7 @@ if (!top.window || !top.window.Dialog) {
         }
     });
     var Dialog = window.Dialog = function (opt) {
-            seajs.use(["dialog", "plus"], function (D) {
+            seajs.use(["plus"], function (D) {
                 var d = D(opt);
                 if (opt.modal) {
                     d.showModal();

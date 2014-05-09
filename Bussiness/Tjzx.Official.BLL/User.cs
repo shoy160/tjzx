@@ -24,14 +24,17 @@ namespace Tjzx.Official.BLL
             return (Role & (int) role) > 0;
         }
 
-        public static User GetUser()
+        public static User GetUser(UserType type = UserType.Manager)
         {
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
                 return null;
             var cookie = CookieCls.GetValue(FormsAuthentication.FormsCookieName);
             var ticket = FormsAuthentication.Decrypt(cookie);
             if (ticket == null) return null;
-            return ticket.UserData.JsonToObject<User>();
+            var user = ticket.UserData.JsonToObject<User>();
+            if (user == null || user.Type != type.GetValue())
+                return null;
+            return user;
         }
 
         public static string GetErrorMsg(int code)

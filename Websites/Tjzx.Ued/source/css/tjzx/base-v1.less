@@ -40,7 +40,12 @@ ul, li, ol, dl, dt, dd {
   }
   *zoom: 1;
 }
-.icon{
+
+.placeholder {
+  color: #888;
+}
+
+.icon {
   font-family: global-iconfont;
   background-image: none;
   background-position: 0 0;
@@ -56,21 +61,70 @@ ul, li, ol, dl, dt, dd {
   width: auto;
   font-size: 14px;
 }
-.icon-spin{
+
+.icon-spin {
   .animation(spin 2s infinite linear);
   .inline-block;
 }
-@-moz-keyframes spin{0%{-moz-transform:rotate(0deg);} 100%{-moz-transform:rotate(359deg);}}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg);} 100%{-webkit-transform:rotate(359deg);}}@-o-keyframes spin{0%{-o-transform:rotate(0deg);} 100%{-o-transform:rotate(359deg);}}@-ms-keyframes spin{0%{-ms-transform:rotate(0deg);} 100%{-ms-transform:rotate(359deg);}}@keyframes spin{0%{transform:rotate(0deg);} 100%{transform:rotate(359deg);}}
-.icon-small{
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.icon-small {
   font-size: 12px;
 }
-.icon-smaller{
+
+.icon-smaller {
   font-size: 10px;
 }
-.icon-big{
+
+.icon-big {
   font-size: 18px;
 }
-.icon-bigger{
+
+.icon-bigger {
   font-size: 32px;
 }
 
@@ -479,6 +533,29 @@ footer {
       .t-share {
         margin-top: 5px;
       }
+    }
+  }
+}
+
+//侧边栏
+.t-feedback {
+  position: fixed;
+  bottom: 50px;
+  width: 38px;
+  z-index: 2014;
+  display: none;
+  border: 1px solid #eee;
+  border-bottom: none;
+  .fb-item {
+    height: 38px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    background-color: @gray-lighter;
+  }
+  .t-goTop {
+    cursor: pointer;
+    .icon-bigger {
+      line-height: 38px;
     }
   }
 }

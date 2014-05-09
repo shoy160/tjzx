@@ -31,7 +31,10 @@
                 $(".t-package-list li")
                     .bind("mouseenter", function () {
                         var $t = $(this);
-                        $t.css("z-index", 15).addClass("active").find(".p-feature").fadeIn("fast");
+                        $t.css("z-index", 15).addClass("active").find(".p-feature").fadeIn("fast",function(){
+                            //避免移动过快的bug
+                            $t.css("z-index", 15);
+                        });
                     })
                     .bind("mouseleave", function () {
                         var $t = $(this);

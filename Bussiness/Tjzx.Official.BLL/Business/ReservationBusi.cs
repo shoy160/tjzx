@@ -18,36 +18,53 @@ namespace Tjzx.Official.BLL.Business
         /// <returns></returns>
         public override ResultInfo Insert(ReservationInfo info)
         {
+            var user = User.GetUser(UserType.Member);
+            //业务逻辑判断：个人预约需登录，团队暂时不用
+            switch ((ReservationType) info.Type)
+            {
+                case ReservationType.Personal:
+                    if (user == null)
+                        return new ResultInfo(-1, "请先登录！");
+                    if (string.IsNullOrEmpty(info.IdNumber))
+                        return new ResultInfo(0, "请填写身份证号码！");
+                    break;
+                case ReservationType.Team:
+                    if (string.IsNullOrEmpty(info.Company))
+                        return new ResultInfo(0, "请填写公司名称！");
+                    if (string.IsNullOrEmpty(info.Address))
+                        return new ResultInfo(0, "请填写公司地址！");
+                    break;
+            }
+
+            var item = new Reservation
+                {
+                    Name = info.Name,
+                    Mobile = info.Mobile,
+                    IdNumber = info.IdNumber,
+                    Email = info.Email,
+                    Remark = info.Remark,
+                    Company = info.Company,
+                    Address = info.Address,
+                    Type = info.Type,
+                    PackageId = info.PackageId,
+                    ReservationDate = info.ReservationDate,
+                    CreatorIp = Utils.GetRealIp(),
+                    State = (byte) StateType.Hidden,
+                    CreateOn = DateTime.Now
+                };
+            if (user != null)
+                item.MemberId = user.UserId;
+
             using (var db = new EFDbContext())
             {
-                var item = new Reservation
-                    {
-                        Name = info.Name,
-                        Mobile = info.Mobile,
-                        IdNumber = info.IdNumber,
-                        Email = info.Email,
-                        Remark = info.Remark,
-                        Company = info.Company,
-                        Address = info.Address,
-                        Type = info.Type,
-                        PackageId = info.PackageId,
-                        ReservationDate = info.ReservationDate,
-                        CreatorIp = Utils.GetRealIp(),
-                        State = (byte) StateType.Hidden,
-                        CreateOn = DateTime.Now
-                    };
-                var user = User.GetUser();
-                if (user != null && user.Type == UserType.Member.GetValue())
-                    item.MemberId = user.UserId;
-                else
-                {
-                    //Todo:创建普通用户？
-                }
                 var valid = db.Entry(item).GetValidationResult();
                 if (valid.IsValid)
                 {
                     db.Reservations.Add(item);
                     db.SaveChanges();
+                    //邮件或短信通知
+                    //var emailHelper = EmailHelper.Instance();
+                    //emailHelper.Send("", "", "");
                     return new ResultInfo(1);
                 }
                 var msg = valid.ValidationErrors.FirstOrDefault();

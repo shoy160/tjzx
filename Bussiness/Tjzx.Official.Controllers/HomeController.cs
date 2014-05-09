@@ -73,6 +73,19 @@ namespace Tjzx.Official.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 预约接口
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ActionName("saveReservation")]
+        public JsonResult SaveReservation(ReservationInfo info)
+        {
+            var busi = new ReservationBusi();
+            return Json(busi.Insert(info));
+        }
+
         [HttpGet]
         public ActionResult Exchanges()
         {

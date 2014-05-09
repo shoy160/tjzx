@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2014/5/7 11:42:03                            */
+/* Created on:     2014/5/9 17:41:30                            */
 /*==============================================================*/
 
 
@@ -187,6 +187,13 @@ if exists (select 1
            where  id = object_id('Reservation')
             and   type = 'U')
    drop table Reservation
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('Sitemap')
+            and   type = 'U')
+   drop table Sitemap
 go
 
 if exists (select 1
@@ -468,6 +475,7 @@ create table News (
    Comefrom             varchar(150)         null,
    Author               varchar(120)         null,
    [State]              tinyint              not null,
+   IsRecommend          bit                  not null,
    constraint PK_NEWS primary key nonclustered (NewsId)
 )
 go
@@ -615,6 +623,41 @@ go
 create index Relationship_2_FK on Reservation (
 PackageId ASC
 )
+go
+
+/*==============================================================*/
+/* Table: Sitemap                                               */
+/*==============================================================*/
+create table Sitemap (
+   SiteId               int                  identity,
+   SiteName             varchar(20)          not null,
+   [Description]        text                 null,
+   SitePicture          varchar(150)         null,
+   SiteIcon             varchar(150)         null,
+   ParentSiteId         int                  not null,
+   SiteLeft             float                null,
+   SiteTop              float                null,
+   IsLeaf               bit                  not null,
+   constraint PK_SITEMAP primary key nonclustered (SiteId)
+)
+go
+
+if exists (select 1 
+from sys.extended_properties 
+where major_id = object_id('Sitemap') 
+and minor_id = 0 and name = 'MS_Description') 
+begin 
+declare @CurrentUser sysname 
+select @CurrentUser = user_name() 
+execute sp_dropextendedproperty 'MS_Description', 
+'user', @CurrentUser, 'table', 'Sitemap' 
+ 
+end 
+
+select @CurrentUser = user_name() 
+execute sp_addextendedproperty 'MS_Description', 
+'·Ö²¼Í¼±í', 
+'user', @CurrentUser, 'table', 'Sitemap'
 go
 
 /*==============================================================*/

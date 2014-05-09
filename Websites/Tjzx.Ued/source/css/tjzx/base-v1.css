@@ -46,6 +46,9 @@ dd {
   font-size: 0;
   visibility: visible;
 }
+.placeholder {
+  color: #888;
+}
 .icon {
   font-family: global-iconfont;
   background-image: none;
@@ -63,8 +66,8 @@ dd {
   font-size: 14px;
 }
 .icon-spin {
-  -webkit-animation: spin 2s infinite linear;
   -moz-animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
   -o-animation: spin 2s infinite linear;
   -ms-animation: spin 2s infinite linear;
   animation: spin 2s infinite linear;
@@ -222,10 +225,15 @@ img {
   height: 6px;
   margin: 12px 0;
   position: relative;
-  -webkit-transition: all 0.3s ease-in 0s;
+  -moz-transition: all 0.3s ease-in 0s,;
+  -webkit-transition: all 0.3s ease-in 0s,;
+  -o-transition: all 0.3s ease-in 0s,;
+  -ms-transition: all 0.3s ease-in 0s,;
+  transition: all 0.3s ease-in 0s,;
   -moz-transition: all 0.3s ease-in 0s;
-  -ms-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
   -o-transition: all 0.3s ease-in 0s;
+  -ms-transition: all 0.3s ease-in 0s;
   transition: all 0.3s ease-in 0s;
   width: 6px;
 }
@@ -266,8 +274,8 @@ img {
   text-decoration: none;
 }
 .nav-list li.menu-hover i {
-  -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
@@ -500,8 +508,10 @@ footer .t-copyright {
   line-height: 35px;
   position: relative;
   background-color: #14B4E6;
-  -webkit-box-shadow: 0 1px 1px #14b4e6;
   -moz-box-shadow: 0 1px 1px #14b4e6;
+  -webkit-box-shadow: 0 1px 1px #14b4e6;
+  -o-box-shadow: 0 1px 1px #14b4e6;
+  -ms-box-shadow: 0 1px 1px #14b4e6;
   box-shadow: 0 1px 1px #14b4e6;
 }
 footer .t-copyright .t-copyright-box {
@@ -524,4 +534,25 @@ footer .t-copyright .t-copyright-box .t-statistics {
 }
 footer .t-copyright .t-copyright-box .t-share {
   margin-top: 5px;
+}
+.t-feedback {
+  position: fixed;
+  bottom: 50px;
+  width: 38px;
+  z-index: 2014;
+  display: none;
+  border: 1px solid #eee;
+  border-bottom: none;
+}
+.t-feedback .fb-item {
+  height: 38px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  background-color: #eeeeee;
+}
+.t-feedback .t-goTop {
+  cursor: pointer;
+}
+.t-feedback .t-goTop .icon-bigger {
+  line-height: 38px;
 }

@@ -34,6 +34,12 @@ namespace Tjzx.Official.Models.Entities
         [MaxLength(120)]
         public string Company { get; set; }
 
+
+        /// <summary>
+        /// 城市ID
+        /// </summary>
+        public int CityId { get; set; }
+
         /// <summary>
         /// 单位地址，团队预约时填写
         /// </summary>

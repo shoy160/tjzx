@@ -34,7 +34,7 @@ namespace Tjzx.Official.BLL.Dict
         /// <summary>
         /// 中心概况(图片专栏)
         /// </summary>
-        [Description("中心概况(图片专栏)")] Overview = 0x10,
+        [Description("中心环境")] Overview = 0x10,
 
         /// <summary>
         /// 健康管理
