@@ -18,13 +18,30 @@ namespace Tjzx.Official.Models.Test
                 {
                     Navigations = new List<Navigation>
                         {
-                            new Navigation{Id = 2,Name = "健康快车",Sort = 4,Link = "/news",Class = "",Target = ""},
-                            new Navigation{Id = 3,Name = "体检套餐",Sort = 2,Link = "/packages",Class = "hot",Target = ""},
-                            new Navigation{Id = 4,Name = "体检服务",Sort = 3,Link = "/reservation",Class = "hot",Target = ""},
+                            new Navigation{Id = 2,Name = "健康快车",Sort = 4,Link = "/news",Class = "",Target = "",Icon = "&#xf018;"},
+                            new Navigation{Id = 3,Name = "体检套餐",Sort = 2,Link = "/packages",Class = "hot",Target = "",Icon = "&#xf0fa;"},
+                            new Navigation{Id = 4,Name = "体检服务",Sort = 3,Link = "/reservation",Class = "hot",Target = "",Icon = "&#xf0ac;"},
                             //new Navigation{Id = 5,Name = "健康管理",Sort = 5,Link = "/h",Class = "hot",Target = ""},
-                            new Navigation{Id = 6,Name = "中心概况",Sort = 1,Link = "/overview",Class = "",Target = ""},
-                            new Navigation{Id = 7,Name = "咨询交流",Sort = 5,Link = "/exchanges",Class = "",Target = ""},
-                            new Navigation{Id = 8,Name = "联系我们",Sort = 6,Link = "/contact",Class = "",Target = ""}
+                            new Navigation{Id = 6,Name = "中心概况",Sort = 1,Link = "/overview",Class = "",Target = "",Icon = "&#xf030;"},
+                            new Navigation{Id = 7,Name = "咨询交流",Sort = 5,Link = "/exchanges",Class = "",Target = "",Icon = "&#xf0f4;"},
+                            new Navigation{Id = 8,Name = "联系我们",Sort = 6,Link = "/contact",Class = "",Target = "",Icon = "&#xf095;"},
+                            new Navigation{Id = 101,Name = "中心介绍", ParentId = 6,Sort = 1,Link = ""},
+                            new Navigation{Id = 102,Name = "中心文化", ParentId = 6,Sort = 2,Link = ""},
+                            new Navigation{Id = 103,Name = "中心环境", ParentId = 6,Sort = 3,Link = ""},
+                            new Navigation{Id = 104,Name = "分布图", ParentId = 6,Sort = 4,Link = ""},
+                            new Navigation{Id = 105,Name = "团队介绍", ParentId = 6,Sort = 5,Link = ""},
+                            new Navigation{Id = 106,Name = "中心动态", ParentId = 6,Sort = 6,Link = ""},
+                            new Navigation{Id = 107,Name = "中心公告", ParentId = 6,Sort = 7,Link = ""},
+                            new Navigation{Id = 201,Name = "体检预约", ParentId = 4,Sort = 1,Link = ""},
+                            new Navigation{Id = 202,Name = "体检流程", ParentId = 4,Sort = 2,Link = ""},
+                            new Navigation{Id = 203,Name = "体检须知", ParentId = 4,Sort = 3,Link = ""},
+                            new Navigation{Id = 204,Name = "报告领取查询", ParentId = 4,Sort = 4,Link = ""},
+                            new Navigation{Id = 301,Name = "健康资讯", ParentId = 2,Sort = 1,Link = ""},
+                            new Navigation{Id = 302,Name = "健康知识", ParentId = 2,Sort = 2,Link = ""},
+                            new Navigation{Id = 303,Name = "疾病查询", ParentId = 2,Sort = 3,Link = ""},
+                            new Navigation{Id = 304,Name = "健康自测", ParentId = 2,Sort = 4,Link = ""},
+                            new Navigation{Id = 401,Name = "我要咨询", ParentId = 7,Sort = 1,Link = ""},
+                            new Navigation{Id = 402,Name = "咨询列表", ParentId = 7,Sort = 2,Link = ""}
                         },
                     Sliders = new List<Slider>
                         {

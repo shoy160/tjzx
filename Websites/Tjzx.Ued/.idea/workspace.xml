@@ -24,100 +24,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="page-package.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-package.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="27" selection-start="1297" selection-end="1297" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1188">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sitemapTest.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/sitemapTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="49" selection-start="3077" selection-end="3077" vertical-scroll-proportion="-14.225806" vertical-offset="1429" max-vertical-offset="2838">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.jplayer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/plugs/jPlayer/jquery.jplayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="17" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="792" max-vertical-offset="68706">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.jplayer.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugs/jPlayer/jquery.jplayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="33" selection-start="32085" selection-end="32085" vertical-scroll-proportion="0.07857143" vertical-offset="0" max-vertical-offset="560">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gruntfile.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gruntfile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="1672">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4422">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-v1.min.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/tjzx/base-v1.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-common.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="48" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="1914">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base-v1.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/base-v1.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="9" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0" vertical-offset="946" max-vertical-offset="1210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="m-base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="46" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="3718">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -135,7 +42,6 @@
         <option value="$PROJECT_DIR$/source/js/tjzx/base-v1.js" />
         <option value="$PROJECT_DIR$/source/css/tjzx/t-form.less" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-placeholder.js" />
-        <option value="$PROJECT_DIR$/source/css/tjzx/base-v1.less" />
         <option value="$PROJECT_DIR$/source/css/base.less" />
         <option value="$PROJECT_DIR$/test/mediaTest.html" />
         <option value="$PROJECT_DIR$/source/js/tjzx/page-package.js" />
@@ -143,6 +49,7 @@
         <option value="$PROJECT_DIR$/source/js/tjzx/m/m-base.js" />
         <option value="$PROJECT_DIR$/test/sitemapTest.html" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/source/css/tjzx/base-v1.less" />
       </list>
     </option>
   </component>
@@ -274,6 +181,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tjzx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tjzx.Ued" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="plugs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -308,8 +255,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../singer" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -328,6 +275,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -336,14 +291,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -393,7 +340,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23133236" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23133236" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -430,11 +377,6 @@
         <state line="58" column="20" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.19963703" vertical-offset="1166" max-vertical-offset="3718" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="518" column="19" selection-start="9252" selection-end="9252" vertical-scroll-proportion="-2.0361445" vertical-offset="11227" max-vertical-offset="12452" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-responsive.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="149" column="0" selection-start="2175" selection-end="2212" vertical-scroll-proportion="-3.548387" vertical-offset="3168" max-vertical-offset="3960" />
@@ -466,21 +408,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/page-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="48" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1914">
+        <state line="60" column="48" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0016806723" vertical-offset="1319" max-vertical-offset="1914">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="46" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="3718">
+        <state line="18" column="46" selection-start="501" selection-end="501" vertical-scroll-proportion="0.44369748" vertical-offset="132" max-vertical-offset="3718">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/base-v1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="9" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1210">
+        <state line="43" column="9" selection-start="1523" selection-end="1523" vertical-scroll-proportion="0.55630255" vertical-offset="615" max-vertical-offset="1210">
           <folding />
         </state>
       </provider>
@@ -494,14 +436,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/sitemapTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="49" selection-start="3077" selection-end="3077" vertical-scroll-proportion="-14.225806" vertical-offset="1429" max-vertical-offset="2838">
+        <state line="85" column="49" selection-start="3077" selection-end="3077" vertical-scroll-proportion="0.0" vertical-offset="1429" max-vertical-offset="2838">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="604" selection-end="604" vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="1672">
+        <state line="17" column="21" selection-start="604" selection-end="604" vertical-scroll-proportion="0.4067227" vertical-offset="132" max-vertical-offset="1672">
           <folding />
         </state>
       </provider>
@@ -515,10 +457,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugs/jPlayer/jquery.jplayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="33" selection-start="32085" selection-end="32085" vertical-scroll-proportion="0.07857143" vertical-offset="0" max-vertical-offset="560">
+        <state line="2" column="85" selection-start="32137" selection-end="32137" vertical-scroll-proportion="0.07560138" vertical-offset="0" max-vertical-offset="582">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/css/tjzx/base-v1.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="11" selection-start="4129" selection-end="4129" vertical-scroll-proportion="0.33266532" vertical-offset="5092" max-vertical-offset="13200">
+          <folding />
         </state>
       </provider>
     </entry>

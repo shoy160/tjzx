@@ -149,7 +149,7 @@ img {
   width: 100%;
   height: auto;
 }
-/* 临时 */
+/* 临时  顶部导航*/
 .t-top-nav {
   background-color: #F5F5F5;
   border-bottom: 1px solid #F2F2F2;
@@ -210,8 +210,40 @@ img {
   padding: 8px;
   position: absolute;
   top: 0;
-  height: 50px;
-  width: 210px;
+  width: 600px;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item {
+  float: left;
+  width: 100px;
+  overflow: hidden;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item .icon {
+  margin-right: 5px;
+  vertical-align: -2px;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item h3 {
+  color: #666666;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item dl {
+  overflow: hidden;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item dd {
+  line-height: 22px;
+  overflow: hidden;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item a {
+  color: #666;
+  width: 100%;
+  text-align: center;
+}
+.nav-list li .t-menu-bd .t-menu-panel .t-menu-item a:hover {
+  color: #ff4400;
+  text-decoration: underline;
 }
 .nav-list li a {
   display: inline;
@@ -325,6 +357,8 @@ img {
 header {
   background-color: #ffffff;
   margin: 0;
+  position: relative;
+  z-index: 2001;
 }
 header nav {
   line-height: 35px;
