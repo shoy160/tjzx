@@ -55,7 +55,7 @@ namespace Tjzx.Official.BLL.Business
                     t =>
                     (string.IsNullOrEmpty(info.Keyword) ||
                      t.Title.Contains(info.Keyword)) &&
-                    (info.State == Const.Ignore || t.State == info.State)
+                    (info.State == Const.Ignore ? t.State != (byte)StateType.Delete:t.State == info.State)
                     &&
                     (info.DeelState == Const.Ignore ||
                      (info.DeelState == (byte) StateType.Hidden ? !t.DeelTime.HasValue : t.DeelTime.HasValue)));
@@ -63,7 +63,7 @@ namespace Tjzx.Official.BLL.Business
                     db.Consultings.Where(
                         t => (string.IsNullOrEmpty(info.Keyword) ||
                               t.Title.Contains(info.Keyword)) &&
-                             (info.State == Const.Ignore || t.State == info.State)
+                             (info.State == Const.Ignore ? t.State != (byte)StateType.Delete : t.State == info.State)
                              &&
                              (info.DeelState == Const.Ignore ||
                               (info.DeelState == (byte) StateType.Hidden ? !t.DeelTime.HasValue : t.DeelTime.HasValue)))
@@ -76,8 +76,8 @@ namespace Tjzx.Official.BLL.Business
                               id = t.ConsultingId,
                               title = t.Title,
                               content = t.Content,
-                              contact = t.Contact,
-                              mobile = t.Mobile,
+                              contact = t.Contact??"",
+                              mobile = t.Mobile??"",
                               createon = Const.FormatDate(t.CreateOn),
                               deelState =
                                        (t.DeelTime.HasValue
@@ -172,7 +172,8 @@ namespace Tjzx.Official.BLL.Business
                     id = info.Id,
                     title = info.Title,
                     content = info.Content,
-                    contact = info.Contact,
+                    contact = info.Contact ?? "",
+                    mobile = info.Mobile ?? "",
                     state = info.State,
                     deelSituation = info.DeelSituation,
                     deelTime = (info.DeelTime.HasValue ? Const.FormatDate(info.DeelTime.Value) : ""),

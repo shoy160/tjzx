@@ -40,8 +40,8 @@ namespace Tjzx.Official.BLL.Config
         [XmlAttribute("sort")]
         public int Sort { get; set; }
 
-        [XmlAttribute("cls")]
-        public string Class { get; set; }
+        [XmlAttribute("icon")]
+        public string Icon { get; set; }
     }
 
     public class MenuManager

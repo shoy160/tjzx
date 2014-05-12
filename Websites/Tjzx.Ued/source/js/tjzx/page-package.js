@@ -1,5 +1,5 @@
 (function ($, T) {
-    var size = 10;
+    var size = 20;
     var h = new hTemplate({
         tmp: $("#h-temp").html(),
         empty: $("#h-empty").html(),
@@ -23,10 +23,10 @@
             size: size
         }, function (json) {
             if (json && json.state) {
-                var list = [];
-                for (var i = 0; i < 32; i++)
-                    list.push(json.data.list[0]);
-                h.bind(list, 259);
+//                var list = [];
+//                for (var i = 0; i < 32; i++)
+//                    list.push(json.data.list[0]);
+                h.bind(json.data.list, json.data.count);
                 $("body,html").animate({scrollTop: 0}, $(window).scrollTop() / 5);
                 $(".t-package-list li")
                     .bind("mouseenter", function () {

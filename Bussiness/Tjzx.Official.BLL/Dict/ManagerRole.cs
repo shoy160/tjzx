@@ -62,6 +62,11 @@ namespace Tjzx.Official.BLL.Dict
         [Description("疾病百科")] Diseases= 0x200,
 
         /// <summary>
+        /// 首页配置
+        /// </summary>
+        [Description("首页配置")] HomeConfig=0x400,
+
+        /// <summary>
         /// 超级管理员
         /// </summary>
         [Description("超级管理员")] Admin = 0xFFFFFFF

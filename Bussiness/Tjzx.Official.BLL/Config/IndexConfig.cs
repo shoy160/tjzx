@@ -108,6 +108,9 @@ namespace Tjzx.Official.BLL.Config
 
         [XmlAttribute("sort")]
         public int Sort { get; set; }
+
+        [XmlAttribute("logo")]
+        public string Logo { get; set; }
     }
 
     /// <summary>

@@ -576,17 +576,27 @@ footer .t-copyright .t-copyright-box .t-share {
   z-index: 2014;
   display: none;
   border: 1px solid #eee;
+  background-color: #fff;
   border-bottom: none;
 }
 .t-feedback .fb-item {
   height: 38px;
-  border-bottom: 1px solid #eee;
   text-align: center;
-  background-color: #eeeeee;
+  background-color: #0FADE1;
+  margin-bottom: 1px;
+  overflow: hidden;
 }
-.t-feedback .t-goTop {
-  cursor: pointer;
-}
-.t-feedback .t-goTop .icon-bigger {
+.t-feedback .fb-item .icon {
+  color: #f5f5f5;
+  float: left;
+  width: 38px;
   line-height: 38px;
+}
+.t-feedback .fb-item .icon-hover {
+  background-color: #f5f5f5;
+  color: #0FADE1;
+}
+.t-feedback .fb-box {
+  cursor: pointer;
+  width: 76px;
 }

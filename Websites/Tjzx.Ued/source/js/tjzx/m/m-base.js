@@ -61,12 +61,13 @@ if (!top.window || !top.window.Dialog) {
             };
             Dialog(opt);
         };
-}else{
+} else {
     window.Dialog = top.window.Dialog;
     window.Alert = top.window.Alert;
     window.Confirm = top.window.Confirm;
 }
 (function ($, S, T) {
+    var logger = S.getLogger("m-base");
     $(".btn").removeAttr("disabled");
     S.mix(T, {
         msg: function (msg, url) {
@@ -127,9 +128,9 @@ if (!top.window || !top.window.Dialog) {
                 dataType: 'json',
                 data: data,
                 success: function (data) {
-                    if (data && data.state  == -1) {
+                    if (data && data.state == -1) {
                         Alert(data.msg || "操作异常！", function () {
-                            top.window.location.href = "/m/login?return_url="+ encodeURIComponent(top.window.location.href);
+                            top.window.location.href = "/m/login?return_url=" + encodeURIComponent(top.window.location.href);
                             T.setFrameHeight();
                         });
                         return false;
@@ -137,8 +138,10 @@ if (!top.window || !top.window.Dialog) {
                     callback && S.isFunction(callback) && callback(data);
                 },
                 error: function (data) {
-                    //T.msg('获取数据异常！');
-                    errorCallback && S.isFunction(errorCallback) && errorCallback(data);
+                    if (!errorCallback)
+                        Alert(data.statusText || '获取数据异常！');
+                    else
+                        S.isFunction(errorCallback) && errorCallback(data);
                 }
             });
         },

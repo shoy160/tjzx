@@ -88,6 +88,7 @@
     <Compile Include="Manager\DiseasesController.cs" />
     <Compile Include="Manager\HealthController.cs" />
     <Compile Include="Manager\DefaultController.cs" />
+    <Compile Include="Manager\HomeConfigController.cs" />
     <Compile Include="Manager\MemberController.cs" />
     <Compile Include="Manager\PackageController.cs" />
     <Compile Include="Manager\AlbumController.cs" />

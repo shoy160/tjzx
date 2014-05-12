@@ -63,8 +63,12 @@
             var vForm = $(".t-form").valid();
             $(".t-form").delegate(".btn-primary", "click", function () {
                 if (!vForm.check()) return false;
-                T.getJson("AddConsulting", vForm.json(), function(json) {
-                    console.log(json);
+                T.getJson("AddConsulting", vForm.json(), function (json) {
+                    if (json && 1 === json.state) {
+                        alert("感谢您的提交，我们将尽快给您答复！");
+                    } else {
+                        alert(json.msg || "提交失败，请重试！");
+                    }
                 });
                 return false;
             });

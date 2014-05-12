@@ -59,6 +59,7 @@
     <Compile Include="Business\CategoryBusi.cs" />
     <Compile Include="Business\DiseasesBusi.cs" />
     <Compile Include="Business\DiseasesDepartmentBusi.cs" />
+    <Compile Include="Business\IndexConfigBusi.cs" />
     <Compile Include="Business\MemberBusi.cs" />
     <Compile Include="Business\SystemLogBusi.cs" />
     <Compile Include="EmailHelper.cs" />

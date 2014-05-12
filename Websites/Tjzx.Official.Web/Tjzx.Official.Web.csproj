@@ -512,6 +512,7 @@
     <Content Include="Views\Health\Register.cshtml" />
     <Content Include="Views\Manager\DiseasesList.cshtml" />
     <Content Include="Views\Manager\Reports.cshtml" />
+    <Content Include="Views\Manager\HomeConfig.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
