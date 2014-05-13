@@ -12,18 +12,14 @@
 </script>
 <script>
     seajs.config({
-        alias:{
+        alias: {
             "jquery": "jquery-1.10.2.js",
-            "dialog":"http://ued.tjzx.com/plugs/artDialog/v6/src/dialog"
-        }
+            "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-common"
+        },
+        preload: ['jquery', 'dialog']
     });
-    seajs.use('dialog',function(dialog){
-        var d= new dialog({
-            title:"dfsdfdf",
-            content:"dsdsdfdfsd",
-            padding:20
-        });
-        d.show();
+    seajs.use('dialog', function (dialog) {
+        window.D = dialog;
     });
 </script>
 </body>

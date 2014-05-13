@@ -9,7 +9,7 @@
             "mobile": /^1[3458][0-9]{9}$/,
             "email": /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
             "url": /^(\w+:\/\/)?\w+(\.\w+)+.*$/,
-            "ip":/^(((25[0-5])|(2[0-4]\d)|(1\d{2})|([1-9]?\d))\.){3}((25[0-5])|(2[0-4]\d)|(1\d{2})|([1-9]?\d))$/,
+            "ip": /^(((25[0-5])|(2[0-4]\d)|(1\d{2})|([1-9]?\d))\.){3}((25[0-5])|(2[0-4]\d)|(1\d{2})|([1-9]?\d))$/,
             "number": /^\d+$/
         },
         rulesMsg: {
@@ -17,7 +17,7 @@
             "mobile": "请填写手机号码！",
             "email": "请填写邮箱！",
             "url": "请填写网址！",
-            "ip":"请输入正确的IP地址！",
+            "ip": "请输入正确的IP地址！",
             "number": "请填写数字！"
         },
         getValue: function (obj) {
@@ -214,7 +214,13 @@
             var $form = this.forms.eq(i || 0);
             $form.find(".m-form-tip").remove();
             $form.find(".control-error").removeClass("control-error");
-            this.bind($form.data("init"), i);
+            if ($form.is("form"))
+                $form.each(function(){
+                    this.reset();
+                });
+            else {
+                this.bind($form.data("init"), i);
+            }
         }
     };
     $.fn.extend({

@@ -16,7 +16,9 @@
                 <div class="t-exchanges-title active">我要咨询</div>
             </div>
             <div class="t-exchanges-item hide">
-                
+                <div class="t-list h-template">
+                    
+                </div>
             </div>
             <div class="t-exchanges-item">
                 <form class="t-form">
@@ -29,7 +31,7 @@
                     <div class="t-form-group">
                         <label class="t-form-label"><em>*</em>详细说明：</label>
                         <div class="t-form-controls">
-                            <textarea type="text" name="content" class="input-larger row04" data-valid="{type:'require',msg:'详细说明不能为空！'}" placeholder="请填写详细说明"></textarea>
+                            <textarea name="content" class="input-larger row04" data-valid="{type:'require',msg:'详细说明不能为空！'}" placeholder="请填写详细说明"></textarea>
                         </div>
                     </div>
                     <div class="t-form-notify">
@@ -58,21 +60,33 @@
 </div>
 @section Footer{
     <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/plugs/artDialog/v6/lib/sea.js"></script>
     <script type="text/javascript">
-        (function ($, T) {
+        seajs.config({
+            alias: {
+                "jquery": "jquery-1.10.2.js",
+                "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-common"
+            },
+            preload: ["plus"]
+        });
+        (function($, T) {
             var vForm = $(".t-form").valid();
-            $(".t-form").delegate(".btn-primary", "click", function () {
+            $(".t-form").delegate(".btn-primary", "click", function() {
                 if (!vForm.check()) return false;
-                T.getJson("AddConsulting", vForm.json(), function (json) {
-                    if (json && 1 === json.state) {
-                        alert("感谢您的提交，我们将尽快给您答复！");
-                    } else {
-                        alert(json.msg || "提交失败，请重试！");
-                    }
+                T.getJson("AddConsulting", vForm.json(), function(json) {
+                    seajs.use(["plus"], function(D) {
+                        if (json && 1 === json.state) {
+                            D.alert("感谢您的提交，我们将尽快给您答复！", function() {
+                                vForm.reset();
+                            });
+                        } else {
+                            D.alert(json.msg || "提交失败，请重试！");
+                        }
+                    });
                 });
                 return false;
             });
-            $(".t-exchanges-title").bind("click", function () {
+            $(".t-exchanges-title").bind("click", function() {
                 if ($(this).hasClass("active")) return false;
                 var $t = $(this),
                     index = $(".t-exchanges-title").index($t),

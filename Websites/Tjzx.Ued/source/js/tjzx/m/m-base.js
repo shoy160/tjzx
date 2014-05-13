@@ -8,59 +8,12 @@ var tjzx = window.TJZX = window.TJZX || {};
  *  重载Dialog
  */
 if (!top.window || !top.window.Dialog) {
-    seajs.config({
-        alias: {
-            "jquery": "jquery-1.10.2.js",
-            "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog",
-            "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-plus"
-        }
+    var Dialog, Alert, Confirm;
+    seajs.use(["plus"], function (D) {
+        Dialog = window.Dialog = D.commonInit;
+        Alert = window.Alert = D.alert;
+        Confirm = window.Confirm = D.confirm;
     });
-    var Dialog = window.Dialog = function (opt) {
-            seajs.use(["plus"], function (D) {
-                var d = D(opt);
-                if (opt.modal) {
-                    d.showModal();
-                } else if (opt.element) {
-                    d.show(opt.element);
-                } else {
-                    d.show();
-                }
-            });
-        },
-        call = function (callback) {
-            callback && "function" === typeof callback && callback.call(this);
-        },
-        Alert = window.Alert = function (msg, callback) {
-            var opt = {
-                title: "操作提示",
-                content: msg,
-                padding: 20,
-                okValue: "确认",
-                ok: true,
-                onclose: function () {
-                    call(callback);
-                },
-                modal: true
-            };
-            Dialog(opt);
-        },
-        Confirm = window.Confirm = function (msg, ok, cancel) {
-            var opt = {
-                title: "操作提示",
-                content: msg,
-                padding: 20,
-                okValue: "确认",
-                ok: function () {
-                    call(ok);
-                },
-                cancelValue: "取消",
-                cancel: function () {
-                    call(cancel);
-                },
-                modal: true
-            };
-            Dialog(opt);
-        };
 } else {
     window.Dialog = top.window.Dialog;
     window.Alert = top.window.Alert;
