@@ -1,0 +1,177 @@
+﻿@section Header{
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+}
+@model Tjzx.Official.BLL.Config.IndexConfig
+@{
+    ViewBag.Title = "首页配置";
+}
+<div class="m-panel">
+    <div class="m-panel-title">
+        <ul>
+            <li class="active">导航菜单</li>
+            <li>跑马灯</li>
+            <li>套餐分类</li>
+            <li>友情链接</li>
+        </ul>
+    </div>
+    <div class="m-panel-item">
+        <table class="m-table" data-type="navigation">
+            <caption>菜单列表<small>共找到<em>@Model.Navigations.Count</em>条记录</small></caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col class="col-10" />
+                <col class="col-12"/>
+                <col class="col-08" />
+                <col class="col-08"/>
+                <col class="col-08"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>菜单ID</th>
+                    <th>菜单名称</th>
+                    <th>链接地址</th>
+                    <th>图标编码</th>
+                    <th>排序</th>
+                    <th>父级菜单</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var nav in Model.Navigations.OrderBy(t=>t.ParentId).ThenBy(t=>t.Sort))
+                {
+                    <tr data-id="@nav.Id">
+                        <td>@nav.Id</td>
+                        <td data-name="Name">@nav.Name</td>
+                        <td data-name="Link">@nav.Link</td>
+                        <td data-name="Icon"><i class="icon">@Html.Raw(nav.Icon)</i></td>
+                        <td data-name="Sort">@nav.Sort</td>
+                        <td data-name="ParentId">@nav.ParentId</td>
+                        <td>
+                            <a href="#" class="j-edit">编辑</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="m-panel-item hide">
+        <table class="m-table" data-type="slider">
+            <caption>跑马灯列表<small>共找到<em>@Model.Sliders.Count</em>条记录</small></caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col class="col-12" />
+                <col class="col-08"/>
+                <col class="col-12" />
+                <col class="col-06"/>
+                <col class="col-08"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>跑马灯ID</th>
+                    <th>图片</th>
+                    <th>链接地址</th>
+                    <th>标题</th>
+                    <th>排序</th>
+                    <th>背景颜色</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="j-htemplate">
+                @foreach (var slider in Model.Sliders.OrderBy(t => t.Sort))
+                {
+                    <tr data-id="@slider.Id">
+                        <td>@slider.Id</td>
+                        <td data-name="ImageUrl"><img src="@slider.ImageUrl" alt="@slider.Title" style="width: 320px;" /></td>
+                        <td data-name="Link">@slider.Link</td>
+                        <td data-name="Title">@slider.Title</td>
+                        <td data-name="Sort">@slider.Sort</td>
+                        <td data-name="BackgroundColor">@slider.BackgroundColor</td>
+                        <td>
+                            <a href="#" class="j-edit">编辑</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="m-panel-item hide">
+        <table class="m-table" data-type="category">
+            <caption>套餐分类列表<small>共找到<em>@Model.Categories.Count</em>条记录</small></caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col class="col-12" />
+                <col class="col-16"/>
+                <col class="col-08" />
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>套餐分类ID</th>
+                    <th>套餐分类</th>
+                    <th>分类图片</th>
+                    <th>排序</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody class="j-htemplate">
+                @foreach (var cate in Model.Categories.OrderBy(t => t.Sort))
+                {
+                    <tr data-id="@cate.CategoryId">
+                        <td>@cate.CategoryId</td>
+                        <td data-name="CategoryName">@cate.CategoryName</td>
+                        <td data-name="ImageUrl"><img src="@cate.ImageUrl" alt="@cate.CategoryName" style="width:280px"/></td>
+                        <td data-name="Sort">@cate.Sort</td>
+                        <td>
+                            <a href="#" class="j-edit">编辑</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="m-panel-item hide">
+        <table class="m-table" data-type="friendsLink">
+            <caption>友情链接列表<small>共找到<em>@Model.FriendsLink.Count</em>条记录</small></caption>
+            <colgroup>
+                <col class="col-06"/>
+                <col class="col-12" />
+                <col class="col-12"/>
+                <col class="col-12" />
+                <col class="col-08"/>
+                <col class="col-12"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>友链ID</th>
+                    <th>链接名称</th>
+                    <th>链接地址</th>
+                    <th>链接Logo</th>
+                    <th>排序</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var link in Model.FriendsLink.OrderBy(t => t.Sort))
+                {
+                    <tr data-id="@link.Id">
+                        <td>@link.Id</td>
+                        <td data-name="Title">@link.Title</td>
+                        <td data-name="Link">@link.Link</td>
+                        <td data-name="Logo">@link.Logo</td>
+                        <td data-name="Sort">@link.Sort</td>
+                        <td>
+                            <a href="#" class="j-edit">编辑</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Footer{
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-homeConfig.min.js"></script>
+}
