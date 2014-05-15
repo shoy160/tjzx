@@ -24,84 +24,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="base-v1.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/base-v1.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="43" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1298">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Jq-form.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/plugs/Jq-form.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="19" selection-start="475" selection-end="475" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="5258">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/dialog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="8" selection-start="264" selection-end="264" vertical-scroll-proportion="0.31382978" vertical-offset="87" max-vertical-offset="682">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/src/dialog.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="12" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10318">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="m-base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="10" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="1254" max-vertical-offset="2750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog-common.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/plugs/artDialog/v6/src/dialog-common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="9" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2838">
-              <folding>
-                <marker date="1399944258320" expanded="false" signature="2492:2524" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="9" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="3586">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page-homeConfig.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-homeConfig.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1650">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -111,7 +34,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/source/css/tjzx/base-v1.less" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-reservation.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/page-common.js" />
         <option value="$PROJECT_DIR$/source/js/tjzx/m/page-consulting.js" />
@@ -127,6 +49,7 @@
         <option value="$PROJECT_DIR$/source/js/tjzx/m/m-base.js" />
         <option value="$PROJECT_DIR$/source/plugs/artDialog/v6/src/dialog-common.js" />
         <option value="$PROJECT_DIR$/source/js/plugs/Jq-form.js" />
+        <option value="$PROJECT_DIR$/test/catalog.html" />
       </list>
     </option>
   </component>
@@ -194,20 +117,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tjzx.Ued" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -220,8 +129,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../singer" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -240,14 +149,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -256,6 +157,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -305,7 +214,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23133236" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23133236" sideWeight="0.670418" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -332,66 +241,39 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/css/ui-dialog-source.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9922">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/css/ui-dialog.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="154" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/grunt/node_modules/underscore.string/test/test_underscore/vendor/qunit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2646048" vertical-offset="0" max-vertical-offset="51854">
-          <folding />
-        </state>
+        <state line="15" column="4" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2646048" vertical-offset="0" max-vertical-offset="51854" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/plugs/artDialog/v6/src/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14894">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="12" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="14894" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/plugs/artDialog/v6/src/dialog-plus.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="300" selection-end="326" vertical-scroll-proportion="0.4067227" vertical-offset="0" max-vertical-offset="3168">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
+        <state line="11" column="4" selection-start="300" selection-end="326" vertical-scroll-proportion="0.4067227" vertical-offset="0" max-vertical-offset="3168" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/plugs/artDialog/v6/src/dialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="1" selection-start="691" selection-end="691" vertical-scroll-proportion="0.37815127" vertical-offset="171" max-vertical-offset="10318">
-          <folding />
-        </state>
+        <state line="26" column="1" selection-start="691" selection-end="691" vertical-scroll-proportion="0.37815127" vertical-offset="171" max-vertical-offset="10318" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/src/dialog-common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="26" selection-start="345" selection-end="345" vertical-scroll-proportion="0.33277312" vertical-offset="0" max-vertical-offset="2816">
-          <folding>
-            <marker date="1399943067030" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="9" column="26" selection-start="345" selection-end="345" vertical-scroll-proportion="0.33277312" vertical-offset="0" max-vertical-offset="2816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="604" selection-end="604" vertical-scroll-proportion="0.4067227" vertical-offset="132" max-vertical-offset="1672">
-          <folding />
-        </state>
+        <state line="17" column="21" selection-start="604" selection-end="604" vertical-scroll-proportion="0.4067227" vertical-offset="132" max-vertical-offset="1672" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugs/artDialog/v6/src/dialog.js">
@@ -410,16 +292,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/page-main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="9" selection-start="283" selection-end="283" vertical-scroll-proportion="0.0" vertical-offset="66" max-vertical-offset="3586">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="15" column="9" selection-start="283" selection-end="283" vertical-scroll-proportion="0.44369748" vertical-offset="66" max-vertical-offset="3586">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/js/tjzx/m/m-base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="10" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="1254" max-vertical-offset="2750">
+        <state line="74" column="10" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.62857145" vertical-offset="1254" max-vertical-offset="2750">
           <folding />
         </state>
       </provider>
@@ -428,7 +308,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="9" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2838">
           <folding>
-            <marker date="1399944258320" expanded="false" signature="2492:2524" placeholder="..." />
+            <marker date="1399944258320" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -449,7 +329,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/dialog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="8" selection-start="264" selection-end="264" vertical-scroll-proportion="0.31382978" vertical-offset="87" max-vertical-offset="682">
+        <state line="12" column="8" selection-start="264" selection-end="264" vertical-scroll-proportion="-5.709677" vertical-offset="87" max-vertical-offset="682">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/catalog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="190" column="79" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.10283688" vertical-offset="4122" max-vertical-offset="4862">
           <folding />
         </state>
       </provider>
