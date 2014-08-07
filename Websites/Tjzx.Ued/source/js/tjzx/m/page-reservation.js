@@ -47,7 +47,8 @@
                 $(".m-table caption em").html(json.data.count);
             }
             $t.hasClass("btn") && T.setBtn($t, true);
-        }, function () {
+        }, function (data) {
+            Alert(data.statusText || "获取数据异常!");
             h.bind();
         });
     };

@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetSpeech">
+      <HintPath>..\..\lib\DotNetSpeech.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -59,9 +63,11 @@
     <Compile Include="Business\CategoryBusi.cs" />
     <Compile Include="Business\DiseasesBusi.cs" />
     <Compile Include="Business\DiseasesDepartmentBusi.cs" />
+    <Compile Include="Business\IndexConfigBusi.cs" />
     <Compile Include="Business\MemberBusi.cs" />
     <Compile Include="Business\SystemLogBusi.cs" />
     <Compile Include="EmailHelper.cs" />
+    <Compile Include="SpeekHelper.cs" />
     <Compile Include="ViewModels\AlbumGroupInfo.cs" />
     <Compile Include="ViewModels\DiseasesInfo.cs" />
     <Compile Include="ViewModels\DiseasesDepartmentInfo.cs" />

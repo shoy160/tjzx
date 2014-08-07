@@ -8,65 +8,19 @@ var tjzx = window.TJZX = window.TJZX || {};
  *  重载Dialog
  */
 if (!top.window || !top.window.Dialog) {
-    seajs.config({
-        alias: {
-            "jquery": "jquery-1.10.2.js",
-            "dialog": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog",
-            "plus": "http://ued.tjzx.com/plugs/artDialog/v6/src/dialog-plus"
-        }
+    var Dialog, Alert, Confirm;
+    seajs.use(["plus"], function (D) {
+        Dialog = window.Dialog = D.commonInit;
+        Alert = window.Alert = D.alert;
+        Confirm = window.Confirm = D.confirm;
     });
-    var Dialog = window.Dialog = function (opt) {
-            seajs.use(["plus"], function (D) {
-                var d = D(opt);
-                if (opt.modal) {
-                    d.showModal();
-                } else if (opt.element) {
-                    d.show(opt.element);
-                } else {
-                    d.show();
-                }
-            });
-        },
-        call = function (callback) {
-            callback && "function" === typeof callback && callback.call(this);
-        },
-        Alert = window.Alert = function (msg, callback) {
-            var opt = {
-                title: "操作提示",
-                content: msg,
-                padding: 20,
-                okValue: "确认",
-                ok: true,
-                onclose: function () {
-                    call(callback);
-                },
-                modal: true
-            };
-            Dialog(opt);
-        },
-        Confirm = window.Confirm = function (msg, ok, cancel) {
-            var opt = {
-                title: "操作提示",
-                content: msg,
-                padding: 20,
-                okValue: "确认",
-                ok: function () {
-                    call(ok);
-                },
-                cancelValue: "取消",
-                cancel: function () {
-                    call(cancel);
-                },
-                modal: true
-            };
-            Dialog(opt);
-        };
-}else{
+} else {
     window.Dialog = top.window.Dialog;
     window.Alert = top.window.Alert;
     window.Confirm = top.window.Confirm;
 }
 (function ($, S, T) {
+    var logger = S.getLogger("m-base");
     $(".btn").removeAttr("disabled");
     S.mix(T, {
         msg: function (msg, url) {
@@ -127,9 +81,9 @@ if (!top.window || !top.window.Dialog) {
                 dataType: 'json',
                 data: data,
                 success: function (data) {
-                    if (data && data.state  == -1) {
+                    if (data && data.state == -1) {
                         Alert(data.msg || "操作异常！", function () {
-                            top.window.location.href = "/m/login?return_url="+ encodeURIComponent(top.window.location.href);
+                            top.window.location.href = "/m/login?return_url=" + encodeURIComponent(top.window.location.href);
                             T.setFrameHeight();
                         });
                         return false;
@@ -137,8 +91,10 @@ if (!top.window || !top.window.Dialog) {
                     callback && S.isFunction(callback) && callback(data);
                 },
                 error: function (data) {
-                    //T.msg('获取数据异常！');
-                    errorCallback && S.isFunction(errorCallback) && errorCallback(data);
+                    if (!errorCallback)
+                        Alert(data.statusText || '获取数据异常！');
+                    else
+                        S.isFunction(errorCallback) && errorCallback(data);
                 }
             });
         },

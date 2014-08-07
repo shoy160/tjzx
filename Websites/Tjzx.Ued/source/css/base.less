@@ -89,11 +89,11 @@
 //颜色渐变
 .gradient (@origin: left, @start: #ffffff, @stop: #000000) {
   background-color: @start;
-  background-image: -webkit-linear-gradient(@arguments);
-  background-image: -moz-linear-gradient(@arguments);
-  background-image: -o-linear-gradient(@arguments);
-  background-image: -ms-linear-gradient(@arguments);
-  background-image: linear-gradient(@arguments);
+  background-image: -webkit-linear-gradient(@origin,@start,@stop);
+  background-image: -moz-linear-gradient(@origin,@start,@stop);
+  background-image: -o-linear-gradient(@origin,@start,@stop);
+  background-image: -ms-linear-gradient(@origin,@start,@stop);
+  background-image: linear-gradient(@origin,@start,@stop);
 }
 
 //快速渐变

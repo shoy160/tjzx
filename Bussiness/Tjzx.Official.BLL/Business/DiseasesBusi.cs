@@ -162,5 +162,24 @@ namespace Tjzx.Official.BLL.Business
                     CreateOn = Const.FormatDate(info.CreateOn)
                 });
         }
+
+        public ResultInfo GetDepartmentList(int state)
+        {
+            using (var db = new EFDbContext())
+            {
+                var list = (from dp in db.DiseasesDepartments
+                            where (state == Const.Ignore || dp.State == state)
+                            select new
+                                {
+                                    dp.DiseasesDepartmentId,
+                                    dp.DiseasesDepartmentName
+                                }).Select(t => new
+                                    {
+                                        id = t.DiseasesDepartmentId,
+                                        name = t.DiseasesDepartmentName
+                                    }).ToList();
+                return new ResultInfo(1, "", new {count = list.Count, list});
+            }
+        }
     }
 }

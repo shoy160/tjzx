@@ -18,13 +18,30 @@ namespace Tjzx.Official.Models.Test
                 {
                     Navigations = new List<Navigation>
                         {
-                            new Navigation{Id = 2,Name = "健康快车",Sort = 4,Link = "/news",Class = "",Target = ""},
-                            new Navigation{Id = 3,Name = "体检套餐",Sort = 2,Link = "/packages",Class = "hot",Target = ""},
-                            new Navigation{Id = 4,Name = "体检服务",Sort = 3,Link = "/reservation",Class = "hot",Target = ""},
+                            new Navigation{Id = 2,Name = "健康快车",Sort = 4,Link = "/news",Class = "",Target = "",Icon = "&#xf018;"},
+                            new Navigation{Id = 3,Name = "体检套餐",Sort = 2,Link = "/packages",Class = "hot",Target = "",Icon = "&#xf0fa;"},
+                            new Navigation{Id = 4,Name = "体检服务",Sort = 3,Link = "/reservation",Class = "hot",Target = "",Icon = "&#xf0ac;"},
                             //new Navigation{Id = 5,Name = "健康管理",Sort = 5,Link = "/h",Class = "hot",Target = ""},
-                            new Navigation{Id = 6,Name = "中心概况",Sort = 1,Link = "/overview",Class = "",Target = ""},
-                            new Navigation{Id = 7,Name = "咨询交流",Sort = 5,Link = "/exchanges",Class = "",Target = ""},
-                            new Navigation{Id = 8,Name = "联系我们",Sort = 6,Link = "/contact",Class = "",Target = ""}
+                            new Navigation{Id = 6,Name = "中心概况",Sort = 1,Link = "/overview",Class = "",Target = "",Icon = "&#xf030;"},
+                            new Navigation{Id = 7,Name = "咨询交流",Sort = 5,Link = "/exchanges",Class = "",Target = "",Icon = "&#xf0f4;"},
+                            new Navigation{Id = 8,Name = "联系我们",Sort = 6,Link = "/contact",Class = "",Target = "",Icon = "&#xf095;"},
+                            new Navigation{Id = 101,Name = "中心介绍", ParentId = 6,Sort = 1,Link = ""},
+                            new Navigation{Id = 102,Name = "中心文化", ParentId = 6,Sort = 2,Link = ""},
+                            new Navigation{Id = 103,Name = "中心环境", ParentId = 6,Sort = 3,Link = ""},
+                            new Navigation{Id = 104,Name = "分布图", ParentId = 6,Sort = 4,Link = ""},
+                            new Navigation{Id = 105,Name = "团队介绍", ParentId = 6,Sort = 5,Link = ""},
+                            new Navigation{Id = 106,Name = "中心动态", ParentId = 6,Sort = 6,Link = ""},
+                            new Navigation{Id = 107,Name = "中心公告", ParentId = 6,Sort = 7,Link = ""},
+                            new Navigation{Id = 201,Name = "体检预约", ParentId = 4,Sort = 1,Link = ""},
+                            new Navigation{Id = 202,Name = "体检流程", ParentId = 4,Sort = 2,Link = ""},
+                            new Navigation{Id = 203,Name = "体检须知", ParentId = 4,Sort = 3,Link = ""},
+                            new Navigation{Id = 204,Name = "报告领取查询", ParentId = 4,Sort = 4,Link = ""},
+                            new Navigation{Id = 301,Name = "健康资讯", ParentId = 2,Sort = 1,Link = ""},
+                            new Navigation{Id = 302,Name = "健康知识", ParentId = 2,Sort = 2,Link = ""},
+                            new Navigation{Id = 303,Name = "疾病查询", ParentId = 2,Sort = 3,Link = ""},
+                            new Navigation{Id = 304,Name = "健康自测", ParentId = 2,Sort = 4,Link = ""},
+                            new Navigation{Id = 401,Name = "我要咨询", ParentId = 7,Sort = 1,Link = ""},
+                            new Navigation{Id = 402,Name = "咨询列表", ParentId = 7,Sort = 2,Link = ""}
                         },
                     Sliders = new List<Slider>
                         {
@@ -57,22 +74,23 @@ namespace Tjzx.Official.Models.Test
                 {
                     Menus = new List<MenuItem>
                         {
-                            new MenuItem{MenuId = 1,Name = "内容管理",Class = "&#xf009;",Depth = 0,Sort = 1},
-                            new MenuItem{MenuId = 2,Name = "健康管理",Class = "&#xf0fd;",Depth = 0,Sort = 2},
-                            new MenuItem{MenuId = 3,Name = "系统管理",Class = "&#xf013;",Depth = 0,Sort = 3},
-                            new MenuItem{MenuId = 101, ParentId = 1,Name = "健康资讯",Link = "/m/news/index",Class = "&#xf03d;",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
-                            new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category/index",Class = "&#xf0fe;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
-                            new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/package/index",Class = "&#xf0fa;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
-                            new MenuItem{MenuId = 104, ParentId = 1,Name = "流程及事项",Link = "/m/process/index",Class = "&#xf0e8;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
-                            new MenuItem{MenuId = 105, ParentId = 1,Name = "预约列表",Link = "/m/reservation/index",Class = "&#xf02d;",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
-                            new MenuItem{MenuId = 106, ParentId = 1,Name = "咨询交流",Link = "/m/consulting/index",Class = "&#xf0f4;",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
-                            new MenuItem{MenuId = 107, ParentId = 1,Name = "中心环境",Link = "/m/album/index",Class = "&#xf03e;",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
-                            new MenuItem{MenuId = 108, ParentId = 1,Name = "疾病百科",Link = "/m/diseases/index",Class = "&#xf0b1;",Depth = 1,Role = ManagerRole.Diseases.GetValue(),Sort = 8},
-                            new MenuItem{MenuId = 201, ParentId = 2,Name = "会员管理",Link = "/m/member/index",Class = "&#xf007;",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
-                            //new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
-                            //new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess/index",Class = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 3},
-                            new MenuItem{MenuId = 301, ParentId = 3,Name = "用户管理",Link = "/m/user/index",Class = "&#xf0f0;",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1},
-                            new MenuItem{MenuId = 302, ParentId = 3,Name = "报告管理",Link = "/m/report/index",Class = "&#xf080;",Depth = 1,Role = ManagerRole.Report.GetValue(),Sort = 2}
+                            new MenuItem{MenuId = 1,Name = "内容管理",Icon = "&#xf009;",Depth = 0,Sort = 1},
+                            new MenuItem{MenuId = 2,Name = "健康管理",Icon = "&#xf0fd;",Depth = 0,Sort = 2},
+                            new MenuItem{MenuId = 3,Name = "系统管理",Icon = "&#xf013;",Depth = 0,Sort = 3},
+                            new MenuItem{MenuId = 101, ParentId = 1,Name = "健康资讯",Link = "/m/news/index",Icon = "&#xf03d;",Depth = 1,Role = ManagerRole.News.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 102, ParentId = 1,Name = "套餐分类",Link = "/m/category/index",Icon = "&#xf0fe;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 2},
+                            new MenuItem{MenuId = 103, ParentId = 1,Name = "体检套餐",Link = "/m/package/index",Icon = "&#xf0fa;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 3},
+                            new MenuItem{MenuId = 104, ParentId = 1,Name = "流程及事项",Link = "/m/process/index",Icon = "&#xf0e8;",Depth = 1,Role = ManagerRole.Package.GetValue(),Sort = 4},
+                            new MenuItem{MenuId = 105, ParentId = 1,Name = "预约列表",Link = "/m/reservation/index",Icon = "&#xf02d;",Depth = 1,Role = ManagerRole.Reservation.GetValue(),Sort = 5},
+                            new MenuItem{MenuId = 106, ParentId = 1,Name = "咨询交流",Link = "/m/consulting/index",Icon = "&#xf0f4;",Depth = 1,Role = ManagerRole.Consulting.GetValue(),Sort = 6},
+                            new MenuItem{MenuId = 107, ParentId = 1,Name = "中心环境",Link = "/m/album/index",Icon = "&#xf03e;",Depth = 1,Role = ManagerRole.Overview.GetValue(),Sort = 7},
+                            new MenuItem{MenuId = 108, ParentId = 1,Name = "疾病百科",Link = "/m/diseases/index",Icon = "&#xf0b1;",Depth = 1,Role = ManagerRole.Diseases.GetValue(),Sort = 8},
+                            new MenuItem{MenuId = 201, ParentId = 2,Name = "会员管理",Link = "/m/member/index",Icon = "&#xf007;",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 1},
+                            //new MenuItem{MenuId = 201, ParentId = 2,Name = "健康管理",Link = "/m/health/index",Icon = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 2},
+                            //new MenuItem{MenuId = 202, ParentId = 2,Name = "健康评估",Link = "/m/assess/index",Icon = "icon-03",Depth = 1,Role = ManagerRole.Health.GetValue(),Sort = 3},
+                            new MenuItem{MenuId = 301, ParentId = 3,Name = "用户管理",Link = "/m/user/index",Icon = "&#xf0f0;",Depth = 1,Role = ManagerRole.Users.GetValue(),Sort = 1},
+                            new MenuItem{MenuId = 302, ParentId = 3,Name = "报告管理",Link = "/m/report/index",Icon = "&#xf080;",Depth = 1,Role = ManagerRole.Report.GetValue(),Sort = 2},
+                            new MenuItem{MenuId = 303, ParentId = 3,Name = "首页配置",Link = "/m/homeconfig/index",Icon = "&#xf0ad;",Depth = 1,Role = ManagerRole.HomeConfig.GetValue(),Sort = 3}
                         }
                 };
             ConfigUtils<MenuConfig>.Instance().Set(menu);

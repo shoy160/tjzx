@@ -51,8 +51,14 @@ namespace Tjzx.Official.BLL.Config
         [XmlAttribute("name")]
         public string Name { get; set; }
 
+        [XmlAttribute("pid")]
+        public int ParentId { get; set; }
+
         [XmlAttribute("class")]
         public string Class { get; set; }
+
+        [XmlAttribute("icon")]
+        public string Icon { get; set; }
 
         [XmlAttribute("sort")]
         public int Sort { get; set; }
@@ -102,6 +108,9 @@ namespace Tjzx.Official.BLL.Config
 
         [XmlAttribute("sort")]
         public int Sort { get; set; }
+
+        [XmlAttribute("logo")]
+        public string Logo { get; set; }
     }
 
     /// <summary>

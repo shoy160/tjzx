@@ -49,19 +49,55 @@
             var feedback = T.feedback;
             var fixBox = $('<div class="t-feedback" />');
             $("body").append(fixBox);
-            var fixRight = ($(document).width() - $(".t-box").width()) / 2 - 45;
+            var mode = T.wideMode(),
+                boxWidth=$(".t-box").width();
+            if(mode){
+                boxWidth = mode.width;
+            }
+            var fixRight = ($(document).width() - boxWidth) / 2 - 45;
             fixBox.css("right", fixRight + "px");
+            //在线咨询
+            fixBox.append('<div class="fb-item" title="在线咨询">' +
+                '<div class="fb-box">' +
+                '<s class="icon icon-bigger">&#xf075;</s>' +
+                '<s class="icon icon-bigger icon-hover">&#xf075;</s>' +
+                '</div>' +
+                '</div> ');
+            //在线预约
+            fixBox.append('<div class="fb-item" title="在线预约">' +
+                '<div class="fb-box">' +
+                '<s class="icon icon-bigger">&#xf0fa;</s>' +
+                '<s class="icon icon-bigger icon-hover">&#xf0fa;</s>' +
+                '</div>' +
+                '</div> ');
+            //体检流程
+            fixBox.append('<div class="fb-item" title="体检流程">' +
+                '<div class="fb-box">' +
+                '<s class="icon icon-bigger">&#xf0e8;</s>' +
+                '<s class="icon icon-bigger icon-hover">&#xf0e8;</s>' +
+                '</div>' +
+                '</div> ');
+            //返回顶部
             if (feedback.goTop) {
-                fixBox.append('<div class="t-goTop fb-item" title="返回顶部"><s class="icon icon-bigger">&#xf077;</s></div>');
-                var goTop = fixBox.find(".t-goTop");
+                fixBox.append('<div class="fb-item" title="返回顶部">' +
+                    '<div class="fb-box b-goTop"> ' +
+                    '<s class="icon icon-bigger">&#xf077;</s>' +
+                    '<s class="icon icon-bigger icon-hover">&#xf077;</s>' +
+                    '</div>' +
+                    '</div>');
+                var goTop = fixBox.find(".b-goTop");
                 goTop
                     .bind("click.goTop", function () {
                         T.goTop();
-                    })
-                    .bind("hover", function () {
-                        $(this).toggleClass("t-goTop-hover");
                     });
             }
+            fixBox.find(".fb-box")
+                .bind("mouseenter", function () {
+                    $(this).animate({marginLeft:-38},300);
+                })
+                .bind("mouseleave",function(){
+                    $(this).animate({marginLeft:0},300);
+                });
             $(window).bind("scroll.feedback", function () {
                 var top = $(this).scrollTop();
                 if (top > 150) {

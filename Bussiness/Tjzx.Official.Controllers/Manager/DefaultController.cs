@@ -68,7 +68,7 @@ namespace Tjzx.Official.Controllers.Manager
                 {
                     Data =
                         list.Select(
-                            t => new {id = t.MenuId, name = t.Name, cls = t.Class, link = t.Link})
+                            t => new {id = t.MenuId, name = t.Name, icon = t.Icon, link = t.Link})
                 };
         }
 

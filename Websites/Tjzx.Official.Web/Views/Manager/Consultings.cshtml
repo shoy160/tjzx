@@ -41,7 +41,7 @@
                     <select name="state" class="col-08">
                         <option value="@Const.Ignore">所有状态</option>
                         @{
-                            foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
+                            foreach (StateType type in new[] { StateType.Display, StateType.Hidden, StateType.Delete})
                             {
                                 <option value="@type.GetValue()">@type.GetText()</option>
                             }
@@ -100,6 +100,24 @@
                 <label class="m-form-label">咨询内容</label>
                 <div class="m-form-controls">
                     <div class="b-content"></div>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">联系人</label>
+                <div class="m-form-controls">
+                    <div class="b-contact"></div>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">联系电话</label>
+                <div class="m-form-controls">
+                    <div class="b-mobile"></div>
+                </div>
+            </div>
+            <div class="m-form-group">
+                <label class="m-form-label">提交时间</label>
+                <div class="m-form-controls">
+                    <div class="b-createOn"></div>
                 </div>
             </div>
             <div class="m-form-group">

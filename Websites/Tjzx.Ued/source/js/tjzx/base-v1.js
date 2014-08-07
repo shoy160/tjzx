@@ -15,6 +15,10 @@ var tjzx = window.TJZX = window.TJZX || {};
             if (S.bodyClass)
                 cls = S.bodyClass + ' ' + cls;
             document.getElementsByTagName("body")[0].className = cls;
+            return {
+                mode: m,
+                width: (1 === m ? 1220 : (2 === m ? 1000 : 768))
+            }
         },
         /**
          * 加入收藏

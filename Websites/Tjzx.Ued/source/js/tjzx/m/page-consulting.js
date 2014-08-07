@@ -29,6 +29,11 @@
             } else if (json.state == 1) {
                 json.links += singer.format('<a href="#" class="j-state" data-state="0">{0}</a>', T.stateArray["0"]);
             }
+            if(2 === json.state){
+                json.links+=singer.format('<a href="#" class="j-restore" data-state="0">还原</a> ');
+            }else{
+                json.links+=singer.format('<a href="#" class="j-delete" data-state="2">删除</a> ');
+            }
             return json;
         },
         complete: function () {
@@ -65,6 +70,9 @@
             $(".m-panel-title ul").append("<li class=\"m-panel-add active\">处理咨询</li>");
             $(".b-title").html(json.data.title);
             $(".b-content").html(json.data.content);
+            $(".b-contact").html(json.data.contact);
+            $(".b-mobile").html(json.data.mobile);
+            $(".b-createOn").html(json.data.createOn);
             vForm.bind(json.data);
             $(".m-panel-item").hide().eq(1).fadeIn();
             T.setFrameHeight();
@@ -135,6 +143,37 @@
                     T.setStateBtn.call($t, json, nState);
                 } else {
                     T.setStateBtn.call($t, json, state);
+                }
+            });
+            return false;
+        })
+        .delegate(".j-delete", "click", function () {
+            var id = $(this).parents("tr").data("id");
+            Confirm("确认删除该咨询？",function(){
+                T.getJson("/m/consulting/delete", {
+                    id: id
+                }, function (json) {
+                    if (json.state) {
+                        T.msg(json.msg || "删除成功！");
+                        getList.call(this,0);
+                    } else {
+                        T.msg(json.msg || "删除失败，请稍候重试！");
+                    }
+                });
+            });
+            return false;
+        })
+        .delegate(".j-restore", "click", function () {
+            var id = $(this).parents("tr").data("id");
+            if (!confirm("确认还原该咨询？")) return false;
+            T.getJson("/m/consulting/restore", {
+                id: id
+            }, function (json) {
+                if (json.state) {
+                    T.msg(json.msg || "还原成功！");
+                    getList.call(this,0);
+                } else {
+                    T.msg(json.msg || "还原失败，请稍候重试！");
                 }
             });
             return false;

@@ -84,6 +84,28 @@ body {
   padding-left: 22px;
   .inline-block;
 }
+.text() {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  height: 20px;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555;
+  vertical-align: middle;
+  .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
+  .transition(border linear .2s, box-shadow linear .2s);
+  .rounded-corners(4px);
+  &:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    .box-shadow(0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6));
+    outline: 0 none;
+  }
+  &.control-error {
+    background-color: #FFE7E7;
+  }
+}
 
 .col-04 {
   width: 4em;
@@ -212,6 +234,11 @@ body {
       text-decoration: none;
       padding-right: 8px;
     }
+    .text{
+      .text();
+      width: 90%;
+      margin:5px 0;
+    }
   }
   tr {
     &:hover {
@@ -220,6 +247,10 @@ body {
     &:nth-child(2n) > td {
       background-color: @background-hover-color;
     }
+  }
+  img{
+    margin: 5px 0;
+    vertical-align: middle;
   }
 }
 
@@ -266,26 +297,7 @@ body {
     input[type="password"],
     textarea,
     .text {
-      background-color: #fff;
-      border: 1px solid #ccc;
-      height: 20px;
-      padding: 4px 6px;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 20px;
-      color: #555;
-      vertical-align: middle;
-      .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075));
-      .transition(border linear .2s, box-shadow linear .2s);
-      .rounded-corners(4px);
-      &:focus {
-        border-color: rgba(82, 168, 236, 0.8);
-        .box-shadow(0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6));
-        outline: 0 none;
-      }
-      &.control-error {
-        background-color: #FFE7E7;
-      }
+      .text();
     }
     textarea {
       height: 40px;

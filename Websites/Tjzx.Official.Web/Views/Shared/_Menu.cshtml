@@ -2,6 +2,11 @@
 @using Tjzx.Official.BLL.Config
 @{
     var config = ConfigUtils<IndexConfig>.Instance().Get();
+    var topNav = new List<Navigation>();
+    if (config != null && config.Navigations != null)
+    {
+        topNav = config.Navigations.Where(t => t.ParentId == 0).OrderBy(t => t.Sort).ToList();
+    }
 }
 <header>
     <div class="t-top-nav">
@@ -24,7 +29,25 @@
                     </div>
                     <div class="t-menu-bd">
                         <div class="t-menu-panel">
-                            
+                            @if (config != null && config.Navigations != null && topNav.Any())
+                            {
+                                foreach (var top in topNav)
+                                {
+                                    <div class="t-menu-item">
+                                        <h3><span class="icon">@Html.Raw(top.Icon)</span>@top.Name</h3>
+                                        <div>
+                                            <dl>
+                                                @foreach (var nav in config.Navigations.Where(t => t.ParentId == top.Id).OrderBy(t => t.Sort))
+                                                {
+                                                    <dd>
+                                                        <a href="@nav.Link">@nav.Name</a>
+                                                    </dd>
+                                                }
+                                            </dl>
+                                        </div>
+                                    </div>
+                                }
+                            }
                         </div>
                     </div>
                 </li>
@@ -52,14 +75,14 @@
             <li class="active">
                 <a href="/">首页</a>
             </li>
-            @if (config != null && config.Navigations != null)
+            @if (topNav.Any())
             {
-                foreach (var nav in config.Navigations.OrderBy(t=>t.Sort))
+                foreach (var nav in topNav)
                 {
                     string attr = string.Empty, css = string.Empty;
                     if (!string.IsNullOrEmpty(nav.Class))
                     {
-                        css= nav.Class;
+                        css = nav.Class;
                     }
                     if (!string.IsNullOrEmpty(nav.Target))
                     {

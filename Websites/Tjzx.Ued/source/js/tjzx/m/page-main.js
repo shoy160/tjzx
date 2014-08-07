@@ -6,51 +6,12 @@
  * 弹出层 重写
  * @type {Function}
  */
-var Dialog = window.Dialog = function (opt) {
-        var d = window.artDialog(opt);
-        if (opt.modal) {
-            d.showModal();
-        } else if (opt.element) {
-            d.show(opt.element);
-        } else {
-            d.show();
-        }
-        return d;
-    },
-    call = function (callback) {
-        callback && "function" === typeof callback && callback.call(this);
-    },
-    Alert = window.Alert = function (msg, callback) {
-        var opt = {
-            title: "操作提示",
-            content: msg,
-            padding: 20,
-            okValue: "确认",
-            ok: true,
-            onclose: function () {
-                call(callback);
-            },
-            modal: true
-        };
-        Dialog(opt);
-    },
-    Confirm = window.Confirm = function (msg, ok, cancel) {
-        var opt = {
-            title: "操作提示",
-            content: msg,
-            padding: 20,
-            okValue: "确认",
-            ok: function () {
-                call(ok);
-            },
-            cancelValue: "取消",
-            cancel: function () {
-                call(cancel);
-            },
-            modal: true
-        };
-        Dialog(opt);
-    };
+var Dialog, Alert, Confirm;
+seajs.use(["plus"], function (D) {
+    Dialog = window.Dialog = D.commonInit;
+    Alert = window.Alert = D.alert;
+    Confirm = window.Confirm = D.confirm;
+});
 /**
  * 全局异常处理
  * @type {Function}
@@ -114,10 +75,10 @@ var loadDialog;
         $crumbs.find("dd").remove();
         $crumbs.append(
             S.format('<dd><a href="#" data-id="{id}">{text}</a></dd>',
-                {id: $top.parent().data("id"), text: $top.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi,"")}
+                {id: $top.parent().data("id"), text: $top.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi, "")}
             )
         );
-        $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi,"")}));
+        $crumbs.append(S.format('<dd class="active">{text}</dd>', {text: $menu.html().replace(/<[^>]+>[^<]*<\/[^>]+>/gi, "")}));
     };
 
     /**
@@ -186,7 +147,8 @@ var frameLoad = function (url) {
     if (!url)
         window.frames['framePage'].location.reload();
     $("#framePage").attr("src", url);
-    loadDialog = Dialog({modal: true});
+    if(Dialog)
+        loadDialog = Dialog({modal: true});
 };
 $("#framePage").load(function () {
     setFrameHeight();

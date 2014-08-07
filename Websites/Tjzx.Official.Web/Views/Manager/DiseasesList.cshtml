@@ -1,5 +1,5 @@
 ﻿@section Header{
-    <link href="//ued.shoy.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
+    <link href="//ued.tjzx.com/css/h-pager.min.css?t=20140408" rel="stylesheet" type="text/css" />
 }
 @using Shoy.Utility.Extend
 @using Tjzx.Official.BLL
@@ -23,6 +23,14 @@
                 </div>
             </div>
             <div class="m-form-group m-form-inline">
+                <label class="m-form-label">疾病分科：</label>
+                <div class="m-form-controls">
+                    <select name="CategoryId" class="col-08">
+                        <option value="@Const.Ignore">所有分科</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-form-group m-form-inline">
                 <label class="m-form-label">状态状态：</label>
                 <div class="m-form-controls">
                     <select name="state" class="col-08">
@@ -30,7 +38,7 @@
                         @{
                             foreach (StateType type in new[] {StateType.Display, StateType.Hidden})
                             {
-                                <option value="@type.GetValue()">@type.UserStateText()</option>
+                                <option value="@type.GetValue()">@type.GetText()</option>
                             }
                         }
                     </select>
@@ -83,6 +91,7 @@
                 <label class="m-form-label"><em>*</em>所属分科</label>
                 <div class="m-form-controls">
                     <select name="diseasesDepartmentId" class="col-10">
+                        <option value="-1">请选择分科</option>
                     </select>
                 </div>
             </div>
@@ -101,8 +110,8 @@
             </div>
             <div class="m-form-group">
                 <label class="m-form-label"><em>*</em>疾病描述</label>
-                <div class="m-form-controls">
-                    <textarea class="input-larger" name="diseasesDescription" data-valid="{type:'require',msg:'疾病描述不能为空！'}"></textarea>
+                <div class="m-form-controls" style="height: 500px">
+                    <script type="text/plain" id="content" class="content"></script>
                 </div>
             </div>
             <div class="m-form-actions well">
@@ -112,13 +121,13 @@
     </div>
 </div>
 <script type="text/h-temp" id="h-temp">
-    <tr>
+    <tr data-id="{id}">
         <td>{id}</td>        
         <td>{name}</td>
         <td>{departmentName}</td>
         <td>{createon}</td>
         <td>{stateCN}</td>
-        <td data-id="{id}">{links}</td>
+        <td>{links}</td>
     </tr>        
 </script>
 <script type="text/h-temp" id="h-empty">
@@ -127,7 +136,10 @@
     </tr>        
 </script>
 @section Footer{
-    <script type="text/javascript" src="//ued.shoy.com/js/tjzx/m/m-base.min.js"></script>
-    <script type="text/javascript" src="//ued.shoy.com/js/plugs/Jq-form.min.js"></script>
-    <script type="text/javascript" src="//ued.shoy.com/js/tjzx/m/page-diseasesList.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/m-base.min.js"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/plugs/Jq-form.min.js"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.config.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/ueditor.all.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/ueditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//ued.tjzx.com/js/tjzx/m/page-diseasesList.min.js"></script>
 }
