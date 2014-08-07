@@ -28,10 +28,10 @@ namespace Tjzx.Official.Models.Test
                         },
                     Sliders = new List<Slider>
                         {
-                            new Slider{Id = 1,ImageUrl = "http://ued.tjzx.com/img/pic01.jpg",Link = "http://www.baidu.com",Sort = 4,Title = "百度"},
-                            new Slider{Id = 2,ImageUrl = "http://ued.tjzx.com/img/pic02.jpg",Link = "http://www.baidu.com",Sort = 1,Title = "百度"},
-                            new Slider{Id = 3,ImageUrl = "http://ued.tjzx.com/img/pic03.jpg",Link = "http://www.baidu.com",Sort = 3,Title = "百度"},
-                            new Slider{Id = 4,ImageUrl = "http://ued.tjzx.com/img/pic04.jpg",Link = "http://www.baidu.com",Sort = 2,Title = "百度"}
+                            new Slider{Id = 1,ImageUrl = "http://ued.shoy.com/img/pic01.jpg",Link = "http://www.baidu.com",Sort = 4,Title = "百度"},
+                            new Slider{Id = 2,ImageUrl = "http://ued.shoy.com/img/pic02.jpg",Link = "http://www.baidu.com",Sort = 1,Title = "百度"},
+                            new Slider{Id = 3,ImageUrl = "http://ued.shoy.com/img/pic03.jpg",Link = "http://www.baidu.com",Sort = 3,Title = "百度"},
+                            new Slider{Id = 4,ImageUrl = "http://ued.shoy.com/img/pic04.jpg",Link = "http://www.baidu.com",Sort = 2,Title = "百度"}
                         },
                     Categories = new List<Category>
                         {
