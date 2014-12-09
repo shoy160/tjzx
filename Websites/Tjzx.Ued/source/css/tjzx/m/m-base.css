@@ -1,7 +1,7 @@
 @font-face {
   font-family: global-iconfont;
-  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot);
-  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg");
+  src: url(http://ued.shoy.com/fonts/fontawesome-webfont.eot);
+  src: url(http://ued.shoy.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.shoy.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.shoy.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.shoy.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg");
 }
 ul,
 li,
@@ -113,7 +113,7 @@ body {
   display: block;
 }
 .m-loading {
-  background: url("//ued.tjzx.com/img/onLoad.gif") no-repeat;
+  background: url("//ued.shoy.com/img/onLoad.gif") no-repeat;
   background-position: 0 center;
   line-height: 35px;
   height: 35px;
@@ -597,15 +597,15 @@ body {
 }
 .valid-error {
   color: #d9534f;
-  background-image: url("//ued.tjzx.com/img/error.png");
+  background-image: url("//ued.shoy.com/img/error.png");
 }
 .valid-info {
   color: #5bc0de;
-  background-image: url("//ued.tjzx.com/img/info.png");
+  background-image: url("//ued.shoy.com/img/info.png");
 }
 .valid-success {
   color: #5cb85c;
-  background-image: url("//ued.tjzx.com/img/right.png");
+  background-image: url("//ued.shoy.com/img/right.png");
 }
 /*-- End --*/
 /*-- uploadify --*/
@@ -690,7 +690,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
   background-color: #FDE5DD !important;
 }
 .uploadify-queue-item .cancel a {
-  background: url('//ued.tjzx.com/img/uploadify-cancel.png') 0 0 no-repeat;
+  background: url('//ued.shoy.com/img/uploadify-cancel.png') 0 0 no-repeat;
   float: right;
   height: 16px;
   text-indent: -9999px;

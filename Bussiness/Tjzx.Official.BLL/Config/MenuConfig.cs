@@ -40,7 +40,7 @@ namespace Tjzx.Official.BLL.Config
         [XmlAttribute("sort")]
         public int Sort { get; set; }
 
-        [XmlAttribute("icon")]
+        [XmlAttribute("cls")]
         public string Icon { get; set; }
     }
 

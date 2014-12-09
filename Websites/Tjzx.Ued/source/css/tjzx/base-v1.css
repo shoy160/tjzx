@@ -1,7 +1,7 @@
 @font-face {
   font-family: global-iconfont;
-  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot);
-  src: url(http://ued.tjzx.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.tjzx.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg");
+  src: url(http://ued.shoy.com/fonts/fontawesome-webfont.eot);
+  src: url(http://ued.shoy.com/fonts/fontawesome-webfont.eot?#iefix) format("embedded-opentype"), url(http://ued.shoy.com/fonts/fontawesome-webfont.woff) format("woff"), url(http://ued.shoy.com/fonts/fontawesome-webfont.ttf) format("truetype"), url(http://ued.shoy.com/fonts/fontawesome-webfont.svg#uxiconfont) format("svg");
 }
 body {
   font: 12px/150% Arial, Verdana, "宋体";
